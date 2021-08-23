@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\MdCountry;
 use App\Models\TdUserDetails;
 use App\Models\TdUserFamilyDetails;
+use App\Models\TdServiceDetails;
 use DB;
 
 class ServicesRegisterController extends Controller
@@ -133,7 +134,7 @@ class ServicesRegisterController extends Controller
         $other_info=$request->other_info;
         
         if($request->register_by=="Self"){
-        $data=TdUserDetails::create(array(
+        $data=TdServiceDetails::create(array(
             'generate_user_id'=>$registration_no,
             'surname'=>$surname,
             'givenname' => $givenname,
