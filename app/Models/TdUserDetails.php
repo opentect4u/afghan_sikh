@@ -31,5 +31,9 @@ class TdUserDetails extends Model
             'mobile' ,
             'email' ,
             'other_info',   
+            'active',
+            'gurudwara_id',
+            'purpose',
+            'remark',
     ];
 }
