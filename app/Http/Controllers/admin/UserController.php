@@ -22,22 +22,22 @@ class UserController extends Controller
         // $data=TdUserDetails::orderBy('updated_at','desc')->get();
         if($status_details=='I'){
             $data=DB::table('td_user_details')
-                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
-                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_user_details.active','I')               
                     ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();
         }else if($status_details=='A'){
             $data=DB::table('td_user_details')
-                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
-                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_user_details.active','A')               
                     ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();
         }else if($status_details=='R'){
             $data=DB::table('td_user_details')
-                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
-                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_user_details.active','R')               
                     ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();
@@ -110,10 +110,18 @@ class UserController extends Controller
     }
 
     public function Edit($id){
+        // return "hii";
         $user_details = TdUserDetails::find(Crypt::decryptString($id));
         $country=MdCountry::get();
         $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
-        // return $user_details;
+        $gurudwara=DB::table('md_user_login')
+                    ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
+                    ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                    ->Where('md_user_login.user_type','G')               
+                    ->Where('md_user_login.active','A')               
+                    // ->orderBy('td_user_details.updated_at', 'desc')
+                    ->get();
+        // return $gurudwara;
         return view('admin.user-edit',['user_details'=>$user_details,'country'=>$country,'gurudwara'=>$gurudwara]);
         
     }

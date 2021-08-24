@@ -45,7 +45,7 @@
                     <th>Sl No</th>
                     <th>User Id</th>
                     <th>Name</th>
-                    <th>Gurudwara Name</th>
+                    <th>Gurdwara Name</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>

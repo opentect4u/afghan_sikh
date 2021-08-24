@@ -267,29 +267,31 @@
                         </div> -->
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Assign Gurudwara </label>
-                                <select name="gurudwara_id" id="gurudwara_id" class="form-control" required>
-                                        <option value=""> -- Select Gurudwara -- </option>
-                                        @foreach($gurudwara as $countries)
-                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
-                                        @endforeach
-                                    </select>
-                            </div>
-                        </div>
+
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Status</label>
                                 </br>
-                                <!-- <input type="radio" id="html" name="active" value="I" <?php if($user_details->active=="I"){echo "checked";}else{echo '';}?>>
-                                <label for="html">Pending</label>&nbsp;&nbsp; -->
-                            <input type="radio" id="css" name="active" value="A" <?php if($user_details->active=="A"){echo "checked";}else{echo '';}?>>
-                                <label for="html"> Active</label>&nbsp;&nbsp;<input type="radio" id="css" name="active" value="R" <?php if($user_details->active=="R"){echo "checked";}else{echo '';}?>>
+                                
+                                <input type="radio" id="css" name="active" value="A" <?php if($user_details->active=="A"){echo "checked";}else{echo '';}?> required>
+                                <label for="html"> Active</label>&nbsp;&nbsp;<input type="radio" id="reject" name="active" value="R" <?php if($user_details->active=="R"){echo "checked";}else{echo '';}?> required>
                                 <label for="css">Reject</label>
                             </div>
                         </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Assign Gurdwara </label>
+                                <select name="gurudwara_id" id="gurudwara_id" class="form-control" required>
+                                        <option value=""> -- Select Gurdwara -- </option>
+                                        @foreach($gurudwara as $countries)
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->gurudwara_id){echo "selected";}else{echo '';}?>>{{$countries->gurudwara_name}}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
+                        </div>
+                       
                        
                         
                         
@@ -338,5 +340,24 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function(){
+        // alert("hii");
+        $('#reject').click(function(){
+            $('#gurudwara_id').removeAttr('required');
+            $('#gurudwara_id').val('');
+            $('#gurudwara_id').attr('disabled');
+
+        })
+        $('#css').click(function(){
+            $('#gurudwara_id').attr('required','required');
+            $('#gurudwara_id').removeAttr('disabled');
+        })
+    });
+</script>
 
 @endsection

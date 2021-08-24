@@ -7,7 +7,7 @@
       </ul> 
     </div>
     <div class="cta">
-      <a href="{{route('gurudwara.login')}}" class="scrollto">Gurudwara Login</a>
+      <a href="{{route('gurudwara.login')}}" class="scrollto">Gurdwara Login</a>
       <a href="{{route('user.register')}}" class="scrollto">Get Started</a>
     </div>
   </div>
