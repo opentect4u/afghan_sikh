@@ -87,7 +87,7 @@ class RegisterController extends Controller
         $other_doc_1_1=$request->input('other_doc_1_1');
         $other_doc_2_1=$request->input('other_doc_2_1');
 
-        if($first_name1!='' && $last_name1!='' && $relation1!='' && $current_citizenship1!='' ){
+        if($first_name1!='' && $last_name1!='' && $email1!=''){
             TdUserFamilyDetails::create(array(
                 'user_details_id'=>$user_id,
                 'email'=>$email1,
