@@ -201,8 +201,8 @@
                                             @endforeach
                                         </select>
                                         <input type="text" name="passport_no1" id="passport_no1" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                        <input type="text" name="passport_date_of_issue1" id="passport_date_of_issue1" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                        <input type="text" name="passport_date_of_expiry1" id="passport_date_of_expiry1" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <input type="date" name="passport_date_of_issue1" id="passport_date_of_issue1" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <input type="date" name="passport_date_of_expiry1" id="passport_date_of_expiry1" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="other_doc_1_1" id="other_doc_1_1" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="other_doc_2_1" id="other_doc_2_1" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
 
@@ -621,12 +621,16 @@
                 var email=$('#email').val();
                 var other_info=$('#other_info').val();
                 // alert('surname1');
-                var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+                // var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
                 // var emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+                var emailExp =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
                 if(present_address=='' || profession=='' || father_name=='' || father_nationality=='' || father_prev_nationality=='' || mobile=='' || email=='' || other_info==''){
                     alert("All fields are mandatory");
                     return false;
+                }else if(!emailExp.test(email)){
+                    alert("please enter valid email Id");
+                    return false; 
                 }else{
                     $('#submit').attr('data-attribute','step3') ; 
                 }
@@ -648,11 +652,10 @@
                     var passport_date_of_expiry1=$('#passport_date_of_expiry1').val();
                     var other_doc_1_1=$('#other_doc_1_1').val();
                     var other_doc_2_1=$('#other_doc_2_1').val();
-                    if(email1=='' || first_name1=='' || middle_name1=='' || last_name1=='' || gender1=='' || relation1=='' || current_citizenship1=='' 
-                    || current_citizenship1=='' || previous_citizenship1=='' || passport_no1=='' || passport_date_of_issue1=='' || passport_date_of_expiry1=='' 
-                    || other_doc_1_1=='' || other_doc_2_1==''){
-                        alert("All fields are mandatory");
-                        // alert('enter email');
+                    if(email1=='' || first_name1=='' || last_name1==''){
+                        // alert("All fields are mandatory");
+                        // alert("All fields are mandatory");
+                        alert('Enter email and first name and last name');
                         return false;
                     }else{
                         varRegister();
@@ -903,6 +906,7 @@
         // ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info}
             
             // Family member details
+            var email1=$('#email1').val();
             var first_name1=$('#first_name1').val();
             var middle_name1=$('#middle_name1').val();
             var last_name1=$('#last_name1').val();
@@ -920,7 +924,7 @@
             // passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
             // ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1}
             
-            // alert(relation1);
+            // alert(email1);
             $.ajax({
                 type: "POST",
                 url: "{{ route('user.registerconfirm') }}",
@@ -928,12 +932,12 @@
             ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
             profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
             ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info,
-            first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
+            email1:email1,first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
             relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
             passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
             ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1},
                 success: function(data){
-                    alert(data);
+                    // alert(data);
                     // var obj = JSON.parse ( data );
                     // var msg=obj.msg;
                     // $("#accept").hide();

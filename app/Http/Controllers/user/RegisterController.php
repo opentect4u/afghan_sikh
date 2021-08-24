@@ -73,6 +73,7 @@ class RegisterController extends Controller
             'generate_user_id'=>$invIDs,
         ]);
 
+        $email1=$request->input('email1');
         $first_name1=$request->input('first_name1');
         $middle_name1=$request->input('middle_name1');
         $last_name1=$request->input('last_name1');
@@ -89,6 +90,7 @@ class RegisterController extends Controller
         if($first_name1!='' && $last_name1!='' && $relation1!='' && $current_citizenship1!='' ){
             TdUserFamilyDetails::create(array(
                 'user_details_id'=>$user_id,
+                'email'=>$email1,
                 'first_name'=>$first_name1,
                 'middle_name'=>$middle_name1,
                 'last_name'=>$last_name1,

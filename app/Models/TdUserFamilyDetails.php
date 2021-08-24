@@ -12,6 +12,7 @@ class TdUserFamilyDetails extends Model
     protected $table="td_user_family_details";
     protected $fillable = [
         'user_details_id',
+        'email',
         'first_name',
         'middle_name',
         'last_name',
