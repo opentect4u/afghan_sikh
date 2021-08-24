@@ -417,7 +417,7 @@
     });
     function AjaxCall(email,registration_no){
         var radio = $('input[name="fav_language"]:checked').val();
-        // alert(radio);
+        // alert(email);
         // regmyform
         $('#register_by').val('');
         $('#register_by').val(radio);
@@ -425,6 +425,7 @@
         
         $('#family_email').val('');
         $('#family_email').val(email);
+        alert(email);
         $.ajax({
                 type: "POST",
                 url: "{{ route('user.registerAjax') }}",
@@ -454,7 +455,7 @@
                     var father_prev_nationality=obj.father_prev_nationality;
                     var father_birth_country=obj.father_birth_country;
                     var mobile=obj.mobile;
-                    var email=obj.email;
+                    var dataemail=obj.email;
                     var other_info=obj.other_info;
                     var active=obj.active;
                     var purpose=obj.purpose;
@@ -491,7 +492,7 @@
                     $('#mobile').val('');
                     $('#mobile').val(mobile);
                     $('#email').val('');
-                    $('#email').val(email);
+                    $('#email').val(dataemail);
                     $('#other_info').val('');
                     $('#other_info').val(other_info);
                     
@@ -502,7 +503,8 @@
                     // registration_no
                     $('#registration_no').val('');
                     $('#registration_no').val(generate_user_id);
-                  if(email!=''){
+                    alert("ddd"+dataemail);
+                  if(dataemail != ''){
                     $('#selfRegisterDiv > form > div > textarea').removeAttr('readonly');
                     // $('#selfRegisterDiv > form > div > div > select').removeAttr('disabled');
 

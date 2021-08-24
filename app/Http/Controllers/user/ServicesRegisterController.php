@@ -45,13 +45,13 @@ class ServicesRegisterController extends Controller
         $father_prev_nationality='';
         $father_birth_country='';
         $mobile='';
-        $email='';
+        $emaild='';
         $other_info='';
         $active='';
         $purpose='';
 
 
-        $data=TdUserDetails::where('active','A')->where('email',$email)->get();
+        $data=TdUserDetails::Where('active','A')->Where('email',$email)->get();
         // $data=TdUserDetails::where('active','A')->where('email',$email)->orWhere('generate_user_id',$registration_no)->get();
         foreach($data as $datas){
             $generate_user_id=$datas->generate_user_id;
@@ -72,7 +72,7 @@ class ServicesRegisterController extends Controller
             $father_prev_nationality=$datas->father_prev_nationality;
             $father_birth_country=$datas->father_birth_country;
             $mobile=$datas->mobile;
-            $email=$datas->email;
+            $emaild=$datas->email;
             $other_info=$datas->other_info;
             $active=$datas->active;
             $purpose=$datas->purpose;
@@ -120,7 +120,7 @@ class ServicesRegisterController extends Controller
         $arrNewResult['father_prev_nationality'] = $father_prev_nationality;
         $arrNewResult['father_birth_country'] = $father_birth_country;
         $arrNewResult['mobile'] = $mobile;
-        $arrNewResult['email'] = $email;
+        $arrNewResult['email'] = $emaild;
         $arrNewResult['other_info'] = $other_info;
         $arrNewResult['active'] = $active;
         $arrNewResult['purpose'] = $purpose;
