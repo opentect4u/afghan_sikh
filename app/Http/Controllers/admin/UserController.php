@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MdUserLogin;
 use App\Models\TdUserDetails;
+use App\Models\MdCountry;
 use DB;
 use Session;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -15,11 +17,47 @@ class UserController extends Controller
         $this->middleware('is_admin');
     }
 
-    public function Show(){
-        $data=TdUserDetails::get();
+    public function Show(Request $equest){
+        $status_details=$equest->status;
+        // $data=TdUserDetails::orderBy('updated_at','desc')->get();
+        if($status_details=='I'){
+            $data=DB::table('td_user_details')
+                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
+                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->Where('td_user_details.active','I')               
+                    ->orderBy('td_user_details.updated_at', 'desc')
+                    ->get();
+        }else if($status_details=='A'){
+            $data=DB::table('td_user_details')
+                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
+                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->Where('td_user_details.active','A')               
+                    ->orderBy('td_user_details.updated_at', 'desc')
+                    ->get();
+        }else if($status_details=='R'){
+            $data=DB::table('td_user_details')
+                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
+                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->Where('td_user_details.active','R')               
+                    ->orderBy('td_user_details.updated_at', 'desc')
+                    ->get();
+        }else{
+            $data=DB::table('td_user_details')
+                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
+                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->Where('td_user_details.active','I')               
+                    ->orderBy('td_user_details.updated_at', 'desc')
+                    ->get();
+            $status_details="I";
+            // $data=DB::table('td_user_details')
+            //         ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
+            //         ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name')                
+            //         ->orderBy('td_user_details.updated_at', 'desc')
+            //         ->get();
+        }
         // return $data;
         // return Session::get('admin')[0]['name'];
-        return view('admin.user-manage',['gurudwara'=>$data]);
+        return view('admin.user-manage',['gurudwara'=>$data,'status_details'=>$status_details]);
     }
 
     public function Acept(Request $request){
@@ -69,5 +107,23 @@ class UserController extends Controller
         $arrNewResult['active'] = $active;
         $status_json = json_encode($arrNewResult);
         echo $status_json;
+    }
+
+    public function Edit($id){
+        $user_details = TdUserDetails::find(Crypt::decryptString($id));
+        $country=MdCountry::get();
+        $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
+        // return $user_details;
+        return view('admin.user-edit',['user_details'=>$user_details,'country'=>$country,'gurudwara'=>$gurudwara]);
+        
+    }
+    public function EditConfirm(Request $request){
+        // return $request;
+        $id=$request->id;
+        $user_details = TdUserDetails::find($id);
+        $user_details->gurudwara_id=$request->gurudwara_id;
+        $user_details->active=$request->active;
+        $user_details->update();
+        return redirect()->route('admin.user');
     }
 }

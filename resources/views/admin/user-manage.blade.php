@@ -29,6 +29,14 @@
               <div class="card-header">
                 <h3 class="card-title">All Users</h3>
               </div>
+              <div class="card-header">
+                <!-- <h3 class="card-title">All Users</h3> -->
+                <input type="radio" id="pending" name="click_status" value="I" <?php if(isset($status_details) && $status_details=="I"){ echo "checked";}?>>
+                <label for="html"> Pending</label>&nbsp;&nbsp;
+                <input type="radio" id="active" name="click_status" value="A" <?php if(isset($status_details) && $status_details=="A"){ echo "checked";}?>>
+                <label for="html"> Active</label>&nbsp;&nbsp;<input type="radio" id="reject" name="click_status" value="R" <?php if(isset($status_details) && $status_details=="R"){ echo "checked";}?>>
+                <label for="css">Reject</label>
+              </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
@@ -37,9 +45,9 @@
                     <th>Sl No</th>
                     <th>User Id</th>
                     <th>Name</th>
-                    <th>Created Date</th>
-                    <th>Updated Date</th>
+                    <th>Gurudwara Name</th>
                     <th>Status</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -49,17 +57,18 @@
                       <td>{{$count++}}</td>
                       <td>{{$gurudwaras->email}}</td>
                       <td>{{$gurudwaras->surname}}</td>
-                      <td>{{$gurudwaras->created_at}}</td>
-                      <td>{{$gurudwaras->updated_at}}</td>
-                      <td id="actionTd{{$gurudwaras->id}}">
-                        @if($gurudwaras->active=="I")
-                        <button type="button" id="accept" onclick="acceptBtn({{$gurudwaras->id}},'{{$gurudwaras->email}}');" class="btn btn-block btn-outline-success">Accept</button>
-                        <button type="button" id="reject" onclick="rejectBtn({{$gurudwaras->id}},'{{$gurudwaras->email}}');" class="btn btn-block btn-outline-danger">Reject</button>
+                      <!-- <td>{{$gurudwaras->created_at}}</td> -->
+                      <td>@if($gurudwaras->gurudwaras_name!=''){{$gurudwaras->gurudwaras_name}} @else {{'--'}} @endif</td>
+                      <td>@if($gurudwaras->active=="I")
+                        <b >{{"Pending"}}</b>
                         @elseif($gurudwaras->active=="A")
-                        <b style="color:#28a745;">{{"Acepted"}}</b>
+                        <b style="color:#28a745;">{{"Accepted"}}</b>
                         @elseif($gurudwaras->active=="R")
                         <b style="color:#dc3545;">{{"Rejected"}}</b>
-                        @endif
+                        @endif</td>
+                      <td id="actionTd{{$gurudwaras->id}}">
+                        <a href="{{route('admin.useredit',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-edit"></i></a>
+                       
                       </td>
                     </tr>
                     @endforeach
@@ -139,6 +148,31 @@
       "responsive": true,
       
     });
+
+    $('#pending').click(function(){
+      var val_pending=$('#pending').val();
+      // alert(val_pending);
+      var url=("{{route('admin.user')}}")+"?status="+val_pending;
+      // alert(url);
+      window.location.assign(url);
+    })
+    $('#active').click(function(){
+      var val_pending=$('#active').val();
+      // alert(val_pending);
+      var url=("{{route('admin.user')}}")+"?status="+val_pending;
+      // alert(url);
+      window.location.assign(url);
+    })
+    $('#reject').click(function(){
+      var val_pending=$('#reject').val();
+      // alert(val_pending);
+      var url=("{{route('admin.user')}}")+"?status="+val_pending;
+      // alert(url);
+      window.location.assign(url);
+    })
+
+
+
   });
   // actionTd 
   function acceptBtn(id, user_id){
