@@ -43,7 +43,7 @@
                                         <h2 class="steps">Step 1 - 4</h2>
                                     </div>
                                 </div> 
-                                <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Gurudwara Name" /> 
+                                <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Gurdwara Name" /> 
                                 <!-- <label class="fieldlabels">Email: *</label>  -->
                                 <input type="email" name="gurudwara_email" id="gurudwara_email" placeholder="Email Id" /> 
                                 <!-- <label class="fieldlabels">Phone: *</label>  -->
@@ -89,13 +89,13 @@
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="fs-title">Image Upload:</h2>
+                                        <h2 class="fs-title">Gurdwara Head:</h2>
                                     </div>
                                     <div class="col-5">
                                         <h2 class="steps">Step 3 - 4</h2>
                                     </div>
                                 </div> 
-                                <input type="text" name="gurudwara_head_name" id="gurudwara_head_name" placeholder="Gurudwara Head Name" /> 
+                                <input type="text" name="gurudwara_head_name" id="gurudwara_head_name" placeholder="Gurdwara Head Name" /> 
                                 <textarea name="gurudwara_head_address" id="gurudwara_head_address"  rows="3" placeholder="Address"></textarea>
                                 <input type="number" name="gurudwara_head_phone_no" id="gurudwara_head_phone_no" placeholder="Phone No" /> 
                                 <input type="email" name="gurudwara_head_email" id="gurudwara_head_email" placeholder="Email Id" /> 
