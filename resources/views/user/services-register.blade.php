@@ -425,7 +425,7 @@
         
         $('#family_email').val('');
         $('#family_email').val(email);
-        alert(email);
+        // alert(email);
         $.ajax({
                 type: "POST",
                 url: "{{ route('user.registerAjax') }}",
@@ -493,8 +493,8 @@
                     $('#mobile').val(mobile);
                     $('#email').val('');
                     $('#email').val(dataemail);
-                    $('#other_info').val('');
-                    $('#other_info').val(other_info);
+                    // $('#other_info').val('');
+                    // $('#other_info').val(other_info);
                     
                     $('#present_address').val('');
                     $('#present_address').val(present_address);
@@ -503,7 +503,7 @@
                     // registration_no
                     $('#registration_no').val('');
                     $('#registration_no').val(generate_user_id);
-                    alert("ddd"+dataemail);
+                    // alert("ddd"+dataemail);
                   if(dataemail != ''){
                     $('#selfRegisterDiv > form > div > textarea').removeAttr('readonly');
                     // $('#selfRegisterDiv > form > div > div > select').removeAttr('disabled');
