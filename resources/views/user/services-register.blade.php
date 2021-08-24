@@ -512,13 +512,13 @@
                     $('#submit').removeAttr('disabled');
 
                     $('#familyRegisterDiv > form > div > textarea').removeAttr('readonly');
-                    // $('#selfRegisterDiv > form > div > div > select').removeAttr('disabled');
+                    $('#selfRegisterDiv > form > div > div > select').removeAttr('disabled');
 
                     // $('#selfRegisterDiv > form > div > button').attr('readonly', 'readonly');
                     $('#fsubmit').removeAttr('disabled');
                   }else{
                     $('#enter_email_validate').empty();
-                    $('#enter_email_validate').append('pendig for approval from admin');
+                    $('#enter_email_validate').append('Pending for admin approval');
                     $('#enter_email_validate').show();
                     
                   }
