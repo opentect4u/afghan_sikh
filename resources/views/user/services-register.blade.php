@@ -10,7 +10,7 @@
           <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. 
 		 </p>
         @if(Session::has('success'))
-            <b>Succssfully register</b>
+            <b>Form successfully submitted</b>
         @endif
         @if(Session::has('error'))
             <b>Registeration Failed</b>
