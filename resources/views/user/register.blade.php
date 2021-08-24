@@ -26,8 +26,9 @@
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                     <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                        <h2 id="heading">Sign Up Your User Account</h2>
-                        <p>Fill all form field to go to next step</p>
+                        <h5>Fill all form field to go to next step</h5>
+                        <!-- <p>Fill all form field to go to next step</p> -->
+                        <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
                         <form id="msform" name="msform" method="POST" action="">
                             <!-- progressbar -->
                             <ul id="progressbar">
@@ -50,7 +51,7 @@
                                         </div>
                                     </div> 
                                     <!-- <label class="fieldlabels">Surname (As in Passport): *</label>  -->
-                                    <input type="text" name="surname" class="form-control" id="surname" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="surname" required class="form-control" id="surname" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <!-- <label class="fieldlabels">Given Name (As in Passport): *</label>  -->
                                     <input type="text" name="givenname" class="form-control" id="givenname" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <!-- <input type="text" name="gender" class="form-control" id="gender" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
@@ -102,7 +103,7 @@
                                     <label class="fieldlabels">Confirm Password: *</label> 
                                     <input type="password" name="cpwd" placeholder="Confirm Password" /> -->
                                 </div> 
-                                <input type="button" name="step1" id="step1" class="next action-button" value="Next" />
+                                <input type="button" name="step1" id="step1" data-attribute="step1" class="next action-button" value="Next" />
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
@@ -147,7 +148,7 @@
                                     <label class="fieldlabels">Alternate Contact No.: *</label> 
                                     <input type="text" name="phno_2" placeholder="Alternate Contact No." /> -->
                                 </div> 
-                                <input type="button" name="" id="step2" class="next action-button" value="Next" /> 
+                                <input type="button" name="step2" id="step2" data-attribute="" class="next action-button" value="Next" /> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                             </fieldset>
                             <fieldset>
@@ -170,6 +171,7 @@
                                     </div>
                                     <div id="personDiv1" data-person-value="0"> 
                                         <label class="fieldlabels">Person 1 </label> 
+                                        <input type="email" name="email1" id="email1" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name1" id="first_name1" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name1" id="middle_name1" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name1" id="last_name1" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -207,6 +209,7 @@
                                     </div>
                                     <div id="personDiv2" data-person-value="0"> 
                                         <label class="fieldlabels">Person 2 </label> 
+                                        <input type="email" name="email2" id="email2" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name2" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name2" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name2" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -245,6 +248,7 @@
                                     </div>
                                     <div id="personDiv3" data-person-value="0"> 
                                         <label class="fieldlabels">Person 3 </label> 
+                                        <input type="email" name="email3" id="email3" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name3" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name3" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name3" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -278,6 +282,7 @@
                                     </div>
                                     <div id="personDiv4" data-person-value="0"> 
                                         <label class="fieldlabels">Person 4 </label> 
+                                        <input type="email" name="email4" id="email4" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name4" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name4" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name4" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -311,6 +316,7 @@
                                     </div>
                                     <div id="personDiv5" data-person-value="0"> 
                                         <label class="fieldlabels">Person 5 </label> 
+                                        <input type="email" name="email5" id="email5" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name5" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name5" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name5" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -344,6 +350,7 @@
                                     </div>
                                     <div id="personDiv6" data-person-value="0"> 
                                         <label class="fieldlabels">Person 6 </label> 
+                                        <input type="email" name="email6" id="email6" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name6" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name6" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name6" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -377,6 +384,7 @@
                                     </div>
                                     <div id="personDiv7" data-person-value="0"> 
                                         <label class="fieldlabels">Person 7 </label> 
+                                        <input type="email" name="email7" id="email7" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name7" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name7" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name7" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -410,6 +418,7 @@
                                     </div>
                                     <div id="personDiv8" data-person-value="0"> 
                                         <label class="fieldlabels">Person 8 </label> 
+                                        <input type="email" name="email8" id="email8" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name8" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name8" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name8" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -442,6 +451,7 @@
                                     </div>
                                     <div id="personDiv9" data-person-value="0"> 
                                         <label class="fieldlabels">Person 9 </label> 
+                                        <input type="email" name="email9" id="email9" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name9" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name9" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name9" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -474,6 +484,7 @@
                                     </div>
                                     <div id="personDiv10" data-person-value="0"> 
                                         <label class="fieldlabels">Person 10 </label> 
+                                        <input type="email" name="email10" id="email10" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="first_name10" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="middle_name10" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <input type="text" name="last_name10" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -510,7 +521,9 @@
                                     <label class="fieldlabels">Upload Signature Photo:</label> 
                                     <input type="file" name="pic" accept="image/*"> -->
                                 </div> 
-                                <input type="button" name="submit" id="submit" class="next action-button" value="Submit" /> 
+                                <input type="button" name="submit" id="submit" data-attribute="" class="next action-button" value="Submit" />
+                                <!-- <input type="button" name="submit" id="submit" data-attribute="step3" class="next action-button" value="Submit" />  -->
+                                <!-- <input type="submit" name="submit" id="submit" class="next action-button" value="Submit" />  -->
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                             </fieldset>
                             <fieldset>
@@ -543,120 +556,7 @@
 
   
 
-        <!-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
-            <div class="col-xl-9 col-lg-12 mt-4">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                <div class="form-row">
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="surname" class="form-control" id="surname" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="givenname" class="form-control" id="givenname" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="gender" class="form-control" id="gender" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-            <div class="col-md-6 form-group">
-                    <input type="date" name="date" class="form-control" id="date" placeholder="Date of Birth" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-            
-            <div class="col-md-6 form-group">
-                    <input type="text" name="birth_place" class="form-control" id="birth_place" placeholder="Place of Birth Town/City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                
-            <div class="col-md-6 form-group">
-                    <input type="text" name="birth_country" class="form-control" id="birth_place" placeholder="Country of Birth:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="nationality" class="form-control" id="birth_place" placeholder="Current Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="previous_nationality" class="form-control" id="birth_place" placeholder="Any Other Previous/Past Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="marital_status" class="form-control" id="birth_place" placeholder="Marital Status:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="religion" class="form-control" id="birth_place" placeholder="Religion" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="present_address" class="form-control" id="birth_place" placeholder="Present Home Address:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="profession" class="form-control" id="birth_place" placeholder="Profession/Occupation:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="father_name" class="form-control" id="birth_place" placeholder="Father Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="father_nationality" class="form-control" id="birth_place" placeholder="Father Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="father_prev_nationality" class="form-control" id="birth_place" placeholder="Prev. Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="text" name="father_birth_country" class="form-control" id="birth_place" placeholder="Place/Country of Birth:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                    
-                    <div class="col-md-6 form-group">
-                    <input type="number" name="mobile" class="form-control" id="birth_place" placeholder="Phone or Mobile :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                    </div>
-                    
-                <div class="col-md-6 form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                    <div class="validate"></div>
-                    </div>
-                </div> 
-                    
-                <div class="form-group">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Other Information"></textarea>
-                    <div class="validate"></div>
-                </div>
-                <div class="mb-3">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. We will touch with you soon . Thank you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
-                </form>
-            </div>
-
-        </div> -->
+        
 
     </div>
 </section>
@@ -665,84 +565,247 @@
 @endsection
 @section('script')
 
+<script>
+        $(document).ready(function(){
+
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+        var current = 1;
+        var steps = $("fieldset").length;
+
+        setProgressBar(current);
+
+        $(".next").click(function(){
+            // alert("hii");
+            // return false;
+            // data-attribute="step1"
+            var dataDurationtime=$("#step1").attr("data-attribute");
+            var dataDurationtime1=$("#step2").attr("data-attribute");
+            var dataDurationtime2=$("#submit").attr("data-attribute");
+            // alert(dataDurationtime1)
+            if(dataDurationtime=="step1"){
+                var surname=$('#surname').val();
+                var givenname=$('#givenname').val();
+                var gender=$('#gender').val();
+                var date_of_birth=$('#date').val();
+                var birth_place=$('#birth_place').val();
+                var birth_country=$('#birth_country').val();
+                var nationality=$('#nationality').val();
+                var previous_nationality=$('#previous_nationality').val();
+                var marital_status=$('#marital_status').val();
+                var religion=$('#religion').val();
+                if(surname=='' || givenname=='' || gender=='' || date_of_birth=='' || birth_place=='' || birth_country=='' || nationality=='' || marital_status=='' || previous_nationality==''){
+                    alert('All fields are mandatory');
+                    document.getElementById ('surname').setCustomValidity('');
+                    // surname.setCustomValidity( "Please enter Retuen Date." );
+                    document.getElementById ('surname').setCustomValidity( "Please enter Retuen Date." );
+                    document.surname.focus ( );
+                    document.setCustomValidity ('');
+                //     // document.getElementById('returning_date').setCustomValidity('');
+                    // surname.setCustomValidity("This field cannot be left blank");
+                    // surname.setCustomValidity("");
+                    return false;
+                }else{
+                    // data-attribute
+                    $('#step2').attr('data-attribute','step2') ; 
+                }
+            }
+            if(dataDurationtime1=="step2"){
+                var present_address=$('#present_address').val();
+                var profession=$('#profession').val();
+                var father_name=$('#father_name').val();
+                var father_nationality=$('#father_nationality').val();
+                var father_prev_nationality=$('#father_prev_nationality').val();
+                var father_birth_country=$('#father_birth_country').val();
+                var mobile=$('#mobile').val();
+                var email=$('#email').val();
+                var other_info=$('#other_info').val();
+                // alert('surname1');
+                var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+                // var emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+                if(present_address=='' || profession=='' || father_name=='' || father_nationality=='' || father_prev_nationality=='' || mobile=='' || email=='' || other_info==''){
+                    alert("All fields are mandatory");
+                    return false;
+                }else{
+                    $('#submit').attr('data-attribute','step3') ; 
+                }
+            }
+            if(dataDurationtime2=="step3"){
+                // alert(dataDurationtime2);
+                var persondiv1=$('#personDiv1').attr('data-person-value');
+                if(persondiv1==1){
+                    var email1 =$('#email1').val();
+                    var first_name1=$('#first_name1').val();
+                    var middle_name1=$('#middle_name1').val();
+                    var last_name1=$('#last_name1').val();
+                    var gender1=$('#gender1').val();
+                    var relation1=$('#relation1').val();
+                    var current_citizenship1=$('#current_citizenship1').val();
+                    var previous_citizenship1=$('#previous_citizenship1').val();
+                    var passport_no1=$('#passport_no1').val();
+                    var passport_date_of_issue1=$('#passport_date_of_issue1').val();
+                    var passport_date_of_expiry1=$('#passport_date_of_expiry1').val();
+                    var other_doc_1_1=$('#other_doc_1_1').val();
+                    var other_doc_2_1=$('#other_doc_2_1').val();
+                    if(email1=='' || first_name1=='' || middle_name1=='' || last_name1=='' || gender1=='' || relation1=='' || current_citizenship1=='' 
+                    || current_citizenship1=='' || previous_citizenship1=='' || passport_no1=='' || passport_date_of_issue1=='' || passport_date_of_expiry1=='' 
+                    || other_doc_1_1=='' || other_doc_2_1==''){
+                        alert("All fields are mandatory");
+                        // alert('enter email');
+                        return false;
+                    }else{
+                        varRegister();
+                    }
+                }else{
+                    varRegister();
+                }
+                // alert('surname2');
+                // return false;
+                
+            }
+            
+            
+
+
+
+
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //Add Class Active
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+             //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+            step: function(now) {
+            // for making fielset appear animation
+            opacity = 1 - now;
+
+            current_fs.css({
+            'display': 'none',
+            'position': 'relative'
+            });
+            next_fs.css({'opacity': opacity});
+            },
+            duration: 500
+            });
+            setProgressBar(++current);
+        });
+
+        $(".previous").click(function(){
+
+        current_fs = $(this).parent();
+        previous_fs = $(this).parent().prev();
+
+        //Remove class active
+        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+        //show the previous fieldset
+        previous_fs.show();
+
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+        step: function(now) {
+        // for making fielset appear animation
+        opacity = 1 - now;
+
+        current_fs.css({
+        'display': 'none',
+        'position': 'relative'
+        });
+        previous_fs.css({'opacity': opacity});
+        },
+        duration: 500
+        });
+        setProgressBar(--current);
+        });
+
+        function setProgressBar(curStep){
+        var percent = parseFloat(100 / steps) * curStep;
+        percent = percent.toFixed();
+        $(".progress-bar")
+        .css("width",percent+"%")
+        }
+        });
+    </script>
+
     <!-- javascript write here -->
 <script>
     $(document).ready(function(){
-        // step1
-        $("#step1").click(function(){
-            // alert("hii");
-            // return true;
+        
 
-        })
-
-        $("#submit").click(function(){
-            // alert("hii");
-            // return false;
-            var surname=$('#surname').val();
-            var givenname=$('#givenname').val();
-            var gender=$('#gender').val();
-            var date_of_birth=$('#date').val();
-            var birth_place=$('#birth_place').val();
-            var birth_country=$('#birth_country').val();
-            var nationality=$('#nationality').val();
-            var previous_nationality=$('#previous_nationality').val();
-            var marital_status=$('#marital_status').val();
-            var religion=$('#religion').val();
-            var present_address=$('#present_address').val();
-            var profession=$('#profession').val();
-            var father_name=$('#father_name').val();
-            var father_nationality=$('#father_nationality').val();
-            var father_prev_nationality=$('#father_prev_nationality').val();
-            var father_birth_country=$('#father_birth_country').val();
-            var mobile=$('#mobile').val();
-            var email=$('#email').val();
-            var other_info=$('#other_info').val();
-        //     {surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_country:birth_country,nationality:nationality
+        // $("#submit").click(function(){
+        //     // alert("hii");
+        //     // return false;
+        //     var surname=$('#surname').val();
+        //     var givenname=$('#givenname').val();
+        //     var gender=$('#gender').val();
+        //     var date_of_birth=$('#date').val();
+        //     var birth_place=$('#birth_place').val();
+        //     var birth_country=$('#birth_country').val();
+        //     var nationality=$('#nationality').val();
+        //     var previous_nationality=$('#previous_nationality').val();
+        //     var marital_status=$('#marital_status').val();
+        //     var religion=$('#religion').val();
+        //     var present_address=$('#present_address').val();
+        //     var profession=$('#profession').val();
+        //     var father_name=$('#father_name').val();
+        //     var father_nationality=$('#father_nationality').val();
+        //     var father_prev_nationality=$('#father_prev_nationality').val();
+        //     var father_birth_country=$('#father_birth_country').val();
+        //     var mobile=$('#mobile').val();
+        //     var email=$('#email').val();
+        //     var other_info=$('#other_info').val();
+        // //     {surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_country:birth_country,nationality:nationality
+        // //     ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
+        // //     profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
+        // // ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info}
+            
+        //     // Family member details
+        //     var first_name1=$('#first_name1').val();
+        //     var middle_name1=$('#middle_name1').val();
+        //     var last_name1=$('#last_name1').val();
+        //     var gender1=$('#gender1').val();
+        //     var relation1=$('#relation1').val();
+        //     var current_citizenship1=$('#current_citizenship1').val();
+        //     var previous_citizenship1=$('#previous_citizenship1').val();
+        //     var passport_no1=$('#passport_no1').val();
+        //     var passport_date_of_issue1=$('#passport_date_of_issue1').val();
+        //     var passport_date_of_expiry1=$('#passport_date_of_expiry1').val();
+        //     var other_doc_1_1=$('#other_doc_1_1').val();
+        //     var other_doc_2_1=$('#other_doc_2_1').val();
+        //     // {first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
+        //     // relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
+        //     // passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
+        //     // ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1}
+            
+        //     // alert(relation1);
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "{{ route('user.registerconfirm') }}",
+        //         data:{surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_place:birth_place,birth_country:birth_country,nationality:nationality
         //     ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
         //     profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
-        // ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info}
-            
-            // Family member details
-            var first_name1=$('#first_name1').val();
-            var middle_name1=$('#middle_name1').val();
-            var last_name1=$('#last_name1').val();
-            var gender1=$('#gender1').val();
-            var relation1=$('#relation1').val();
-            var current_citizenship1=$('#current_citizenship1').val();
-            var previous_citizenship1=$('#previous_citizenship1').val();
-            var passport_no1=$('#passport_no1').val();
-            var passport_date_of_issue1=$('#passport_date_of_issue1').val();
-            var passport_date_of_expiry1=$('#passport_date_of_expiry1').val();
-            var other_doc_1_1=$('#other_doc_1_1').val();
-            var other_doc_2_1=$('#other_doc_2_1').val();
-            // {first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
-            // relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
-            // passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
-            // ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1}
-            
-            alert(relation1);
-            $.ajax({
-                type: "POST",
-                url: "{{ route('user.registerconfirm') }}",
-                data:{surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_place:birth_place,birth_country:birth_country,nationality:nationality
-            ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
-            profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
-        ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info,
-        first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
-            relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
-            passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
-            ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1},
-                success: function(data){
-                    alert(data);
-                    // var obj = JSON.parse ( data );
-                    // var msg=obj.msg;
-                    // $("#accept").hide();
-                    // $("#deny").hide();
+        //     ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info,
+        //     first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
+        //     relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
+        //     passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
+        //     ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1},
+        //         success: function(data){
+        //             alert(data);
+        //             // var obj = JSON.parse ( data );
+        //             // var msg=obj.msg;
+        //             // $("#accept").hide();
+        //             // $("#deny").hide();
                     
-                }
-            });
+        //         }
+        //     });
 
-        });
+        // });
 
         // $('#date').datetimepicker();
 
@@ -814,6 +877,71 @@
         });
 
     });
+    function varRegister(){
+        var surname=$('#surname').val();
+            var givenname=$('#givenname').val();
+            var gender=$('#gender').val();
+            var date_of_birth=$('#date').val();
+            var birth_place=$('#birth_place').val();
+            var birth_country=$('#birth_country').val();
+            var nationality=$('#nationality').val();
+            var previous_nationality=$('#previous_nationality').val();
+            var marital_status=$('#marital_status').val();
+            var religion=$('#religion').val();
+            var present_address=$('#present_address').val();
+            var profession=$('#profession').val();
+            var father_name=$('#father_name').val();
+            var father_nationality=$('#father_nationality').val();
+            var father_prev_nationality=$('#father_prev_nationality').val();
+            var father_birth_country=$('#father_birth_country').val();
+            var mobile=$('#mobile').val();
+            var email=$('#email').val();
+            var other_info=$('#other_info').val();
+        //     {surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_country:birth_country,nationality:nationality
+        //     ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
+        //     profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
+        // ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info}
+            
+            // Family member details
+            var first_name1=$('#first_name1').val();
+            var middle_name1=$('#middle_name1').val();
+            var last_name1=$('#last_name1').val();
+            var gender1=$('#gender1').val();
+            var relation1=$('#relation1').val();
+            var current_citizenship1=$('#current_citizenship1').val();
+            var previous_citizenship1=$('#previous_citizenship1').val();
+            var passport_no1=$('#passport_no1').val();
+            var passport_date_of_issue1=$('#passport_date_of_issue1').val();
+            var passport_date_of_expiry1=$('#passport_date_of_expiry1').val();
+            var other_doc_1_1=$('#other_doc_1_1').val();
+            var other_doc_2_1=$('#other_doc_2_1').val();
+            // {first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
+            // relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
+            // passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
+            // ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1}
+            
+            // alert(relation1);
+            $.ajax({
+                type: "POST",
+                url: "{{ route('user.registerconfirm') }}",
+                data:{surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_place:birth_place,birth_country:birth_country,nationality:nationality
+            ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
+            profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
+            ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info,
+            first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
+            relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
+            passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
+            ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1},
+                success: function(data){
+                    alert(data);
+                    // var obj = JSON.parse ( data );
+                    // var msg=obj.msg;
+                    // $("#accept").hide();
+                    // $("#deny").hide();
+                    
+                }
+            });
+    }
 </script>
 
 @endsection

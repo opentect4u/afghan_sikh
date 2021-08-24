@@ -40,7 +40,8 @@ Route::prefix('gurudwara')->group(function () {
             // all user route
 Route::prefix('user')->group(function () {
     Route::get('/register', [App\Http\Controllers\user\RegisterController::class, 'Show'])->name('user.register');
-    Route::post('/register', [App\Http\Controllers\user\RegisterController::class, 'Register'])->name('user.registerconfirm');
+    Route::post('/registerconfirmwithajax', [App\Http\Controllers\user\RegisterController::class, 'Register'])->name('user.registerconfirm');
+    Route::post('/registerconfirmwithoutajax', [App\Http\Controllers\user\RegisterController::class, 'Register'])->name('user.registerconfirmwithout');
 
     Route::get('/servicesregister', [App\Http\Controllers\user\ServicesRegisterController::class, 'Show'])->name('user.servicesregister');
     Route::post('/registerAjax', [App\Http\Controllers\user\ServicesRegisterController::class, 'RegisterAjax'])->name('user.registerAjax');

@@ -38,9 +38,11 @@ class RegisterController extends Controller
         $other_info=$request->input('other_info');
         
         $generate_user_id=md5(uniqid(rand(), true));
+        // $invID=10;
+        // return $invID = str_pad($invID, 6, '0', STR_PAD_LEFT);
 
         TdUserDetails::create(array(
-            'generate_user_id'=>$generate_user_id,
+            // 'generate_user_id'=>$generate_user_id,
             'surname'=>$surname,
             'givenname' => $givenname,
             'gender' => $gender,
@@ -63,7 +65,13 @@ class RegisterController extends Controller
             'active' => 'I',
         ));
 
-        $user_id=DB::table('td_user_details')->where('generate_user_id',$generate_user_id)->value('id');
+        $user_id=DB::table('td_user_details')->where('email',$email)->value('id');
+        // $invID=10;
+        $invIDs = str_pad($user_id, 6, '0', STR_PAD_LEFT);
+        DB::table('td_user_details')->where('id',$user_id)
+        ->update([
+            'generate_user_id'=>$invIDs,
+        ]);
 
         $first_name1=$request->input('first_name1');
         $middle_name1=$request->input('middle_name1');

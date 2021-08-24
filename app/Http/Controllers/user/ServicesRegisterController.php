@@ -27,7 +27,32 @@ class ServicesRegisterController extends Controller
         $registration_no=$request->input('registration_no');
         // $gender=$request->input('gender');
 
-        $data=TdUserDetails::where('email',$email)->orWhere('generate_user_id',$registration_no)->get();
+        $generate_user_id='';
+        $surname='';
+        $givenname='';
+        $gender='';
+        $date_of_birth='';
+        $birth_place='';
+        $birth_country='';
+        $nationality='';
+        $previous_nationality='';
+        $marital_status='';
+        $religion='';
+        $present_address='';
+        $profession='';
+        $father_name='';
+        $father_nationality='';
+        $father_prev_nationality='';
+        $father_birth_country='';
+        $mobile='';
+        $email='';
+        $other_info='';
+        $active='';
+        $purpose='';
+
+
+        $data=TdUserDetails::where('active','A')->where('email',$email)->get();
+        // $data=TdUserDetails::where('active','A')->where('email',$email)->orWhere('generate_user_id',$registration_no)->get();
         foreach($data as $datas){
             $generate_user_id=$datas->generate_user_id;
             $surname=$datas->surname;

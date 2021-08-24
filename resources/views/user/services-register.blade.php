@@ -36,7 +36,7 @@
 
                 <div class="col-md-6 form-group" id="enter_emailDiv">
                   <input type="text" class="form-control" name="enter_email" id="enter_email" placeholder="Your Email"  data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
+                  <div class="validate" id="enter_email_validate"></div>
                 </div>
                 <!-- <div class="col-md-6 form-group" id="enter_registration_noDiv">
                   <input type="text" class="form-control" name="enter_registration_no" id="enter_registration_no" placeholder="Your Registration No" data-rule="registration_no" data-msg="Please enter a valid email" />
@@ -502,7 +502,7 @@
                     // registration_no
                     $('#registration_no').val('');
                     $('#registration_no').val(generate_user_id);
-
+                  if(email!=''){
                     $('#selfRegisterDiv > form > div > textarea').removeAttr('readonly');
                     // $('#selfRegisterDiv > form > div > div > select').removeAttr('disabled');
 
@@ -514,7 +514,12 @@
 
                     // $('#selfRegisterDiv > form > div > button').attr('readonly', 'readonly');
                     $('#fsubmit').removeAttr('disabled');
+                  }else{
+                    $('#enter_email_validate').empty();
+                    $('#enter_email_validate').append('pendig for approval from admin');
+                    $('#enter_email_validate').show();
                     
+                  }
                 }
             });
     }
