@@ -17,7 +17,8 @@ class IsGurudwara
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session::get('gurudwara')[0]['user_type'] == 'G'){
+        if(isset(Session::get('gurudwara')[0]['user_type'])){
+            // if(isset(Session::get('gurudwara')[0]['user_type']) == 'G'){
             return $next($request);
         }
    
