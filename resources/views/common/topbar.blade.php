@@ -1,4 +1,4 @@
-@if(Session::get('gurudwara')[0]['user_type']=='G')
+@if(Session::get('gurudwara')[0]['user_type']==='G')
 <section id="topbar" class="d-none d-lg-block">
   <div class="container d-flex">
     <div class="contact-info mr-auto">
