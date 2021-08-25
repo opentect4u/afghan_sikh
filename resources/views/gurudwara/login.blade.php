@@ -21,10 +21,10 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2 id="heading"> Gurdwara Login</h2>
                     @if(Session::has('notregister'))
-                    <p>please register</p>
+                    <p style="color:red;">please register</p>
                     @endif
                     @if(Session::has('error'))
-                    <p>User Id or Password did not match!</p>
+                    <p style="color:red;">User Id or Password did not match!</p>
                     @endif
                     <form id="msform" method="POST" action="{{route('gurudwara.loginconfirm')}}">
                     @csrf

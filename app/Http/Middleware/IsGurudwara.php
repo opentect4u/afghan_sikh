@@ -17,6 +17,10 @@ class IsGurudwara
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if(Session::get('gurudwara')[0]['user_type'] == 'G'){
+            return $next($request);
+        }
+   
+        return redirect('/gurudwara/login');
     }
 }

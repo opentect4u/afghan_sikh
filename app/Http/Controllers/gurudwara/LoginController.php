@@ -28,7 +28,7 @@ class LoginController extends Controller
             }
             if (Hash::check($password, $db_password) && $active=="A") {
                 // return view('gurudwara.dashboard');
-	  	        // Session::put('gurudwara', $users); 
+	  	        Session::put('gurudwara', $users); 
                 return redirect()->route('gurudwara.home');
             }else{
                 return redirect()->back()->with('error', 'error');
@@ -41,5 +41,10 @@ class LoginController extends Controller
         // return redirect()->back()->with('error', 'error');
 
         // MdUserLogin
+    }
+
+    public function Logout(){
+        session()->flush();
+        return redirect()->route('gurudwara.login');
     }
 }

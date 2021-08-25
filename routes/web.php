@@ -35,6 +35,7 @@ Route::prefix('gurudwara')->group(function () {
     Route::post('/register', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register'])->name('gurudwara.registerconfirm');
 
     Route::get('/home', [App\Http\Controllers\gurudwara\HomeController::class, 'Show'])->name('gurudwara.home');
+    Route::get('/logout', [App\Http\Controllers\gurudwara\LoginController::class, 'Logout'])->name('gurudwara.logout');
 
 });
             // all user route
