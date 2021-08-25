@@ -1,4 +1,4 @@
-@if(Session::get('gurudwara')[0]['user_type']=='G')
+@if(isset(Session::get('gurudwara')[0]['user_type']))
 <header id="header">
   <div class="container d-flex">
     <div class="logo mr-auto">
