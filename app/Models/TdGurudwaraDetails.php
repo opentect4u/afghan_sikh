@@ -26,6 +26,7 @@ class TdGurudwaraDetails extends Model
         'gurudwara_head_phone_no' ,   
         'gurudwara_head_email',
         'gurudwara_head_photo',
+        'gurudwara_letter_head',
         'created_by' ,
         'updated_by',
     ];

@@ -37,6 +37,10 @@ Route::prefix('gurudwara')->group(function () {
     Route::get('/home', [App\Http\Controllers\gurudwara\HomeController::class, 'Show'])->name('gurudwara.home');
     Route::get('/logout', [App\Http\Controllers\gurudwara\LoginController::class, 'Logout'])->name('gurudwara.logout');
 
+    Route::get('/upload', [App\Http\Controllers\gurudwara\HomeController::class, 'ShowUpload'])->name('gurudwara.upload');
+    Route::post('/uploadconfirm', [App\Http\Controllers\gurudwara\HomeController::class, 'Upload'])->name('gurudwara.uploadConfirm');
+
+
 });
             // all user route
 Route::prefix('user')->group(function () {

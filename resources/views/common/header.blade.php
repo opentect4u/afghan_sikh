@@ -8,10 +8,10 @@
     </div>
     <nav class="nav-menu d-none d-lg-block">
       <ul>
-        <li class="active"><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Services</a></li>
-        <li><a href="">Contact</a></li>
+        <li class="active"><a href="{{route('gurudwara.home')}}">Home</a></li>
+        <li><a href="{{route('gurudwara.upload')}}">Upload</a></li>
+        <li><a href="{{route('gurudwara.home')}}">Services</a></li>
+        <li><a href="{{route('gurudwara.home')}}">Contact</a></li>
       </ul>
     </nav><!-- .nav-menu -->
   </div>
