@@ -34,8 +34,8 @@
                 <input type="radio" id="pending" name="click_status" value="I" <?php if(isset($status_details) && $status_details=="I"){ echo "checked";}?>>
                 <label for="html"> Pending</label>&nbsp;&nbsp;
                 <input type="radio" id="active" name="click_status" value="A" <?php if(isset($status_details) && $status_details=="A"){ echo "checked";}?>>
-                <label for="html"> Active</label>&nbsp;&nbsp;<input type="radio" id="reject" name="click_status" value="R" <?php if(isset($status_details) && $status_details=="R"){ echo "checked";}?>>
-                <label for="css">Reject</label>
+                <label for="html"> Approved</label>&nbsp;&nbsp;<input type="radio" id="reject" name="click_status" value="R" <?php if(isset($status_details) && $status_details=="R"){ echo "checked";}?>>
+                <label for="css">Rejected</label>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -62,7 +62,7 @@
                       <td>@if($gurudwaras->active=="I")
                         <b >{{"Pending"}}</b>
                         @elseif($gurudwaras->active=="A")
-                        <b style="color:#28a745;">{{"Accepted"}}</b>
+                        <b style="color:#28a745;">{{"Approved"}}</b>
                         @elseif($gurudwaras->active=="R")
                         <b style="color:#dc3545;">{{"Rejected"}}</b>
                         @endif</td>

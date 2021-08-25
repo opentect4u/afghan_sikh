@@ -54,7 +54,8 @@ class ServicesRegisterController extends Controller
         $data=TdUserDetails::Where('active','A')->Where('email',$email)->get();
         // $data=TdUserDetails::where('active','A')->where('email',$email)->orWhere('generate_user_id',$registration_no)->get();
         foreach($data as $datas){
-            $generate_user_id=$datas->id;
+            $id=$datas->id;
+            $generate_user_id=$datas->generate_user_id;
             $surname=$datas->surname;
             $givenname=$datas->givenname;
             $gender=$datas->gender;
@@ -76,6 +77,7 @@ class ServicesRegisterController extends Controller
             $other_info=$datas->other_info;
             $active=$datas->active;
             $purpose=$datas->purpose;
+            $gurudwara_id=$datas->gurudwara_id;
             // $remark==$datas->remark;
             // 'surname'=>$surname,
             // 'givenname' => $givenname,
@@ -124,6 +126,7 @@ class ServicesRegisterController extends Controller
         $arrNewResult['other_info'] = $other_info;
         $arrNewResult['active'] = $active;
         $arrNewResult['purpose'] = $purpose;
+        $arrNewResult['gurudwara_id'] = $gurudwara_id;
         // $arrNewResult['remark'] = $remark;
         
         // $arrNewResult['generate_user_id'] = $generate_user_id;
@@ -157,10 +160,12 @@ class ServicesRegisterController extends Controller
         $mobile=$request->mobile;
         $message=$request->message;
         $other_info=$request->other_info;
+        $gurudwara_id=$request->gurudwara_id;
+        $generate_user_id=$request->generate_user_id;
         
         if($request->register_by=="Self"){
         $data=TdServiceDetails::create(array(
-            'generate_user_id'=>$registration_no,
+            'generate_user_id'=>$generate_user_id,
             'surname'=>$surname,
             'givenname' => $givenname,
             'gender' => $gender,
@@ -181,6 +186,7 @@ class ServicesRegisterController extends Controller
             'email' => $email,
             'other_info' => $other_info,
             'active' => 'I',
+            'gurudwara_id'=>$gurudwara_id,
         ));
         }
         if($request->register_by=="Family"){

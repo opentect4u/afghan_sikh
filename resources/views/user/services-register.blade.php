@@ -56,6 +56,8 @@
             <!-- <form action="{{route('user.registerservicesConfirm')}}" method="POST" role="form" class="php-email-form"> -->
                 @csrf
                 <input type="hidden" name="register_by" id="register_by" value=""/>
+                <input type="hidden" name="generate_user_id" id="generate_user_id" value=""/>
+                <input type="hidden" name="gurudwara_id" id="gurudwara_id" value=""/>
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" required  data-msg="Please enter a valid email" />
@@ -459,6 +461,8 @@
                     var other_info=obj.other_info;
                     var active=obj.active;
                     var purpose=obj.purpose;
+                    var gurudwara_id=obj.gurudwara_id;
+
                     // var remark=obj.generate_user_id;
                     $('#surname').val('');
                     $('#surname').val(surname);
@@ -503,6 +507,11 @@
                     // registration_no
                     $('#registration_no').val('');
                     $('#registration_no').val(generate_user_id);
+                    $('#generate_user_id').val('');
+                    $('#generate_user_id').val(generate_user_id);
+                    $('#gurudwara_id').val('');
+                    $('#gurudwara_id').val(gurudwara_id);
+                    
                     // alert("ddd"+dataemail);
                   if(dataemail != ''){
                     $('#selfRegisterDiv > form > div > textarea').removeAttr('readonly');

@@ -275,8 +275,8 @@
                                 </br>
                                 
                                 <input type="radio" id="css" name="active" value="A" <?php if($user_details->active=="A"){echo "checked";}else{echo '';}?> required>
-                                <label for="html"> Active</label>&nbsp;&nbsp;<input type="radio" id="reject" name="active" value="R" <?php if($user_details->active=="R"){echo "checked";}else{echo '';}?> required>
-                                <label for="css">Reject</label>
+                                <label for="html"> Approved</label>&nbsp;&nbsp;<input type="radio" id="reject" name="active" value="R" <?php if($user_details->active=="R"){echo "checked";}else{echo '';}?> required>
+                                <label for="css">Rejected</label>
                             </div>
                         </div>
 
