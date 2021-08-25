@@ -43,8 +43,8 @@ class UserController extends Controller
                     ->get();
         }else{
             $data=DB::table('td_user_details')
-                    ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')
-                    ->select('td_user_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_user_details.active','I')               
                     ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();

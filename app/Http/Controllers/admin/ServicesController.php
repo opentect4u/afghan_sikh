@@ -44,8 +44,8 @@ class ServicesController extends Controller
                     ->get();
         }else{
             $data=DB::table('td_service_details')
-                    ->leftJoin('md_user_login', 'td_service_details.gurudwara_id', '=', 'md_user_login.id')
-                    ->select('td_service_details.*', 'md_user_login.name as gurudwaras_name') 
+                    ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+                    ->select('td_service_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_service_details.active','I')               
                     ->orderBy('td_service_details.updated_at', 'desc')
                     ->get();
