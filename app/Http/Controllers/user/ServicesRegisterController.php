@@ -54,7 +54,7 @@ class ServicesRegisterController extends Controller
         $data=TdUserDetails::Where('active','A')->Where('email',$email)->get();
         // $data=TdUserDetails::where('active','A')->where('email',$email)->orWhere('generate_user_id',$registration_no)->get();
         foreach($data as $datas){
-            $generate_user_id=$datas->generate_user_id;
+            $generate_user_id=$datas->id;
             $surname=$datas->surname;
             $givenname=$datas->givenname;
             $gender=$datas->gender;

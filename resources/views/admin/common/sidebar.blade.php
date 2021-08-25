@@ -100,9 +100,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{route('admin.user')}}" class="nav-link {{Route::currentRouteName()=='admin.user'?'active':''}}">
+          <a href="{{route('admin.user')}}" class="nav-link {{Route::currentRouteName()=='admin.user' || Route::currentRouteName()=='admin.useredit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> User Management</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('admin.services')}}" class="nav-link {{Route::currentRouteName()=='admin.services' || Route::currentRouteName()=='admin.servicesedit'?'active':''}}">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Services Management</p>
           </a>
         </li>
       </ul>

@@ -69,4 +69,9 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/userAccept', [App\Http\Controllers\admin\UserController::class, 'Acept'])->name('admin.userAccept');
     Route::post('/userReject', [App\Http\Controllers\admin\UserController::class, 'Reject'])->name('admin.userReject');
+
+    Route::get('/services', [App\Http\Controllers\admin\ServicesController::class, 'Show'])->name('admin.services');
+    Route::get('/servicesedit/{id?}', [App\Http\Controllers\admin\ServicesController::class, 'Edit'])->name('admin.servicesedit');
+    Route::post('/serviceseditconfirm', [App\Http\Controllers\admin\ServicesController::class, 'EditConfirm'])->name('admin.serviceseditconfirm');
+
 });
