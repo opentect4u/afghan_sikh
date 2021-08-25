@@ -38,6 +38,11 @@ class RegisterController extends Controller
         $gurudwara_head_email=$request->input('gurudwara_head_email');
         $gurudwara_head_photo=$request->input('gurudwara_head_photo');
 
+        $is_user=MdUserLogin::where('user_id',$gurudwara_email)->get();
+
+        if(count($is_user) > 0){  
+            $success='error';
+        }else{
         MdUserLogin::create(array(
             'user_id'=>$gurudwara_email,
             'password'=>Hash::make($password),
@@ -83,10 +88,12 @@ class RegisterController extends Controller
             // 'gurudwara_head_photo'=>$gurudwara_head_profilepicname,
             'created_by'=>$gurudwara_name,
         ));
+        $success='success';
+        }
 
         $arrNewResult = array();
         $arrNewResult['gurudwara_name'] = $gurudwara_name;
-        $arrNewResult['succes'] = "success";
+        $arrNewResult['success'] = $success;
         // $arrNewResult['payment_type'] = $val[3];
         $status_json = json_encode($arrNewResult);
         echo $status_json;

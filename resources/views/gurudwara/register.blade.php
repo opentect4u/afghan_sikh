@@ -102,7 +102,7 @@
                                 <!-- <input type="file" name="gurudwara_head_photo" id="gurudwara_head_photo" accept="image/*">  -->
 
                             </div> 
-                            <input type="submit" name="submit" id="submit" class="next action-button" value="Submit" /> 
+                            <input type="button" name="submit" id="submit" class="next action-button" value="Submit" /> 
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
@@ -231,7 +231,7 @@
     // $(".myForm").submit(function(event){
       // $("body").on("submit", ".myForm", function(evt) {
     $("#submit").click(function(){
-      alert("hiif")
+    //   alert("hiif")
       // $("#msform").submit();
       // $("#msform").submit(function(event){
       //   alert("hii");
@@ -275,7 +275,7 @@
         gurudwara_head_name:gurudwara_head_name,gurudwara_head_address:gurudwara_head_address,gurudwara_head_phone_no:gurudwara_head_phone_no,
         gurudwara_head_email:gurudwara_head_email},
         success: function(data){
-            // alert(data);
+            alert(data);
             // var obj = JSON.parse ( data );
             // var msg=obj.msg;
             // $("#accept").hide();
