@@ -1,3 +1,4 @@
+
 @if(isset(Session::get('gurudwara')[0]['user_type']))
 <section id="topbar" class="d-none d-lg-block">
   <div class="container d-flex">
