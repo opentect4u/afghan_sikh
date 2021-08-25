@@ -35,6 +35,7 @@ Route::prefix('gurudwara')->group(function () {
     Route::post('/register', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register'])->name('gurudwara.registerconfirm');
 
     Route::get('/home', [App\Http\Controllers\gurudwara\HomeController::class, 'Show'])->name('gurudwara.home');
+    Route::post('/homeAjax', [App\Http\Controllers\gurudwara\HomeController::class, 'Homeajax'])->name('gurudwara.homeAjax');
     Route::get('/logout', [App\Http\Controllers\gurudwara\LoginController::class, 'Logout'])->name('gurudwara.logout');
 
     Route::get('/upload', [App\Http\Controllers\gurudwara\HomeController::class, 'ShowUpload'])->name('gurudwara.upload');
