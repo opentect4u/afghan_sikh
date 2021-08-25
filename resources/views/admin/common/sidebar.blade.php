@@ -94,7 +94,7 @@
           </ul>
         </li> -->
         <li class="nav-item">
-          <a href="{{route('admin.gurudwara')}}" class="nav-link {{Route::currentRouteName()=='admin.gurudwara'?'active':''}}">
+          <a href="{{route('admin.gurudwara')}}" class="nav-link {{Route::currentRouteName()=='admin.gurudwara' || Route::currentRouteName()=='admin.gurudwaraedit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Gurdwara Management</p>
           </a>

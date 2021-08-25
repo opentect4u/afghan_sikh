@@ -67,7 +67,7 @@
                         <b style="color:#dc3545;">{{"Rejected"}}</b>
                         @endif</td>
                       <td id="actionTd{{$gurudwaras->id}}">
-                        <a href="{{route('admin.useredit',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-edit"></i></a>
+                        <a href="{{route('admin.gurudwaraedit',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-edit"></i></a>
                        
                       </td>
                     </tr>

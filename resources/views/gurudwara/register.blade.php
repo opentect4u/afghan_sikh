@@ -53,7 +53,7 @@
                                 <!-- <label class="fieldlabels">Confirm Password: *</label>  -->
                                 <input type="password" name="cpwd" id="cpwd" placeholder="Confirm Password" />
                             </div> 
-                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="step1" id="step1" data-attribute="step1" class="next action-button" value="Next" />
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -82,7 +82,7 @@
 
                                
                             </div> 
-                            <input type="button" name="next" class="next action-button" value="Next" /> 
+                            <input type="button" name="step2" id="step2" data-attribute="" class="next action-button" value="Next" /> 
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
@@ -102,7 +102,7 @@
                                 <!-- <input type="file" name="gurudwara_head_photo" id="gurudwara_head_photo" accept="image/*">  -->
 
                             </div> 
-                            <input type="button" name="submit" id="submit" class="next action-button" value="Submit" /> 
+                            <input type="button" name="submit" id="submit" data-attribute="" class="next action-button" value="Submit" /> 
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
@@ -155,6 +155,76 @@
         $(".next").click(function(){
             // alert("hii");
             // return false;
+
+            var dataDurationtime=$("#step1").attr("data-attribute");
+            var dataDurationtime1=$("#step2").attr("data-attribute");
+            var dataDurationtime2=$("#submit").attr("data-attribute");
+            // alert(dataDurationtime1)
+            // if(dataDurationtime=="step1"){
+            //     var surname=$('#surname').val();
+            //     var givenname=$('#givenname').val();
+            //     var gender=$('#gender').val();
+            //     var date_of_birth=$('#date').val();
+            //     var birth_place=$('#birth_place').val();
+            //     var birth_country=$('#birth_country').val();
+            //     var nationality=$('#nationality').val();
+            //     var previous_nationality=$('#previous_nationality').val();
+            //     var marital_status=$('#marital_status').val();
+            //     var religion=$('#religion').val();
+            //     if(surname=='' || givenname=='' || gender=='' || date_of_birth=='' || birth_place=='' || birth_country=='' || nationality=='' || marital_status=='' || previous_nationality==''){
+            //         alert('All fields are mandatory');
+            //         document.getElementById ('surname').setCustomValidity('');
+            //         // surname.setCustomValidity( "Please enter Retuen Date." );
+            //         document.getElementById ('surname').setCustomValidity( "Please enter Retuen Date." );
+            //         document.surname.focus ( );
+            //         document.setCustomValidity ('');
+            //     //     // document.getElementById('returning_date').setCustomValidity('');
+            //         // surname.setCustomValidity("This field cannot be left blank");
+            //         // surname.setCustomValidity("");
+            //         return false;
+            //     }else{
+            //         // data-attribute
+            //         $('#step2').attr('data-attribute','step2') ; 
+            //     }
+            // }
+            // if(dataDurationtime1=="step2"){
+            //     var present_address=$('#present_address').val();
+            //     var profession=$('#profession').val();
+            //     var father_name=$('#father_name').val();
+            //     var father_nationality=$('#father_nationality').val();
+            //     var father_prev_nationality=$('#father_prev_nationality').val();
+            //     var father_birth_country=$('#father_birth_country').val();
+            //     var mobile=$('#mobile').val();
+            //     var email=$('#email').val();
+            //     var other_info=$('#other_info').val();
+            //     // alert('surname1');
+            //     // var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+            //     // var emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+            //     // var emailExp =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            //     var emailExp =/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            //     if(present_address=='' || profession=='' || father_name=='' || father_nationality=='' || father_prev_nationality=='' || mobile=='' || email=='' || other_info==''){
+            //         alert("All fields are mandatory");
+            //         return false;
+            //     }else if(!emailExp.test(email)){
+            //         alert("please enter valid email Id");
+            //         return false; 
+            //     }else{
+            //         $('#submit').attr('data-attribute','step3') ; 
+            //     }
+            // }
+            // if(dataDurationtime2=="step3"){
+            //     // alert(dataDurationtime2);
+            //     var persondiv1=$('#personDiv1').attr('data-person-value');
+                
+               
+                
+            // }
+            
+
+
+
+
             current_fs = $(this).parent();
             next_fs = $(this).parent().next();
 

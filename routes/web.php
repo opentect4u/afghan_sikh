@@ -61,6 +61,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/home', [App\Http\Controllers\admin\HomeController::class, 'Show'])->name('admin.home');
     Route::get('/gurudwara', [App\Http\Controllers\admin\GurudwaraController::class, 'Show'])->name('admin.gurudwara');
+    Route::get('/gurudwaradit/{id?}', [App\Http\Controllers\admin\GurudwaraController::class, 'Edit'])->name('admin.gurudwaraedit');
+    Route::post('/gurudwaraditconfirm', [App\Http\Controllers\admin\GurudwaraController::class, 'EditConfirm'])->name('admin.gurudwaraeditconfirm');
+
     Route::post('/gurudwaraAccept', [App\Http\Controllers\admin\GurudwaraController::class, 'Acept'])->name('admin.gurudwaraAccept');
     Route::post('/gurudwaraReject', [App\Http\Controllers\admin\GurudwaraController::class, 'Reject'])->name('admin.gurudwaraReject');
     
