@@ -50,37 +50,42 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div> 
-                                    <!-- <label class="fieldlabels">Surname (As in Passport): *</label>  -->
+                                    <label class="fieldlabels">Surname (As in Passport): *</label> 
                                     <input type="text" name="surname" required class="form-control" id="surname" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <!-- <label class="fieldlabels">Given Name (As in Passport): *</label>  -->
+                                    <label class="fieldlabels">Given Name (As in Passport): *</label> 
                                     <input type="text" name="givenname" class="form-control" id="givenname" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <!-- <input type="text" name="gender" class="form-control" id="gender" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                    <label class="fieldlabels">Gender : *</label> 
                                     <select name="gender" id="gender">
                                         <option value="M">Male</option>
                                         <option value="F">Female</option>
                                         <option value="O">Other</option>
                                     </select>
+                                    <label class="fieldlabels">DOB : *</label> 
                                     <input type="date" name="date" id="date" placeholder="Date of Birth" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Birth Place : *</label> 
                                     <input type="text" name="birth_place" id="birth_place" placeholder="Place of Birth Town/City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <!-- <input type="text" name="birth_country" id="" placeholder="Country of Birth:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                    <label class="fieldlabels">Birth Country : *</label> 
                                     <select name="birth_country" id="birth_country">
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
                                     </select>
+                                    <label class="fieldlabels">Current Nationality : *</label> 
                                     <select name="nationality" id="nationality">
                                         <option value=""> --Select Current Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
                                     </select>
+                                    <label class="fieldlabels">Previous/Past Nationality : *</label> 
                                     <select name="previous_nationality" id="previous_nationality">
                                         <option value=""> --Select Previous/Past Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
                                     </select>
+                                    <label class="fieldlabels">Marital Status : *</label> 
                                     <select name="marital_status" id="marital_status">
                                         <option value=""> --Select marital status-- </option>
                                         <option value="Unmarried">Unmarried</option>
@@ -88,20 +93,8 @@
                                         <option value="Widowed">Widowed</option>
                                         <option value="Divorced">Divorced</option>
                                     </select>
-                                    <!-- <input type="text" name="nationality" id="" placeholder="Current Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <input type="text" name="previous_nationality" id="" placeholder="Any Other Previous/Past Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
-                                    <!-- <input type="text" name="marital_status" id="" placeholder="Marital Status:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                    <label class="fieldlabels">Religion : *</label> 
                                     <input type="text" name="religion" id="religion" placeholder="Religion" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    
-                                    
-                                    <!-- <label class="fieldlabels">Email: *</label> 
-                                    <input type="email" name="email" placeholder="Email Id" /> 
-                                    <label class="fieldlabels">Username: *</label> 
-                                    <input type="text" name="uname" placeholder="UserName" /> 
-                                    <label class="fieldlabels">Password: *</label> 
-                                    <input type="password" name="pwd" placeholder="Password" /> 
-                                    <label class="fieldlabels">Confirm Password: *</label> 
-                                    <input type="password" name="cpwd" placeholder="Confirm Password" /> -->
                                 </div> 
                                 <input type="button" name="step1" id="step1" data-attribute="step1" class="next action-button" value="Next" />
                             </fieldset>
@@ -115,38 +108,39 @@
                                             <h2 class="steps">Step 2 - 4</h2>
                                         </div>
                                     </div> 
+                                    <label class="fieldlabels">Present Home Address : *</label> 
                                     <textarea name="present_address" id="present_address" rows="3" placeholder="Present Home Address:"></textarea>
+                                    <label class="fieldlabels">Profession/Occupation : *</label> 
                                     <input type="text" name="profession" id="profession" placeholder="Profession/Occupation:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Father Name : *</label> 
                                     <input type="text" name="father_name" id="father_name" placeholder="Father Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Father Nationality : *</label> 
                                     <select name="father_nationality" id="father_nationality">
                                         <option value=""> --Select Father Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
                                     </select>
+                                    <label class="fieldlabels">Father Previous/Past Nationality : *</label> 
                                     <select name="father_prev_nationality" id="father_prev_nationality">
                                         <option value=""> --Select Previous/Past Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
                                     </select>
+                                    <label class="fieldlabels">Father Place/Country of Birth : *</label> 
                                     <select name="father_birth_country" id="father_birth_country">
                                         <option value=""> --Select Place/Country of Birth-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
                                     </select>
-                                    <!-- <input type="text" name="father_nationality" id="" placeholder="Father Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <input type="text" name="father_prev_nationality" id="" placeholder="Prev. Nationality:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <input type="text" name="father_birth_country" id="" placeholder="Place/Country of Birth:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                    <label class="fieldlabels">Mobile : *</label> 
                                     <input type="number" name="mobile" id="mobile" placeholder="Phone or Mobile :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Email : *</label> 
                                     <input type="email" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-
+                                    <label class="fieldlabels">Other Information : *</label> 
                                     <textarea name="other_info" id="other_info"  rows="5" placeholder="Other Information"></textarea>
-                                    <!-- <label class="fieldlabels">Contact No.: *</label> 
-                                    <input type="text" name="phno" placeholder="Contact No." /> 
-                                    <label class="fieldlabels">Alternate Contact No.: *</label> 
-                                    <input type="text" name="phno_2" placeholder="Alternate Contact No." /> -->
                                 </div> 
                                 <input type="button" name="step2" id="step2" data-attribute="" class="next action-button" value="Next" /> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
@@ -170,56 +164,71 @@
                                         </div> -->
                                     </div>
                                     <div id="personDiv1" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 1 </label> 
-                                        <input type="email" name="email1" id="email1" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 1 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name1" id="first_name1" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name1" id="middle_name1" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name1" id="last_name1" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                        <!-- <input type="text" name="gender1" id="gender1" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <select name="gender1" id="gender1">
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
                                             <option value="O">Other</option>
                                         </select>
-                                        <!-- <input type="text" name="relation1" id="relation1" placeholder="Relation" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation1" id="relation1">
                                             <option value="Father">Father</option>
                                             <option value="Mother">Mother</option>
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship1" id="current_citizenship1">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship1" id="previous_citizenship1">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email1" id="email1" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no1" id="passport_no1" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="date" name="passport_date_of_issue1" id="passport_date_of_issue1" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="date" name="passport_date_of_expiry1" id="passport_date_of_expiry1" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_1" id="other_doc_1_1" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_1" id="other_doc_2_1" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-
+                                        <label class="fieldlabels" id="cancelLabel1"><a href="javascript:void(0)" id="cancelMember1" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
                                     </div>
                                     <div id="personDiv2" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 2 </label> 
-                                        <input type="email" name="email2" id="email2" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 2 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name2" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name2" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name2" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <!-- <input type="text" name="gender2" id="gender1" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <select name="gender2" id="gender2">
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
                                             <option value="O">Other</option>
                                         </select>
                                         <!-- <input type="text" name="relation2" id="relation1" placeholder="Relation" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation2" id="relation2">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -227,33 +236,47 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship2" id="current_citizenship2">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship2" id="previous_citizenship2">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email2" id="email2" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no2" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue2" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry2" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_2" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_2" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel2"><a href="javascript:void(0)" id="cancelMember2" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv3" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 3 </label> 
-                                        <input type="email" name="email3" id="email3" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 3 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name3" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name3" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name3" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender3" id="gender1" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <!-- <input type="text" name="relation2" id="relation1" placeholder="Relation" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation3" id="relation3">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -261,33 +284,47 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship3" id="current_citizenship3">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship3" id="previous_citizenship3">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email3" id="email3" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no3" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue3" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry3" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_3" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_3" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel3"><a href="javascript:void(0)" id="cancelMember3" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv4" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 4 </label> 
-                                        <input type="email" name="email4" id="email4" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 4 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name4" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name4" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name4" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender4" id="gender4" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <!-- <input type="text" name="relation2" id="relation1" placeholder="Relation" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation4" id="relation4">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -295,33 +332,47 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship4" id="current_citizenship4">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship4" id="previous_citizenship4">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email4" id="email4" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no4" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue4" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry4" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_4" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_4" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel4"><a href="javascript:void(0)" id="cancelMember4" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv5" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 5 </label> 
-                                        <input type="email" name="email5" id="email5" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 5 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name5" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name5" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name5" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender5" id="gender5" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <!-- <input type="text" name="relation2" id="relation1" placeholder="Relation" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation5" id="relation5">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -329,33 +380,47 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship5" id="current_citizenship5">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship5" id="previous_citizenship5">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email5" id="email5" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no5" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue5" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry5" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_5" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_5" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel5"><a href="javascript:void(0)" id="cancelMember5" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv6" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 6 </label> 
-                                        <input type="email" name="email6" id="email6" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 6 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name6" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name6" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name6" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender6" id="gender6" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <!-- <input type="text" name="relation2" id="relation1" placeholder="Relation" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation6" id="relation6">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -363,33 +428,47 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship6" id="current_citizenship6">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship6" id="previous_citizenship6">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email6" id="email6" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no6" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue6" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry6" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_6" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_6" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel6"><a href="javascript:void(0)" id="cancelMember6" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv7" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 7 </label> 
-                                        <input type="email" name="email7" id="email7" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 7 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name7" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name7" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name7" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender7" id="gender7" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <!-- <input type="text" name="relation2" id="relation1" placeholder="Relation" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation7" id="relation7">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -397,32 +476,46 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship7" id="current_citizenship7">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship7" id="previous_citizenship7">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email7" id="email7" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no7" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue7" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry7" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_7" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_7" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel7"><a href="javascript:void(0)" id="cancelMember7" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv8" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 8 </label> 
-                                        <input type="email" name="email8" id="email8" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 8 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name8" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name8" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name8" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender8" id="gender8" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation8" id="relation8">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -430,32 +523,46 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship8" id="current_citizenship8">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship8" id="previous_citizenship8">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email8" id="email8" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no8" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue8" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry8" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_8" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_8" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel8"><a href="javascript:void(0)" id="cancelMember8" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv9" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 9 </label> 
-                                        <input type="email" name="email9" id="email9" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 9 </label> </br>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name9" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name9" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name9" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender9" id="gender9" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation9" id="relation9">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -463,32 +570,46 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship9" id="current_citizenship9">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship9" id="previous_citizenship9">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email9" id="email9" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no9" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue9" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry9" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_9" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_9" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel9"><a href="javascript:void(0)" id="cancelMember9" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <div id="personDiv10" data-person-value="0"> 
-                                        <label class="fieldlabels">Person 10 </label> 
-                                        <input type="email" name="email10" id="email10" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Person 10 </label> <br/>
+                                        <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                         <input type="text" name="first_name10" id="" placeholder="First Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                         <input type="text" name="middle_name10" id="" placeholder="Middle Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                         <input type="text" name="last_name10" id="" placeholder="Last Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Gender : *</label> 
                                         <input type="text" name="gender10" id="gender10" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Relation : *</label> 
                                         <select name="relation10" id="relation10">
                                             <!-- <option value="">Relation </option> -->
                                             <option value="Father">Father</option>
@@ -496,23 +617,33 @@
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
                                         </select>
+                                        <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship10" id="current_citizenship10">
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Previous Citizenship : </label> 
                                         <select name="previous_citizenship10" id="previous_citizenship10">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
                                             <option value="{{$countries->id}}">{{$countries->name}}</option>
                                             @endforeach
                                         </select>
+                                        <label class="fieldlabels">Email : *</label> 
+                                        <input type="email" name="email10" id="email10" placeholder="Email:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Number : </label> 
                                         <input type="text" name="passport_no10" id="" placeholder="Passport Number:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Issue : </label> 
                                         <input type="text" name="passport_date_of_issue10" id="" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Passport Date of Expiry : </label> 
                                         <input type="text" name="passport_date_of_expiry10" id="" placeholder="Passport Date of Expiry:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-1 : </label> 
                                         <input type="text" name="other_doc_1_10" id="" placeholder="Other Doc-1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels">Other Doc-2 : </label> 
                                         <input type="text" name="other_doc_2_10" id="" placeholder="Other Doc-2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <label class="fieldlabels" id="cancelLabel10"><a href="javascript:void(0)" id="cancelMember10" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
 
                                     </div>
                                     <label class="fieldlabels"><a href="javascript:void(0)" id="addMember" style="color:#ffa716;"><i class="fa fa-plus" aria-hidden="true"></i> Add another member</a></label> 
@@ -843,42 +974,109 @@
             if(personDiv1==1){
                 $("#personDiv2").attr("data-person-value", "1");
                 $('#personDiv2').show();
+                $('#cancelLabel1').hide();
             }
             if(personDiv2==1){
                 $("#personDiv3").attr("data-person-value", "1");
                 $('#personDiv3').show();
+                $('#cancelLabel2').hide();
             }
             if(personDiv3==1){
                 $("#personDiv4").attr("data-person-value", "1");
                 $('#personDiv4').show();
+                $('#cancelLabel3').hide();
             }
             if(personDiv4==1){
                 $("#personDiv5").attr("data-person-value", "1");
                 $('#personDiv5').show();
+                $('#cancelLabel4').hide();
             }
             if(personDiv5==1){
                 $("#personDiv6").attr("data-person-value", "1");
                 $('#personDiv6').show();
+                $('#cancelLabel5').hide();
             }
             if(personDiv6==1){
                 $("#personDiv7").attr("data-person-value", "1");
                 $('#personDiv7').show();
+                $('#cancelLabel6').hide();
             }
             if(personDiv7==1){
                 $("#personDiv8").attr("data-person-value", "1");
                 $('#personDiv8').show();
+                $('#cancelLabel7').hide();
             }
             if(personDiv8==1){
                 $("#personDiv9").attr("data-person-value", "1");
                 $('#personDiv9').show();
+                $('#cancelLabel8').hide();
             }
             if(personDiv9==1){
                 $("#personDiv10").attr("data-person-value", "1");
                 $('#personDiv10').show();
                 $('#addMember').hide();
+                $('#cancelLabel9').hide();
             }
 
         });
+
+
+        $('#cancelMember1').click(function(){
+            $("#personDiv1").attr("data-person-value", "0");
+            $("#personDiv1").hide();
+        });
+
+        $('#cancelMember2').click(function(){
+            $("#personDiv2").attr("data-person-value", "0");
+            $("#personDiv2").hide();
+            $('#cancelLabel1').show();
+        });
+
+        $('#cancelMember3').click(function(){
+            $("#personDiv3").attr("data-person-value", "0");
+            $("#personDiv3").hide();
+            $('#cancelLabel2').show();
+        });
+
+        $('#cancelMember4').click(function(){
+            $("#personDiv4").attr("data-person-value", "0");
+            $("#personDiv4").hide();
+            $('#cancelLabel3').show();
+        });
+        $('#cancelMember5').click(function(){
+            $("#personDiv5").attr("data-person-value", "0");
+            $("#personDiv5").hide();
+            $('#cancelLabel4').show();
+        });
+        $('#cancelMember6').click(function(){
+            $("#personDiv6").attr("data-person-value", "0");
+            $("#personDiv6").hide();
+            $('#cancelLabel5').show();
+        });
+        $('#cancelMember7').click(function(){
+            $("#personDiv7").attr("data-person-value", "0");
+            $("#personDiv7").hide();
+            $('#cancelLabel6').show();
+        });
+        $('#cancelMember8').click(function(){
+            $("#personDiv8").attr("data-person-value", "0");
+            $("#personDiv8").hide();
+            $('#cancelLabel7').show();
+        });
+        $('#cancelMember9').click(function(){
+            $("#personDiv9").attr("data-person-value", "0");
+            $("#personDiv9").hide();
+            $('#cancelLabel8').show();
+        });
+        $('#cancelMember10').click(function(){
+            $("#personDiv10").attr("data-person-value", "0");
+            $("#personDiv10").hide();
+            $('#cancelLabel9').show();
+            $('#addMember').show();
+
+        });
+
+
 
     });
     function varRegister(){
