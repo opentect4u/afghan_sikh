@@ -19,15 +19,15 @@
         <div class="row justify-content-center">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2 id="heading">Sign Up Your User Account</h2>
+                    <h2 id="heading">Sign Up Your Gurdwara Account</h2>
                     <p>Fill all form field to go to next step</p>
                     <form class="myForm" id="msform" method="POST" enctype="multipart/form-data">
                     @csrf
                         <!-- progressbar -->
                         <ul id="progressbar">
                             <li class="active" id="account"><strong>Account</strong></li>
-                            <li id="personal"><strong>Personal</strong></li>
-                            <li id="payment"><strong>Image</strong></li>
+                            <li id="personal"><strong>Details</strong></li>
+                            <li id="personal"><strong>Head</strong></li>
                             <li id="confirm"><strong>Finish</strong></li>
                         </ul>
                         <div class="progress">
@@ -43,14 +43,13 @@
                                         <h2 class="steps">Step 1 - 4</h2>
                                     </div>
                                 </div> 
+                                <label class="fieldlabels">Gurdwara Name: *</label> 
                                 <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Gurdwara Name" /> 
-                                <!-- <label class="fieldlabels">Email: *</label>  -->
+                                <label class="fieldlabels">Email Id: *</label> 
                                 <input type="email" name="gurudwara_email" id="gurudwara_email" placeholder="Email Id" /> 
-                                <!-- <label class="fieldlabels">Phone: *</label>  -->
-                                <!-- <input type="number" name="phone_no" id="phone_no" placeholder="Phone No" />  -->
-                                <!-- <label class="fieldlabels">Password: *</label>  -->
+                                <label class="fieldlabels">Password: *</label> 
                                 <input type="password" name="password" id="password"placeholder="Password" /> 
-                                <!-- <label class="fieldlabels">Confirm Password: *</label>  -->
+                                <label class="fieldlabels">Confirm Password: *</label> 
                                 <input type="password" name="cpwd" id="cpwd" placeholder="Confirm Password" />
                             </div> 
                             <input type="button" name="step1" id="step1" data-attribute="step1" class="next action-button" value="Next" />
@@ -59,28 +58,29 @@
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="fs-title">Personal Information:</h2>
+                                        <h2 class="fs-title">Gurdwara Information:</h2>
                                     </div>
                                     <div class="col-5">
                                         <h2 class="steps">Step 2 - 4</h2>
                                     </div>
                                 </div> 
-                                <input type="number" name="gurudwara_phone_no" id="gurudwara_phone_no" placeholder="Phone No" /> 
-                                <input type="text" name="website" id="website" placeholder="Website" /> 
+                                <label class="fieldlabels">Address: *</label> 
                                 <textarea name="gurudwara_address" id="gurudwara_address"  rows="3" placeholder="Address"></textarea>
-                                <!-- <input type="text" name="address" id="address" placeholder="Address" />  -->
+                                <label class="fieldlabels">City: *</label> 
                                 <input type="text" name="city" id="city" placeholder="City" /> 
+                                <label class="fieldlabels">State: *</label> 
                                 <input type="text" name="state" id="state" placeholder="State" /> 
-
+                                <label class="fieldlabels">Country: *</label> 
                                 <select name="country" id="country">
-                                  <option value=""> --Select Current Citizenship-- </option>
+                                  <option value=""> --Select Country-- </option>
                                   @foreach($country as $countries)
                                   <option value="{{$countries->id}}">{{$countries->name}}</option>
                                   @endforeach
                                 </select>
-                                <!-- <input type="file" name="gurudwara_photo" id="gurudwara_photo" accept="image/*">  -->
-
-                               
+                                <label class="fieldlabels">Phone No: *</label> 
+                                <input type="number" name="gurudwara_phone_no" id="gurudwara_phone_no" placeholder="Phone No" /> 
+                                <label class="fieldlabels">Website : *</label> 
+                                <input type="text" name="website" id="website" placeholder="Website" /> 
                             </div> 
                             <input type="button" name="step2" id="step2" data-attribute="" class="next action-button" value="Next" /> 
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
@@ -95,9 +95,13 @@
                                         <h2 class="steps">Step 3 - 4</h2>
                                     </div>
                                 </div> 
+                                <label class="fieldlabels">Gurdwara Head Name : *</label> 
                                 <input type="text" name="gurudwara_head_name" id="gurudwara_head_name" placeholder="Gurdwara Head Name" /> 
+                                <label class="fieldlabels">Gurdwara Head Address : *</label> 
                                 <textarea name="gurudwara_head_address" id="gurudwara_head_address"  rows="3" placeholder="Address"></textarea>
+                                <label class="fieldlabels">Gurdwara Head Phone No : *</label> 
                                 <input type="number" name="gurudwara_head_phone_no" id="gurudwara_head_phone_no" placeholder="Phone No" /> 
+                                <label class="fieldlabels">Gurdwara Head Email Id : *</label> 
                                 <input type="email" name="gurudwara_head_email" id="gurudwara_head_email" placeholder="Email Id" /> 
                                 <!-- <input type="file" name="gurudwara_head_photo" id="gurudwara_head_photo" accept="image/*">  -->
 
@@ -160,66 +164,63 @@
             var dataDurationtime1=$("#step2").attr("data-attribute");
             var dataDurationtime2=$("#submit").attr("data-attribute");
             // alert(dataDurationtime1)
-            // if(dataDurationtime=="step1"){
-            //     var surname=$('#surname').val();
-            //     var givenname=$('#givenname').val();
-            //     var gender=$('#gender').val();
-            //     var date_of_birth=$('#date').val();
-            //     var birth_place=$('#birth_place').val();
-            //     var birth_country=$('#birth_country').val();
-            //     var nationality=$('#nationality').val();
-            //     var previous_nationality=$('#previous_nationality').val();
-            //     var marital_status=$('#marital_status').val();
-            //     var religion=$('#religion').val();
-            //     if(surname=='' || givenname=='' || gender=='' || date_of_birth=='' || birth_place=='' || birth_country=='' || nationality=='' || marital_status=='' || previous_nationality==''){
-            //         alert('All fields are mandatory');
-            //         document.getElementById ('surname').setCustomValidity('');
-            //         // surname.setCustomValidity( "Please enter Retuen Date." );
-            //         document.getElementById ('surname').setCustomValidity( "Please enter Retuen Date." );
-            //         document.surname.focus ( );
-            //         document.setCustomValidity ('');
-            //     //     // document.getElementById('returning_date').setCustomValidity('');
-            //         // surname.setCustomValidity("This field cannot be left blank");
-            //         // surname.setCustomValidity("");
-            //         return false;
-            //     }else{
-            //         // data-attribute
-            //         $('#step2').attr('data-attribute','step2') ; 
-            //     }
-            // }
-            // if(dataDurationtime1=="step2"){
-            //     var present_address=$('#present_address').val();
-            //     var profession=$('#profession').val();
-            //     var father_name=$('#father_name').val();
-            //     var father_nationality=$('#father_nationality').val();
-            //     var father_prev_nationality=$('#father_prev_nationality').val();
-            //     var father_birth_country=$('#father_birth_country').val();
-            //     var mobile=$('#mobile').val();
-            //     var email=$('#email').val();
-            //     var other_info=$('#other_info').val();
-            //     // alert('surname1');
-            //     // var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-            //     // var emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-            //     // var emailExp =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            //     var emailExp =/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-            //     if(present_address=='' || profession=='' || father_name=='' || father_nationality=='' || father_prev_nationality=='' || mobile=='' || email=='' || other_info==''){
-            //         alert("All fields are mandatory");
-            //         return false;
-            //     }else if(!emailExp.test(email)){
-            //         alert("please enter valid email Id");
-            //         return false; 
-            //     }else{
-            //         $('#submit').attr('data-attribute','step3') ; 
-            //     }
-            // }
-            // if(dataDurationtime2=="step3"){
-            //     // alert(dataDurationtime2);
-            //     var persondiv1=$('#personDiv1').attr('data-person-value');
-                
+            if(dataDurationtime=="step1"){
+                var gurudwara_name=$('#gurudwara_name').val();
+                var gurudwara_email=$('#gurudwara_email').val();
+                var password=$('#password').val();
+                var cpwd=$('#cpwd').val();
+                var emailExp =/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                
-                
-            // }
+                if(gurudwara_name=='' || gurudwara_email=='' || password=='' || cpwd==''){
+                    alert('All fields are mandatory');
+                    return false;
+                }else if(!emailExp.test(gurudwara_email)){
+                    alert("please enter valid email Id");
+                    return false; 
+                }else if(password!=cpwd){
+                    alert('Password and confirm password didn`t match!');
+                    return false;
+                }else{
+                    // data-attribute
+                    $('#step2').attr('data-attribute','step2') ; 
+                }
+            }
+            if(dataDurationtime1=="step2"){
+                var gurudwara_address=$('#gurudwara_address').val();
+                var city=$('#city').val();
+                var state=$('#state').val();
+                var country=$('#country').val();
+                var gurudwara_phone_no=$('#gurudwara_phone_no').val();
+                var website=$('#website').val();
+
+                if(gurudwara_address=='' || city=='' || state=='' || country=='' || gurudwara_phone_no==''){
+                    alert("All fields are mandatory except website");
+                    return false;
+                }else{
+                    $('#submit').attr('data-attribute','step3') ; 
+                }
+            }
+            if(dataDurationtime2=="step3"){
+                // alert(dataDurationtime2);
+                var gurudwara_head_name=$('#gurudwara_head_name').val();
+                var gurudwara_head_address=$('#gurudwara_head_address').val();
+                var gurudwara_head_phone_no=$('#gurudwara_head_phone_no').val();
+                var gurudwara_head_email=$('#gurudwara_head_email').val();
+                var emailExp =/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if(gurudwara_head_name=='' || gurudwara_head_address=='' || gurudwara_head_phone_no==''){
+                    alert("All fields are mandatory except email");
+                    return false;
+                }else if(gurudwara_head_email!=''){
+                    if(!emailExp.test(gurudwara_head_email)){
+                        alert("please enter valid email Id");
+                        return false; 
+                    }
+                }else{
+                    RegisterAjax();
+                    // $('#submit').attr('data-attribute','step3') ; 
+                }               
+               
+            }
             
 
 
@@ -290,29 +291,77 @@
 <script>
   $(document).ready(function(){
     // step1
-    $("#step1").click(function(){
-        // alert("hii");
-        // return true;
-    })
+    // $("#step1").click(function(){
+    //     // alert("hii");
+    //     // return true;
+    // })
 
     // all details addb here
     
     // $('#submit').on('submit',(function(event) {
     // $(".myForm").submit(function(event){
       // $("body").on("submit", ".myForm", function(evt) {
-    $("#submit").click(function(){
-    //   alert("hiif")
-      // $("#msform").submit();
-      // $("#msform").submit(function(event){
-      //   alert("hii");
-      // })
+    // $("#submit").click(function(){
+    //     //   alert("hiif")
+    //   // $("#msform").submit();
+    //   // $("#msform").submit(function(event){
+    //   //   alert("hii");
+    //   // })
 
-      // alert("hii")
-      // event.preventDefault();
-      // var formData = new FormData(this);
-      // var formData = new FormData($("#msform")[0]);
-      // alert(formData);
-      var gurudwara_name=$('#gurudwara_name').val();
+    //   // alert("hii")
+    //   // event.preventDefault();
+    //   // var formData = new FormData(this);
+    //   // var formData = new FormData($("#msform")[0]);
+    //   // alert(formData);
+    //   var gurudwara_name=$('#gurudwara_name').val();
+    //   var gurudwara_email=$('#gurudwara_email').val();
+    //   var password=$('#password').val();
+    //   var gurudwara_phone_no=$('#gurudwara_phone_no').val();
+    //   var website=$('#website').val();
+    //   var gurudwara_address=$('#gurudwara_address').val();
+    //   var city=$('#city').val();
+    //   var state=$('#state').val();
+    //   var country=$('#country').val();
+    //   var gurudwara_photo=$('#gurudwara_photo').val();
+    //   var gurudwara_head_name=$('#gurudwara_head_name').val();
+    //   var gurudwara_head_address=$('#gurudwara_head_address').val();
+    //   var gurudwara_head_phone_no   =$('#gurudwara_head_phone_no').val();
+    //   var gurudwara_head_email=$('#gurudwara_head_email').val();
+    //   var gurudwara_head_photo=$('#gurudwara_head_photo').val();
+    //   // {gurudwara_name:gurudwara_name,gurudwara_email:gurudwara_email,password:password,gurudwara_phone_no:gurudwara_phone_no,
+    //   //   website:website,gurudwara_address:gurudwara_address,city:city,state:state,country:country,gurudwara_photo:gurudwara_photo,
+    //   //   gurudwara_head_name:gurudwara_head_name,gurudwara_head_address:gurudwara_head_address,gurudwara_head_phone_no:gurudwara_head_phone_no,
+    //   //   gurudwara_head_email:gurudwara_head_email,gurudwara_head_photo:gurudwara_head_photo}
+
+    //   // alert(gurudwara_head_photo);
+    //   $.ajax({
+    //     type: "POST",
+    //     url: "{{ route('gurudwara.registerconfirm') }}",
+    //     // data:{gurudwara_name:gurudwara_name,gurudwara_email:gurudwara_email,password:password,gurudwara_phone_no:gurudwara_phone_no,
+    //     // website:website,gurudwara_address:gurudwara_address,city:city,state:state,country:country,gurudwara_photo:gurudwara_photo,
+    //     // gurudwara_head_name:gurudwara_head_name,gurudwara_head_address:gurudwara_head_address,gurudwara_head_phone_no:gurudwara_head_phone_no,
+    //     // gurudwara_head_email:gurudwara_head_email,gurudwara_head_photo:gurudwara_head_photo},
+    //     data:{gurudwara_name:gurudwara_name,gurudwara_email:gurudwara_email,password:password,gurudwara_phone_no:gurudwara_phone_no,
+    //     website:website,gurudwara_address:gurudwara_address,city:city,state:state,country:country,
+    //     gurudwara_head_name:gurudwara_head_name,gurudwara_head_address:gurudwara_head_address,gurudwara_head_phone_no:gurudwara_head_phone_no,
+    //     gurudwara_head_email:gurudwara_head_email},
+    //     success: function(data){
+    //         alert(data);
+    //         // var obj = JSON.parse ( data );
+    //         // var msg=obj.msg;
+    //         // $("#accept").hide();
+    //         // $("#deny").hide();
+            
+    //     }
+    //   });
+
+    // });
+    // }));
+
+  });
+
+  function RegisterAjax(){
+    var gurudwara_name=$('#gurudwara_name').val();
       var gurudwara_email=$('#gurudwara_email').val();
       var password=$('#password').val();
       var gurudwara_phone_no=$('#gurudwara_phone_no').val();
@@ -345,7 +394,7 @@
         gurudwara_head_name:gurudwara_head_name,gurudwara_head_address:gurudwara_head_address,gurudwara_head_phone_no:gurudwara_head_phone_no,
         gurudwara_head_email:gurudwara_head_email},
         success: function(data){
-            alert(data);
+            // alert(data);
             // var obj = JSON.parse ( data );
             // var msg=obj.msg;
             // $("#accept").hide();
@@ -353,11 +402,7 @@
             
         }
       });
-
-    });
-    // }));
-
-  });
+  }
 </script>
 
 @endsection
