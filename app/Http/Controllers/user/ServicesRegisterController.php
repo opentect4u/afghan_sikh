@@ -162,7 +162,8 @@ class ServicesRegisterController extends Controller
         $other_info=$request->other_info;
         $gurudwara_id=$request->gurudwara_id;
         $generate_user_id=$request->generate_user_id;
-        
+        $purpose=$request->purpose;
+
         if($request->register_by=="Self"){
         $data=TdServiceDetails::create(array(
             'generate_user_id'=>$generate_user_id,
@@ -187,6 +188,8 @@ class ServicesRegisterController extends Controller
             'other_info' => $other_info,
             'active' => 'I',
             'gurudwara_id'=>$gurudwara_id,
+            'purpose'=>$purpose,
+            'application_date'=>date('Y-m-d'),
         ));
         }
         if($request->register_by=="Family"){

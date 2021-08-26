@@ -58,6 +58,7 @@
                 <input type="hidden" name="register_by" id="register_by" value=""/>
                 <input type="hidden" name="generate_user_id" id="generate_user_id" value=""/>
                 <input type="hidden" name="gurudwara_id" id="gurudwara_id" value=""/>
+                <input type="hidden" name="purpose" id="purpose" value="{{$purpose}}"/>
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" required  data-msg="Please enter a valid email" />

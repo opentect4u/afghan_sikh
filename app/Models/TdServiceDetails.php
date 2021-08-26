@@ -35,5 +35,8 @@ class TdServiceDetails extends Model
         'gurudwara_id',
         'purpose',
         'remark',
+        'application_date',
+        'created_by',
+        'updated_by',
     ];
 }

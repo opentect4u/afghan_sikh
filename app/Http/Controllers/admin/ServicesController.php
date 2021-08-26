@@ -11,6 +11,7 @@ use App\Models\MdCountry;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
 
 class ServicesController extends Controller
 {
@@ -20,6 +21,7 @@ class ServicesController extends Controller
 
     public function Show(Request $equest){
         $status_details=$equest->status;
+        $date=$equest->date;
         // $data=TdUserDetails::orderBy('updated_at','desc')->get();
         if($status_details=='I'){
             $data=DB::table('td_service_details')
@@ -40,6 +42,21 @@ class ServicesController extends Controller
                     ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
                     ->select('td_service_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_service_details.active','R')               
+                    ->orderBy('td_service_details.updated_at', 'desc')
+                    ->get();
+        }else if($date!=''){
+            // return $date;
+            $start = Carbon::parse(str_replace(' ','',explode('-',$date)[0]))->format('Y-m-d');
+            $end = Carbon::parse(str_replace(' ','',explode('-',$date)[1]))->format('Y-m-d');
+            
+            // $end =  str_replace(' ','',explode('-',$date)[1]);
+            // return $start;
+            // return $end;
+            $data=DB::table('td_service_details')
+                    ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+                    ->select('td_service_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                    // ->Where('td_service_details.active','R')    
+                    ->whereBetween('application_date', [$start, $end])           
                     ->orderBy('td_service_details.updated_at', 'desc')
                     ->get();
         }else{

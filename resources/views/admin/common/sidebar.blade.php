@@ -2,7 +2,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="{{route('gurudwara.home')}}" class="brand-link">
+  <a href="{{route('gurudwara.home')}}" class="brand-link" style="display: inline-block;">
     <img id="logo_img" src="" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light" id="name_gurdwara"></span>
   </a>
@@ -77,7 +77,10 @@
           var url='{{asset('public/gurudwara-image/')}}/'+obj.gurudwara_photo;
           // alert(url)
           $('#name_gurdwara').empty();
-          $('#name_gurdwara').append(name);
+          // $('#name_gurdwara').append(name);
+          
+          $('#gurdwaraName').empty();
+          $('#gurdwaraName').append(name);
           $('#logo_img').removeAttr('src');
           $('#logo_img').attr('src',url);
 

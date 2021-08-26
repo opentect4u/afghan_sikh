@@ -1,6 +1,11 @@
 @extends('admin.common.master')
 @section('content')
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -36,6 +41,11 @@
                 <input type="radio" id="active" name="click_status" value="A" <?php if(isset($status_details) && $status_details=="A"){ echo "checked";}?>>
                 <label for="html"> Approved</label>&nbsp;&nbsp;<input type="radio" id="reject" name="click_status" value="R" <?php if(isset($status_details) && $status_details=="R"){ echo "checked";}?>>
                 <label for="css">Rejected</label>
+                <!-- </br>
+                <label for="css">Date :</label>
+                <input type="text" id="dateFilter" class="form-control col-md-4"/>
+                <input type="button" id="ApplyFilter" class="btn btn-outline-primary" value="Apply" /> -->
+                
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -173,51 +183,32 @@
     })
 
 
+    $('#dateFilter').daterangepicker({
+      opens: 'left',
+      // endDate: new Date();
+      autoApply: true,
+    }, function(start, end, label) {
+      // picker.start.format('YYYY-MM-DD');
+      // dateFilter
+      // $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
+    
+
+
+    // ApplyFilter
+    $('#ApplyFilter').click(function(){
+      var val_pending=$('#dateFilter').val();
+      // alert(val_pending);
+      var url=("{{route('admin.services')}}")+"?date="+val_pending;
+      // alert(url);
+      window.location.assign(url);
+    })
+
 
   });
   // actionTd 
-  function acceptBtn(id, user_id){
-    // alert(id);
-    $.ajax({
-      type: "POST",
-      url: "{{ route('admin.userAccept') }}",
-      data:{
-        "_token": "{{ csrf_token() }}",
-        id:id,
-        user_id:user_id
-      },
-      success: function(data){
-          alert(data);
-          var obj = JSON.parse ( data );
-          var msg=obj.msg;
-          $("#accept").hide();
-          $("#reject").hide();
-          $('#actionTd'+id).empty();
-          $('#actionTd'+id).append('<b style="color:#28a745;">Acepted</b>');
-        }
-    });
-  } 
-  function rejectBtn(id, user_id){
-    // alert(id);
-    $.ajax({
-      type: "POST",
-      url: "{{ route('admin.userReject') }}",
-      data:{
-        "_token": "{{ csrf_token() }}",
-        id:id,
-        user_id:user_id
-      },
-      success: function(data){
-          alert(data);
-          var obj = JSON.parse ( data );
-          var msg=obj.msg;
-          $("#accept").hide();
-          $("#reject").hide();
-          $('#actionTd'+id).empty();
-          $('#actionTd'+id).append('<b style="color:#dc3545;">Rejected</b>');
-        }
-    });
-  } 
+  
 </script>
 @endsection
 

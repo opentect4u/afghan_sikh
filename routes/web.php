@@ -88,4 +88,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/servicesedit/{id?}', [App\Http\Controllers\admin\ServicesController::class, 'Edit'])->name('admin.servicesedit');
     Route::post('/serviceseditconfirm', [App\Http\Controllers\admin\ServicesController::class, 'EditConfirm'])->name('admin.serviceseditconfirm');
 
+    // admin.gurdwaralogin
+    Route::get('/admingurdwaralogin', [App\Http\Controllers\admin\GurdwaraController::class, 'GurdwaraLogin'])->name('admin.gurdwaralogin');
+
 });

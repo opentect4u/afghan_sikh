@@ -55,7 +55,7 @@
                     @foreach($gurudwara as $gurudwaras)
                     <tr>
                       <td>{{$count++}}</td>
-                      <td>{{$gurudwaras->gurudwara_email}}</td>
+                      <td><a href="{{route('admin.gurdwaralogin')}}?email={{$gurudwaras->gurudwara_email}}" target="_blank">{{$gurudwaras->gurudwara_email}}</a></td>
                       <td>{{$gurudwaras->gurudwara_name}}</td>
                       <td>{{$gurudwaras->gurudwara_phone_no}}</td>
                       <td> @if($gurudwaras->active=="I")
