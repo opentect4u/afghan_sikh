@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="col-md-6 form-group" id="enter_emailDiv">
-                  <input type="text" class="form-control" name="enter_email" id="enter_email" placeholder="Your Email"  data-msg="Please enter a valid email" />
+                  <input type="text" class="form-control" name="enter_email" id="enter_email" placeholder="Your Email OR Mobile No"  data-msg="Please enter a valid email" />
                   <div class="validate" id="enter_email_validate"></div>
                 </div>
                 <!-- <div class="col-md-6 form-group" id="enter_registration_noDiv">
@@ -389,15 +389,26 @@
         })
 
         $('#apply').click(function(){
-            
-            var email=$('#enter_email').val();
-            var registration_no=$('#enter_registration_no').val();
+          var var_user_type=$('input[name="fav_language"]:checked').val();
+          // alert(var_user_type)
+          var email=$('#enter_email').val();
+          var registration_no=$('#enter_registration_no').val();
+          if(var_user_type=="Self"){
             if(email=='' || registration_no==''){
-                alert("please enter email id or registration no.")
-                return false;
+              alert("please enter email id or mobile no.")
+              return false;
             }else{
             AjaxCall(email,registration_no);
             }
+          }else if(var_user_type=="Family"){
+            // alert(var_user_type)
+            if(email=='' || registration_no==''){
+              alert("please enter email id or mobile no.")
+              return false;
+            }else{
+            AjaxCall(email,registration_no);
+            }
+          }
         });
         
         // $( "#enter_email" ).change(function() {
