@@ -51,6 +51,32 @@
             <p> Services Management</p>
           </a>
         </li> -->
+        <!-- menu-open -->
+        <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' || Route::currentRouteName()=='gurudwara.marriage'?'menu-open':''}}">
+            <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' || Route::currentRouteName()=='gurudwara.marriage'?'active':''}}">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Certificates
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('gurudwara.marriage')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.marriage' ?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Marriage</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' ?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New Born</p>
+                </a>
+              </li>
+               -->
+             
+            </ul>
+          </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
