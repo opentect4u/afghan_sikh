@@ -41,6 +41,11 @@ Route::prefix('gurudwara')->group(function () {
     Route::get('/upload', [App\Http\Controllers\gurudwara\HomeController::class, 'ShowUpload'])->name('gurudwara.upload');
     Route::post('/uploadconfirm', [App\Http\Controllers\gurudwara\HomeController::class, 'Upload'])->name('gurudwara.uploadConfirm');
 
+    Route::get('/member', [App\Http\Controllers\gurudwara\MemberController::class, 'Show'])->name('gurudwara.member');
+    Route::get('/addmember', [App\Http\Controllers\gurudwara\MemberController::class, 'ShowAdd'])->name('gurudwara.addmember');
+    Route::post('/addmember', [App\Http\Controllers\gurudwara\MemberController::class, 'Add'])->name('gurudwara.addmemberConfirm');
+    Route::get('/editmember/{id?}', [App\Http\Controllers\gurudwara\MemberController::class, 'ShowEdit'])->name('gurudwara.editmember');
+    Route::post('/editmember', [App\Http\Controllers\gurudwara\MemberController::class, 'Edit'])->name('gurudwara.editmemberConfirm');
 
 });
             // all user route

@@ -4,7 +4,7 @@
   <!-- Brand Logo -->
   <a href="{{route('gurudwara.home')}}" class="brand-link">
     <img id="logo_img" src="" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light" id="name_gurdwara">Admin</span>
+    <span class="brand-text font-weight-light" id="name_gurdwara"></span>
   </a>
 
   <!-- Sidebar -->
@@ -39,12 +39,12 @@
             <p> Upload Letter Head & Logo</p>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a href="{{route('admin.user')}}" class="nav-link {{Route::currentRouteName()=='admin.user' || Route::currentRouteName()=='admin.useredit'?'active':''}}">
+        <li class="nav-item">
+          <a href="{{route('gurudwara.member')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.member' || Route::currentRouteName()=='gurudwara.addmember' || Route::currentRouteName()=='gurudwara.editmember'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
-            <p> User Management</p>
+            <p> Member Management</p>
           </a>
-        </li> -->
+        </li>
         <!-- <li class="nav-item">
           <a href="{{route('admin.services')}}" class="nav-link {{Route::currentRouteName()=='admin.services' || Route::currentRouteName()=='admin.servicesedit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
