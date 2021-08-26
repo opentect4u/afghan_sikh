@@ -201,7 +201,7 @@
         <li class="nav-item">
           <a href="{{route('admin.services')}}" class="nav-link {{Route::currentRouteName()=='admin.services' || Route::currentRouteName()=='admin.servicesedit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
-            <p> Services Management</p>
+            <p> Help Management</p>
           </a>
         </li>
       </ul>

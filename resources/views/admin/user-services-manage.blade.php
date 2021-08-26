@@ -45,7 +45,8 @@
                     <th>Sl No</th>
                     <th>User Id</th>
                     <th>Name</th>
-                    <th>Gurdwara Name</th>
+                    <th>Gurdwara</th>
+                    <th>Application Date</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -57,8 +58,8 @@
                       <td>{{$count++}}</td>
                       <td>{{$gurudwaras->email}}</td>
                       <td>{{$gurudwaras->surname}}</td>
-                      <!-- <td>{{$gurudwaras->created_at}}</td> -->
                       <td>@if($gurudwaras->gurudwaras_name!=''){{$gurudwaras->gurudwaras_name}} @else {{'--'}} @endif</td>
+                      <td>{{ Carbon\Carbon::parse($gurudwaras->created_at)->format('d M Y')}}</td>
                       <td>@if($gurudwaras->active=="I")
                         <b >{{"Pending"}}</b>
                         @elseif($gurudwaras->active=="A")

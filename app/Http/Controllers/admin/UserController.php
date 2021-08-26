@@ -111,7 +111,9 @@ class UserController extends Controller
 
     public function Edit($id){
         // return "hii";
-        $user_details = TdUserDetails::find(Crypt::decryptString($id));
+        $id=Crypt::decryptString($id);
+        // return $id;
+        $user_details = TdUserDetails::find($id);
         $country=MdCountry::get();
         $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
         $gurudwara=DB::table('md_user_login')
