@@ -47,6 +47,11 @@ Route::prefix('gurudwara')->group(function () {
     Route::get('/editmember/{id?}', [App\Http\Controllers\gurudwara\MemberController::class, 'ShowEdit'])->name('gurudwara.editmember');
     Route::post('/editmember', [App\Http\Controllers\gurudwara\MemberController::class, 'Edit'])->name('gurudwara.editmemberConfirm');
 
+    Route::get('/user', [App\Http\Controllers\gurudwara\UserController::class, 'Show'])->name('gurudwara.user');
+    Route::get('/useredit/{id?}', [App\Http\Controllers\gurudwara\UserController::class, 'ShowEdit'])->name('gurudwara.useredit');
+    Route::get('/services', [App\Http\Controllers\gurudwara\ServiceController::class, 'Show'])->name('gurudwara.services');
+    Route::get('/servicesedit/{id?}', [App\Http\Controllers\gurudwara\ServiceController::class, 'ShowEdit'])->name('gurudwara.servicesedit');
+
     Route::get('/newbron', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowNewBron'])->name('gurudwara.newbron');
 
     Route::get('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriage'])->name('gurudwara.marriage');

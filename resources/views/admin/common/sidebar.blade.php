@@ -51,6 +51,18 @@
             <p> Services Management</p>
           </a>
         </li> -->
+        <li class="nav-item">
+          <a href="{{route('gurudwara.user')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.user' || Route::currentRouteName()=='gurudwara.useredit'?'active':''}}">
+            <i class="nav-icon fas fa-table"></i>
+            <p> User Management</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('gurudwara.services')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.services' || Route::currentRouteName()=='gurudwara.servicesedit'?'active':''}}">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Help Management</p>
+          </a>
+        </li>
         <!-- menu-open -->
         <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' || Route::currentRouteName()=='gurudwara.marriage'?'menu-open':''}}">
             <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' || Route::currentRouteName()=='gurudwara.marriage'?'active':''}}">
