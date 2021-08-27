@@ -54,8 +54,11 @@ Route::prefix('gurudwara')->group(function () {
 
     Route::get('/newbron', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowNewBron'])->name('gurudwara.newbron');
 
-    Route::get('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriage'])->name('gurudwara.marriage');
-    Route::post('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriageConfirm'])->name('gurudwara.marriageConfirm');
+    Route::get('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'Show'])->name('gurudwara.marriage');
+    Route::get('/marriageadd', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriage'])->name('gurudwara.marriageadd');
+    Route::post('/marriageadd', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriageConfirm'])->name('gurudwara.marriageConfirm');
+    Route::get('/marriageedit/{id?}', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowEdit'])->name('gurudwara.marriageedit');
+    Route::post('/marriageedit', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'Edit'])->name('gurudwara.marriageeditConfirm');
     
     Route::get('/marriagereport/{id?}', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'Report'])->name('gurudwara.marriagereport');
 

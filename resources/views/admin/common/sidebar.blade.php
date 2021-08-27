@@ -67,11 +67,17 @@
         <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' || 
           Route::currentRouteName()=='gurudwara.marriage' ||
           Route::currentRouteName()=='gurudwara.addbirth' ||
-              Route::currentRouteName()=='gurudwara.adddeath'?'menu-open':''}}">
+          Route::currentRouteName()=='gurudwara.adddeath' || 
+          Route::currentRouteName()=='gurudwara.marriageadd' || 
+          Route::currentRouteName()=='gurudwara.marriageedit' || 
+          Route::currentRouteName()=='gurudwara.marriagereport'?'menu-open':''}}">
             <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' || 
               Route::currentRouteName()=='gurudwara.marriage' ||
               Route::currentRouteName()=='gurudwara.addbirth' ||
-              Route::currentRouteName()=='gurudwara.adddeath'?'active':''}}">
+              Route::currentRouteName()=='gurudwara.adddeath' || 
+              Route::currentRouteName()=='gurudwara.marriageadd' || 
+              Route::currentRouteName()=='gurudwara.marriageedit' || 
+              Route::currentRouteName()=='gurudwara.marriagereport'?'active':''}}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Certificates
@@ -80,7 +86,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('gurudwara.marriage')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.marriage' ?'active':''}}">
+                <a href="{{route('gurudwara.marriage')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.marriage' || Route::currentRouteName()=='gurudwara.marriageadd' || Route::currentRouteName()=='gurudwara.marriageedit' || Route::currentRouteName()=='gurudwara.marriagereport'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Marriage</p>
                 </a>

@@ -82,33 +82,43 @@ Of Shrimati</div>
   <tr>
     <td align="left" valign="middle" style="padding-bottom:25px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="50%" align="left" valign="middle"><p><strong>No: {{$datas->generate_number}}</strong></p></td>
-        <td align="right" valign="middle"><p><strong>Date:</strong> {{Carbon\Carbon::parse($datas->created_date)->format('d M Y')}}</p></td>
+        <td width="50%" align="left" valign="middle"><p><strong>No: </strong>{{$datas->generate_number}}</p></td>
+        <td align="right" valign="middle"><p><strong>Date of Issue:</strong> {{Carbon\Carbon::parse($datas->created_date)->format('d M Y')}}</p></td>
       </tr>
     </table></td>
   </tr>
+ 
+
   <tr>
-    <td align="left" valign="middle"><p><strong>Marriage Ceremony of Shri: {{$datas->ceremony_of_shri}}</strong></p></td>
+    <td align="left" valign="middle"><p><strong>Marriage Ceremony of Shri: </strong>{{$datas->ceremony_of_shri}}</p></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><p><strong>Son of Shri: {{$datas->son_of_shri}}</strong></p></td>
+    <td align="left" valign="middle"><p><strong>Son of Shri: </strong>{{$datas->son_of_shri}}</p></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><p><strong>With Shrimati: {{$datas->with_shrimati}}</strong></p></td>
+    <td align="left" valign="middle"><p><strong>With Shrimati: </strong>{{$datas->with_shrimati}}</p></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><p><strong>Daughter of Shri: {{$datas->daughter_of_shri}}</strong></p></td>
+    <td align="left" valign="middle"><p><strong>Daughter of Shri: </strong>{{$datas->daughter_of_shri}}</p></td>
   </tr>
   <tr>
     <!-- <td align="left" valign="middle"><p><strong>Date of Marriage: </strong></p></td> -->
   </tr>
   <tr>
-    <td align="left" valign="middle"><p><strong>Date:</strong> {{Carbon\Carbon::parse($datas->date_of_marriage)->format('d M Y')}} <strong>Word:</strong></p></td>
+    <td align="left" valign="middle"><p><strong>Date of Marriage:</strong> {{Carbon\Carbon::parse($datas->date_of_marriage)->format('d M Y')}} 
+      <!-- <strong>Word:</strong> -->
+      </p>
+    </td>
   </tr>
+  @if(isset($duplicate))
   <tr>
+    <td align="left" valign="middle" style="padding-top:25px; text-align:center;"><p style="color:black;">DUPLICATE COPY</p></td>
+  </tr>
+  @endif
+  <!-- <tr>
     <td align="left" valign="middle" style="padding-top:25px; text-align:center;"><p>Lorem Ipsum is simply dummy text of the <br>
       printing:</p></td>
-  </tr>
+  </tr> -->
 </table>
 
 </div></td>
