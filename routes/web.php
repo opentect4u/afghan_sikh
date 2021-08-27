@@ -56,6 +56,14 @@ Route::prefix('gurudwara')->group(function () {
 
     Route::get('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriage'])->name('gurudwara.marriage');
     Route::post('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriageConfirm'])->name('gurudwara.marriageConfirm');
+    
+    Route::get('/report', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'Report'])->name('gurudwara.report');
+
+
+    Route::get('/addbirth', [App\Http\Controllers\gurudwara\BirthReportController::class, 'ShowAdd'])->name('gurudwara.addbirth');
+    Route::post('/addbirth', [App\Http\Controllers\gurudwara\BirthReportController::class, 'Add'])->name('gurudwara.addbirthConfirm');
+    Route::get('/adddeath', [App\Http\Controllers\gurudwara\DeathReportController::class, 'ShowAdd'])->name('gurudwara.adddeath');
+    Route::post('/adddeath', [App\Http\Controllers\gurudwara\DeathReportController::class, 'Add'])->name('gurudwara.adddeathConfirm');
 
 
 });

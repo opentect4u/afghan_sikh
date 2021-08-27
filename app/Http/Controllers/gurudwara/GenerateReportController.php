@@ -77,4 +77,8 @@ class GenerateReportController extends Controller
         ));
         return $data;
     }
+
+    public function Report(){
+        return view('gurudwara.report');
+    }
 }

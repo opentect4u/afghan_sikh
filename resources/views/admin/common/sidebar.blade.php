@@ -64,8 +64,14 @@
           </a>
         </li>
         <!-- menu-open -->
-        <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' || Route::currentRouteName()=='gurudwara.marriage'?'menu-open':''}}">
-            <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' || Route::currentRouteName()=='gurudwara.marriage'?'active':''}}">
+        <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' || 
+          Route::currentRouteName()=='gurudwara.marriage' ||
+          Route::currentRouteName()=='gurudwara.addbirth' ||
+              Route::currentRouteName()=='gurudwara.adddeath'?'menu-open':''}}">
+            <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' || 
+              Route::currentRouteName()=='gurudwara.marriage' ||
+              Route::currentRouteName()=='gurudwara.addbirth' ||
+              Route::currentRouteName()=='gurudwara.adddeath'?'active':''}}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Certificates
@@ -73,10 +79,22 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            <li class="nav-item">
+              <li class="nav-item">
                 <a href="{{route('gurudwara.marriage')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.marriage' ?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Marriage</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('gurudwara.addbirth')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.addbirth' ?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Birth</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('gurudwara.adddeath')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.adddeath' ?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Death</p>
                 </a>
               </li>
               <!-- <li class="nav-item">
