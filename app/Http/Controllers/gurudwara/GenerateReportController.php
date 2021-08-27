@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\Models\TdMarriageDetails;
+use Illuminate\Support\Facades\Crypt;
 
 class GenerateReportController extends Controller
 {
@@ -75,10 +76,22 @@ class GenerateReportController extends Controller
             'created_date' =>date('Y-m-d'),
             'created_by'=>$created_by,
         ));
-        return $data;
+        // return $data;
+        return redirect()->route('gurudwara.marriagereport',['id' => Crypt::encryptString($data->id)]);
     }
 
-    public function Report(){
-        return view('gurudwara.report');
+    public function Report($id){
+        $id=Crypt::decryptString($id);
+        // return $id;
+        $data=DB::table('td_marriage_details')
+                ->leftJoin('td_gurudwara_details', 'td_marriage_details.at_gurdwara', '=', 'td_gurudwara_details.id')
+                ->leftJoin('md_country', 'td_gurudwara_details.country', '=', 'md_country.id')
+                ->select('td_marriage_details.*', 'td_gurudwara_details.*','md_country.name as country_name') 
+                // ->Where('td_marriage_details.user_type','G')               
+                ->Where('td_marriage_details.id',$id)               
+                // ->orderBy('td_marriage_details.updated_at', 'desc')
+                ->get();
+        // return $data;
+        return view('gurudwara.marriage-report',['data'=>$data]);
     }
 }

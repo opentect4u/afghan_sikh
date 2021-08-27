@@ -57,7 +57,7 @@ Route::prefix('gurudwara')->group(function () {
     Route::get('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriage'])->name('gurudwara.marriage');
     Route::post('/marriage', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'ShowMarriageConfirm'])->name('gurudwara.marriageConfirm');
     
-    Route::get('/report', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'Report'])->name('gurudwara.report');
+    Route::get('/marriagereport/{id?}', [App\Http\Controllers\gurudwara\GenerateReportController::class, 'Report'])->name('gurudwara.marriagereport');
 
 
     Route::get('/addbirth', [App\Http\Controllers\gurudwara\BirthReportController::class, 'ShowAdd'])->name('gurudwara.addbirth');
