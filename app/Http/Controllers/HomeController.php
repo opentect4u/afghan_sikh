@@ -20,13 +20,13 @@ class HomeController extends Controller
         // return $request;
         $name=$request->name;
         $email=$request->email;
-        $subject=$request->subject;
+        $subject1=$request->subject;
         $message=$request->message;
-        // return $message;
+        return $message;
         $email_id=app('App\Http\Controllers\HomeController')->EmailSendAddress();
         // return $email_id;
-        Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject,$message));
-        Mail::to($request->email)->send(new ContactUsEmail($name,$subject, $message));
+        Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject1,$message));
+        Mail::to($request->email)->send(new ContactUsEmail($name,$subject1, $message));
         return redirect()->route('index')->with('success','success');
     }
 }

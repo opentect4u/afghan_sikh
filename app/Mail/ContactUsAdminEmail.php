@@ -12,18 +12,18 @@ class ContactUsAdminEmail extends Mailable
     use Queueable, SerializesModels;
     public $name;
     public $email;
-    public $subject;
+    public $subject1;
     public $message;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name,$email,$subject,$message)
+    public function __construct($name,$email,$subject1,$message)
     {
         $this->name=$name;
         $this->email=$email;
-        $this->subject=$subject;
+        $this->subject1=$subject1;
         $this->message=$message;
     }
 
