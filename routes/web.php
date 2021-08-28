@@ -23,7 +23,7 @@ Route::get('/test', [App\Http\Controllers\TestController::class, 'Test'])->name(
 
 
 
- Route::get('/', [App\Http\Controllers\HomeController::class, 'Index'])->name('indexnot');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'Index'])->name('indexnot');
 Route::get('/index', [App\Http\Controllers\HomeController::class, 'Index'])->name('index');
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'CreateCart'])->name('user.addtocart');
 
