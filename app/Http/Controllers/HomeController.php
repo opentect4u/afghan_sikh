@@ -21,8 +21,8 @@ class HomeController extends Controller
         $name=$request->name;
         $email=$request->email;
         $subject1=$request->subject;
-        $message=json_decode($request->message,true);
-        return $message;
+        $message=$request->message;
+        // return $message;
         $email_id=app('App\Http\Controllers\HomeController')->EmailSendAddress();
         // return $email_id;
         Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject1,$message));
