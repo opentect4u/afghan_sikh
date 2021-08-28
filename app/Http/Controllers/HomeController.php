@@ -22,7 +22,7 @@ class HomeController extends Controller
         $email=$request->email;
         $subject1=$request->subject;
         $message=$request->message;
-        return $message;
+        // return $message;
         $email_id=app('App\Http\Controllers\HomeController')->EmailSendAddress();
         // return $email_id;
         Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject1,$message));
