@@ -65,7 +65,7 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
     
     <tr>
       <td align="left" valign="top">
-          <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;"><strong>Message : </strong> <?php echo json_decode($message,true);?></p>
+          <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;"><strong>Message : </strong> <?php echo $message;?></p>
         </td>
       </tr>
     <tr>
