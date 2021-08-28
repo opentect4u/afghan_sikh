@@ -13,18 +13,18 @@ class ContactUsAdminEmail extends Mailable
     public $name;
     public $email;
     public $subject1;
-    public $message;
+    public $message1;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name,$email,$subject1,$message)
+    public function __construct($name,$email,$subject1,$message1)
     {
         $this->name=$name;
         $this->email=$email;
         $this->subject1=$subject1;
-        $this->message=$message;
+        $this->message1=$message1;
     }
 
     /**

@@ -21,12 +21,12 @@ class HomeController extends Controller
         $name=$request->name;
         $email=$request->email;
         $subject1=$request->subject;
-        $message=$request->subject;
+        $message1=$request->message;
         // return $message;
         $email_id=app('App\Http\Controllers\HomeController')->EmailSendAddress();
         // return $email_id;
-        Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject1,$message));
-        Mail::to($request->email)->send(new ContactUsEmail($name,$subject1, $message));
+        Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject1,$message1));
+        Mail::to($request->email)->send(new ContactUsEmail($name,$subject1,$message1));
         return redirect()->route('index')->with('success','success');
     }
 }

@@ -44,7 +44,7 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
       </tr>
     <tr>
       <td align="left" valign="top">
-      <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;"><strong>Subject : </strong> {{$subject1}}</p>
+      <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;"><strong>Message : </strong> {{$message1}}</p>
         </td>
       </tr>
     <tr>
