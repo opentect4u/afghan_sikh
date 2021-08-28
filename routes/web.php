@@ -27,6 +27,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'Index'])->name('in
 Route::get('/index', [App\Http\Controllers\HomeController::class, 'Index'])->name('index');
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'CreateCart'])->name('user.addtocart');
 
+Route::post('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
+
                 // all gurudwara route
 Route::prefix('gurudwara')->group(function () {
     Route::get('/login', [App\Http\Controllers\gurudwara\LoginController::class, 'Show'])->name('gurudwara.login');

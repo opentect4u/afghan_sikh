@@ -11,8 +11,11 @@ class TestController extends Controller
 {
     public function Test(){
 
-        $data=DB::table('mytest')->get();
-        return $data;
+        // $data=DB::table('mytest')->get();
+        // return $data;
+        // return "hh";
+        $name= env('MAIL_FROM_ADDRESS');
+        return $name;
         // $invID=10;
         // return $invID = str_pad($invID, 4, '0', STR_PAD_LEFT);
 
