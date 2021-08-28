@@ -25,7 +25,7 @@ class HomeController extends Controller
         // return $message;
         $email_id=app('App\Http\Controllers\HomeController')->EmailSendAddress();
         // return $email_id;
-        Mail::to($request->email)->send(new ContactUsAdminEmail($name,$email,$subject,$message));
+        Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject,$message));
         Mail::to($request->email)->send(new ContactUsEmail($name,$subject, $message));
         return redirect()->route('index')->with('success','success');
     }

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Afganisthan</title>
+<title>Afghan Sikh </title>
 <style type="text/css">
 body{font-family:Arial, Helvetica, sans-serif; font-size:13px; margin:0; padding:0;}
 p{font-size:13px; line-height:25px; margin:0; padding:0;}
