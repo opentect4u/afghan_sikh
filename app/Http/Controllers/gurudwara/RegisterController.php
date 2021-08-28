@@ -12,6 +12,8 @@ use Image;
 use App\Models\MdUserLogin;
 use App\Models\TdGurudwaraDetails;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\GurdwaraRegisterEmail;
 
 class RegisterController extends Controller
 {
@@ -88,6 +90,7 @@ class RegisterController extends Controller
             // 'gurudwara_head_photo'=>$gurudwara_head_profilepicname,
             'created_by'=>$gurudwara_name,
         ));
+        Mail::to($gurudwara_email)->send(new GurdwaraRegisterEmail($gurudwara_name,$gurudwara_email,$password));
         $success='success';
         }
 

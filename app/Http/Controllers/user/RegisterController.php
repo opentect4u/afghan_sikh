@@ -8,6 +8,8 @@ use App\Models\MdCountry;
 use App\Models\TdUserDetails;
 use App\Models\TdUserFamilyDetails;
 use DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegisterEmail;
 
 class RegisterController extends Controller
 {
@@ -106,6 +108,8 @@ class RegisterController extends Controller
                 'created_by'=> $givenname,
             ));
         }
+        Mail::to($email)->send(new UserRegisterEmail($surname,$givenname));
+
         $arrNewResult = array();
         $arrNewResult['surname'] = $surname;
         $arrNewResult['succes'] = "success";
