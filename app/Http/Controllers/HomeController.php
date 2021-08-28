@@ -21,7 +21,7 @@ class HomeController extends Controller
         $name=$request->name;
         $email=$request->email;
         $subject1=$request->subject;
-        $message=json_decode($request->message);
+        $message=json_decode($request->message,true);
         return $message;
         $email_id=app('App\Http\Controllers\HomeController')->EmailSendAddress();
         // return $email_id;
