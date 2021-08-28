@@ -252,7 +252,8 @@
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" required name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <input type="text" class="form-control" name="message" id="message" placeholder="Message" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <!-- <textarea class="form-control" required name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea> -->
                 <div class="validate"></div>
               </div>
               <div class="mb-3">
