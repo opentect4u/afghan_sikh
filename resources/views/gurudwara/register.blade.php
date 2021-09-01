@@ -201,7 +201,7 @@
                 }
             }
             if(dataDurationtime2=="step3"){
-                alert(dataDurationtime2);
+                // alert(dataDurationtime2);
                 var gurudwara_head_name=$('#gurudwara_head_name').val();
                 var gurudwara_head_address=$('#gurudwara_head_address').val();
                 var gurudwara_head_phone_no=$('#gurudwara_head_phone_no').val();
