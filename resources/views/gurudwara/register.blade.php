@@ -255,6 +255,19 @@
 
         $(".previous").click(function(){
 
+            var dataDurationtime=$("#step1").attr("data-attribute");
+            var dataDurationtime1=$("#step2").attr("data-attribute");
+            var dataDurationtime2=$("#submit").attr("data-attribute");
+            // alert(dataDurationtime);
+            // alert(dataDurationtime1);
+            // alert(dataDurationtime2);
+            if(dataDurationtime2==''){
+                $("#step2").attr("data-attribute","");
+            }
+            if(dataDurationtime2!=''){
+                $("#submit").attr("data-attribute","");
+            }
+
         current_fs = $(this).parent();
         previous_fs = $(this).parent().prev();
 
