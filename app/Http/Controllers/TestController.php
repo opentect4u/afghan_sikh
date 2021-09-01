@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use App\Models\MdUserLogin;
+use App\Models\TdUserDetails;
 
 class TestController extends Controller
 {
@@ -14,6 +15,11 @@ class TestController extends Controller
         // $data=DB::table('mytest')->get();
         // return $data;
         // return "hh";
+        $email='';
+        // $email='cmaity905@gmail.com';
+        $mobile='161654';
+        $has_email=TdUserDetails::where('email',$email)->orWhere('mobile',$mobile)->get();
+        return $has_email;
         $name= env('MAIL_FROM_ADDRESS');
         return  asset('public/img/phon.jpg');
         // $invID=10;

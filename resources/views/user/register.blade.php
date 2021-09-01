@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"  />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css"  />
 
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css"> -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
     <div class="container">
@@ -61,6 +66,7 @@
                                         <option value="O">Other</option>
                                     </select>
                                     <label class="fieldlabels">DOB : *</label> 
+                                    <!-- <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" data-format="dd/mm/yyyy" data-msg="Please enter at least 4 chars" /> -->
                                     <input type="date" name="date" id="date" placeholder="Date of Birth" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Birth Place : *</label> 
                                     <input type="text" name="birth_place" id="birth_place" placeholder="Place of Birth Town/City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -667,13 +673,13 @@
                                             <h2 class="steps">Step 4 - 4</h2>
                                         </div>
                                     </div> <br><br>
-                                    <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                                    <h2 class="purple-text text-center"><strong id="statusMsg">SUCCESS !</strong></h2> <br>
                                     <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                                        <div class="col-3"> <img id="satusImg" src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
                                     </div> <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
-                                            <h5 class="purple-text text-center">Form Submited Successfully</h5>
+                                            <h5 class="purple-text text-center" id="msgMsg">Form Submited Successfully</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -956,6 +962,15 @@
         // });
 
         // $('#date').datetimepicker();
+        // $('#date').datetimepicker({  
+        //  minDate:new Date()
+        // });
+        $('#date').datepicker({ 
+            autoclose: true,
+            endDate: new Date(),
+            dateFormat: 'dd/mm/yyyy'
+            // startDate: new Date()
+        });
 
         // addMember section
         $('#personDiv1').hide();
@@ -1093,6 +1108,12 @@
 
     });
     function varRegister(){
+        // statusMsg
+        // satusImg
+        // msgMsg
+        $('#statusMsg').empty();
+        $('#satusImg').removeAttr('src');
+        $('#msgMsg').empty();
         var surname=$('#surname').val();
             var givenname=$('#givenname').val();
             var gender=$('#gender').val();
@@ -1149,11 +1170,22 @@
             passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
             ,other_doc_1_1:other_doc_1_1,other_doc_2_1:other_doc_2_1},
                 success: function(data){
-                    // alert(data);
-                    // var obj = JSON.parse ( data );
-                    // var msg=obj.msg;
-                    // $("#accept").hide();
-                    // $("#deny").hide();
+                    alert(data);
+                    var obj = JSON.parse ( data );
+                    var msg=obj.msg;
+                    var imgurl='https://i.imgur.com/GwStPmg.png';
+                    if(msg=="success"){
+                        $('#statusMsg').append('SUCCESS !');
+                        $('#satusImg').attr('src',imgurl);
+                        $('#msgMsg').append('Form Submited Successfully Pending for approval'); 
+                    }else if(msg=="already"){
+                        $('#statusMsg').append('FAILED !');
+                        // $('#satusImg').attr('src',imgurl);
+                        $('#msgMsg').append('Already Submited This Email Id or Phone No'); 
+                    }
+                    // $('#statusMsg').empty();
+                    // $('#satusImg').removeAttr();
+                    // $('#msgMsg').empty();
                     
                 }
             });

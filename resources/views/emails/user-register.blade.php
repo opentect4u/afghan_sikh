@@ -44,7 +44,7 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
       </tr>
     <tr>
       <td align="left" valign="top">
-            <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">Thank you for registering with Afghan Sikh as a User.</p>
+            <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">Thank you for registering with Afghan Sikh as a User and Pending for approval.</p>
         </td>
       </tr>
     
