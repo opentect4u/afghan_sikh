@@ -92,13 +92,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('gurudwara.addbirth')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.addbirth' ?'active':''}}">
+                <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.addbirth' ?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Birth</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('gurudwara.adddeath')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.adddeath' ?'active':''}}">
+                <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.adddeath' ?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Death</p>
                 </a>
