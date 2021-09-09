@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin | Afghan Sikh Helps Line</title>
-
+<link rel="icon" href="{{ asset('public/img/favicon.png') }}" />
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -13,11 +13,13 @@
   <link rel="stylesheet" href="{{ asset('public/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('public/admin/dist/css/adminlte.min.css') }}">
+<link rel="stylesheet" href="{{ asset('public/admin/dist/css/apps.css') }}">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
+	<div class="afghanLogin">
   <div class="login-logo">
-    <a href="{{route('admin.login')}}"><b>Admin</b></a>
+    <a href="{{route('admin.login')}}"><img src="{{ asset('public/img/logo.png') }}" alt=""></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -57,7 +59,7 @@
           </div> -->
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="login-button">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -83,6 +85,7 @@
     </div>
     <!-- /.login-card-body -->
   </div>
+	</div>
 </div>
 <!-- /.login-box -->
 

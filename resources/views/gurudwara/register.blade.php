@@ -19,8 +19,8 @@
         <div class="row justify-content-center">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2 id="heading">Sign Up Your Gurdwara Account</h2>
-                    <p>Fill all form field to go to next step</p>
+                    <h2 id="heading" class="loginTitle">Sign Up Your Gurdwara Account</h2>
+                    <h5>Fill all form field to go to next step</h5>
                     <form class="myForm" id="msform" method="POST" enctype="multipart/form-data">
                     @csrf
                         <!-- progressbar -->
@@ -34,12 +34,13 @@
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                         </div> <br> <!-- fieldsets -->
                         <fieldset>
+							<div class="afghanLogin">
                             <div class="form-card">
                                 <div class="row">
-                                    <div class="col-7">
+                                    <div class="col-7 register_title">
                                         <h2 class="fs-title">Account Information:</h2>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-5 stepSec">
                                         <h2 class="steps">Step 1 - 4</h2>
                                     </div>
                                 </div> 
@@ -53,14 +54,16 @@
                                 <input type="password" name="cpwd" id="cpwd" placeholder="Confirm Password" />
                             </div> 
                             <input type="button" name="step1" id="step1" data-attribute="step1" class="next action-button" value="Next" />
+							</div>
                         </fieldset>
                         <fieldset>
+							<div class="afghanLogin">
                             <div class="form-card">
                                 <div class="row">
-                                    <div class="col-7">
+                                    <div class="col-7 register_title">
                                         <h2 class="fs-title">Gurdwara Information:</h2>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-5 stepSec">
                                         <h2 class="steps">Step 2 - 4</h2>
                                     </div>
                                 </div> 
@@ -84,14 +87,16 @@
                             </div> 
                             <input type="button" name="step2" id="step2" data-attribute="" class="next action-button" value="Next" /> 
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+							</div>
                         </fieldset>
                         <fieldset>
+							<div class="afghanLogin">
                             <div class="form-card">
                                 <div class="row">
-                                    <div class="col-7">
+                                    <div class="col-7 register_title">
                                         <h2 class="fs-title">Gurdwara Head:</h2>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-5 stepSec">
                                         <h2 class="steps">Step 3 - 4</h2>
                                     </div>
                                 </div> 
@@ -108,20 +113,24 @@
                             </div> 
                             <input type="button" name="submit" id="submit" data-attribute="" class="next action-button" value="Submit" /> 
                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+							</div>
                         </fieldset>
                         <fieldset>
+							<div class="afghanLogin">
                             <div class="form-card">
                                 <div class="row">
-                                    <div class="col-7">
+                                    <div class="col-7 register_title">
                                         <h2 class="fs-title">Finish:</h2>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-5 stepSec">
                                         <h2 class="steps">Step 4 - 4</h2>
                                     </div>
                                 </div> <br><br>
                                 <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
                                 <div class="row justify-content-center">
-                                    <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                                    <div class="col-3"> 
+										<img src="{{ asset('public/img/GwStPmg.png') }}" alt="" class="fit-image">
+										</div>
                                 </div> <br><br>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
@@ -129,6 +138,8 @@
                                     </div>
                                 </div>
                             </div>
+							</div>
+								
                         </fieldset>
                     </form>
                 </div>

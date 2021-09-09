@@ -22,7 +22,7 @@
       
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
           <div class="col-xl-9 col-lg-12 mt-4">
-          <div class="form-row php-email-form">
+          <div class="form-row php-email-form afghanLogin">
             <div class="col-md-6 form-group">
 
                 <input type="radio" id="html" name="fav_language" value="Self" checked>
@@ -52,7 +52,7 @@
         </div>
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
           <div class="col-xl-9 col-lg-12 mt-4" id="selfRegisterDiv">
-            <form action="{{route('user.registerservicesConfirm')}}" method="POST" role="form" id="regmyform" class="php-email-form">
+            <form action="{{route('user.registerservicesConfirm')}}" method="POST" role="form" id="regmyform" class="php-email-form afghanLogin">
             <!-- <form action="{{route('user.registerservicesConfirm')}}" method="POST" role="form" class="php-email-form"> -->
                 @csrf
                 <input type="hidden" name="register_by" id="register_by" value=""/>

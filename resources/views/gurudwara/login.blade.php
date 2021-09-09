@@ -17,9 +17,10 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
+			
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2 id="heading"> Gurdwara Login</h2>
+                <div class="card afghanLogin px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2 id="heading" class="loginTitle"> Gurdwara Login</h2>
                     @if(Session::has('notregister'))
                     <p style="color:red;">please register</p>
                     @endif
@@ -39,7 +40,7 @@
                          <input type="password" name="cpwd" placeholder="Confirm Password" /> -->
                       </div> 
                       <input type="submit" name="submit" id="submit" class="login-button" value="Login" />
-                      <div class="form-card">
+                      <div class="form-card registerBtn">
                         <!-- <input type="button" name="" id="" class="login-button" value="Register" onclick /> -->
                         <a href="{{route('gurudwara.register')}}">Register</a>
                       </div>

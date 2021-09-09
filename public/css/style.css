@@ -104,7 +104,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  height: 70px;
+/*  height: 70px;*/
+  height: 134px;
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
@@ -115,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 #header.header-scrolled {
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
-
+#header .logo {width: 125px;}
 #header .logo h1 {
   font-size: 28px;
   margin: 0;
@@ -133,7 +134,8 @@ h1, h2, h3, h4, h5, h6 {
 #header .logo img {
   padding: 0;
   margin: 0;
-  max-height: 40px;
+/*  max-height: 40px;*/
+max-height:98px;
 }
 
 #main {
@@ -141,14 +143,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.applyCustom{background: #ffa716;
+.applyCustom{background:#ffa716 !important;
   border: 0;
   padding: 11px 24px !important;
-  color: #fff;
+  color: #fff !important;
   transition: 0.4s;
   width: auto;
   line-height: 20px;
-  font-size: 17px !important;
+  font-size: 17px !important; border-radius: 5px;
   height: auto;}
   .applyCustom:hover{background: #ff7e54; color: #fff;}
   .applyCustom:focus{background: #ff7e54; color: #fff;}
@@ -161,6 +163,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   list-style: none;
 }
+.nav-menu > ul {margin-top: 37px;}
 
 .nav-menu > ul > li {
   position: relative;
@@ -1697,7 +1700,7 @@ section {
   border: 0;
   padding: 10px 24px;
   color: #fff;
-  transition: 0.4s;
+  transition: 0.4s; border-radius: 5px;
 }
 
 .contact .php-email-form button[type="submit"]:hover {
@@ -2410,6 +2413,38 @@ section {
 .contact {
    
 }
+
+.afghanLogin {
+    background: #FFF;
+    padding: 20px !important;
+    border-radius: 10px;
+	box-shadow: 0px 0 4px 3px #e6e5e5;
+	display: inline-block; width: 100%;}
+h2.loginTitle {font-size: 26px;}
+
+input.login-button{background: #2b2b2b !important; color: #fff !important; font-weight: 500; margin-bottom: 15px !important; padding: 14px 32px !important;}
+
+.registerBtn a{background: #ff5821 !important;
+color: #fff !important;
+font-weight: 500;
+padding:14px 32px !important;
+font-size: 14px;
+width: 100%;
+max-width: 100%;
+display: block;
+text-align: center;
+border-radius: 5px;}
+
+.register_title h2.fs-title {font-size: 22px;}
+.stepSec h2.steps{font-size: 17px; font-weight: 600; color: #333;}
+
+
+.contact .php-email-form input, .contact .php-email-form textarea{padding: 8px 15px 8px 15px; color: #2C3E50; background-color: #F4F6F7; 
+	font-size: 14px; border-radius: 5px;}
+
+select.form-control{padding: 8px 15px 8px 15px; color: #2C3E50; background-color: #F4F6F7; 
+	font-size: 14px; border-radius: 5px;}
+
 @media screen and (max-width: 640px) {
 
 #header .logo h1 {

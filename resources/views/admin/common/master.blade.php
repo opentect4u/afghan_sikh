@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+        <link rel="icon" href="{{ asset('public/img/favicon.png') }}" />
+		
         @if(isset(Session::get('gurudwara')[0]['user_type']))
         <title>Gurdwara | Afghan Sikh Helps Line</title>
         @else
@@ -39,7 +40,9 @@
         <link rel="stylesheet" href="{{ asset('public/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
         <link rel="stylesheet" href="{{ asset('public/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+	
+		<link rel="stylesheet" href="{{ asset('public/admin/dist/css/apps.css') }}">
+		
       <script type="text/javascript">
             $.ajaxSetup ( {
                 headers: {

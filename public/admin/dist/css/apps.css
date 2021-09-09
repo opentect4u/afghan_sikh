@@ -1,0 +1,49 @@
+
+
+.afghanLogin {
+    background: #FFF;
+    padding: 20px !important;
+    border-radius: 10px;
+	box-shadow: 0px 0 4px 3px #e6e5e5;
+	display: inline-block; width: 100%;}
+
+
+
+.afghanLogin .card{box-shadow:none;}
+
+.afghanLogin .card .login-card-body{padding: 0;}
+
+
+button.login-button{
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #2b2b2b;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #fff;
+    background-color: #2b2b2b;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+.brand-link .brand-image {
+    float: left;
+    line-height: .8;
+    margin-left: .8rem;
+    margin-right: .5rem;
+    margin-top: -3px;
+    width: auto;
+    overflow: inherit;
+    border-radius: 0;
+}
+.layout-fixed .brand-link {display: inline-block; background: #fff; text-align: center;}
+.elevation-3 {
+    box-shadow:none !important;
+}
+
+.brand-link .brand-image{max-height: inherit; margin: 0 auto; float: none; max-height: 90px;}
+
+
+

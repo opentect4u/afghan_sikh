@@ -20,7 +20,7 @@
 <header id="header">
   <div class="container d-flex">
     <div class="logo mr-auto">
-      <h1 class="text-light"><a href="{{route('index')}}"><span>Afghan Sikh Helps Line</span></a></h1>
+      <h1 class="text-light"><a href="{{route('index')}}"><img src="{{ asset('public/img/logo.png') }}" alt=""></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     </div>
