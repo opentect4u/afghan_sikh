@@ -35,8 +35,9 @@
                         <h5>Fill all form field to go to next step</h5>
                         <!-- <p>Fill all form field to go to next step</p> -->
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
-                        <form id="msform" name="msform" method="POST" action="{{route('user.register')}}" autocomplete="off">
+                        <form id="msform" name="msform" method="POST" action="{{route('user.registerstep3confirm')}}" autocomplete="off">
                             @csrf
+                            <input type="text" hidden name="register_stage" id="register_stage" value="3"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">
                                 <li class="active" id="account"><strong>Step 1</strong></li>
@@ -59,18 +60,34 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-		                            @if(Session::has('already'))
-                                    <label class="errorMsg" style="color:red;">Already register this email id or mobile no</label> 
-                                    @endif
-                                    </br>
-                                    <label class="fieldlabels">Email/Mobile *</label> 
-                                    <input type="text" name="email_mobile" required class="form-control" id="email_mobile" placeholder="Enter Email or Mobile" />
-                                    <label class="fieldlabels">Password: *</label> 
-                                    <input type="password" name="password" required class="form-control" id="password" placeholder="Password:" />
-                                    <label class="fieldlabels">Confirm Password : *</label> 
-                                    <input type="password" name="con_password" id="con_password" required placeholder="Confirm Password:" />
+                                    <!-- *Birth Place/Birth Country/*Current Nationality/Previous/Past Nationality  -->
+
+                                    <label class="fieldlabels">Birth Place: *</label> 
+                                    <input type="text" name="birth_place" required class="form-control" id="birth_place" placeholder="Birth Place" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Birth Country: *</label> 
+                                    <select name="birth_country" id="birth_country" required>
+                                        <option value=""> --Select Country of Birth-- </option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        @endforeach
+                                    </select>
+
+                                    <label class="fieldlabels">Current Nationality: *</label> 
+                                    <select name="nationality" id="nationality" required>
+                                        <option value=""> --Select Current Nationality-- </option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label class="fieldlabels">Previous/Past Nationality: </label> 
+                                    <select name="previous_nationality" id="previous_nationality">
+                                        <option value=""> --Select Previous/Past Nationality-- </option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div> 
-                                <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
+                                <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
 									
 								</div>
                             </fieldset>
@@ -282,21 +299,21 @@
 <script>
     $(document).ready(function(){
 
-        $("#step1").click(function(){
-            var email_mobile=$("#email_mobile").val();
-            var password=$("#password").val();
-            var con_password=$("#con_password").val();
-            var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
-            // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+        // $("#step1").click(function(){
+        //     var email_mobile=$("#email_mobile").val();
+        //     var password=$("#password").val();
+        //     var con_password=$("#con_password").val();
+        //     var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
+        //     // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
 
-            if(!regex.test(email_mobile)){
-                alert("Please enter valid email address or phone number.");
-                return false;
-            }else if (password!=con_password) {
-                alert('Password and confirm password did not match!');
-                return false;
-            }
-        });
+        //     if(!regex.test(email_mobile)){
+        //         alert("Please enter valid email address or phone number.");
+        //         return false;
+        //     }else if (password!=con_password) {
+        //         alert('Password and confirm password did not match!');
+        //         return false;
+        //     }
+        // });
         
 
         // $("#submit").click(function(){
@@ -372,7 +389,7 @@
         // $('#date').datetimepicker({  
         //  minDate:new Date()
         // });
-        $('#date').datepicker({ 
+        $('#dob').datepicker({ 
             autoclose: true,
             endDate: new Date(),
             dateFormat: 'dd/mm/yyyy'

@@ -34,7 +34,7 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
     <tr>
       <td align="left" valign="middle" style="padding-bottom:25px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="50%" align="left" valign="top" style="font-size:13px; line-height:18px; margin:0; padding:0;">Hi {{$givenname}} {{$surname}} <br>
+          <td width="50%" align="left" valign="top" style="font-size:13px; line-height:18px; margin:0; padding:0;">Hi {{$givenname}} <br>
             <!-- text of the printing and <br> -->
             <!-- typesetting industry. </p> -->
             </td>
@@ -44,8 +44,11 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
       </tr>
     <tr>
       <td align="left" valign="top">
-            <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">Thank you for registering with Afghan Sikh as a User and Pending for approval.</p>
-        </td>
+        <!-- <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">
+        Thank you for registering with Afghan Sikh as a User and Pending for approval.
+      </p> -->
+        <a href="{{$url}}">Click here to continue fill the form</a>
+      </td>
       </tr>
     
     

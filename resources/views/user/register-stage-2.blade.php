@@ -35,7 +35,7 @@
                         <h5>Fill all form field to go to next step</h5>
                         <!-- <p>Fill all form field to go to next step</p> -->
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
-                        <form id="msform" name="msform" method="POST" action="{{route('user.register')}}" autocomplete="off">
+                        <form id="msform" name="msform" method="POST" action="{{route('user.registerstep2confirm')}}" autocomplete="off">
                             @csrf
                             <input type="text" hidden name="register_stage" id="register_stage" value="2"/>
                             <!-- progressbar -->
@@ -64,8 +64,18 @@
                                     <input type="text" name="surname" required class="form-control" id="surname" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Given Name (As in Passport): *</label> 
                                     <input type="text" name="givenname" class="form-control" id="givenname" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Gender : *</label> 
+                                    <select name="gender" id="gender">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                    <label class="fieldlabels">Date of Birth : *</label> 
+                                    <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY" readonly data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Afghan ID : </label> 
+                                    <input type="text" name="afghan_id" id="afghan_id" placeholder="Afghan ID" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 </div> 
-                                <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
+                                <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
 									
 								</div>
                             </fieldset>
@@ -277,21 +287,21 @@
 <script>
     $(document).ready(function(){
 
-        $("#step1").click(function(){
-            var email_mobile=$("#email_mobile").val();
-            var password=$("#password").val();
-            var con_password=$("#con_password").val();
-            var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
-            // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+        // $("#step1").click(function(){
+        //     var email_mobile=$("#email_mobile").val();
+        //     var password=$("#password").val();
+        //     var con_password=$("#con_password").val();
+        //     var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
+        //     // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
 
-            if(!regex.test(email_mobile)){
-                alert("Please enter valid email address or phone number.");
-                return false;
-            }else if (password!=con_password) {
-                alert('Password and confirm password did not match!');
-                return false;
-            }
-        });
+        //     if(!regex.test(email_mobile)){
+        //         alert("Please enter valid email address or phone number.");
+        //         return false;
+        //     }else if (password!=con_password) {
+        //         alert('Password and confirm password did not match!');
+        //         return false;
+        //     }
+        // });
         
 
         // $("#submit").click(function(){
@@ -367,7 +377,7 @@
         // $('#date').datetimepicker({  
         //  minDate:new Date()
         // });
-        $('#date').datepicker({ 
+        $('#dob').datepicker({ 
             autoclose: true,
             endDate: new Date(),
             dateFormat: 'dd/mm/yyyy'

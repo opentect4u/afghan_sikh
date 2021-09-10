@@ -78,6 +78,25 @@ Route::prefix('user')->group(function () {
     Route::post('/register', [App\Http\Controllers\user\RegisterController::class, 'Register1'])->name('user.register');
     // Route::get('/otp', [App\Http\Controllers\user\RegisterController::class, 'OTPShow'])->name('user.otp');
     Route::post('/confirmregister', [App\Http\Controllers\user\RegisterController::class, 'ConfirmRegister1'])->name('user.confirmregister');
+    Route::get('/registerstep2', [App\Http\Controllers\user\RegisterController::class, 'Register2'])->name('user.registerstep2');
+    Route::post('/registerstep2confirm', [App\Http\Controllers\user\RegisterController::class, 'Register2Confirm'])->name('user.registerstep2confirm');
+    Route::get('/registerstep3', [App\Http\Controllers\user\RegisterController::class, 'Register3'])->name('user.registerstep3');
+    Route::post('/registerstep3confirm', [App\Http\Controllers\user\RegisterController::class, 'Register3Confirm'])->name('user.registerstep3confirm');
+    Route::get('/registerstep4', [App\Http\Controllers\user\RegisterController::class, 'Register4'])->name('user.registerstep4');
+    Route::post('/registerstep4confirm', [App\Http\Controllers\user\RegisterController::class, 'Register4Confirm'])->name('user.registerstep4confirm');
+    Route::get('/registerstep5', [App\Http\Controllers\user\RegisterController::class, 'Register5'])->name('user.registerstep5');
+    Route::post('/registerstep5confirm', [App\Http\Controllers\user\RegisterController::class, 'Register5Confirm'])->name('user.registerstep5confirm');
+    Route::get('/registerstep6', [App\Http\Controllers\user\RegisterController::class, 'Register6'])->name('user.registerstep6');
+    Route::post('/registerstep6confirm', [App\Http\Controllers\user\RegisterController::class, 'Register6Confirm'])->name('user.registerstep6confirm');
+    Route::get('/registerstep7', [App\Http\Controllers\user\RegisterController::class, 'Register7'])->name('user.registerstep7');
+    Route::post('/registerstep7confirm', [App\Http\Controllers\user\RegisterController::class, 'Register7Confirm'])->name('user.registerstep7confirm');
+    Route::get('/registerstep8', [App\Http\Controllers\user\RegisterController::class, 'Register8'])->name('user.registerstep8');
+    Route::post('/registerstep8confirm', [App\Http\Controllers\user\RegisterController::class, 'Register8Confirm'])->name('user.registerstep8confirm');
+    Route::get('/registerstep9', [App\Http\Controllers\user\RegisterController::class, 'Register9'])->name('user.registerstep9');
+    Route::post('/registerstep9confirm', [App\Http\Controllers\user\RegisterController::class, 'Register9Confirm'])->name('user.registerstep9confirm');
+    Route::get('/registerstep10', [App\Http\Controllers\user\RegisterController::class, 'Register10'])->name('user.registerstep10');
+    
+    Route::get('/emaillink', [App\Http\Controllers\user\RegisterController::class, 'EmailLink'])->name('user.emaillink');
     
     Route::post('/registerconfirmwithajax', [App\Http\Controllers\user\RegisterController::class, 'Register'])->name('user.registerconfirm');
     Route::post('/registerconfirmwithoutajax', [App\Http\Controllers\user\RegisterController::class, 'Register'])->name('user.registerconfirmwithout');

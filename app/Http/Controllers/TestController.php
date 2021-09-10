@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use DB;
 use App\Models\MdUserLogin;
 use App\Models\TdUserDetails;
+use Illuminate\Support\Facades\Crypt;
 
 class TestController extends Controller
 {
@@ -15,12 +16,17 @@ class TestController extends Controller
         // $data=DB::table('mytest')->get();
         // return $data;
         // return "hh";
-        $email='';
+        // $email='';
         // $email='cmaity905@gmail.com';
-        $mobile='161654';
-        $has_email=TdUserDetails::where('email',$email)->orWhere('mobile',$mobile)->get();
-        return $has_email;
-        $name= env('MAIL_FROM_ADDRESS');
+        // $mobile='161654';
+        // $has_email=TdUserDetails::where('email',$email)->orWhere('mobile',$mobile)->get();
+        // return $has_email;
+        // $name= env('APP_URL');
+        $id=24;
+        $user_id="testsc04@gmail.com";
+        $url='http://afghansikh.com/user?id='.Crypt::encryptString($id).'&email='.Crypt::encryptString($user_id);
+
+        return $url;
         return  asset('public/img/phon.jpg');
         // $invID=10;
         // return $invID = str_pad($invID, 4, '0', STR_PAD_LEFT);

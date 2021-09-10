@@ -35,8 +35,9 @@
                         <h5>Fill all form field to go to next step</h5>
                         <!-- <p>Fill all form field to go to next step</p> -->
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
-                        <form id="msform" name="msform" method="POST" action="{{route('user.register')}}" autocomplete="off">
+                        <form id="msform" name="msform" method="POST" action="{{route('user.registerstep9confirm')}}" autocomplete="off" enctype="multipart/form-data">
                             @csrf
+                            <input type="text" hidden name="register_stage" id="register_stage" value="9"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">
                                 <li class="active" id="account"><strong>Step 1</strong></li>
@@ -59,18 +60,19 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-		                            @if(Session::has('already'))
-                                    <label class="errorMsg" style="color:red;">Already register this email id or mobile no</label> 
-                                    @endif
-                                    </br>
-                                    <label class="fieldlabels">Email/Mobile *</label> 
-                                    <input type="text" name="email_mobile" required class="form-control" id="email_mobile" placeholder="Enter Email or Mobile" />
-                                    <label class="fieldlabels">Password: *</label> 
-                                    <input type="password" name="password" required class="form-control" id="password" placeholder="Password:" />
-                                    <label class="fieldlabels">Confirm Password : *</label> 
-                                    <input type="password" name="con_password" id="con_password" required placeholder="Confirm Password:" />
+
+                                    <label class="fieldlabels">Upload Document 1 : *</label> 
+                                    <input type="file" required name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels">Upload Document 2 : *</label> 
+                                    <input type="file" required name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels">Upload Document 3 : *</label> 
+                                    <input type="file"  name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels">Upload Document 4 : *</label> 
+                                    <input type="file" name="doc_4" id="doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    
+                                                                       
                                 </div> 
-                                <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
+                                <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
 									
 								</div>
                             </fieldset>
@@ -141,10 +143,10 @@
             if(dataDurationtime1=="step2"){
                 var present_address=$('#present_address').val();
                 var profession=$('#profession').val();
-                var father_name=$('#father_name').val();
-                var father_nationality=$('#father_nationality').val();
-                var father_prev_nationality=$('#father_prev_nationality').val();
-                var father_birth_country=$('#father_birth_country').val();
+                var mother_name=$('#mother_name').val();
+                var mother_nationality=$('#mother_nationality').val();
+                var mother_prev_nationality=$('#mother_prev_nationality').val();
+                var mother_birth_country=$('#mother_birth_country').val();
                 var mobile=$('#mobile').val();
                 var email=$('#email').val();
                 var other_info=$('#other_info').val();
@@ -154,7 +156,7 @@
                 // var emailExp =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
                 var emailExp =/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-                if(present_address=='' || profession=='' || father_name=='' || father_nationality=='' || father_prev_nationality=='' || mobile=='' || email=='' || other_info==''){
+                if(present_address=='' || profession=='' || mother_name=='' || mother_nationality=='' || mother_prev_nationality=='' || mobile=='' || email=='' || other_info==''){
                     alert("All fields are mandatory");
                     return false;
                 }else if(!emailExp.test(email)){
@@ -282,21 +284,61 @@
 <script>
     $(document).ready(function(){
 
-        $("#step1").click(function(){
-            var email_mobile=$("#email_mobile").val();
-            var password=$("#password").val();
-            var con_password=$("#con_password").val();
-            var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
-            // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
-
-            if(!regex.test(email_mobile)){
-                alert("Please enter valid email address or phone number.");
-                return false;
-            }else if (password!=con_password) {
-                alert('Password and confirm password did not match!');
+        // doc_2
+        $("#doc_1").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_1").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
             }
         });
+        $("#doc_2").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_2").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }
+        });
+
+        $("#doc_3").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_3").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }
+        });
+
+        $("#doc_4").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_4").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }
+        });
+
+        // $("#step1").click(function(){
+        //     var email_mobile=$("#email_mobile").val();
+        //     var password=$("#password").val();
+        //     var con_password=$("#con_password").val();
+        //     var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
+        //     // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+
+        //     if(!regex.test(email_mobile)){
+        //         alert("Please enter valid email address or phone number.");
+        //         return false;
+        //     }else if (password!=con_password) {
+        //         alert('Password and confirm password did not match!');
+        //         return false;
+        //     }
+        // });
         
 
         // $("#submit").click(function(){
@@ -314,17 +356,17 @@
         //     var religion=$('#religion').val();
         //     var present_address=$('#present_address').val();
         //     var profession=$('#profession').val();
-        //     var father_name=$('#father_name').val();
-        //     var father_nationality=$('#father_nationality').val();
-        //     var father_prev_nationality=$('#father_prev_nationality').val();
-        //     var father_birth_country=$('#father_birth_country').val();
+        //     var mother_name=$('#mother_name').val();
+        //     var mother_nationality=$('#mother_nationality').val();
+        //     var mother_prev_nationality=$('#mother_prev_nationality').val();
+        //     var mother_birth_country=$('#mother_birth_country').val();
         //     var mobile=$('#mobile').val();
         //     var email=$('#email').val();
         //     var other_info=$('#other_info').val();
         // //     {surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_country:birth_country,nationality:nationality
         // //     ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
-        // //     profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
-        // // ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info}
+        // //     profession:profession,mother_name:mother_name,mother_nationality:mother_nationality,mother_prev_nationality:mother_prev_nationality
+        // // ,mother_birth_country:mother_birth_country,mobile:mobile,email:email,other_info:other_info}
             
         //     // Family member details
         //     var first_name1=$('#first_name1').val();
@@ -350,8 +392,8 @@
         //         url: "{{ route('user.registerconfirm') }}",
         //         data:{surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_place:birth_place,birth_country:birth_country,nationality:nationality
         //     ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
-        //     profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
-        //     ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info,
+        //     profession:profession,mother_name:mother_name,mother_nationality:mother_nationality,mother_prev_nationality:mother_prev_nationality
+        //     ,mother_birth_country:mother_birth_country,mobile:mobile,email:email,other_info:other_info,
         //     first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
         //     relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
         //     passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
@@ -372,7 +414,7 @@
         // $('#date').datetimepicker({  
         //  minDate:new Date()
         // });
-        $('#date').datepicker({ 
+        $('#dob').datepicker({ 
             autoclose: true,
             endDate: new Date(),
             dateFormat: 'dd/mm/yyyy'
@@ -533,17 +575,17 @@
             var religion=$('#religion').val();
             var present_address=$('#present_address').val();
             var profession=$('#profession').val();
-            var father_name=$('#father_name').val();
-            var father_nationality=$('#father_nationality').val();
-            var father_prev_nationality=$('#father_prev_nationality').val();
-            var father_birth_country=$('#father_birth_country').val();
+            var mother_name=$('#mother_name').val();
+            var mother_nationality=$('#mother_nationality').val();
+            var mother_prev_nationality=$('#mother_prev_nationality').val();
+            var mother_birth_country=$('#mother_birth_country').val();
             var mobile=$('#mobile').val();
             var email=$('#email').val();
             var other_info=$('#other_info').val();
         //     {surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_country:birth_country,nationality:nationality
         //     ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
-        //     profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
-        // ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info}
+        //     profession:profession,mother_name:mother_name,mother_nationality:mother_nationality,mother_prev_nationality:mother_prev_nationality
+        // ,mother_birth_country:mother_birth_country,mobile:mobile,email:email,other_info:other_info}
             
             // Family member details
             var email1=$('#email1').val();
@@ -570,8 +612,8 @@
                 url: "{{ route('user.registerconfirm') }}",
                 data:{surname:surname,givenname:givenname,gender:gender,date_of_birth:date_of_birth,birth_place:birth_place,birth_country:birth_country,nationality:nationality
             ,previous_nationality:previous_nationality,marital_status:marital_status,religion:religion,present_address:present_address,
-            profession:profession,father_name:father_name,father_nationality:father_nationality,father_prev_nationality:father_prev_nationality
-            ,father_birth_country:father_birth_country,mobile:mobile,email:email,other_info:other_info,
+            profession:profession,mother_name:mother_name,mother_nationality:mother_nationality,mother_prev_nationality:mother_prev_nationality
+            ,mother_birth_country:mother_birth_country,mobile:mobile,email:email,other_info:other_info,
             email1:email1,first_name1:first_name1,middle_name1:middle_name1,last_name1:last_name1,gender1:gender1,
             relation1:relation1,current_citizenship1:current_citizenship1,previous_citizenship1:previous_citizenship1,
             passport_no1:passport_no1,passport_date_of_issue1:passport_date_of_issue1,passport_date_of_expiry1:passport_date_of_expiry1
