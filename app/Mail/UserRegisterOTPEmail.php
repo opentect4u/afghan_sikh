@@ -13,18 +13,18 @@ class UserRegisterOTPEmail extends Mailable
     public $surname;
     public $givenname;
     public $url;
-    public $otp;
+    public $con_otp;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($surname,$givenname,$url,$otp)
+    public function __construct($surname,$givenname,$url,$con_otp)
     {
         $this->surname=$surname;
         $this->givenname=$givenname;
         $this->url=$url;
-        $this->otp=$otp;
+        $this->con_otp=$con_otp;
     }
 
     /**
