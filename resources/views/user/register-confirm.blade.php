@@ -35,8 +35,11 @@
                         <h5>Fill all form field to go to next step</h5>
                         <!-- <p>Fill all form field to go to next step</p> -->
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
-                        <form id="msform" name="msform" method="POST" action="{{route('user.register')}}" autocomplete="off">
+                        <form id="msform" name="msform" method="POST" action="{{route('user.confirmregister')}}" autocomplete="off">
                             @csrf
+                            <input hidden type="text" id="con_otp" name="con_otp" value="{{$con_otp}}"/>
+                            <input hidden type="text" id="email_mobile" name="email_mobile" value="{{$searched->email_mobile}}"/>
+                            <input hidden type="text" id="password" name="password" value="{{$searched->password}}"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">
                                 <li class="active" id="account"><strong>Step 1</strong></li>
@@ -59,14 +62,18 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-                                    <label class="fieldlabels">Email/Mobile *</label> 
-                                    <input type="text" name="email_mobile" required class="form-control" id="email_mobile" placeholder="Enter Email or Mobile" />
-                                    <label class="fieldlabels">Password: *</label> 
+                                    @if(isset($error))
+                                    <label class="errorMsg" style="color:red;">OTP did not match!</label> 
+                                    @endif
+                                    </br>
+                                    <label class="fieldlabels">Enter OTP *</label> 
+                                    <input type="text" name="otp" required class="form-control" id="otp" placeholder="Enter OTP" />
+                                    <!-- <label class="fieldlabels">Password: *</label> 
                                     <input type="password" name="password" required class="form-control" id="password" placeholder="Password:" />
                                     <label class="fieldlabels">Confirm Password : *</label> 
-                                    <input type="password" name="con_password" id="con_password" required placeholder="Confirm Password:" />
+                                    <input type="password" name="con_password" id="con_password" required placeholder="Confirm Password:" /> -->
                                 </div> 
-                                <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
+                                <input type="Submit" data-attribute="step1" class="action-button" value="Confirm" />
 									
 								</div>
                             </fieldset>

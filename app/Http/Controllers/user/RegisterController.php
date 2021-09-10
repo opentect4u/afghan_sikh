@@ -10,12 +10,54 @@ use App\Models\TdUserFamilyDetails;
 use DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserRegisterEmail;
+use App\Mail\UserRegisterOTPEmail;
+use App\Models\MdUserLogin;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
     public function Show(){
         $country=MdCountry::get();
         return view('user.register',['country'=>$country]);
+    }
+
+
+    public function Register1(Request $request){
+        // return $request;
+        $email=$request->email_mobile;
+        $con_otp=rand(100000,999999);
+        $url="";
+        $surname="Dear";
+        Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$otp));
+        // return redirect()->route('user.otp')->with(['searched'=>$request,'otp'=>$otp]);
+        return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
+    }
+    // public function OTPShow(Request $request)
+    // {
+    //     return view('user.register-confirm',['searched'=>$request,'otp'=>$otp]);
+        
+    // }
+    
+    public function ConfirmRegister1(Request $request){
+        // return $request;
+        $con_otp=$request->con_otp ;
+        $otp=$request->otp ;
+        if ($con_otp==$otp) {
+            // return $request;
+            $data=MdUserLogin::create(array(
+                'user_id'=>$request->email_mobile,
+                'password'=>Hash::make($request->password),
+                'user_type'=>'U',
+                'active' =>'I',
+            ));
+            // return $data;
+            // return $data->id;
+            // return $data->user_id;
+            return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
+        }else{
+            $error="otp did not match";
+            return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]);
+        }
     }
 
     public function Register(Request $request){

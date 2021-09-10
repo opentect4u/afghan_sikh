@@ -37,6 +37,7 @@
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
                         <form id="msform" name="msform" method="POST" action="{{route('user.register')}}" autocomplete="off">
                             @csrf
+                            <input type="text" hidden name="register_stage" id="register_stage" value="2"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">
                                 <li class="active" id="account"><strong>Step 1</strong></li>
@@ -59,12 +60,10 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-                                    <label class="fieldlabels">Email/Mobile *</label> 
-                                    <input type="text" name="email_mobile" required class="form-control" id="email_mobile" placeholder="Enter Email or Mobile" />
-                                    <label class="fieldlabels">Password: *</label> 
-                                    <input type="password" name="password" required class="form-control" id="password" placeholder="Password:" />
-                                    <label class="fieldlabels">Confirm Password : *</label> 
-                                    <input type="password" name="con_password" id="con_password" required placeholder="Confirm Password:" />
+                                    <label class="fieldlabels">Surname (As in Passport): *</label> 
+                                    <input type="text" name="surname" required class="form-control" id="surname" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Given Name (As in Passport): *</label> 
+                                    <input type="text" name="givenname" class="form-control" id="givenname" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
 									
