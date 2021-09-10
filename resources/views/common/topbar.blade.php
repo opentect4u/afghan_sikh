@@ -27,7 +27,7 @@
     </div>
     <div class="cta">
       <a href="{{route('gurudwara.login')}}" class="scrollto">Gurdwara Login</a>
-      <a href="{{route('user.register')}}" class="scrollto">Get Started</a>
+      <a href="{{route('user.login')}}" class="scrollto">Get Started</a>
     </div>
   </div>
 </section>

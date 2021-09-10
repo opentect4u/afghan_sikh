@@ -48,6 +48,7 @@ class TdUserDetails extends Model
             'gurudwara_id',
             'purpose',
             'remark',
+            'user_logo',
             'register_stage',
     ];
 }

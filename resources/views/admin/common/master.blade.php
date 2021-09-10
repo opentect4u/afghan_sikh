@@ -8,6 +8,8 @@
 		
         @if(isset(Session::get('gurudwara')[0]['user_type']))
         <title>Gurdwara | Afghan Sikh Helps Line</title>
+        @elseif(isset(Session::get('user')[0]['user_type']))
+        <title>User | Afghan Sikh Helps Line</title>
         @else
         <title>Admin | Afghan Sikh Helps Line</title>
         @endif

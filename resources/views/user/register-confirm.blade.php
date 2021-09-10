@@ -35,11 +35,13 @@
                         <h5>Fill all form field to go to next step</h5>
                         <!-- <p>Fill all form field to go to next step</p> -->
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
-                        <form id="msform" name="msform" method="POST" action="{{route('user.confirmregister')}}" autocomplete="off">
-                            @csrf
-                            <input hidden type="text" id="con_otp" name="con_otp" value="{{$con_otp}}"/>
-                            <input hidden type="text" id="email_mobile" name="email_mobile" value="{{$searched->email_mobile}}"/>
-                            <input hidden type="text" id="password" name="password" value="{{$searched->password}}"/>
+                        <form id="msform" name="msform" method="POST" action="{{route('user.confirmregister')}}" >
+                            <input type="hidden" name="_token" value="{{ isset($token)?$token:csrf_token() }}" />
+
+                            
+                            <input hidden type="text" id="con_otp" name="con_otp" value="{{Session::get('con_otp')}}"/>
+                            <input hidden type="text" id="email_mobile" name="email_mobile" value="{{Session::get('email_mobile')}}"/>
+                            <input hidden type="text" id="password" name="password" value="{{Session::get('password')}}"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">
                                 <li class="active" id="account"><strong>Step 1</strong></li>
@@ -62,8 +64,8 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-                                    @if(isset($error))
-                                    <label class="errorMsg" style="color:red;">OTP did not match!</label> 
+                                    @if(Session::has('error'))
+                                    <label class="errorMsg" style="color:red;">{{Session::get('error')}}</label> 
                                     @endif
                                     </br>
                                     <label class="fieldlabels">Enter OTP *</label> 

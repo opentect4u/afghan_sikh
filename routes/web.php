@@ -74,9 +74,11 @@ Route::prefix('gurudwara')->group(function () {
 });
             // all user route
 Route::prefix('user')->group(function () {
+    Route::get('/login', [App\Http\Controllers\user\LoginController::class, 'Show'])->name('user.login');
+    Route::post('/login', [App\Http\Controllers\user\LoginController::class, 'Login'])->name('user.loginconfirm');
     Route::get('/register', [App\Http\Controllers\user\RegisterController::class, 'Show'])->name('user.register');
     Route::post('/register', [App\Http\Controllers\user\RegisterController::class, 'Register1'])->name('user.register');
-    // Route::get('/otp', [App\Http\Controllers\user\RegisterController::class, 'OTPShow'])->name('user.otp');
+    Route::get('/otp', [App\Http\Controllers\user\RegisterController::class, 'OTPShow'])->name('user.otp');
     Route::post('/confirmregister', [App\Http\Controllers\user\RegisterController::class, 'ConfirmRegister1'])->name('user.confirmregister');
     Route::get('/registerstep2', [App\Http\Controllers\user\RegisterController::class, 'Register2'])->name('user.registerstep2');
     Route::post('/registerstep2confirm', [App\Http\Controllers\user\RegisterController::class, 'Register2Confirm'])->name('user.registerstep2confirm');
@@ -105,6 +107,11 @@ Route::prefix('user')->group(function () {
     Route::post('/registerAjax', [App\Http\Controllers\user\ServicesRegisterController::class, 'RegisterAjax'])->name('user.registerAjax');
     Route::post('/registerservicesConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'Register'])->name('user.registerservicesConfirm');
     Route::post('/registerservicesfamilyConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'RegisterFamily'])->name('user.registerservicesfamilyConfirm');
+
+
+    Route::get('/home', [App\Http\Controllers\user\HomeController::class, 'Show'])->name('user.home');
+    Route::get('/logout', [App\Http\Controllers\user\LoginController::class, 'Logout'])->name('user.logout');
+    Route::get('/profile', [App\Http\Controllers\user\HomeController::class, 'Profile'])->name('user.profile');
 
 });
 

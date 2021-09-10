@@ -38,15 +38,13 @@ class RegisterController extends Controller
             $surname="Dear";
             $givenname="";
             Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
-            // return redirect()->route('user.otp')->with(['searched'=>$request,'otp'=>$otp]);
-            return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
+            return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp]);
+            // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
         }
     }
-    // public function OTPShow(Request $request)
-    // {
-    //     return view('user.register-confirm',['searched'=>$request,'otp'=>$otp]);
-        
-    // }
+    public function OTPShow(Request $request){
+        return view('user.register-confirm');
+    }
     
     public function ConfirmRegister1(Request $request){
         // return $request;
@@ -54,6 +52,10 @@ class RegisterController extends Controller
         $email=$request->email_mobile;
         $con_otp=$request->con_otp ;
         $otp=$request->otp ;
+        if($con_otp==''){
+            $error="Something wrong please try again";
+            return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]); 
+        }
         if ($con_otp==$otp) {
             // return $request;
             $data=MdUserLogin::create(array(
@@ -76,7 +78,8 @@ class RegisterController extends Controller
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         }else{
             $error="otp did not match";
-            return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]);
+            return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]);
+            // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
         }
     }
 
