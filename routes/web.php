@@ -117,9 +117,9 @@ Route::prefix('user')->group(function () {
     Route::post('/registerconfirmwithajax', [App\Http\Controllers\user\RegisterController::class, 'Register'])->name('user.registerconfirm');
     Route::post('/registerconfirmwithoutajax', [App\Http\Controllers\user\RegisterController::class, 'Register'])->name('user.registerconfirmwithout');
 
-    Route::get('/servicesregister', [App\Http\Controllers\user\ServicesRegisterController::class, 'Show'])->name('user.servicesregister');
-    Route::post('/registerAjax', [App\Http\Controllers\user\ServicesRegisterController::class, 'RegisterAjax'])->name('user.registerAjax');
-    Route::post('/registerservicesConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'Register'])->name('user.registerservicesConfirm');
+    // Route::get('/servicesregister', [App\Http\Controllers\user\ServicesRegisterController::class, 'Show'])->name('user.servicesregister');
+    // Route::post('/registerAjax', [App\Http\Controllers\user\ServicesRegisterController::class, 'RegisterAjax'])->name('user.registerAjax');
+    // Route::post('/registerservicesConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'Register'])->name('user.registerservicesConfirm');
     Route::post('/registerservicesfamilyConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'RegisterFamily'])->name('user.registerservicesfamilyConfirm');
 
 
@@ -142,6 +142,18 @@ Route::prefix('user')->group(function () {
     Route::get('/editfamilymember2/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow2'])->name('user.editfamilymember2');
     Route::get('/editfamilymember3/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow3'])->name('user.editfamilymember3');
     Route::get('/editfamilymember4/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow4'])->name('user.editfamilymember4');
+
+
+    Route::get('/servicesregisterfinance', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowFinance'])->name('user.servicesregisterfinance');
+    Route::get('/servicesregisterfamily', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowFAMILY'])->name('user.servicesregisterfamily');
+    Route::get('/servicesregistermarriages', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowMARRIAGES'])->name('user.servicesregistermarriages');
+    Route::get('/servicesregisterreligious', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowRELIGIOUS'])->name('user.servicesregisterreligious');
+    Route::get('/servicesregisterreunion', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowREUNION'])->name('user.servicesregisterreunion');
+    Route::get('/servicesregisterproperty', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowPROPERTY'])->name('user.servicesregisterproperty');
+    Route::get('/servicesregisterdivorce', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowDIVORCE'])->name('user.servicesregisterdivorce');
+    Route::get('/servicesregisterother', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowOTHER'])->name('user.servicesregisterother');
+
+    Route::post('/registerservicesConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'Register'])->name('user.registerservicesConfirm');
 
 
 });

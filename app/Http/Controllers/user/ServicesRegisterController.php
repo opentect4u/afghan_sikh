@@ -8,10 +8,16 @@ use App\Models\MdCountry;
 use App\Models\TdUserDetails;
 use App\Models\TdUserFamilyDetails;
 use App\Models\TdServiceDetails;
+use App\Models\TdUserFamily;
 use DB;
+use Session;
 
 class ServicesRegisterController extends Controller
 {
+    public function __construct() {
+        $this->middleware('is_user');
+    }
+
     public function Show(Request $request){
         // return $request;
         // return $b = random_str(8, 'QWERTYUIOPLKJHGFDSAZXCVBNM1234567890');
@@ -136,7 +142,7 @@ class ServicesRegisterController extends Controller
 
     }
 
-    public function Register(Request $request){
+    public function Registerold(Request $request){
         // return $request ;
         $email=$request->email;
         $registration_no=$request->registration_no;
@@ -261,5 +267,151 @@ class ServicesRegisterController extends Controller
         }else{
             return redirect()->back()->with("error","error");
         }
+    }
+
+    public function ShowFinance(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        // return $family_details;
+        $service_type="FINANCE";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+
+    public function ShowFAMILY(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        $service_type="FAMILY DISPUTES";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+
+    public function ShowMARRIAGES(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        
+        $service_type="MARRIAGES ISSUES";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+    public function ShowRELIGIOUS(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        
+        $service_type="RELIGIOUS ISSUE";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+    public function ShowREUNION(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        
+        $service_type="REUNION FAMILY";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+
+    public function ShowPROPERTY(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        
+        $service_type="PROPERTY DISPUTE";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+    public function ShowDIVORCE(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        
+        $service_type="DIVORCE DISPUTE";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+    public function ShowOTHER(){
+        // return "hii";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        
+        $service_type="OTHER";
+        return view('user.services-register',['service_type'=>$service_type,'family_details'=>$family_details]);
+    }
+
+    public function Register(Request $request){
+        // return $request;
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        if ($request->hasFile('doc_1')) {
+            $profile_pic_path1 = $request->file('doc_1');
+            $doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath1 = public_path('service-doc/');
+            $profile_pic_path1->move($destinationPath1,$doc_1);
+
+           
+
+        }
+
+        if ($request->hasFile('doc_2')) {
+            $profile_pic_path2 = $request->file('doc_2');
+            $doc_2=date('YmdHis') .'_'.$id. 'doc_2.' . $profile_pic_path2->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath2 = public_path('service-doc/');
+            $profile_pic_path2->move($destinationPath2,$doc_2);
+
+           
+        
+        }
+
+        if ($request->hasFile('doc_3')) {
+            $profile_pic_path3 = $request->file('doc_3');
+            $doc_3=date('YmdHis') .'_'.$id. 'doc_3.' . $profile_pic_path3->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_3);
+
+            
+        }
+
+        if ($request->hasFile('doc_4')) {
+            $profile_pic_path4 = $request->file('doc_4');
+            $doc_4=date('YmdHis') .'_'.$id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath4 = public_path('service-doc/');
+            $profile_pic_path4->move($destinationPath4,$doc_4);
+
+            
+        }
+
+        
+        TdServiceDetails::create(array(
+            'self_id' =>$id,
+            'other_info'        =>$request->user_info, 
+            'self_or_family'    =>$request->fav_language, 
+            'family_details_id' =>$request->family_details,
+            'active'            =>"I",
+            'service_type'      =>$request->service_type,
+            'application_date'  =>date('Y-m-d'),
+            'doc_1'=>$doc_1,
+            'doc_2'=>$doc_2,
+            'doc_3'=>$doc_3,
+            'doc_4'=>$doc_4,
+        ));
+        return redirect()->back()->with('success','success');
     }
 }

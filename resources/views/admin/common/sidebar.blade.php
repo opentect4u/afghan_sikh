@@ -205,25 +205,57 @@
         
        
         <!-- menu-open -->
-        <!-- <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' ?'menu-open':''}}">
-            <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' ?'active':''}}">
+        <li class="nav-item {{Route::currentRouteName()=='user.servicesregisterfinance' ||
+          Route::currentRouteName()=='user.servicesregisterfamily'?'menu-open':''}}">
+            <a href="#" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance' ||
+              Route::currentRouteName()=='user.servicesregisterfamily'?'active':''}}">
               <i class="nav-icon fas fa-table"></i>
-              <p>
-                Certificates
-                <i class="right fas fa-angle-left"></i>
-              </p>
+              <p>Get Support<i class="right fas fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('gurudwara.marriage')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.marriage' || Route::currentRouteName()=='gurudwara.marriageadd' || Route::currentRouteName()=='gurudwara.marriageedit' || Route::currentRouteName()=='gurudwara.marriagereport'?'active':''}}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Marriage</p>
+                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>FINANCE</p>
                 </a>
               </li>
-             
+              <li class="nav-item">
+                <a href="{{route('user.servicesregisterfamily')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfamily'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>FAMILY DISPUTES</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>MARRIAGES ISSUES</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>RELIGIOUS ISSUE</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>REUNION FAMILY</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>PROPERTY DISPUTE</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>DIVORCE DISPUTE</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i><p>OTHER</p>
+                </a>
+              </li> -->
              
             </ul>
-        </li> -->
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
