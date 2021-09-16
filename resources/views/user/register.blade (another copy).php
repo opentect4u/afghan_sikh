@@ -196,6 +196,7 @@
                                             <option value="Mother">Mother</option>
                                             <option value="Son">Son</option>
                                             <option value="Daughter">Daughter</option>
+                                            <option value="Daughter">Daughter</option>
                                         </select>
                                         <label class="fieldlabels">Current Citizenship : </label> 
                                         <select name="current_citizenship1" id="current_citizenship1">

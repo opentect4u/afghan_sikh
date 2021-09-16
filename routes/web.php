@@ -34,7 +34,21 @@ Route::prefix('gurudwara')->group(function () {
     Route::get('/login', [App\Http\Controllers\gurudwara\LoginController::class, 'Show'])->name('gurudwara.login');
     Route::post('/login', [App\Http\Controllers\gurudwara\LoginController::class, 'Login'])->name('gurudwara.loginconfirm');
     Route::get('/register', [App\Http\Controllers\gurudwara\RegisterController::class, 'Show'])->name('gurudwara.register');
-    Route::post('/register', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register'])->name('gurudwara.registerconfirm');
+    // Route::post('/register', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register'])->name('gurudwara.registerconfirm');
+    Route::post('/register', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register1'])->name('gurudwara.registerconfirm');
+    Route::get('/otp', [App\Http\Controllers\gurudwara\RegisterController::class, 'OTPShow'])->name('gurudwara.otp');
+    Route::post('/confirmregister', [App\Http\Controllers\gurudwara\RegisterController::class, 'ConfirmRegister1'])->name('gurudwara.confirmregister');
+    Route::get('/registerstep2', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register2'])->name('gurudwara.registerstep2');
+    Route::post('/registerstep2confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register2Confirm'])->name('gurudwara.registerstep2confirm');
+    Route::get('/registerstep3', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register3'])->name('gurudwara.registerstep3');
+    Route::post('/registerstep3confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register3Confirm'])->name('gurudwara.registerstep3confirm');
+    Route::get('/registerstep4', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register4'])->name('gurudwara.registerstep4');
+    Route::post('/registerstep4confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register4Confirm'])->name('gurudwara.registerstep4confirm');
+    Route::get('/registerstep5', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register5'])->name('gurudwara.registerstep5');
+    Route::post('/registerstep5confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register5Confirm'])->name('gurudwara.registerstep5confirm');
+    Route::get('/registerstep6', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register6'])->name('gurudwara.registerstep6');
+    Route::post('/registerstep6confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register6Confirm'])->name('gurudwara.registerstep6confirm');
+
 
     Route::get('/home', [App\Http\Controllers\gurudwara\HomeController::class, 'Show'])->name('gurudwara.home');
     Route::post('/homeAjax', [App\Http\Controllers\gurudwara\HomeController::class, 'Homeajax'])->name('gurudwara.homeAjax');
@@ -110,8 +124,25 @@ Route::prefix('user')->group(function () {
 
 
     Route::get('/home', [App\Http\Controllers\user\HomeController::class, 'Show'])->name('user.home');
+    Route::post('/homeAjax', [App\Http\Controllers\user\HomeController::class, 'Homeajax'])->name('user.homeAjax');
     Route::get('/logout', [App\Http\Controllers\user\LoginController::class, 'Logout'])->name('user.logout');
     Route::get('/profile', [App\Http\Controllers\user\HomeController::class, 'Profile'])->name('user.profile');
+    Route::get('/managefamily', [App\Http\Controllers\user\FamilyController::class, 'Show'])->name('user.managefamily');
+    Route::get('/addfamilymember', [App\Http\Controllers\user\FamilyController::class, 'Add'])->name('user.addfamilymember');
+    Route::post('/addfamilymemberconfirm', [App\Http\Controllers\user\FamilyController::class, 'AddConfirm'])->name('user.addfamilymemberconfirm');
+    Route::get('/addfamilymember2', [App\Http\Controllers\user\FamilyController::class, 'Add2'])->name('user.addfamilymember2');
+    Route::post('/addfamilymemberconfirm2', [App\Http\Controllers\user\FamilyController::class, 'AddConfirm2'])->name('user.addfamilymemberconfirm2');
+    Route::get('/addfamilymember3', [App\Http\Controllers\user\FamilyController::class, 'Add3'])->name('user.addfamilymember3');
+    Route::post('/addfamilymemberconfirm3', [App\Http\Controllers\user\FamilyController::class, 'AddConfirm3'])->name('user.addfamilymemberconfirm3');
+    Route::get('/addfamilymember4', [App\Http\Controllers\user\FamilyController::class, 'Add4'])->name('user.addfamilymember4');
+    Route::post('/addfamilymemberconfirm4', [App\Http\Controllers\user\FamilyController::class, 'AddConfirm4'])->name('user.addfamilymemberconfirm4');
+    Route::get('/editfamilymember/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow'])->name('user.editfamilymember');
+    Route::post('/editfamilymemberconfirm', [App\Http\Controllers\user\FamilyController::class, 'Edit'])->name('user.editfamilymemberconfirm');
+
+    Route::get('/editfamilymember2/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow2'])->name('user.editfamilymember2');
+    Route::get('/editfamilymember3/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow3'])->name('user.editfamilymember3');
+    Route::get('/editfamilymember4/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow4'])->name('user.editfamilymember4');
+
 
 });
 

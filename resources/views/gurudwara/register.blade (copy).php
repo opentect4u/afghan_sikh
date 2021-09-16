@@ -21,10 +21,10 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2 id="heading" class="loginTitle">Sign Up Your Gurdwara Account</h2>
                     <h5>Fill all form field to go to next step</h5>
-                    <form class="myForm" id="msform" method="POST" action="{{route('gurudwara.registerconfirm')}}" enctype="multipart/form-data">
-                        @csrf
+                    <form class="myForm" id="msform" method="POST" enctype="multipart/form-data">
+                    @csrf
                         <!-- progressbar -->
-                        <!-- <ul id="progressbar">
+                        <ul id="progressbar">
                             <li class="active" id="account"><strong>Account</strong></li>
                             <li id="personal"><strong>Details</strong></li>
                             <li id="personal"><strong>Head</strong></li>
@@ -32,44 +32,115 @@
                         </ul>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div> 
-                        <br>  -->
-                        <!-- fieldsets -->
+                        </div> <br> <!-- fieldsets -->
                         <fieldset>
 							<div class="afghanLogin">
                             <div class="form-card">
-                                <!-- <div class="row">
+                                <div class="row">
                                     <div class="col-7 register_title">
                                         <h2 class="fs-title">Account Information:</h2>
                                     </div>
                                     <div class="col-5 stepSec">
                                         <h2 class="steps">Step 1 - 4</h2>
                                     </div>
-                                </div>  -->
-                                @if(Session::has('already'))
-                                    <label class="errorMsg" style="color:red;">Already register this email id or mobile no</label> 
-                                @endif
-                                </br>
-                                <label class="fieldlabels">Type of Organisation: *</label> 
-                                <select required name="type_of_organisation" id="type_of_organisation">
-                                    <option value="">--Type of Organisation--</option>
-                                    <option value="G">Gurdwara</option>
-                                    <option value="C">Community</option>
-                                    <option value="O">Organisation</option>
-                                </select>
-                                <!-- <label class="fieldlabels">Gurdwara Name: *</label> 
-                                <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Gurdwara Name" />  -->
-                                <label class="fieldlabels">Email/Mobile: *</label> 
-                                <input required type="text" name="email_mobile" id="email_mobile" placeholder="Email Id" /> 
+                                </div> 
+                                <label class="fieldlabels">Gurdwara Name: *</label> 
+                                <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Gurdwara Name" /> 
+                                <label class="fieldlabels">Email Id: *</label> 
+                                <input type="email" name="gurudwara_email" id="gurudwara_email" placeholder="Email Id" /> 
                                 <label class="fieldlabels">Password: *</label> 
-                                <input required type="password" name="password" id="password"placeholder="Password" /> 
+                                <input type="password" name="password" id="password"placeholder="Password" /> 
                                 <label class="fieldlabels">Confirm Password: *</label> 
-                                <input required type="password" name="cpwd" id="cpwd" placeholder="Confirm Password" />
+                                <input type="password" name="cpwd" id="cpwd" placeholder="Confirm Password" />
                             </div> 
-                            <input type="submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
+                            <input type="button" name="step1" id="step1" data-attribute="step1" class="next action-button" value="Next" />
 							</div>
                         </fieldset>
-                        
+                        <fieldset>
+							<div class="afghanLogin">
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7 register_title">
+                                        <h2 class="fs-title">Gurdwara Information:</h2>
+                                    </div>
+                                    <div class="col-5 stepSec">
+                                        <h2 class="steps">Step 2 - 4</h2>
+                                    </div>
+                                </div> 
+                                <label class="fieldlabels">Address: *</label> 
+                                <textarea name="gurudwara_address" id="gurudwara_address"  rows="3" placeholder="Address"></textarea>
+                                <label class="fieldlabels">City: *</label> 
+                                <input type="text" name="city" id="city" placeholder="City" /> 
+                                <label class="fieldlabels">State: *</label> 
+                                <input type="text" name="state" id="state" placeholder="State" /> 
+                                <label class="fieldlabels">Country: *</label> 
+                                <select name="country" id="country">
+                                  <option value=""> --Select Country-- </option>
+                                  @foreach($country as $countries)
+                                  <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                  @endforeach
+                                </select>
+                                <label class="fieldlabels">Phone No: *</label> 
+                                <input type="number" name="gurudwara_phone_no" id="gurudwara_phone_no" placeholder="Phone No" /> 
+                                <label class="fieldlabels">Website : *</label> 
+                                <input type="text" name="website" id="website" placeholder="Website" /> 
+                            </div> 
+                            <input type="button" name="step2" id="step2" data-attribute="" class="next action-button" value="Next" /> 
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+							</div>
+                        </fieldset>
+                        <fieldset>
+							<div class="afghanLogin">
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7 register_title">
+                                        <h2 class="fs-title">Gurdwara Head:</h2>
+                                    </div>
+                                    <div class="col-5 stepSec">
+                                        <h2 class="steps">Step 3 - 4</h2>
+                                    </div>
+                                </div> 
+                                <label class="fieldlabels">Gurdwara Head Name : *</label> 
+                                <input type="text" name="gurudwara_head_name" id="gurudwara_head_name" placeholder="Gurdwara Head Name" /> 
+                                <label class="fieldlabels">Gurdwara Head Address : *</label> 
+                                <textarea name="gurudwara_head_address" id="gurudwara_head_address"  rows="3" placeholder="Address"></textarea>
+                                <label class="fieldlabels">Gurdwara Head Phone No : *</label> 
+                                <input type="number" name="gurudwara_head_phone_no" id="gurudwara_head_phone_no" placeholder="Phone No" /> 
+                                <label class="fieldlabels">Gurdwara Head Email Id : *</label> 
+                                <input type="email" name="gurudwara_head_email" id="gurudwara_head_email" placeholder="Email Id" /> 
+                                <!-- <input type="file" name="gurudwara_head_photo" id="gurudwara_head_photo" accept="image/*">  -->
+
+                            </div> 
+                            <input type="button" name="submit" id="submit" data-attribute="" class="next action-button" value="Submit" /> 
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+							</div>
+                        </fieldset>
+                        <fieldset>
+							<div class="afghanLogin">
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7 register_title">
+                                        <h2 class="fs-title">Finish:</h2>
+                                    </div>
+                                    <div class="col-5 stepSec">
+                                        <h2 class="steps">Step 4 - 4</h2>
+                                    </div>
+                                </div> <br><br>
+                                <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-3"> 
+										<img src="{{ asset('public/img/GwStPmg.png') }}" alt="" class="fit-image">
+										</div>
+                                </div> <br><br>
+                                <div class="row justify-content-center">
+                                    <div class="col-7 text-center">
+                                        <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                    </div>
+                                </div>
+                            </div>
+							</div>
+								
+                        </fieldset>
                     </form>
                 </div>
             </div>
@@ -87,23 +158,7 @@
 @endsection
 @section('script')
 <script>
-    $(document).ready(function(){
-
-        $("#step1").click(function(){
-            var email_mobile=$("#email_mobile").val();
-            var password=$("#password").val();
-            var con_password=$("#cpwd").val();
-            var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
-            // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
-
-            if(!regex.test(email_mobile)){
-                alert("Please enter valid email address or phone number.");
-                return false;
-            }else if (password!=con_password) {
-                alert('Password and confirm password did not match!');
-                return false;
-            }
-        });
+        $(document).ready(function(){
 
         var current_fs, next_fs, previous_fs; //fieldsets
         var opacity;

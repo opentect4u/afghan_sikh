@@ -197,7 +197,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{route('user.profile')}}" class="nav-link {{Route::currentRouteName()=='user.profile' || Route::currentRouteName()=='user.profile'?'active':''}}">
+          <a href="{{route('user.managefamily')}}" class="nav-link {{Route::currentRouteName()=='user.managefamily' || Route::currentRouteName()=='user.managefamily'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Family Information</p>
           </a>
@@ -205,7 +205,7 @@
         
        
         <!-- menu-open -->
-        <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' ?'menu-open':''}}">
+        <!-- <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' ?'menu-open':''}}">
             <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' ?'active':''}}">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -223,7 +223,7 @@
              
              
             </ul>
-          </li>
+        </li> -->
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -237,7 +237,7 @@
     // gurudwara.homeAjax
     $.ajax({
       type: "POST",
-      url: "{{ route('gurudwara.homeAjax') }}",
+      url: "{{ route('user.homeAjax') }}",
       data:{
         "_token": "{{ csrf_token() }}",
        
@@ -247,7 +247,7 @@
           var obj = JSON.parse ( data );
           // var msg=obj.msg;
           var name=obj.gurudwara_name;
-          var url='{{asset('public/gurudwara-image/')}}/'+obj.gurudwara_photo;
+          var url='{{asset('public/user-image/')}}/'+obj.gurudwara_photo;
           // alert(url)
           $('#name_gurdwara').empty();
           // $('#name_gurdwara').append(name);
