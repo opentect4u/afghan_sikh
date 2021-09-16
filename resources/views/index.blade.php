@@ -43,7 +43,7 @@
               <h4 class="title"><a href="">Finance</a></h4>
               <p class="description">Voluptatum deleniti atque corrupti quos dolores</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=FINANCE" class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
               <h4 class="title"><a href="">Family disputes</a></h4>
               <p class="description">Voluptatum deleniti atque corrupti quos dolores</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=FAMILY DISPUTES" class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@
               <h4 class="title"><a href="">Marriages issues</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=MARRIAGES ISSUES" class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
               <h4 class="title"><a href="">Religious issue </a></h4>
               <p class="description">Excepteur sint occaecat cupidatat non proident, sunt</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=RELIGIOUS ISSUE" class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
               <h4 class="title"><a href="">Reunion Family</a></h4>
               <p class="description">At vero eos et accusamus et iusto odio dignissimos</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=REUNION FAMILY" class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@
               <h4 class="title"><a href="">Property dispute</a></h4>
               <p class="description">Et harum quidem rerum facilis est et expedita</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=PROPERTY DISPUTE" class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@
               <h4 class="title"><a href="">Divorce dispute</a></h4>
               <p class="description">Et harum quidem rerum facilis est et expedita</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=DIVORCE DISPUTE" class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
               <h4 class="title"><a href="">Other</a></h4>
               <p class="description">Et harum quidem rerum facilis est et expedita</p>
 			  <div class="btn-wrap">
-                <a href="{{route('user.servicesregister')}}?purpose=OTHER " class="btn-buy">Get Support</a>
+                <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
             </div>
           </div>
