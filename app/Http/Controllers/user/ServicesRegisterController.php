@@ -484,6 +484,25 @@ class ServicesRegisterController extends Controller
             'doc_3'=>$doc_3,
             'doc_4'=>$doc_4,
         ));
-        return redirect()->back()->with('success','success');
+        $service_type=$request->service_type;
+
+        if($service_type=='FINANCE'){
+            return redirect()-> route('user.servicesmanagefinance');
+        }elseif($service_type=='FAMILY DISPUTES'){
+            return redirect()-> route('user.servicesmanagefamily');
+        }elseif($service_type=='MARRIAGES ISSUES'){
+            return redirect()-> route('user.servicesmanagemarriages');
+        }elseif($service_type=='RELIGIOUS ISSUE'){
+            return redirect()-> route('user.servicesmanagereligious');
+        }elseif($service_type=='REUNION FAMILY'){
+            return redirect()-> route('user.servicesmanagereunion');
+        }elseif($service_type=='PROPERTY DISPUTE'){
+            return redirect()-> route('user.servicesmanageproperty');
+        }elseif($service_type=='DIVORCE DISPUTE'){
+            return redirect()-> route('user.servicesmanagedivorce');
+        }elseif($service_type=='OTHER'){
+            return redirect()-> route('user.servicesmanageother');
+        }
+        // return redirect()->back()->with('success','success');
     }
 }

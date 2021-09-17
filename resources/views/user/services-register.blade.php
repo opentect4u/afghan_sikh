@@ -110,7 +110,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" id="submit" name="submit" class="btn btn-primary">Save & Continue</button>
+                  <button type="submit" id="submit" name="submit" class="btn btn-primary">Save</button>
                 </div>
               </form>
             </div>
