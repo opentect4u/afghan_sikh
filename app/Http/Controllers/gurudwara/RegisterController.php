@@ -330,7 +330,7 @@ class RegisterController extends Controller
             // 'gurudwara_head_photo'=>$gurudwara_head_profilepicname,
             'created_by'=>$gurudwara_name,
         ));
-        Mail::to($gurudwara_email)->send(new GurdwaraRegisterEmail($gurudwara_name,$gurudwara_email,$password));
+        // Mail::to($gurudwara_email)->send(new GurdwaraRegisterEmail($gurudwara_name,$gurudwara_email,$password));
         $success='success';
         }
 

@@ -11,6 +11,7 @@ use App\Models\TdServiceDetails;
 use App\Models\TdUserFamily;
 use DB;
 use Session;
+use Illuminate\Support\Facades\Crypt;
 
 class ServicesRegisterController extends Controller
 {
@@ -504,5 +505,16 @@ class ServicesRegisterController extends Controller
             return redirect()-> route('user.servicesmanageother');
         }
         // return redirect()->back()->with('success','success');
+    }
+
+    public function ViewService($id){
+        // return "hii";
+        $id=Crypt::decryptString($id);
+        $ses_id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::find($id);
+        $family_details=TdUserFamily::where('user_details_id',$ses_id)->get();
+        // return $family_details;
+        return view('user.services-view',['family_details'=>$family_details,'data'=>$data]);
     }
 }

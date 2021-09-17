@@ -163,6 +163,8 @@ Route::prefix('user')->group(function () {
     Route::get('/servicesregisterother', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowOTHER'])->name('user.servicesregisterother');
 
     Route::post('/registerservicesConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'Register'])->name('user.registerservicesConfirm');
+    
+    Route::get('/viewservice/{id?}', [App\Http\Controllers\user\ServicesRegisterController::class, 'ViewService'])->name('user.viewservice');
 
 
 });

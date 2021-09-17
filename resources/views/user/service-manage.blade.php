@@ -65,6 +65,7 @@
                     <th>Help Information</th>
                     <th>Application Date</th>
                     <th>Status</th>
+                    <th>View</th>
                     <!-- <th>Action</th> -->
                   </tr>
                   </thead>
@@ -85,10 +86,10 @@
                         {{"Reject"}}
                         @endif
                       </td>
-                      <!-- <td id="actionTd{{$gurudwaras->id}}">
-                      <a href="{{route('user.editfamilymember',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-edit"></i></a>
+                      <td id="actionTd{{$gurudwaras->id}}">
+                      <a href="{{route('user.viewservice',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-eye"></i></a>
                        
-                      </td> -->
+                      </td>
                     </tr>
                     @endforeach
                   <!-- <tr>

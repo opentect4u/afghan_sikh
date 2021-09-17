@@ -220,6 +220,7 @@
           Route::currentRouteName()=='user.servicesregisterproperty' ||
           Route::currentRouteName()=='user.servicesregisterdivorce' ||
           Route::currentRouteName()=='user.servicesregisterother' ||
+          Route::currentRouteName()=='user.viewservice' ||
           Route::currentRouteName()=='user.servicesregisterfamily'?'menu-open':''}}">
             <a href="#" class="nav-link {{Route::currentRouteName()=='user.servicesmanagefinance' ||
               Route::currentRouteName()=='user.servicesregisterfinance' ||
@@ -236,6 +237,7 @@
               Route::currentRouteName()=='user.servicesregisterproperty' ||
               Route::currentRouteName()=='user.servicesregisterdivorce' ||
               Route::currentRouteName()=='user.servicesregisterother' ||
+              Route::currentRouteName()=='user.viewservice' ||
               Route::currentRouteName()=='user.servicesregisterfamily'?'active':''}}">
               <i class="nav-icon fas fa-table"></i>
               <p>Get Support<i class="right fas fa-angle-left"></i></p>
