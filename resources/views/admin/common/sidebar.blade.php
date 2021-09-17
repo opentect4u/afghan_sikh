@@ -205,54 +205,82 @@
         
        
         <!-- menu-open -->
-        <li class="nav-item {{Route::currentRouteName()=='user.servicesregisterfinance' ||
+        <li class="nav-item {{Route::currentRouteName()=='user.servicesmanagefinance' ||
+          Route::currentRouteName()=='user.servicesregisterfinance' ||
+          Route::currentRouteName()=='user.servicesmanagefamily' ||
+          Route::currentRouteName()=='user.servicesmanagemarriages' ||
+          Route::currentRouteName()=='user.servicesmanagereligious' ||
+          Route::currentRouteName()=='user.servicesmanagereunion' ||
+          Route::currentRouteName()=='user.servicesmanageproperty' ||
+          Route::currentRouteName()=='user.servicesmanagedivorce' ||
+          Route::currentRouteName()=='user.servicesmanageother' ||
+          Route::currentRouteName()=='user.servicesregistermarriages' ||
+          Route::currentRouteName()=='user.servicesregisterreligious' ||
+          Route::currentRouteName()=='user.servicesregisterreunion' ||
+          Route::currentRouteName()=='user.servicesregisterproperty' ||
+          Route::currentRouteName()=='user.servicesregisterdivorce' ||
+          Route::currentRouteName()=='user.servicesregisterother' ||
           Route::currentRouteName()=='user.servicesregisterfamily'?'menu-open':''}}">
-            <a href="#" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance' ||
+            <a href="#" class="nav-link {{Route::currentRouteName()=='user.servicesmanagefinance' ||
+              Route::currentRouteName()=='user.servicesregisterfinance' ||
+              Route::currentRouteName()=='user.servicesmanagefamily' ||
+              Route::currentRouteName()=='user.servicesmanagemarriages' ||
+              Route::currentRouteName()=='user.servicesmanagereligious' ||
+              Route::currentRouteName()=='user.servicesmanagereunion' ||
+              Route::currentRouteName()=='user.servicesmanageproperty' ||
+              Route::currentRouteName()=='user.servicesmanagedivorce' ||
+              Route::currentRouteName()=='user.servicesmanageother' ||
+              Route::currentRouteName()=='user.servicesregistermarriages' ||
+              Route::currentRouteName()=='user.servicesregisterreligious' ||
+              Route::currentRouteName()=='user.servicesregisterreunion' ||
+              Route::currentRouteName()=='user.servicesregisterproperty' ||
+              Route::currentRouteName()=='user.servicesregisterdivorce' ||
+              Route::currentRouteName()=='user.servicesregisterother' ||
               Route::currentRouteName()=='user.servicesregisterfamily'?'active':''}}">
               <i class="nav-icon fas fa-table"></i>
               <p>Get Support<i class="right fas fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                <a href="{{route('user.servicesmanagefinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagefinance' || Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>FINANCE</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('user.servicesregisterfamily')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfamily'?'active':''}}">
+                <a href="{{route('user.servicesmanagefamily')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagefamily' || Route::currentRouteName()=='user.servicesregisterfamily'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>FAMILY DISPUTES</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+              <li class="nav-item">
+                <a href="{{route('user.servicesmanagemarriages')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagemarriages' || Route::currentRouteName()=='user.servicesregistermarriages'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>MARRIAGES ISSUES</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                <a href="{{route('user.servicesmanagereligious')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagereligious' ||Route::currentRouteName()=='user.servicesregisterreligious'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>RELIGIOUS ISSUE</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                <a href="{{route('user.servicesmanagereunion')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagereunion' ||Route::currentRouteName()=='user.servicesregisterreunion'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>REUNION FAMILY</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                <a href="{{route('user.servicesmanageproperty')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanageproperty' ||Route::currentRouteName()=='user.servicesregisterproperty'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>PROPERTY DISPUTE</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                <a href="{{route('user.servicesmanagedivorce')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagedivorce' ||Route::currentRouteName()=='user.servicesregisterdivorce'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>DIVORCE DISPUTE</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('user.servicesregisterfinance')}}" class="nav-link {{Route::currentRouteName()=='user.servicesregisterfinance'?'active':''}}">
+                <a href="{{route('user.servicesmanageother')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanageother' ||Route::currentRouteName()=='user.servicesregisterother'?'active':''}}">
                   <i class="far fa-circle nav-icon"></i><p>OTHER</p>
                 </a>
-              </li> -->
+              </li>
              
             </ul>
         </li>

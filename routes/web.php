@@ -144,6 +144,15 @@ Route::prefix('user')->group(function () {
     Route::get('/editfamilymember4/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow4'])->name('user.editfamilymember4');
 
 
+    Route::get('/servicesmanagefinance', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageFinance'])->name('user.servicesmanagefinance');
+    Route::get('/servicesmanagefamily', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageFAMILY'])->name('user.servicesmanagefamily');
+    Route::get('/servicesmanagemarriages', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageMARRIAGES'])->name('user.servicesmanagemarriages');
+    Route::get('/servicesmanagereligious', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageRELIGIOUS'])->name('user.servicesmanagereligious');
+    Route::get('/servicesmanagereunion', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageREUNION'])->name('user.servicesmanagereunion');
+    Route::get('/servicesmanageproperty', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManagePROPERTY'])->name('user.servicesmanageproperty');
+    Route::get('/servicesmanagedivorce', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageDIVORCE'])->name('user.servicesmanagedivorce');
+    Route::get('/servicesmanageother', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageOTHER'])->name('user.servicesmanageother');
+
     Route::get('/servicesregisterfinance', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowFinance'])->name('user.servicesregisterfinance');
     Route::get('/servicesregisterfamily', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowFAMILY'])->name('user.servicesregisterfamily');
     Route::get('/servicesregistermarriages', [App\Http\Controllers\user\ServicesRegisterController::class, 'ShowMARRIAGES'])->name('user.servicesregistermarriages');

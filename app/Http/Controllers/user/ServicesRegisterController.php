@@ -269,6 +269,78 @@ class ServicesRegisterController extends Controller
         }
     }
 
+    public function ManageFinance(){
+        $service_type="FINANCE";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]);
+    }
+
+    public function ManageFAMILY(){
+        $service_type="FAMILY DISPUTES";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]); 
+    }
+
+    public function ManageMARRIAGES(){
+        $service_type="MARRIAGES ISSUES";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]); 
+    }
+
+    public function ManageRELIGIOUS(){
+        $service_type="RELIGIOUS ISSUE";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]); 
+    }
+
+    public function ManageREUNION(){
+        $service_type="REUNION FAMILY";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]); 
+    }
+
+    public function ManagePROPERTY(){
+        $service_type="PROPERTY DISPUTE";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]); 
+    }
+
+    public function ManageDIVORCE(){
+        $service_type="DIVORCE DISPUTE";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]); 
+    }
+
+    public function ManageOTHER(){
+        $service_type="OTHER";
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::where('self_id',$id)->where('service_type',$service_type)->orderBy('application_date','desc')->get();
+        // return $data;
+        return view('user.service-manage',['data'=>$data,'service_type'=>$service_type]); 
+    }
+
     public function ShowFinance(){
         // return "hii";
         $id=Session::get('user')[0]['id'];

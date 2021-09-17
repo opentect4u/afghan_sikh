@@ -67,7 +67,7 @@
                         <div class="col-sm-12">
                             <!-- text input -->
                             <div class="form-group">
-                                <label class="fieldlabels">User Information : *</label> 
+                                <label class="fieldlabels">Help Information : *</label> 
                                 <!-- <input type="text" required name="user_info" value="" class="form-control" > -->
                                 <textarea required name="user_info" value="" class="form-control"></textarea>
                             </div>
