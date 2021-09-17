@@ -55,7 +55,7 @@
                     @foreach($gurudwara as $gurudwaras)
                     <tr>
                       <td>{{$count++}}</td>
-                      <td>{{$gurudwaras->email}}</td>
+                      <td>{{$gurudwaras->user_id}}</td>
                       <td>{{$gurudwaras->surname}}</td>
                       <!-- <td>{{$gurudwaras->created_at}}</td> -->
                       <td>@if($gurudwaras->gurudwaras_name!=''){{$gurudwaras->gurudwaras_name}} @else {{'--'}} @endif</td>

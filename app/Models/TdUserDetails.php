@@ -44,7 +44,7 @@ class TdUserDetails extends Model
             'doc_2',
             'doc_3',
             'doc_4',
-            'active',
+            'user_active',
             'gurudwara_id',
             'purpose',
             'remark',

@@ -21,33 +21,47 @@ class UserController extends Controller
         $status_details=$equest->status;
         // $data=TdUserDetails::orderBy('updated_at','desc')->get();
         if($status_details=='I'){
-            $data=DB::table('td_user_details')
-                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-                    ->Where('td_user_details.active','I')               
-                    ->orderBy('td_user_details.updated_at', 'desc')
-                    ->get();
+            $data=DB::table('md_user_login')
+            ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('md_user_login.user_type','U')               
+            ->Where('md_user_login.active','I')               
+            ->orderBy('md_user_login.created_at', 'desc')
+            ->get();
         }else if($status_details=='A'){
-            $data=DB::table('td_user_details')
-                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-                    ->Where('td_user_details.active','A')               
-                    ->orderBy('td_user_details.updated_at', 'desc')
-                    ->get();
+            $data=DB::table('md_user_login')
+            ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('md_user_login.user_type','U')               
+            ->Where('md_user_login.active','A')               
+            ->orderBy('md_user_login.created_at', 'desc')
+            ->get();
         }else if($status_details=='R'){
-            $data=DB::table('td_user_details')
-                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-                    ->Where('td_user_details.active','R')               
-                    ->orderBy('td_user_details.updated_at', 'desc')
-                    ->get();
+            $data=DB::table('md_user_login')
+            ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('md_user_login.user_type','U')               
+            ->Where('md_user_login.active','R')               
+            ->orderBy('md_user_login.created_at', 'desc')
+            ->get();
         }else{
-            $data=DB::table('td_user_details')
+            $data=DB::table('md_user_login')
+                    ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
                     ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-                    ->Where('td_user_details.active','I')               
-                    ->orderBy('td_user_details.updated_at', 'desc')
+                    ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                    ->Where('md_user_login.user_type','U')               
+                    ->Where('md_user_login.active','I')               
+                    ->orderBy('md_user_login.created_at', 'desc')
                     ->get();
+            // $data=DB::table('td_user_details')
+            //         ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            //         ->select('td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            //         ->Where('td_user_details.active','I')               
+            //         ->orderBy('td_user_details.updated_at', 'desc')
+            //         ->get();
             $status_details="I";
             // $data=DB::table('td_user_details')
             //         ->leftJoin('md_user_login', 'td_user_details.gurudwara_id', '=', 'md_user_login.id')

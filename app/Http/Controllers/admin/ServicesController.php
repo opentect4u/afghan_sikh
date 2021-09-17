@@ -25,23 +25,26 @@ class ServicesController extends Controller
         // $data=TdUserDetails::orderBy('updated_at','desc')->get();
         if($status_details=='I'){
             $data=DB::table('td_service_details')
-                    ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_service_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-                    ->Where('td_service_details.active','I')               
+            ->leftJoin('td_user_details', 'td_service_details.self_id', '=', 'td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('td_service_details.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('td_service_details.active','I')               
                     ->orderBy('td_service_details.updated_at', 'desc')
                     ->get();
         }else if($status_details=='A'){
             $data=DB::table('td_service_details')
-                    ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_service_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-                    ->Where('td_service_details.active','A')               
+            ->leftJoin('td_user_details', 'td_service_details.self_id', '=', 'td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('td_service_details.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('td_service_details.active','A')               
                     ->orderBy('td_service_details.updated_at', 'desc')
                     ->get();
         }else if($status_details=='R'){
             $data=DB::table('td_service_details')
-                    ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_service_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-                    ->Where('td_service_details.active','R')               
+            ->leftJoin('td_user_details', 'td_service_details.self_id', '=', 'td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('td_service_details.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('td_service_details.active','R')               
                     ->orderBy('td_service_details.updated_at', 'desc')
                     ->get();
         }else if($date!=''){
@@ -61,8 +64,9 @@ class ServicesController extends Controller
                     ->get();
         }else{
             $data=DB::table('td_service_details')
+                    ->leftJoin('td_user_details', 'td_service_details.self_id', '=', 'td_user_details.id')
                     ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_service_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                    ->select('td_service_details.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_service_details.active','I')               
                     ->orderBy('td_service_details.updated_at', 'desc')
                     ->get();
