@@ -74,7 +74,7 @@
                     <tr>
                       <td>{{$count++}}</td>
                       <td>{{$gurudwaras->self_or_family}} </td>
-                      <td>{{$gurudwaras->other_info}}</td>
+                      <td>{{substr($gurudwaras->other_info,0,100)}}</td>
                       <td>{{Carbon\Carbon::parse($gurudwaras->application_date)->format('d M Y')}}</td>
                       <td>
                         @if($gurudwaras->active=='I')
