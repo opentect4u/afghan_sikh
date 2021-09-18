@@ -63,7 +63,7 @@
 
                                     <!-- Mother's Name,*Mother's  Nationality,Mother's  Previous/Past Nationality,*Mother's  Place/Country of Birth, -->
                                     <label class="fieldlabels">Mother's Name: *</label> 
-                                    <input type="text" required name="mother_name" id="mother_name" placeholder="mother's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" required name="mother_name" id="mother_name" placeholder="Mother's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Mother's Nationality: *</label> 
                                     <select name="mother_nationality" id="mother_nationality" required>
                                         <option value=""> --Select Mother's Nationality-- </option>

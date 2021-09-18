@@ -70,7 +70,7 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                            <label class="fieldlabels">Phone Number : </label> 
+                            <label class="fieldlabels">Phone Number : *</label> 
                             <input type="number" name="phone" id="phone" value="{{isset($editdata->phone)? $editdata->phone:''}}" class="form-control" required />
                             </div>
                         </div>

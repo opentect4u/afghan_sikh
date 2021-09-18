@@ -24,6 +24,9 @@
                     @if(Session::has('notregister'))
                     <p style="color:red;">please register</p>
                     @endif
+                    @if(Session::has('approvederror'))
+                    <p style="color:red;">Your account is Pending for Admin approval</p>
+                    @endif
                     @if(Session::has('error'))
                     <p style="color:red;">User Id or Password did not match!</p>
                     @endif

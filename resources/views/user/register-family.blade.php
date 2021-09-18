@@ -48,7 +48,7 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label class="fieldlabels">Middle Name (As in Passport) : *</label> 
+                                <label class="fieldlabels">Middle Name (As in Passport) : </label> 
                                 <input type="text" name="middle_name" value="{{isset($editdata)? $editdata->middle_name:''}}" class="form-control" >
                             </div>
                         </div>

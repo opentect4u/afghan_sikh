@@ -61,13 +61,13 @@
                                         </div>
                                     </div>  -->
 
-                                    <label class="fieldlabels">Upload Document 1 : *</label> 
+                                    <label class="fieldlabels">Upload Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                     <input type="file" required name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 2 : *</label> 
+                                    <label class="fieldlabels">Upload Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                     <input type="file" required name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 3 : *</label> 
+                                    <label class="fieldlabels">Upload Document 3 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                     <input type="file"  name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 4 : *</label> 
+                                    <label class="fieldlabels">Upload Document 4 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                     <input type="file" name="doc_4" id="doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                                     
                                                                        

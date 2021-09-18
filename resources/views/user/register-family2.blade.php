@@ -1,6 +1,22 @@
 @extends('admin.common.master')
 @section('content')
 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"  />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css"  /> -->
+
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css"> -->
+
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script> -->
+
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
+
+
+
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,11 +57,11 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                            <label class="fieldlabels">Current Citizenship : </label> 
+                            <label class="fieldlabels">Current Citizenship : *</label> 
                                         <select name="current_citizenship" id="current_citizenship" class="form-control" required>
                                             <option value=""> --Select Current Citizenship-- </option>
                                             @foreach($country as $countries)
-                                            <option value="{{$countries->id}}" <?php if( isset($editdata) && $editdata->current_citizenship==$countries->id){ echo "selected";}?>>{{$countries->name}}</option>
+                                            <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->current_citizenship==$countries->id){ echo "selected";}?>>{{$countries->name}}</option>
                                             @endforeach
                                         </select>
                             </div>
@@ -53,7 +69,7 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                            <label class="fieldlabels">Previous Citizenship : </label> 
+                            <label class="fieldlabels">Previous Citizenship : *</label> 
                                         <select name="previous_citizenship" id="previous_citizenship" required class="form-control">
                                             <option value=""> --Select Previous Citizenship-- </option>
                                             @foreach($country as $countries)
@@ -99,13 +115,13 @@
                       <div class="col-sm-6">
                             <div class="form-group">
                             <label class="fieldlabels">Passport Date of Issue : </label> 
-                                        <input type="date" class="form-control" name="passport_date_of_issue" id="passport_date_of_issue" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                              <input type="text" class="form-control" value="{{isset($editdata->passport_date_of_issue)? $editdata->passport_date_of_issue:''}}" name="passport_date_of_issue" id="passport_date_of_issue" placeholder="dd/mm/yyyy" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                             </div>
                         </div> 
                         <div class="col-sm-6">
                             <div class="form-group">
                             <label class="fieldlabels">Passport Date of Expiry : </label> 
-                            <input type="date" class="form-control" name="passport_date_of_expiry" id="passport_date_of_expiry" placeholder="Passport Date of Issue:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <input type="text" class="form-control" value="{{isset($editdata->passport_date_of_expiry)? $editdata->passport_date_of_expiry:''}}" name="passport_date_of_expiry" id="passport_date_of_expiry" placeholder="dd/mm/yyyy" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                             </div>
                         </div> 
                        
@@ -148,4 +164,62 @@
 
 
 
+@endsection
+
+@section('script')
+
+<script>
+  $(document).ready(function(){
+
+    // // $('#passport_date_of_issue').on('click', function(){ 
+    // $('#passport_date_of_issue').daterangepicker({ 
+    //         // autoclose: true,
+    //         singleDatePicker:true,
+    //         autoApply:true,
+    //         maxDate: new Date(),
+    //         autoUpdateInput: true,
+    //         // dateFormat: 'dd/mm/yy'
+    //         // startDate: new Date()
+    //     });
+    // });
+    $("#passport_date_of_issue").daterangepicker({
+        autoUpdateInput: false,
+        minYear: 1901,
+        maxDate: new Date(),
+        autoApply:true,
+        showDropdowns: true,
+        singleDatePicker: true,
+        timePicker: false,
+        timePicker24Hour: false,
+        timePickerIncrement: 05,
+        drops: "up",
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    }).on("apply.daterangepicker", function (e, picker) {
+        picker.element.val(picker.startDate.format(picker.locale.format));
+    });
+
+    $("#passport_date_of_expiry").daterangepicker({
+        autoUpdateInput: false,
+        minYear: 1901,
+        minDate: new Date(),
+        autoApply:true,
+        showDropdowns: true,
+        singleDatePicker: true,
+        timePicker: false,
+        timePicker24Hour: false,
+        timePickerIncrement: 05,
+        drops: "up",
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    }).on("apply.daterangepicker", function (e, picker) {
+        picker.element.val(picker.startDate.format(picker.locale.format));
+    });
+
+    
+    
+  });
+</script>
 @endsection
