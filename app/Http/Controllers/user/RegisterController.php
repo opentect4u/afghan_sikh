@@ -52,11 +52,11 @@ class RegisterController extends Controller
         $email=$request->email_mobile;
         $con_otp=$request->con_otp ;
         $otp=$request->otp ;
-        if($con_otp==''){
-            $error="Something wrong please try again";
-            return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]); 
-        }
-        if ($con_otp==$otp) {
+        // if($con_otp==''){
+        //     $error="Something wrong please try again";
+        //     return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]); 
+        // }
+        // if ($con_otp==$otp) {
             // return $request;
             $data=MdUserLogin::create(array(
                 'user_id'=>$request->email_mobile,
@@ -76,11 +76,12 @@ class RegisterController extends Controller
             // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
             return redirect()->route('user.registerstep2');
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
-        }else{
-            $error="otp did not match";
-            return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]);
-            // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
-        }
+        
+        // }else{
+        //     $error="otp did not match";
+        //     return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]);
+        //     // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
+        // }
     }
 
     public function Register2()

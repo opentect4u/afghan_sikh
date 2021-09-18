@@ -69,7 +69,7 @@
                                     @endif
                                     </br>
                                     <label class="fieldlabels">Enter OTP *</label> 
-                                    <input type="text" name="otp" required class="form-control" id="otp" placeholder="Enter OTP" />
+                                    <input type="text" name="otp"  class="form-control" id="otp" placeholder="Enter OTP" />
                                     <!-- <label class="fieldlabels">Password: *</label> 
                                     <input type="password" name="password" required class="form-control" id="password" placeholder="Password:" />
                                     <label class="fieldlabels">Confirm Password : *</label> 
