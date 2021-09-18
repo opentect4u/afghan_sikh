@@ -166,7 +166,11 @@ Route::prefix('user')->group(function () {
     
     Route::get('/viewservice/{id?}', [App\Http\Controllers\user\ServicesRegisterController::class, 'ViewService'])->name('user.viewservice');
 
-
+    Route::get('/managecertificate', [App\Http\Controllers\user\CertificateController::class, 'Manage'])->name('user.managecertificate');
+    Route::get('/addcertificate', [App\Http\Controllers\user\CertificateController::class, 'ShowAdd'])->name('user.addcertificate');
+    Route::post('/addcertificateConfirm', [App\Http\Controllers\user\CertificateController::class, 'Add'])->name('user.addcertificateConfirm');
+    Route::get('/certificateedit/{id?}', [App\Http\Controllers\user\CertificateController::class, 'ShowEdit'])->name('user.certificateedit');
+    
 });
 
 

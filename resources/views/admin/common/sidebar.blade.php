@@ -286,6 +286,13 @@
              
             </ul>
         </li>
+
+        <li class="nav-item">
+          <a href="{{route('user.managecertificate')}}" class="nav-link {{Route::currentRouteName()=='user.managecertificate' || Route::currentRouteName()=='user.addcertificate'|| Route::currentRouteName()=='user.certificateedit'?'active':''}}">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Certificate</p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
