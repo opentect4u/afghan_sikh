@@ -13,6 +13,7 @@ class TdCertificate extends Model
     protected $fillable = [
         'user_id',
         'certificates_type_id',
+        'remark',
         'application_date',
         'doc_1',
         'doc_2' ,

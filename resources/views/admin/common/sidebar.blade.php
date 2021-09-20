@@ -159,7 +159,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="{{route('user.home')}}" class="brand-link" style="display: inline-block;">
-    <img id="logo_img" src="" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <img id="logo_img" src="{{asset('public/img/logo.png')}}" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light" id="name_gurdwara"></span>
   </a>
 
@@ -185,17 +185,17 @@
         <li class="nav-item">
           <a href="{{route('user.home')}}" class="nav-link {{Route::currentRouteName()=='user.home'?'active':''}}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p> Dashboard</p>
+            <p> Profile</p>
           </a>
         </li>
        
        
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{{route('user.profile')}}" class="nav-link {{Route::currentRouteName()=='user.profile' || Route::currentRouteName()=='user.profile'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Profile</p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="{{route('user.managefamily')}}" class="nav-link {{Route::currentRouteName()=='user.managefamily' || Route::currentRouteName()=='user.managefamily'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
@@ -323,8 +323,8 @@
           
           $('#gurdwaraName').empty();
           $('#gurdwaraName').append(name);
-          $('#logo_img').removeAttr('src');
-          $('#logo_img').attr('src',url);
+          // $('#logo_img').removeAttr('src');
+          // $('#logo_img').attr('src',url);
 
           // $("#accept").hide();
           // $("#reject").hide();

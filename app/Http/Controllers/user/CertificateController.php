@@ -91,6 +91,7 @@ class CertificateController extends Controller
         TdCertificate::create(array(
             'user_id'=>$id,
             'certificates_type_id'=>$request->certificates_type_id,
+            'remark'=>$request->remark,
             'application_date'=>date('Y-m-d'),
             'doc_1'=>$doc_1,
             'doc_2' =>$doc_2,
@@ -107,5 +108,100 @@ class CertificateController extends Controller
         $certificate=MdCertificateType::get();
         $editdata=TdCertificate::find($id);
         return view('user.certificate-add',['editdata'=>$editdata,'certificate'=>$certificate]);
+    }
+
+    public function Edit(Request $request){
+        // return $request;
+        $id=$request->id;
+        $data=TdCertificate::find($id);
+
+        if ($request->hasFile('doc_1')) {
+            $profile_pic_path1 = $request->file('doc_1');
+            $doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath1 = public_path('certificate-doc/');
+            $profile_pic_path1->move($destinationPath1,$doc_1);
+
+            if($data->doc_1!=null){
+                $filesc = public_path('certificate-doc/') . $data->doc_1;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_1=$data->doc_1;
+        }
+
+        if ($request->hasFile('doc_2')) {
+            $profile_pic_path2 = $request->file('doc_2');
+            $doc_2=date('YmdHis') .'_'.$id. 'doc_2.' . $profile_pic_path2->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath2 = public_path('certificate-doc/');
+            $profile_pic_path2->move($destinationPath2,$doc_2);
+
+            if($data->doc_2!=null){
+                $filesc = public_path('certificate-doc/') . $data->doc_2;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $doc_2=$data->doc_2;
+        }
+
+        if ($request->hasFile('doc_3')) {
+            $profile_pic_path3 = $request->file('doc_3');
+            $doc_3=date('YmdHis') .'_'.$id. 'doc_3.' . $profile_pic_path3->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath3 = public_path('certificate-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_3);
+
+            if($data->doc_3!=null){
+                $filesc = public_path('certificate-doc/') . $data->doc_3;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_3=$data->doc_3;
+        }
+
+        if ($request->hasFile('doc_4')) {
+            $profile_pic_path4 = $request->file('doc_4');
+            $doc_4=date('YmdHis') .'_'.$id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath4 = public_path('certificate-doc/');
+            $profile_pic_path4->move($destinationPath4,$doc_4);
+
+            if($data->doc_4!=null){
+                $filesc = public_path('certificate-doc/') . $data->doc_4;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_4=$data->doc_4;
+        }
+        $data->certificates_type_id=$request->certificates_type_id;
+        $data->remark=$request->remark;;
+        $data->doc_1=$doc_1;
+        $data->doc_2=$doc_2;
+        $data->doc_3=$doc_3;
+        $data->doc_4=$doc_4;
+        $data->save();
+        // return $data;
+        return redirect()->route('user.managecertificate');
+
     }
 }

@@ -72,6 +72,7 @@
                         <a href="javascript:void(0)" id="accept" ><i class="fas fa-edit"></i></a>
                         @else
                         <a href="{{route('user.certificateedit',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" title="Edit"><i class="fas fa-edit"></i></a>
+                        &nbsp;&nbsp;&nbsp;<a href="#" id="accept" title="Delete"><i class="fas fa-trash-alt"></i></a>
                         @endif
                       </td>
                       

@@ -170,6 +170,19 @@ Route::prefix('user')->group(function () {
     Route::get('/addcertificate', [App\Http\Controllers\user\CertificateController::class, 'ShowAdd'])->name('user.addcertificate');
     Route::post('/addcertificateConfirm', [App\Http\Controllers\user\CertificateController::class, 'Add'])->name('user.addcertificateConfirm');
     Route::get('/certificateedit/{id?}', [App\Http\Controllers\user\CertificateController::class, 'ShowEdit'])->name('user.certificateedit');
+    Route::post('/editcertificateConfirm', [App\Http\Controllers\user\CertificateController::class, 'Edit'])->name('user.editcertificateConfirm');
+
+
+    Route::post('/edirstage1', [App\Http\Controllers\user\HomeController::class, 'EditStage1'])->name('user.edirstage1');
+    Route::post('/edirstage2', [App\Http\Controllers\user\HomeController::class, 'EditStage2'])->name('user.edirstage2');
+    Route::post('/edirstage3', [App\Http\Controllers\user\HomeController::class, 'EditStage3'])->name('user.edirstage3');
+    Route::post('/edirstage4', [App\Http\Controllers\user\HomeController::class, 'EditStage4'])->name('user.edirstage4');
+    Route::post('/edirstage5', [App\Http\Controllers\user\HomeController::class, 'EditStage5'])->name('user.edirstage5');
+    Route::post('/edirstage6', [App\Http\Controllers\user\HomeController::class, 'EditStage6'])->name('user.edirstage6');
+    Route::post('/edirstage7', [App\Http\Controllers\user\HomeController::class, 'EditStage7'])->name('user.edirstage7');
+    Route::post('/edirstage8', [App\Http\Controllers\user\HomeController::class, 'EditStage8'])->name('user.edirstage8');
+    Route::post('/changepassword', [App\Http\Controllers\user\HomeController::class, 'ChangePass'])->name('user.changepassword');
+    Route::post('/logoupload', [App\Http\Controllers\user\HomeController::class, 'LogoUpload'])->name('user.logoupload');
     
 });
 

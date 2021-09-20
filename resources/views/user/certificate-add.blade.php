@@ -33,7 +33,7 @@
               </div> -->
               <!-- /.card-header -->
               <!-- form start -->
-              <form name="myform" method="POST" action="{{ isset($editdata)? route('user.editfamilymemberconfirm'):route('user.addcertificateConfirm')}}" enctype="multipart/form-data" >
+              <form name="myform" method="POST" action="{{ isset($editdata)? route('user.editcertificateConfirm'):route('user.addcertificateConfirm')}}" enctype="multipart/form-data" >
                 @csrf
                 <input type="hidden" id="id" name="id" value="{{isset($editdata)? $editdata->id:''}}"/>
                 <div class="card-body">
@@ -49,6 +49,12 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Remark : * </label>
+                                <input type="text" name="remark" id="remark" class="form-control" />
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -58,7 +64,7 @@
                                 @if(isset($editdata) && $editdata->doc_1!='')
                                 <img src="{{asset('public/certificate-doc/').'/'.$editdata->doc_1}}" width="100" height="100"/>
                                 @endif
-                                <input type="file" required name="doc_1" id="doc_1" value="{{isset($editdata)? $editdata->last_name:''}}" class="form-control" >
+                                <input type="file" {{isset($editdata)? '':'required'}} name="doc_1" id="doc_1" value="{{isset($editdata)? $editdata->last_name:''}}" class="form-control" >
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -67,7 +73,7 @@
                                 @if(isset($editdata) && $editdata->doc_2!='')
                                 <img src="{{asset('public/certificate-doc/').'/'.$editdata->doc_2}}" width="100" height="100"/>
                                 @endif
-                                <input type="file" required name="doc_2" id="doc_2" value="{{isset($editdata)? $editdata->last_name:''}}" class="form-control" >
+                                <input type="file" {{ isset($editdata)? '':'required' }} name="doc_2" id="doc_2" value="{{isset($editdata)? $editdata->last_name:''}}" class="form-control" >
                                 
                             </div>
                         </div>
