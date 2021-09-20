@@ -352,11 +352,11 @@
                     </div>
                     <div class="row">
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Admin Remarks</label>
-                                <textarea class="form-control" id="remark" name="remark">{{$user_details->remark}}</textarea>
+                                <textarea class="form-control" id="remark" name="remark" rows="6" >{{$user_details->remark}}</textarea>
                             </div>
                         </div>
 

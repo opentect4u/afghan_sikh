@@ -65,10 +65,13 @@ class ServicesController extends Controller
         }else{
             $data=DB::table('td_service_details')
                     ->leftJoin('td_user_details', 'td_service_details.self_id', '=', 'td_user_details.id')
+                    ->leftJoin('md_user_login', 'td_service_details.self_id', '=', 'md_user_login.id')
                     ->leftJoin('td_gurudwara_details', 'td_service_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('td_service_details.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                    ->leftJoin('td_user_family_details', 'td_service_details.family_details_id', '=', 'td_user_family_details.id')
+                    ->select('td_user_details.*','td_user_family_details.*','td_service_details.*','md_user_login.user_id as user_id', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                    // ->select('td_service_details.*','td_user_details.*','md_user_login.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
                     ->Where('td_service_details.active','I')               
-                    ->orderBy('td_service_details.updated_at', 'desc')
+                    ->orderBy('td_service_details.application_date', 'desc')
                     ->get();
             $status_details="I";
             // $data=DB::table('td_user_details')
@@ -85,6 +88,9 @@ class ServicesController extends Controller
     public function Edit($id){
         // return "hii";
         $user_details = TdServiceDetails::find(Crypt::decryptString($id));
+        // return $user_details;
+        $user_details1 = TdUserDetails::find($user_details->self_id);
+        // return $user_details1;
         $country=MdCountry::get();
         // $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
         $gurudwara=DB::table('md_user_login')
@@ -95,7 +101,7 @@ class ServicesController extends Controller
                     // ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();
         // return $gurudwara;
-        return view('admin.user-services-edit',['user_details'=>$user_details,'country'=>$country,'gurudwara'=>$gurudwara]);
+        return view('admin.user-services-edit',['user_details'=>$user_details,'user_details1'=>$user_details1,'country'=>$country,'gurudwara'=>$gurudwara]);
         
     }
 
@@ -104,8 +110,8 @@ class ServicesController extends Controller
         $id=$request->id;
         $user_details = TdServiceDetails::find($id);
         $user_details->gurudwara_id=$request->gurudwara_id;
-        $user_details->active=$request->active;
-        $user_details->update();
+        $user_details->active=$request->status;
+        $user_details->save();
         return redirect()->route('admin.services');
     }
 }

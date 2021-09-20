@@ -31,11 +31,33 @@
               </div>
               <div class="card-header">
                 <!-- <h3 class="card-title">All Users</h3> -->
-                <input type="radio" id="pending" name="click_status" value="I" <?php if(isset($status_details) && $status_details=="I"){ echo "checked";}?>>
-                <label for="html"> Pending</label>&nbsp;&nbsp;
-                <input type="radio" id="active" name="click_status" value="A" <?php if(isset($status_details) && $status_details=="A"){ echo "checked";}?>>
-                <label for="html"> Approved</label>&nbsp;&nbsp;<input type="radio" id="reject" name="click_status" value="R" <?php if(isset($status_details) && $status_details=="R"){ echo "checked";}?>>
-                <label for="css">Rejected</label>
+                <div class="card-body">
+                    <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Status</label>
+                    <select name="status" id="status" class="form-control" >
+                        <option value=""> -- Select Status -- </option>
+                        <option value="I" <?php if($status_details=='I'){echo "selected";}?>>Pending for approval</option>
+                        <option value="OH" <?php if($status_details=='OH'){echo "selected";}?>>On Hold</option>
+                        <option value="AD" <?php if($status_details=='AD'){echo "selected";}?>>Awaiting document upload</option>
+                        <option value="AR" <?php if($status_details=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
+                        <option value="R" <?php if($status_details=='R'){echo "selected";}?>>Reject</option>
+                        <option value="A" <?php if($status_details=='A'){echo "selected";}?>>Approved</option>
+                        <!-- <option value=""></option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Date</label>
+                    <input type="text" class="form-control" id="date" name="date" value="{{isset($startDate)?$startDate.' - '.$endDate:''}}"/>
+                  </div>
+                </div>
+                </div>
+                </div>
+
+
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -43,6 +65,7 @@
                   <thead>
                   <tr>
                     <th>Sl No</th>
+                    <th>Date</th>
                     <th>Email</th>
                     <th>Name</th>
                     <th>Phone No</th>
@@ -55,6 +78,7 @@
                     @foreach($gurudwara as $gurudwaras)
                     <tr>
                       <td>{{$count++}}</td>
+                      <td>{{Carbon\Carbon::parse($gurudwaras->created_at)->format('d M Y')}}</td>
                       <td><a href="{{route('admin.gurdwaralogin')}}?email={{$gurudwaras->gurudwara_email}}" target="_blank">{{$gurudwaras->gurudwara_email}}</a></td>
                       <td>{{$gurudwaras->gurudwara_name}}</td>
                       <td>{{$gurudwaras->gurudwara_phone_no}}</td>
@@ -153,6 +177,40 @@
       "responsive": true,
       
     });
+
+    $("#date").daterangepicker({
+        autoUpdateInput: false,
+        minYear: 1901,
+        // maxDate: new Date(),
+        // autoApply:true,
+        showDropdowns: true,
+        // singleDatePicker: true,
+        timePicker: false,
+        timePicker24Hour: false,
+        timePickerIncrement: 05,
+        drops: "down",
+        locale: {
+            format: 'DD-MM-YYYY'
+        }
+    }).on("apply.daterangepicker", function (e, picker) {
+      // alert(picker.startDate+' '+picker.endDate)
+      picker.element.val(picker.startDate.format(picker.locale.format) +' - '+ picker.endDate.format(picker.locale.format));
+      var startDate=picker.startDate.format(picker.locale.format);
+      var endDate=picker.endDate.format(picker.locale.format);
+      var val_pending=$('#status').val();
+      // alert(val_pending);
+      var url=("{{route('admin.gurudwara')}}")+"?status="+val_pending+'&startDate='+startDate+'&endDate='+endDate;
+      // alert(url);
+      window.location.assign(url);
+    });
+
+    $('#status').on('change',function(){
+      var val_pending=$('#status').val();
+      // alert(val_pending);
+      var url=("{{route('admin.gurudwara')}}")+"?status="+val_pending;
+      // alert(url);
+      window.location.assign(url);
+    })
 
     $('#pending').click(function(){
       var val_pending=$('#pending').val();

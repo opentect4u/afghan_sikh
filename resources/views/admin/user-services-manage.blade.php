@@ -53,10 +53,12 @@
                   <thead>
                   <tr>
                     <th>Sl No</th>
-                    <th>User Id</th>
-                    <th>Name</th>
-                    <th>Gurdwara</th>
                     <th>Application Date</th>
+                    <th>Type of Application</th>
+                    <th>Self or Family</th>
+                    <th>Name</th>
+                    <!-- <th>Gurdwara</th> -->
+                    <!-- <th>Application Date</th> -->
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -66,12 +68,26 @@
                     @foreach($gurudwara as $gurudwaras)
                     <tr>
                       <td>{{$count++}}</td>
-                      <td>{{$gurudwaras->email}}</td>
-                      <td>{{$gurudwaras->surname}}</td>
-                      <td>@if($gurudwaras->gurudwaras_name!=''){{$gurudwaras->gurudwaras_name}} @else {{'--'}} @endif</td>
-                      <td>{{ Carbon\Carbon::parse($gurudwaras->created_at)->format('d M Y')}}</td>
+                      <td>{{Carbon\Carbon::parse($gurudwaras->application_date)->format('d M Y')}}</td>
+                      <td>{{$gurudwaras->service_type}}</td>
+                      <td>{{$gurudwaras->self_or_family}}</td>
+                      <td>
+                        @if($gurudwaras->self_or_family=='Self')
+                        {{$gurudwaras->surname.' '.$gurudwaras->givenname}}
+                        @else
+                        {{$gurudwaras->first_name.' '.$gurudwaras->middle_name.' '.$gurudwaras->last_name}}
+                        @endif
+                      </td>
+                      <!-- <td>@if($gurudwaras->gurudwaras_name!=''){{$gurudwaras->gurudwaras_name}} @else {{'--'}} @endif</td> -->
+                      <!-- <td>{{ Carbon\Carbon::parse($gurudwaras->created_at)->format('d M Y')}}</td> -->
                       <td>@if($gurudwaras->active=="I")
-                        <b >{{"Pending"}}</b>
+                        <b >{{"Pending for approval"}}</b>
+                        @elseif($gurudwaras->active=="OH")
+                        <b >{{'On Hold'}}</b>
+                        @elseif($gurudwaras->active=="AD")
+                        <b >{{'Awaiting document upload'}}</b>
+                        @elseif($gurudwaras->active=="AR")
+                        <b >{{'Awaiting Rectifications'}}</b>
                         @elseif($gurudwaras->active=="A")
                         <b style="color:#28a745;">{{"Approved"}}</b>
                         @elseif($gurudwaras->active=="R")

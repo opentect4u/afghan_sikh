@@ -22,6 +22,27 @@ class UserController extends Controller
     public function Show(Request $equest){
         $status_details=$equest->status;
         // $data=TdUserDetails::orderBy('updated_at','desc')->get();
+        if(isset($request->startDate) && isset($request->endDate)){
+            // $startDate=Carbon::parse($request->startDate)->format('Y-m-d');
+            // return $request->startDate;
+
+            $startDate=date("Y-m-d", strtotime($request->startDate));
+            $endDate=date("Y-m-d", strtotime($request->endDate));
+            // return $startDate;
+            $data=DB::table('md_user_login')
+                ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
+                ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+                ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                ->Where('md_user_login.user_type','U')               
+                ->Where('md_user_login.active',$status_details)  
+                ->whereBetween('md_user_login.created_at', [$startDate, $endDate])
+                ->orderBy('md_user_login.created_at', 'desc')
+                ->get();
+            
+            return view('admin.user-manage',['gurudwara'=>$data,'status_details'=>$status_details,'startDate'=>$request->startDate,'endDate'=>$request->endDate]);
+        }
+
+
         if($status_details=='I'){
             $data=DB::table('md_user_login')
             ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
@@ -49,12 +70,39 @@ class UserController extends Controller
             ->Where('md_user_login.active','R')               
             ->orderBy('md_user_login.created_at', 'desc')
             ->get();
+        }else if($status_details=='OH'){
+            $data=DB::table('md_user_login')
+            ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('md_user_login.user_type','U')               
+            ->Where('md_user_login.active','OH')               
+            ->orderBy('md_user_login.created_at', 'desc')
+            ->get();
+        }else if($status_details=='AD'){
+            $data=DB::table('md_user_login')
+            ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('md_user_login.user_type','U')               
+            ->Where('md_user_login.active','AD')               
+            ->orderBy('md_user_login.created_at', 'desc')
+            ->get();
+        }else if($status_details=='AR'){
+            $data=DB::table('md_user_login')
+            ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
+            ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
+            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->Where('md_user_login.user_type','U')               
+            ->Where('md_user_login.active','AR')               
+            ->orderBy('md_user_login.created_at', 'desc')
+            ->get();
         }else{
             $data=DB::table('md_user_login')
                     ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
                     ->select('md_user_login.*','td_user_details.*') 
                     ->Where('md_user_login.user_type','U')               
-                    // ->Where('md_user_login.active','I')               
+                    ->Where('md_user_login.active','I')               
                     ->orderBy('md_user_login.created_at', 'desc')
                     ->get();
             // $data=DB::table('td_user_details')
@@ -70,6 +118,7 @@ class UserController extends Controller
             //         ->orderBy('td_user_details.updated_at', 'desc')
             //         ->get();
         }
+        // whereBetween
         // return $data;
         // return Session::get('admin')[0]['name'];
         return view('admin.user-manage',['gurudwara'=>$data,'status_details'=>$status_details]);
