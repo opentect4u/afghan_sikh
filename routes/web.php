@@ -205,6 +205,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/user', [App\Http\Controllers\admin\UserController::class, 'Show'])->name('admin.user');
     Route::get('/useredit/{id?}', [App\Http\Controllers\admin\UserController::class, 'Edit'])->name('admin.useredit');
     Route::post('/usereditconfirm', [App\Http\Controllers\admin\UserController::class, 'EditConfirm'])->name('admin.usereditconfirm');
+    Route::get('/userdocdownload/{link?}', [App\Http\Controllers\admin\UserController::class, 'Download'])->name('admin.userdocdownload');
 
     Route::post('/userAccept', [App\Http\Controllers\admin\UserController::class, 'Acept'])->name('admin.userAccept');
     Route::post('/userReject', [App\Http\Controllers\admin\UserController::class, 'Reject'])->name('admin.userReject');

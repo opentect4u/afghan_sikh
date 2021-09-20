@@ -49,7 +49,7 @@ class GurudwaraController extends Controller
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
                 ->select('md_user_login.*', 'td_gurudwara_details.*') 
                 ->Where('md_user_login.user_type','G')               
-                ->Where('md_user_login.active','I')               
+                // ->Where('md_user_login.active','I')               
                 ->orderBy('md_user_login.updated_at', 'desc')
                 ->get();
             $status_details="I";
@@ -129,8 +129,11 @@ class GurudwaraController extends Controller
         $id=$request->id;
         $user_details = MdUserLogin::find($id);
         // $user_details->gurudwara_id=$request->gurudwara_id;
-        $user_details->active=$request->active;
-        $user_details->update();
+        $user_details->active=$request->status;
+        $user_details->save();
+        $data=TdGurudwaraDetails::find($id);
+        $data->remark=$request->remark;
+        $data->save();
         return redirect()->route('admin.gurudwara');
     }
 }

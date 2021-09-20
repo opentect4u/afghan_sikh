@@ -34,6 +34,7 @@ class TdGurudwaraDetails extends Model
         'doc_3',
         'doc_4',
         'register_stage',
+        'remark',
         'created_by' ,
         'updated_by',
     ];

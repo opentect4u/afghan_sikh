@@ -267,23 +267,77 @@
                         </div> -->
                     </div>
                     <div class="row">
+                        @if(isset($user_details->doc_1))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 1</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_1}}" width="100" height="100"  />
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_1}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                <!-- <a href="{{route('admin.userdocdownload',['link'=>$user_details->doc_1])}}" target="_blank"><i class="fas fa-file-download"></i></a> -->
+                            </div>
+                        </div>
+                        @endif
+                        @if(isset($user_details->doc_2))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 2</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_2}}" width="100" height="100"  />
+                                &nbsp;
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_2}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="row">
+                        @if(isset($user_details->doc_3))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 3</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_3}}" width="100" height="100"  />
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_3}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                
+                            </div>
+                        </div>
+                        @endif
+                        @if(isset($user_details->doc_4))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 4</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_4}}" width="100" height="100"  />
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_4}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="row">
 
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Status</label>
-                                </br>
-                                
-                                <input type="radio" id="css" name="active" value="A" <?php if($user_details->active=="A"){echo "checked";}else{echo '';}?> required>
-                                <label for="html"> Approved</label>&nbsp;&nbsp;<input type="radio" id="reject" name="active" value="R" <?php if($user_details->active=="R"){echo "checked";}else{echo '';}?> required>
-                                <label for="css">Rejected</label>
+                                <select name="status" id="status" required class="form-control" required>
+                                    <option value=""> -- Select Status -- </option>
+                                    <option value="I" <?php if($user_details1->active=='I'){echo "selected";}?>>Pending for approval</option>
+                                    <option value="OH" <?php if($user_details1->active=='OH'){echo "selected";}?>>On Hold</option>
+                                    <option value="AD" <?php if($user_details1->active=='AD'){echo "selected";}?>>Awaiting document upload</option>
+                                    <option value="AR" <?php if($user_details1->active=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
+                                    <option value="R" <?php if($user_details1->active=='R'){echo "selected";}?>>Reject</option>
+                                    <option value="A" <?php if($user_details1->active=='A'){echo "selected";}?>>Approved</option>
+                                    <!-- <option value=""></option> -->
+                                </select>
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Assign Gurdwara </label>
-                                <select name="gurudwara_id" id="gurudwara_id" class="form-control" required>
+                                <select name="gurudwara_id" id="gurudwara_id" class="form-control">
                                         <option value=""> -- Select Gurdwara -- </option>
                                         @foreach($gurudwara as $countries)
                                         <option value="{{$countries->id}}" <?php if($countries->id==$user_details->gurudwara_id){echo "selected";}else{echo '';}?>>{{$countries->gurudwara_name}}</option>
@@ -291,6 +345,22 @@
                                     </select>
                             </div>
                         </div>
+                       
+                       
+                        
+                        
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Admin Remarks</label>
+                                <textarea class="form-control" id="remark" name="remark">{{$user_details->remark}}</textarea>
+                            </div>
+                        </div>
+
+                        
                        
                        
                         

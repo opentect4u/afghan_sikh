@@ -151,29 +151,26 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Status</label>
-                                </br>
-                                
-                                <input type="radio" id="css" name="active" value="A" <?php if($user_details->active=="A"){echo "checked";}else{echo '';}?> required>
-                                <label for="html"> Approved</label>&nbsp;&nbsp;<input type="radio" id="reject" name="active" value="R" <?php if($user_details->active=="R"){echo "checked";}else{echo '';}?> required>
-                                <label for="css">Rejected</label>
+                                <select name="status" id="status" required class="form-control" required>
+                                    <option value=""> -- Select Status -- </option>
+                                    <option value="I" <?php if($user_details->active=='I'){echo "selected";}?>>Pending for approval</option>
+                                    <option value="OH" <?php if($user_details->active=='OH'){echo "selected";}?>>On Hold</option>
+                                    <option value="AD" <?php if($user_details->active=='AD'){echo "selected";}?>>Awaiting document upload</option>
+                                    <option value="AR" <?php if($user_details->active=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
+                                    <option value="R" <?php if($user_details->active=='R'){echo "selected";}?>>Reject</option>
+                                    <option value="A" <?php if($user_details->active=='A'){echo "selected";}?>>Approved</option>
+                                    <!-- <option value=""></option> -->
+                                </select>
                             </div>
                         </div>
 
-                        <!-- <div class="col-sm-6">
+                        <div class="col-sm-6">
+                            <!-- text input -->
                             <div class="form-group">
-                                <label>Assign Gurdwara </label>
-                                <select name="gurudwara_id" id="gurudwara_id" class="form-control" required>
-                                        <option value=""> -- Select Gurdwara -- </option>
-                                        @foreach($gurudwara as $countries)
-                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->gurudwara_id){echo "selected";}else{echo '';}?>>{{$countries->gurudwara_name}}</option>
-                                        @endforeach
-                                    </select>
+                                <label>Admin Remarks</label>
+                                <textarea class="form-control" id="remark" name="remark">{{$user_details->remark}}</textarea>
                             </div>
-                        </div> -->
-                       
-                       
-                        
-                        
+                        </div>
                     </div>
 
                   <!-- <div class="form-group col-md-6">

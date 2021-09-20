@@ -10,6 +10,8 @@ use App\Models\MdCountry;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Response;
+use Image;
 
 class UserController extends Controller
 {
@@ -50,10 +52,9 @@ class UserController extends Controller
         }else{
             $data=DB::table('md_user_login')
                     ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
-                    ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                    ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                    ->select('md_user_login.*','td_user_details.*') 
                     ->Where('md_user_login.user_type','U')               
-                    ->Where('md_user_login.active','I')               
+                    // ->Where('md_user_login.active','I')               
                     ->orderBy('md_user_login.created_at', 'desc')
                     ->get();
             // $data=DB::table('td_user_details')
@@ -128,26 +129,47 @@ class UserController extends Controller
         $id=Crypt::decryptString($id);
         // return $id;
         $user_details = TdUserDetails::find($id);
+        $user_details1 = MdUserLogin::find($id);
         $country=MdCountry::get();
-        $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
+        // $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
         $gurudwara=DB::table('md_user_login')
                     ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                    ->select('md_user_login.*', 'td_gurudwara_details.*') 
-                    ->Where('md_user_login.user_type','G')               
-                    ->Where('md_user_login.active','A')               
-                    // ->orderBy('td_user_details.updated_at', 'desc')
+                    ->select( 'td_gurudwara_details.*') 
+                    // ->Where('md_user_login.user_type','=','G')               
+                    ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))
+                              
+                    ->Where('md_user_login.active','A')   
+                    // ->orWhere('md_user_login.user_type','=','C')               
+                    // ->orWhere('md_user_login.user_type','=','O')                 
+                    // ->orderBy('td_user_details.updated_at', 'desc')CO
                     ->get();
         // return $gurudwara;
-        return view('admin.user-edit',['user_details'=>$user_details,'country'=>$country,'gurudwara'=>$gurudwara]);
+        return view('admin.user-edit',['user_details'=>$user_details,'user_details1'=>$user_details1,'country'=>$country,'gurudwara'=>$gurudwara]);
         
     }
     public function EditConfirm(Request $request){
         // return $request;
         $id=$request->id;
+        $data=MdUserLogin::find($id);
+        $data->active=$request->status;
+        $data->save();
         $user_details = TdUserDetails::find($id);
         $user_details->gurudwara_id=$request->gurudwara_id;
-        $user_details->active=$request->active;
-        $user_details->update();
+        $user_details->remark=$request->remark;
+        $user_details->save();
         return redirect()->route('admin.user');
+    }
+
+    public function Download($link){
+        $url=asset('public/user-doc').'/'.$link;
+        // return $url;
+        // return Response::download($url);
+        // return Image::make($url)->save('download/'.$link);
+        // return \Storage::download($url);
+        // $headers = array(
+        //     'Content-Disposition' => 'inline',
+        // );
+        
+        // return \Storage::download($url, $link, $headers);
     }
 }

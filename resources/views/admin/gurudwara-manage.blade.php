@@ -59,9 +59,15 @@
                       <td>{{$gurudwaras->gurudwara_name}}</td>
                       <td>{{$gurudwaras->gurudwara_phone_no}}</td>
                       <td> @if($gurudwaras->active=="I")
-                        <b >{{"Pending"}}</b>
+                        <b >{{"Pending for approval"}}</b>
+                        @elseif($gurudwaras->active=="OH")
+                        <b >{{'On Hold'}}</b>
+                        @elseif($gurudwaras->active=="AD")
+                        <b >{{'Awaiting document upload'}}</b>
+                        @elseif($gurudwaras->active=="AR")
+                        <b >{{'Awaiting Rectifications'}}</b>
                         @elseif($gurudwaras->active=="A")
-                        <b style="color:#28a745;">{{"Accepted"}}</b>
+                        <b style="color:#28a745;">{{"Approved"}}</b>
                         @elseif($gurudwaras->active=="R")
                         <b style="color:#dc3545;">{{"Rejected"}}</b>
                         @endif</td>

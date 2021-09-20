@@ -43,9 +43,9 @@
                   <thead>
                   <tr>
                     <th>Sl No</th>
+                    <th>Date</th>
                     <th>User Id</th>
                     <th>Name</th>
-                    <th>Gurdwara Name</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -55,12 +55,17 @@
                     @foreach($gurudwara as $gurudwaras)
                     <tr>
                       <td>{{$count++}}</td>
+                      <td>{{Carbon\Carbon::parse($gurudwaras->created_at)->format('d M Y')}}</td>
                       <td>{{$gurudwaras->user_id}}</td>
-                      <td>{{$gurudwaras->surname}}</td>
-                      <!-- <td>{{$gurudwaras->created_at}}</td> -->
-                      <td>@if($gurudwaras->gurudwaras_name!=''){{$gurudwaras->gurudwaras_name}} @else {{'--'}} @endif</td>
+                      <td>{{$gurudwaras->surname.' '.$gurudwaras->givenname}}</td>
                       <td>@if($gurudwaras->active=="I")
-                        <b >{{"Pending"}}</b>
+                        <b >{{"Pending for approval"}}</b>
+                        @elseif($gurudwaras->active=="OH")
+                        <b >{{'On Hold'}}</b>
+                        @elseif($gurudwaras->active=="AD")
+                        <b >{{'Awaiting document upload'}}</b>
+                        @elseif($gurudwaras->active=="AR")
+                        <b >{{'Awaiting Rectifications'}}</b>
                         @elseif($gurudwaras->active=="A")
                         <b style="color:#28a745;">{{"Approved"}}</b>
                         @elseif($gurudwaras->active=="R")
