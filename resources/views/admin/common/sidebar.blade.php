@@ -63,8 +63,15 @@
             <p> Help Management</p>
           </a>
         </li>
+        
+        <li class="nav-item">
+          <a href="{{route('gurudwara.certificate')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.certificate' || Route::currentRouteName()=='gurudwara.certificateedit'?'active':''}}">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Certificates</p>
+          </a>
+        </li>
         <!-- menu-open -->
-        <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' || 
+        <!-- <li class="nav-item {{Route::currentRouteName()=='gurudwara.newbron' || 
           Route::currentRouteName()=='gurudwara.marriage' ||
           Route::currentRouteName()=='gurudwara.addbirth' ||
           Route::currentRouteName()=='gurudwara.adddeath' || 
@@ -103,16 +110,9 @@
                   <p>Death</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="#" class="nav-link {{Route::currentRouteName()=='gurudwara.newbron' ?'active':''}}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New Born</p>
-                </a>
-              </li>
-               -->
-             
+              
             </ul>
-          </li>
+        </li> -->
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -289,7 +289,7 @@
             </ul>
         </li>
         <li class="nav-item">
-          <a href="{{route('user.managecertificate')}}" class="nav-link {{Route::currentRouteName()=='user.managecertificate' || Route::currentRouteName()=='user.addcertificate'|| Route::currentRouteName()=='user.certificateedit'?'active':''}}">
+          <a href="{{route('user.managecertificate')}}" class="nav-link {{Route::currentRouteName()=='user.managecertificate' || Route::currentRouteName()=='user.addcertificate'|| Route::currentRouteName()=='user.certificateedit' || Route::currentRouteName()=='user.report'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Certificate</p>
           </a>
@@ -478,6 +478,12 @@
           <a href="{{route('admin.services')}}" class="nav-link {{Route::currentRouteName()=='admin.services' || Route::currentRouteName()=='admin.servicesedit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Help Management</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('admin.certificate')}}" class="nav-link {{Route::currentRouteName()=='admin.certificate' || Route::currentRouteName()=='admin.certificateedit'?'active':''}}">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Certificate Management</p>
           </a>
         </li>
       </ul>

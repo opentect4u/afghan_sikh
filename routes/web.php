@@ -85,6 +85,11 @@ Route::prefix('gurudwara')->group(function () {
     Route::post('/adddeath', [App\Http\Controllers\gurudwara\DeathReportController::class, 'Add'])->name('gurudwara.adddeathConfirm');
 
 
+    Route::get('/certificate', [App\Http\Controllers\gurudwara\CertificateController::class, 'Manage'])->name('gurudwara.certificate');
+    Route::get('/certificateedit/{id?}', [App\Http\Controllers\gurudwara\CertificateController::class, 'ShowEdit'])->name('gurudwara.certificateedit');
+    Route::post('/certificateeditconfirm', [App\Http\Controllers\gurudwara\CertificateController::class, 'Edit'])->name('gurudwara.certificateeditconfirm');
+
+
 });
             // all user route
 Route::prefix('user')->group(function () {
@@ -171,6 +176,7 @@ Route::prefix('user')->group(function () {
     Route::post('/addcertificateConfirm', [App\Http\Controllers\user\CertificateController::class, 'Add'])->name('user.addcertificateConfirm');
     Route::get('/certificateedit/{id?}', [App\Http\Controllers\user\CertificateController::class, 'ShowEdit'])->name('user.certificateedit');
     Route::post('/editcertificateConfirm', [App\Http\Controllers\user\CertificateController::class, 'Edit'])->name('user.editcertificateConfirm');
+    Route::get('/report/{id?}', [App\Http\Controllers\user\CertificateController::class, 'ShowReport'])->name('user.report');
 
 
     Route::post('/edirstage1', [App\Http\Controllers\user\HomeController::class, 'EditStage1'])->name('user.edirstage1');
@@ -216,5 +222,9 @@ Route::prefix('admin')->group(function () {
 
     // admin.gurdwaralogin
     Route::get('/admingurdwaralogin', [App\Http\Controllers\admin\GurdwaraController::class, 'GurdwaraLogin'])->name('admin.gurdwaralogin');
+
+    Route::get('/certificate', [App\Http\Controllers\admin\CertificateController::class, 'Show'])->name('admin.certificate');
+    Route::get('/certificateedit/{id?}', [App\Http\Controllers\admin\CertificateController::class, 'Edit'])->name('admin.certificateedit');
+    Route::post('/certificateeditconfirm', [App\Http\Controllers\admin\CertificateController::class, 'EditConfirm'])->name('admin.certificateeditconfirm');
 
 });

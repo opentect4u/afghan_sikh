@@ -39,6 +39,26 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <!-- <label class="fieldlabels">First Name (As in Passport) : *</label>  -->
+                                <!-- <input type="text" required name="first_name" value="{{isset($editdata)? $editdata->first_name:''}}" class="form-control" > -->
+                                <input type="radio" id="html" class="RadioMember" name="fav_language" value="Self" checked>
+                                <label for="html">Self</label>&nbsp;&nbsp;
+                                <input type="radio" id="css" class="RadioMember" name="fav_language" value="Family">
+                                <label for="css">Family</label>
+                                <select name="family_details" id="family_details" class="form-control">
+                                  <option value="">--select--</option>
+                                  @foreach($family_details as $details)
+                                  <option value="{{$details->id}}">{{$details->first_name.' '.$details->middle_name.' '.$details->last_name}}</option>
+                                  @endforeach
+                                </select>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Certificate Type : * </label>
                                 <select name="certificates_type_id" id="certificates_type_id" required class="form-control">
@@ -49,10 +69,62 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Remark : * </label>
                                 <input type="text" name="remark" id="remark" class="form-control" />
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Ceremony of Shri : * </label>
+                                <input type="text" required name="ceremony_of_shri" id="ceremony_of_shri" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Son of Shri : * </label>
+                                <input type="text" required name="son_of_shri" id="son_of_shri" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Ceremony of Shrimati : * </label>
+                                <input type="text" required name="with_shrimati" id="with_shrimati" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Daughter of Shrimati : * </label>
+                                <input type="text" required name="daughter_of_shri" id="daughter_of_shri" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Date of Marriage : * </label>
+                                <input type="text" required name="date_of_marriage" id="date_of_marriage" placeholder="DD/MM/YYYY" class="form-control" />
+                            </div>
+                        </div>
+                        <!-- <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Daughter of Shrimati : * </label>
+                                <input type="text" required name="daughter_of_shri" id="daughter_of_shri" class="form-control" />
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Remark : * </label>
+                                <textarea name="remark" id="remark" class="form-control"></textarea>
+                                <!-- <input type="text" name="remark" id="remark" class="form-control" /> -->
                             </div>
                         </div>
                     </div>
@@ -188,4 +260,46 @@
     });
 </script>
 
+
+<script>
+  $(document).ready(function(){
+    $('#family_details').hide();
+    // $('input[name="fav_language"]:checked').val();
+
+    $('.RadioMember').on('change', function() {
+      // alert($('input[name="fav_language"]:checked').val()); 
+      var data=$('input[name="fav_language"]:checked').val();
+      if(data=='Family'){
+        $('#family_details').show();
+        $('#family_details').attr('required','required');
+        // $('#family_details').val('');
+      }else{
+        $('#family_details').hide();
+        $('#family_details').removeAttr('required');
+        $('#family_details').val('');
+
+      }
+    });
+
+    
+    $("#date_of_marriage").daterangepicker({
+        autoUpdateInput: false,
+        minYear: 1901,
+        maxDate: new Date(),
+        autoApply:true,
+        showDropdowns: true,
+        singleDatePicker: true,
+        timePicker: false,
+        timePicker24Hour: false,
+        timePickerIncrement: 05,
+        drops: "up",
+        locale: {
+            format: 'DD/MM/YYYY'
+        }
+    }).on("apply.daterangepicker", function (e, picker) {
+        picker.element.val(picker.startDate.format(picker.locale.format));
+    });
+
+  });
+</script>
 @endsection

@@ -9,8 +9,10 @@ use DB;
 use App\Models\TdUserDetails;
 use App\Models\TdCertificate;
 use App\Models\MdCertificateType;
+use App\Models\TdUserFamily;
 use Session;
 use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
 
 class CertificateController extends Controller
 {
@@ -22,8 +24,9 @@ class CertificateController extends Controller
         $id=Session::get('user')[0]['id'];
         // return $id;
         $data=DB::table('td_certificate')
+            ->leftJoin('td_gurudwara_details', 'td_gurudwara_details.id', '=', 'td_certificate.gurdwara_id')
             ->leftJoin('md_certificate_type', 'td_certificate.certificates_type_id', '=', 'md_certificate_type.id')
-            ->select('td_certificate.*', 'md_certificate_type.*') 
+            ->select( 'md_certificate_type.*','td_certificate.*','td_gurudwara_details.gurudwara_name as gurudwara_name') 
             ->where('td_certificate.user_id',$id)
             ->orderBy('td_certificate.application_date', 'desc')
             ->get();
@@ -32,9 +35,12 @@ class CertificateController extends Controller
     }
 
     public function ShowAdd(){
-        $certificate=MdCertificateType::get();
+        $certificate=MdCertificateType::where('active','A')->get();
         // return $certificate;
-        return view('user.certificate-add',['certificate'=>$certificate]);
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        return view('user.certificate-add',['certificate'=>$certificate,'family_details'=>$family_details]);
     }
 
     public function Add(Request $request){
@@ -90,9 +96,15 @@ class CertificateController extends Controller
         }
         TdCertificate::create(array(
             'user_id'=>$id,
+            'family_details_id'=>$request->family_details,
             'certificates_type_id'=>$request->certificates_type_id,
             'remark'=>$request->remark,
             'application_date'=>date('Y-m-d'),
+            'ceremony_of_shri' =>$request->ceremony_of_shri,
+            'son_of_shri'=>$request->son_of_shri,
+            'with_shrimati'=>$request->with_shrimati,
+            'daughter_of_shri'=>$request->daughter_of_shri,
+            'date_of_marriage'=>Carbon::parse($request->date_of_marriage)->format('Y-m-d'),
             'doc_1'=>$doc_1,
             'doc_2' =>$doc_2,
             'doc_3' =>$doc_3,
@@ -105,9 +117,12 @@ class CertificateController extends Controller
     public function ShowEdit($id){
         $id=Crypt::decryptString($id);
         // return $id;
-        $certificate=MdCertificateType::get();
+        $certificate=MdCertificateType::where('active','A')->get();
         $editdata=TdCertificate::find($id);
-        return view('user.certificate-add',['editdata'=>$editdata,'certificate'=>$certificate]);
+        $id=Session::get('user')[0]['id'];
+        // return $id;
+        $family_details=TdUserFamily::where('user_details_id',$id)->get();
+        return view('user.certificate-add',['editdata'=>$editdata,'certificate'=>$certificate,'family_details'=>$family_details]);
     }
 
     public function Edit(Request $request){
@@ -193,6 +208,7 @@ class CertificateController extends Controller
         }else{
             $doc_4=$data->doc_4;
         }
+        $data->family_details_id=$request->family_details;
         $data->certificates_type_id=$request->certificates_type_id;
         $data->remark=$request->remark;;
         $data->doc_1=$doc_1;
@@ -203,5 +219,29 @@ class CertificateController extends Controller
         // return $data;
         return redirect()->route('user.managecertificate');
 
+    }
+
+    public function ShowReport($id){
+        $id=Crypt::decryptString($id);
+        // return $id;
+        $data=DB::table('td_certificate')
+            // ->leftJoin('td_user_details', 'td_user_details.id', '=', 'td_certificate.user_id')
+            ->leftJoin('td_user_family_details', 'td_user_family_details.id', '=', 'td_certificate.family_details_id')
+            ->leftJoin('td_gurudwara_details', 'td_gurudwara_details.id', '=', 'td_certificate.gurdwara_id')
+            ->leftJoin('md_certificate_type', 'td_certificate.certificates_type_id', '=', 'md_certificate_type.id')
+            ->leftJoin('md_country', 'td_gurudwara_details.country', '=', 'md_country.id')
+            // ->select('td_certificate.*','md_certificate_type.name as certificate_name','md_country.name as gurdwara_country') 
+            ->select('td_user_family_details.*','td_gurudwara_details.*' ,'td_certificate.*','md_certificate_type.name as certificate_name','md_country.name as gurdwara_country') 
+            ->where('td_certificate.id',$id)
+            // ->orderBy('td_certificate.application_date', 'desc')
+            ->get();
+        // return $data;
+        // $data=[];
+        foreach($data as $datas){
+            $certificate_name=$datas->certificate_name; 
+        }
+        if($certificate_name=='Marraige Certificate'){
+            return view('user.marriage-report',['data'=>$data]);
+        }
     }
 }

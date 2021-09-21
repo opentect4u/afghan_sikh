@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1> Services</h1>
+            <h1>Manage Certificates</h1>
           </div>
           <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,8 +27,8 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Apply Certificate</h3>
-                <a href="{{route('user.addcertificate')}}" float="right" class="btn btn-outline-primary float-right">Apply Service</a>
+                <h3 class="card-title">Manage Certificates</h3>
+                <a href="{{route('user.addcertificate')}}" float="right" class="btn btn-outline-primary float-right">Apply Certificate</a>
               </div>
               <!-- <div class="card-header">
                 <input type="radio" id="pending" name="click_status" value="I" <?php if(isset($status_details) && $status_details=="I"){ echo "checked";}?>>
@@ -46,6 +46,7 @@
                     <th>Certificate Type</th>
                     <th>Application Date</th>
                     <th>Status</th>
+                    <th>Assign Gurdwara</th>
                     <th>Action</th>
                     <th>View</th>
                     <!-- <th>Action</th> -->
@@ -59,12 +60,25 @@
                       <td>{{$gurudwaras->name}} </td>
                       <td>{{Carbon\Carbon::parse($gurudwaras->application_date)->format('d M Y')}}</td>
                       <td>
-                        @if($gurudwaras->approved=='I')
-                        {{"Pending"}}
-                        @elseif($gurudwaras->approved=='A')
-                        {{"Approved"}}
-                        @elseif($gurudwaras->approved=='R')
-                        {{"Reject"}}
+                        @if($gurudwaras->approved=="I")
+                        <b >{{"Pending for approval"}}</b>
+                        @elseif($gurudwaras->approved=="OH")
+                        <b >{{'On Hold'}}</b>
+                        @elseif($gurudwaras->approved=="AD")
+                        <b >{{'Awaiting document upload'}}</b>
+                        @elseif($gurudwaras->approved=="AR")
+                        <b >{{'Awaiting Rectifications'}}</b>
+                        @elseif($gurudwaras->approved=="A")
+                        <b style="color:#28a745;">{{"Approved"}}</b>
+                        @elseif($gurudwaras->approved=="R")
+                        <b style="color:#dc3545;">{{"Rejected"}}</b>
+                        @endif
+                      </td>
+                      <td>
+                        @if($gurudwaras->gurudwara_name !='')
+                        {{$gurudwaras->gurudwara_name}} 
+                        @else
+                        {{'---'}}
                         @endif
                       </td>
                       <td id="actionTd{{$gurudwaras->id}}">
@@ -77,8 +91,8 @@
                       </td>
                       
                       <td id="actionTd{{$gurudwaras->id}}">
-                      @if($gurudwaras->approved=='A')
-                      <a href="#" id="accept" ><i class="fas fa-eye"></i></a>
+                      @if($gurudwaras->date_of_issue!='')
+                      <a href="{{route('user.report',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-print" title="Print"></i></a>
                       @else
                       {{'---'}}
                       @endif
