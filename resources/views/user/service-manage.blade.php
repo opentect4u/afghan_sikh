@@ -65,6 +65,7 @@
                     <th>Help Information</th>
                     <th>Application Date</th>
                     <th>Status</th>
+                    <th>Assign Gurdwara</th>
                     <th>View</th>
                     <!-- <th>Action</th> -->
                   </tr>
@@ -91,6 +92,13 @@
                         <b style="color:#dc3545;">{{"Rejected"}}</b>
                         @endif
                        
+                      </td>
+                      <td>
+                        @if($gurudwaras->gurudwara_id!='')
+                        <i class="fas fa-check-circle" style="color:#28a745;"></i>
+                        @else
+                        <i class="far fa-times-circle" style="color:red;"></i>
+                        @endif
                       </td>
                       <td id="actionTd{{$gurudwaras->id}}">
                       <a href="{{route('user.viewservice',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-eye"></i></a>

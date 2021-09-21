@@ -66,6 +66,19 @@
                         </div> -->
                        
                     </div>
+                    @if($data->gurudwara_id!='')
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels">Assign To : {{$gurdwara_details->gurudwara_name}}</label> 
+                                <!-- <input type="text" required name="user_info" value="" class="form-control" > -->
+                                <!-- <textarea required name="user_info" value="" class="form-control" readonly>{{$data->other_info}}</textarea> -->
+                            </div>
+                        </div>
+                        
+                    </div>
+                    @endif
                     <div class="row">
                         <div class="col-sm-12">
                             <!-- text input -->

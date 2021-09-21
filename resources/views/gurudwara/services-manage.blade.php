@@ -46,6 +46,7 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Purpose</th>
+                    <th>Self or Family</th>
                     <th>Application Date</th>
                     <th>Action</th>
                   </tr>
@@ -55,9 +56,16 @@
                     @foreach($gurudwara as $gurudwaras)
                     <tr>
                       <td>{{$count++}}</td>
-                      <td>{{$gurudwaras->surname}} {{$gurudwaras->givenname}}</td>
-                      <td>{{$gurudwaras->mobile}}</td>
-                      <td>{{$gurudwaras->purpose}}</td>
+                      <td>
+                        @if($gurudwaras->family_details_id=='')
+                        {{$gurudwaras->surname}} {{$gurudwaras->givenname}}
+                        @else
+                        {{$gurudwaras->first_name}} {{$gurudwaras->middle_name}} {{$gurudwaras->last_name}}
+                        @endif
+                      </td>
+                      <td>{{$gurudwaras->phone}}</td>
+                      <td>{{$gurudwaras->service_type}}</td>
+                      <td>{{$gurudwaras->self_or_family}}</td>
                       <td>{{ Carbon\Carbon::parse($gurudwaras->application_date)->format('d M Y')}}</td>
                       <td id="actionTd{{$gurudwaras->id}}">
                         <a href="{{route('gurudwara.servicesedit',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-edit"></i></a>

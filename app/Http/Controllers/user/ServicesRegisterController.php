@@ -9,6 +9,7 @@ use App\Models\TdUserDetails;
 use App\Models\TdUserFamilyDetails;
 use App\Models\TdServiceDetails;
 use App\Models\TdUserFamily;
+use App\Models\TdGurudwaraDetails;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Crypt;
@@ -514,7 +515,9 @@ class ServicesRegisterController extends Controller
         // return $id;
         $data=TdServiceDetails::find($id);
         $family_details=TdUserFamily::where('user_details_id',$ses_id)->get();
-        // return $family_details;
-        return view('user.services-view',['family_details'=>$family_details,'data'=>$data]);
+        // return $data;
+        $gurdwara_details=TdGurudwaraDetails::find($data->gurudwara_id);
+        // return $gurdwara_details;
+        return view('user.services-view',['family_details'=>$family_details,'data'=>$data,'gurdwara_details'=>$gurdwara_details]);
     }
 }
