@@ -77,14 +77,20 @@
                       <td>{{$gurudwaras->self_or_family}} </td>
                       <td>{{substr($gurudwaras->other_info,0,100)}}</td>
                       <td>{{Carbon\Carbon::parse($gurudwaras->application_date)->format('d M Y')}}</td>
-                      <td>
-                        @if($gurudwaras->active=='I')
-                        {{"Pending"}}
-                        @elseif($gurudwaras->active=='A')
-                        {{"Approved"}}
-                        @elseif($gurudwaras->active=='R')
-                        {{"Reject"}}
+                      <td>@if($gurudwaras->active=="I")
+                        <b >{{"Pending for approval"}}</b>
+                        @elseif($gurudwaras->active=="OH")
+                        <b >{{'On Hold'}}</b>
+                        @elseif($gurudwaras->active=="AD")
+                        <b >{{'Awaiting document upload'}}</b>
+                        @elseif($gurudwaras->active=="AR")
+                        <b >{{'Awaiting Rectifications'}}</b>
+                        @elseif($gurudwaras->active=="A")
+                        <b style="color:#28a745;">{{"Approved"}}</b>
+                        @elseif($gurudwaras->active=="R")
+                        <b style="color:#dc3545;">{{"Rejected"}}</b>
                         @endif
+                       
                       </td>
                       <td id="actionTd{{$gurudwaras->id}}">
                       <a href="{{route('user.viewservice',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-eye"></i></a>

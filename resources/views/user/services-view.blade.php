@@ -111,7 +111,17 @@
                       </div> 
                        
                     </div>
-                   
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label class="fieldlabels">Admin Remark: </label> 
+                          <textarea readonly class="form-control" row="6">{{$data->admin_remark}}</textarea>
+                          <!-- <input type="file" required name="doc_3" class="form-control" />  -->
+                        </div>
+                      </div> 
+                      
+                       
+                    </div>
                     
                 </div>
                 <!-- /.card-body -->

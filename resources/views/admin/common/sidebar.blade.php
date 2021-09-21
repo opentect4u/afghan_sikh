@@ -205,6 +205,8 @@
         
        
         <!-- menu-open -->
+        <!-- {{Session::get('user')[0]['active']}} -->
+        @if(Session::get('user')[0]['active']=="A")
         <li class="nav-item {{Route::currentRouteName()=='user.servicesmanagefinance' ||
           Route::currentRouteName()=='user.servicesregisterfinance' ||
           Route::currentRouteName()=='user.servicesmanagefamily' ||
@@ -286,13 +288,26 @@
              
             </ul>
         </li>
-
         <li class="nav-item">
           <a href="{{route('user.managecertificate')}}" class="nav-link {{Route::currentRouteName()=='user.managecertificate' || Route::currentRouteName()=='user.addcertificate'|| Route::currentRouteName()=='user.certificateedit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Certificate</p>
           </a>
         </li>
+        @else
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" onclick="Msg('{{Session::get('user')[0]['active']}}')">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Get Support</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" onclick="Msg('{{Session::get('user')[0]['active']}}')">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Certificate</p>
+          </a>
+        </li>
+        @endif
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -300,6 +315,22 @@
   <!-- /.sidebar -->
 </aside>
 <script>
+  function Msg(value){
+    // alert(value);
+    if(value=="I"){
+      alert("Your Account Pending for approval")
+    }else if(value=="OH"){
+      alert("Your Account On Hold")
+    }else if(value=="AD"){
+      alert("Your Account Awaiting document upload")
+    }else if(value=="AR"){
+      alert("Your Account Awaiting Rectifications")
+    }else if(value=="A"){
+      alert("Approved")
+    }else if(value=="R"){
+      alert("Your Account Rejected")
+    }
+  }
   $( document ).ready(function() {
     // console.log( "ready!" );
     // alert("hii");

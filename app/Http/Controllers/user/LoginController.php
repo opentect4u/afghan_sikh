@@ -30,12 +30,12 @@ class LoginController extends Controller
             }
             if (Hash::check($password, $db_password)) {
                 // return view('gurudwara.dashboard');
-                if($active=="A"){
+                // if($active=="A"){
                     Session::put('user', $is_email); 
                     return redirect()->route('user.home');
-                }else{
-                    return redirect()->back()->with('approvederror', 'approvederror');
-                }
+                // }else{
+                //     return redirect()->back()->with('approvederror', 'approvederror');
+                // }
             }else{
                 return redirect()->back()->with('error', 'error');
             }
