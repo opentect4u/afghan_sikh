@@ -266,6 +266,119 @@
                             </div>
                         </div> -->
                     </div>
+
+                    <!-- Family details -->
+                    @if(isset($family_details)) 
+                    <!-- {{'fgdgdgddr'}} -->
+                    <label>Family Details</label>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" readonly name="email" value="{{$family_details->email}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" readonly name="first_name" value="{{$family_details->first_name}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input type="text" readonly name="middle_name" value="{{$family_details->middle_name}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" readonly name="last_name" value="{{$family_details->last_name}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select name="gender" readonly id="gender" class="form-control">
+                                    <option value="M" <?php if( isset($family_details) && $family_details->gender=='M'){ echo "selected";}?>>Male</option>
+                                    <option value="F" <?php if( isset($family_details) && $family_details->gender=='F'){ echo "selected";}?>>Female</option>
+                                    <option value="O" <?php if( isset($family_details) && $family_details->gender=='O'){ echo "selected";}?>>Other</option>
+                                   
+                                </select>                      
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Relation</label>
+                                <select name="relation" readonly id="relation" class="form-control">
+                                    <option value="Father" <?php if( isset($family_details) && $family_details->relation=='Father'){ echo "selected";}?>>Father</option>
+                                    <option value="Mother" <?php if( isset($family_details) && $family_details->relation=='Mother'){ echo "selected";}?>>Mother</option>
+                                    <option value="Son" <?php if( isset($family_details) && $family_details->relation=='Son'){ echo "selected";}?>>Son</option>
+                                    <option value="Daughter" <?php if( isset($family_details) && $family_details->relation=='Daughter'){ echo "selected";}?>>Daughter</option>
+                                    <option value="Spouse" <?php if( isset($family_details) && $family_details->relation=='Spouse'){ echo "selected";}?>>Spouse</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Current Citizenship</label>
+                                <select readonly name="current_citizenship" id="current_citizenship" class="form-control" required>
+                                            <option value=""> --Select Current Citizenship-- </option>
+                                            @foreach($country as $countries)
+                                            <option value="{{$countries->id}}" <?php if(isset($family_details) && $family_details->current_citizenship==$countries->id){ echo "selected";}?>>{{$countries->name}}</option>
+                                            @endforeach
+                                        </select>                  
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Previous Citizenship</label>
+                                <select readonly name="previous_citizenship" id="previous_citizenship" required class="form-control">
+                                            <option value=""> --Select Previous Citizenship-- </option>
+                                            @foreach($country as $countries)
+                                            <option value="{{$countries->id}}" <?php if( isset($family_details) && $family_details->previous_citizenship==$countries->id){ echo "selected";}?>>{{$countries->name}}</option>
+                                            @endforeach
+                                        </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Passport Number</label>
+                                <input type="text" readonly name="passport_no" value="{{$family_details->passport_no}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Passport Date of Issue</label>
+                                <input type="text" readonly name="passport_date_of_issue" id="passport_date_of_issue" value="{{$family_details->passport_date_of_issue}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Passport Date of Expiry</label>
+                                <input type="text" readonly name="passport_date_of_expiry" id="passport_date_of_expiry" value="{{$family_details->passport_date_of_expiry}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Afghan Id</label>
+                                <input type="text" readonly name="afghan_id" value="{{$family_details->afghan_id}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
+
                     <div class="row">
                         @if(isset($user_details->doc_1))
                         <div class="col-sm-6">
@@ -350,6 +463,22 @@
                         
                         
                     </div>
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Admin Remarks</label>
+                                <textarea class="form-control" id="remark" name="remark" rows="6" >{{$user_details->remark}}</textarea>
+                            </div>
+                        </div>
+
+                        
+                       
+                       
+                        
+                        
+                    </div>
 
                   <!-- <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Email address</label>
@@ -411,6 +540,42 @@
             $('#gurudwara_id').attr('required','required');
             $('#gurudwara_id').removeAttr('disabled');
         })
+
+        // $("#passport_date_of_issue").daterangepicker({
+        //     autoUpdateInput: false,
+        //     minYear: 1901,
+        //     maxDate: new Date(),
+        //     autoApply:true,
+        //     showDropdowns: true,
+        //     singleDatePicker: true,
+        //     timePicker: false,
+        //     timePicker24Hour: false,
+        //     timePickerIncrement: 05,
+        //     drops: "up",
+        //     locale: {
+        //         format: 'DD/MM/YYYY'
+        //     }
+        // }).on("apply.daterangepicker", function (e, picker) {
+        //     picker.element.val(picker.startDate.format(picker.locale.format));
+        // });
+
+        // $("#passport_date_of_expiry").daterangepicker({
+        //     autoUpdateInput: false,
+        //     minYear: 1901,
+        //     minDate: new Date(),
+        //     autoApply:true,
+        //     showDropdowns: true,
+        //     singleDatePicker: true,
+        //     timePicker: false,
+        //     timePicker24Hour: false,
+        //     timePickerIncrement: 05,
+        //     drops: "up",
+        //     locale: {
+        //         format: 'DD/MM/YYYY'
+        //     }
+        // }).on("apply.daterangepicker", function (e, picker) {
+        //     picker.element.val(picker.startDate.format(picker.locale.format));
+        // });
     });
 </script>
 

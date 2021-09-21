@@ -22,6 +22,7 @@ class TdCertificate extends Model
         'approved',
         'gurdwara_id' ,
         'date_of_issue' ,
+        'admin_remark',
         'created_by',
         'updated_by' ,
            

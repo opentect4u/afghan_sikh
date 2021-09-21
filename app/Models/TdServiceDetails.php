@@ -24,6 +24,7 @@ class TdServiceDetails extends Model
         'doc_2',
         'doc_3',
         'doc_4',
+        'admin_remark',
         'created_by',
         'updated_by',
     ];
