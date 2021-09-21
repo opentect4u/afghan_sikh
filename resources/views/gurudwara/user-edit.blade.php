@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>First Name</label>
+                                <label>Given Name</label>
                                 <input type="text" readonly name="givenname" value="{{$user_details->givenname}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
@@ -265,6 +265,55 @@
                                     </select>
                             </div>
                         </div> -->
+                    </div>
+                    <div class="row">
+                        @if(isset($user_details->doc_1))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 1</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_1}}" width="100" height="100"  />
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_1}}" download="{{$user_details->doc_1}}"><i class="fas fa-file-download"></i></a>
+                                <!-- <a href="{{route('admin.userdocdownload',['link'=>$user_details->doc_1])}}" target="_blank"><i class="fas fa-file-download"></i></a> -->
+                            </div>
+                        </div>
+                        @endif
+                        @if(isset($user_details->doc_2))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 2</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_2}}" width="100" height="100"  />
+                                &nbsp;
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_2}}" download="{{$user_details->doc_2}}"><i class="fas fa-file-download"></i></a>
+                                
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="row">
+                        @if(isset($user_details->doc_3))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 3</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_3}}" width="100" height="100"  />
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_3}}" download="{{$user_details->doc_3}}"><i class="fas fa-file-download"></i></a>
+                                
+                            </div>
+                        </div>
+                        @endif
+                        @if(isset($user_details->doc_4))
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Document 4</label>
+                                <img src="{{asset('public/user-doc').'/'.$user_details->doc_4}}" width="100" height="100"  />
+                                &nbsp;
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_4}}" download="{{$user_details->doc_4}}"><i class="fas fa-file-download"></i></a>
+                                
+                            </div>
+                        </div>
+                        @endif
                     </div>
                     
                   <!-- <div class="form-group col-md-6">

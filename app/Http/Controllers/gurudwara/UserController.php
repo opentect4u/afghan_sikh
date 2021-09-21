@@ -22,7 +22,7 @@ class UserController extends Controller
         // return "hii";
         $id=Session::get('gurudwara')[0]['id'];
         $country=MdCountry::get();
-        $data=TdUserDetails::where('user_active','A')->where('gurudwara_id',$id)
+        $data=TdUserDetails::where('gurudwara_id',$id)
             ->orderBy('created_at','desc')
             ->get();
         // return $data;

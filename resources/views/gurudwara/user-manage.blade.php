@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Help Manage</h1>
+            <h1>User Manage</h1>
           </div>
           <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Help Details</h3>
+                <h3 class="card-title">User Details</h3>
                 <!-- <a href="{{route('gurudwara.addmember')}}" float="right" class="btn btn-outline-primary float-right">Add Member</a> -->
               </div>
               <!-- <div class="card-header">
