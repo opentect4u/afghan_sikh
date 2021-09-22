@@ -90,6 +90,13 @@ Route::prefix('gurudwara')->group(function () {
     Route::post('/certificateeditconfirm', [App\Http\Controllers\gurudwara\CertificateController::class, 'Edit'])->name('gurudwara.certificateeditconfirm');
 
 
+    Route::post('/editstage1', [App\Http\Controllers\gurudwara\HomeController::class, 'EditStage1'])->name('gurudwara.editstage1');
+    Route::post('/editstage2', [App\Http\Controllers\gurudwara\HomeController::class, 'EditStage2'])->name('gurudwara.editstage2');
+    Route::post('/editstage3', [App\Http\Controllers\gurudwara\HomeController::class, 'EditStage3'])->name('gurudwara.editstage3');
+    Route::post('/editstage4', [App\Http\Controllers\gurudwara\HomeController::class, 'EditStage4'])->name('gurudwara.editstage4');
+    Route::post('/chnagepass', [App\Http\Controllers\gurudwara\HomeController::class, 'ChangePass'])->name('gurudwara.chnagepass');
+
+
 });
             // all user route
 Route::prefix('user')->group(function () {

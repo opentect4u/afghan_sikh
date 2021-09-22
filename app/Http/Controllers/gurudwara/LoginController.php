@@ -26,7 +26,7 @@ class LoginController extends Controller
                 $db_password=$user->password;
                 $active=$user->active;
             }
-            if (Hash::check($password, $db_password) && $active=="A") {
+            if (Hash::check($password, $db_password)) {
                 // return view('gurudwara.dashboard');
 	  	        Session::put('gurudwara', $users); 
                 return redirect()->route('gurudwara.home');

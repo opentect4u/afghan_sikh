@@ -51,7 +51,7 @@
                                 @endif
                                 </br>
                                 <label class="fieldlabels">Type of Organisation: *</label> 
-                                <select required name="type_of_organisation" id="type_of_organisation">
+                                <select required name="type_of_organisation" id="type_of_organisation" oninput="setCustomValidity('')">
                                     <option value="">--Type of Organisation--</option>
                                     <option value="G">Gurdwara</option>
                                     <option value="C">Community</option>
@@ -60,11 +60,11 @@
                                 <!-- <label class="fieldlabels">Gurdwara Name: *</label> 
                                 <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Gurdwara Name" />  -->
                                 <label class="fieldlabels">Email/Mobile: *</label> 
-                                <input required type="text" name="email_mobile" id="email_mobile" placeholder="Email Id" /> 
+                                <input required type="text" name="email_mobile" id="email_mobile" placeholder="Email Id" oninput="setCustomValidity('')" /> 
                                 <label class="fieldlabels">Password: *</label> 
-                                <input required type="password" name="password" id="password"placeholder="Password" /> 
+                                <input required type="password" name="password" id="password"placeholder="Password" oninput="setCustomValidity('')" /> 
                                 <label class="fieldlabels">Confirm Password: *</label> 
-                                <input required type="password" name="cpwd" id="cpwd" placeholder="Confirm Password" />
+                                <input required type="password" name="cpwd" id="cpwd" placeholder="Confirm Password" oninput="setCustomValidity('')" />
                             </div> 
                             <input type="submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
 							</div>
@@ -90,17 +90,30 @@
     $(document).ready(function(){
 
         $("#step1").click(function(){
+            
+            var type_of_organisation=$("#type_of_organisation").val();
             var email_mobile=$("#email_mobile").val();
             var password=$("#password").val();
             var con_password=$("#cpwd").val();
             var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
             // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
-
-            if(!regex.test(email_mobile)){
-                alert("Please enter valid email address or phone number.");
-                return false;
+            // if(type_of_organisation==''){
+            //     document.getElementById ('uname').setCustomValidity( "Please enter valid email address or phone number." );
+            //     document.msform.uname.focus ( );
+            //     uname.setCustomValidity ('');
+            //     return false;
+            // }else if(password==''){
+            //     return false;
+            // }else if(con_password==''){
+            //     return false;
+            // }else 
+            if(email_mobile!=''){
+                if(!regex.test(email_mobile)){
+                    alert("Please enter valid email address or phone number.");
+                    return false;
+                }
             }else if (password!=con_password) {
-                alert('Password and confirm password did not match!');
+                alert('Password and confirm password must be same!');
                 return false;
             }
         });

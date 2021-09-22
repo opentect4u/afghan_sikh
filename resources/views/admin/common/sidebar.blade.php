@@ -29,7 +29,7 @@
         <li class="nav-item">
           <a href="{{route('gurudwara.home')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.home'?'active':''}}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p> Dashboard</p>
+            <p> Profile</p>
           </a>
         </li>
        

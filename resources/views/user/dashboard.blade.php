@@ -11,7 +11,22 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Profile</h1>
+          <h1 class="m-0">Your Profile
+
+          @if(Session::get('user')[0]['active']=="I")
+            {{"Pending for approval"}}
+            @elseif(Session::get('user')[0]['active']=="OH")
+            {{'On Hold'}}
+            @elseif(Session::get('user')[0]['active']=="AD")
+            {{'Awaiting document upload'}}
+            @elseif(Session::get('user')[0]['active']=="AR")
+            {{'Awaiting Rectifications'}}
+            @elseif(Session::get('user')[0]['active']=="A")
+            {{"Approved"}}
+            @elseif(Session::get('user')[0]['active']=="R")
+            {{"Rejected"}}
+            @endif
+          </h1>
         </div><!-- /.col -->
 
         <!-- <div class="col-sm-6">

@@ -27,13 +27,13 @@
                     @if(Session::has('error'))
                     <p style="color:red;">User Id or Password did not match!</p>
                     @endif
-                    <form id="msform" method="POST" action="{{route('gurudwara.loginconfirm')}}">
+                    <form name="msform" id="msform" method="POST" action="{{route('gurudwara.loginconfirm')}}">
                     @csrf
                       <div class="form-card">
                          <!-- <label class="fieldlabels">Email: *</label> 
                          <input type="email" name="email" placeholder="Email Id" />  -->
                          <label class="fieldlabels">Username: *</label> 
-                         <input type="text" name="uname" id="uname" placeholder="UserName" required/> 
+                         <input type="text" name="uname" id="uname" placeholder="Email Id/Phone Number" required oninput="setCustomValidity('')"/> 
                          <label class="fieldlabels">Password: *</label> 
                          <input type="password" name="pwd" id="pwd" placeholder="Password" required/> 
                          <!-- <label class="fieldlabels">Confirm Password: *</label> 
@@ -182,8 +182,27 @@
     
 
         $("#submit").click(function(){
-            // alert("hii");
-            // return true;
+          var uname=$("#uname").val();
+          var password=$("#password").val();
+          var con_password=$("#cpwd").val();
+          var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
+          // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
+          if(uname!=''){
+          if(!regex.test(uname)){
+            // alert("Please enter valid email address or phone number.");
+            // $("#email_mobile").setCustomValidity('Please enter valid email address or phone number.');
+            // $("#email_mobile").setCustomValidity("");
+            document.getElementById ('uname').setCustomValidity( "Please enter valid email address or phone number." );
+            document.msform.uname.focus ( );
+            uname.setCustomValidity ('');
+            return false;
+          }
+          }
+          // return true;
+          // else if (password!=con_password) {
+          //   alert('Password and confirm password did not match!');
+          //   return false;
+          // }
         })
     });
 </script>

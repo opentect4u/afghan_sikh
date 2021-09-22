@@ -108,7 +108,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Date of Marriage : * </label>
-                                <input type="text" required name="date_of_marriage" id="date_of_marriage" placeholder="DD/MM/YYYY" class="form-control" />
+                                <input type="text" required name="date_of_marriage" id="date_of_marriage" placeholder="DD-MM-YYYY" class="form-control" />
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
@@ -294,7 +294,7 @@
         timePickerIncrement: 05,
         drops: "up",
         locale: {
-            format: 'DD/MM/YYYY'
+            format: 'DD-MM-YYYY'
         }
     }).on("apply.daterangepicker", function (e, picker) {
         picker.element.val(picker.startDate.format(picker.locale.format));
