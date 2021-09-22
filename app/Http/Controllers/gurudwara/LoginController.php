@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function Login(Request $request){
         $user_id=$request->uname;
         $password=$request->pwd;
-        $users=MdUserLogin::where('user_id',$user_id)->where('user_type','G')->get();
+        $users=MdUserLogin::where('user_id',$user_id)->whereIn('user_type',array('G','C','O'))->get();
         if (count($users)>0) {
             foreach($users as $user){
                 $db_password=$user->password;

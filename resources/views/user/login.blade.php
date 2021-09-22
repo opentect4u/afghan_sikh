@@ -36,7 +36,7 @@
                          <!-- <label class="fieldlabels">Email: *</label> 
                          <input type="email" name="email" placeholder="Email Id" />  -->
                          <label class="fieldlabels">Username: *</label> 
-                         <input type="text" name="uname" id="uname" placeholder="UserName" /> 
+                         <input type="text" name="uname" id="uname" placeholder="Email Id/Phone Number" /> 
                          <label class="fieldlabels">Password: *</label> 
                          <input type="password" name="pwd" id="pwd" placeholder="Password" /> 
                          <!-- <label class="fieldlabels">Confirm Password: *</label> 
