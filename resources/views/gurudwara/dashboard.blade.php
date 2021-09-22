@@ -53,7 +53,7 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="{{asset('public/gurudwara-image').'/'.$datas->gurudwara_photo}}"
+                       src="@if(isset($datas->gurudwara_photo)){{asset('public/gurudwara-image').'/'.$datas->gurudwara_photo}}@else{{asset('public/img/user.png')}}@endif"
                        alt="Gurdwara Logo">
                 </div>
                 <h3 class="profile-username text-center">{{isset($datas->surname)?$datas->surname:''}} {{isset($datas->givenname)?$datas->givenname:''}}</h3>
@@ -87,7 +87,7 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Personal Information</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_2" data-toggle="tab">Adress</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_2" data-toggle="tab">Address</a></li>
                   <li class="nav-item"><a class="nav-link" href="#stage_3" data-toggle="tab">Gurdwara Head Information</a></li>
                   <li class="nav-item"><a class="nav-link" href="#stage_4" data-toggle="tab">Documents</a></li>
                   <!-- <li class="nav-item"><a class="nav-link" href="#stage_5" data-toggle="tab">Stage 5</a></li>

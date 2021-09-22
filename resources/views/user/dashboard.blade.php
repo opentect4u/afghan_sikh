@@ -53,7 +53,7 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="{{asset('public/user-image').'/'.$datas->user_logo}}"
+                       src="@if(isset($datas->user_logo)){{asset('public/user-image').'/'.$datas->user_logo}}@else{{asset('public/img/user.png')}}@endif"
                        alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center">{{isset($datas->surname)?$datas->surname:''}} {{isset($datas->givenname)?$datas->givenname:''}}</h3>

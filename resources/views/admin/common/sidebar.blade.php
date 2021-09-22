@@ -136,7 +136,11 @@
           var obj = JSON.parse ( data );
           // var msg=obj.msg;
           var name=obj.gurudwara_name;
-          var url='{{asset('public/gurudwara-image/')}}/'+obj.gurudwara_photo;
+          if(obj.gurudwara_photo!=null){
+            var url='{{asset('public/gurudwara-image/')}}/'+obj.gurudwara_photo;
+          }else{
+            var url='{{asset('public/img/user.png')}}';
+          }
           // alert(url)
           $('#name_gurdwara').empty();
           // $('#name_gurdwara').append(name);
