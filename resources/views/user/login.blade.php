@@ -22,7 +22,7 @@
                 <div class="card afghanLogin px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2 id="heading" class="loginTitle"> User Login</h2>
                     @if(Session::has('notregister'))
-                    <p style="color:red;">please register</p>
+                    <p style="color:red;">Sorry, we don't recognise this email address or phone number</p>
                     @endif
                     @if(Session::has('approvederror'))
                     <p style="color:red;">Your account is Pending for Admin approval</p>

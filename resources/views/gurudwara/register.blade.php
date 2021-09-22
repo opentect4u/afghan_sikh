@@ -47,7 +47,7 @@
                                     </div>
                                 </div>  -->
                                 @if(Session::has('already'))
-                                    <label class="errorMsg" style="color:red;">Already register this email id or mobile no</label> 
+                                    <label class="errorMsg" style="color:red;">Email id or mobile number already registered </label> 
                                 @endif
                                 </br>
                                 <label class="fieldlabels">Type of Organisation: *</label> 

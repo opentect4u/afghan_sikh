@@ -35,7 +35,7 @@ class UserRegisterEmail extends Mailable
         $email_id=app('App\Http\Controllers\HomeController')->EmailSendAddress();
         // $from_email=DB::table('md_params')->where('sl_no','6')->value('param_value');
         return $this->from($email_id)
-                    ->subject('Afghan Sikh - User Register')
+                    ->subject('Afghan Sikh - User Registration Successfull')
                     ->view('emails.user-register');
     }
 }

@@ -45,9 +45,23 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
     <tr>
       <td align="left" valign="top">
           <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">
-          User registering otp {{$con_otp}}
+          Dear User,
+          
             <!-- Thank you for registering with Afghan Sikh as a User and Pending for approval. -->
           </p>
+          <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;"> 
+          {{$con_otp}} is SECRET OTP to register on this portal. Please do not share OTP with anyone.
+         </p>
+         <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;"> 
+         In case you have any queries / clarifications, please call us at our Customer Service number :
+
+          +1 5589 55488 55
+          
+
+          or visit us at
+
+          http://afghansikh.com/index#contact
+        </p>
         </td>
       </tr>
     
