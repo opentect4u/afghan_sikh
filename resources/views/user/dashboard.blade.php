@@ -63,18 +63,16 @@
                     <b>Email</b> 
                     <a class="float-right">{{$datas->user_id}}</a>
                   </li>
-                  @if(isset($datas->phone))
                   <li class="list-group-item">
                     <b>Phone</b> 
                     <a class="float-right">{{isset($datas->phone)?$datas->phone:''}}</a>
                   </li>
-                  @endif 
-                  @if(isset($datas->date_of_birth))
+                  <!-- @if(isset($datas->date_of_birth))
                   <li class="list-group-item">
                     <b>Date of Birth</b> 
                     <a class="float-right">{{isset($datas->date_of_birth)?$datas->date_of_birth:''}}</a>
                   </li>
-                  @endif 
+                  @endif  -->
                 </ul>
 
                 <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
