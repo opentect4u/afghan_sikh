@@ -88,16 +88,16 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Stage 1</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_2" data-toggle="tab">Stage 2</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_3" data-toggle="tab">Stage 3</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_4" data-toggle="tab">Stage 4</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_5" data-toggle="tab">Stage 5</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_6" data-toggle="tab">Stage 6</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_7" data-toggle="tab">Stage 7</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_8" data-toggle="tab">Stage 8</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Personal Information</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_2" data-toggle="tab">Nationality</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_3" data-toggle="tab">Address</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_4" data-toggle="tab">Marital Status</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_5" data-toggle="tab">Father's Information</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_6" data-toggle="tab">Mother's  Information</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_7" data-toggle="tab">Other Information</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_8" data-toggle="tab">Documents</a></li>
                   <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings1" data-toggle="tab">Upload Profile Image</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings1" data-toggle="tab">Profile Image</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
