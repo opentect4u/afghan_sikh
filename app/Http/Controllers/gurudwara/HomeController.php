@@ -55,7 +55,14 @@ class HomeController extends Controller
 
     public function Upload(Request $request){
         // return $request;
-        $id=$request->id;
+        $id=Session::get('gurudwara')[0]['id'];
+        $data=TdGurudwaraDetails::find($id);
+        if($data==''){
+            // return "hii";
+            TdGurudwaraDetails::create(array(
+                'id'=>$id,
+            ));
+        }
         $user_details = TdGurudwaraDetails::find($id);
         // return $request->file('logo');
         // return $user_details->gurudwara_photo;
@@ -112,6 +119,13 @@ class HomeController extends Controller
         // return $request;
         $id=Session::get('gurudwara')[0]['id'];
         $data=TdGurudwaraDetails::find($id);
+        if($data==''){
+            // return "hii";
+            TdGurudwaraDetails::create(array(
+                'id'=>$id,
+            ));
+        }
+        $data=TdGurudwaraDetails::find($id);
         $data->gurudwara_name=$request->gurudwara_name;
         $data->gurudwara_email=Session::get('gurudwara')[0]['user_id'];
         $data->website=$request->website;
@@ -123,6 +137,13 @@ class HomeController extends Controller
     public function EditStage2(Request $request){
         // return $request;
         $id=Session::get('gurudwara')[0]['id'];
+        $data=TdGurudwaraDetails::find($id);
+        if($data==''){
+            // return "hii";
+            TdGurudwaraDetails::create(array(
+                'id'=>$id,
+            ));
+        }
         $data=TdGurudwaraDetails::find($id);
         $data->gurudwara_address=$request->gurudwara_address;
         $data->gurudwara_address_2=$request->gurudwara_address_2;
@@ -137,6 +158,13 @@ class HomeController extends Controller
         // return $request;
         $id=Session::get('gurudwara')[0]['id'];
         $data=TdGurudwaraDetails::find($id);
+        if($data==''){
+            // return "hii";
+            TdGurudwaraDetails::create(array(
+                'id'=>$id,
+            ));
+        }
+        $data=TdGurudwaraDetails::find($id);
         $data->gurudwara_head_name=$request->gurudwara_head_name;
         $data->gurudwara_head_address=$request->gurudwara_head_address;
         $data->gurudwara_head_phone_no=$request->gurudwara_head_phone_no;
@@ -148,6 +176,13 @@ class HomeController extends Controller
     public function EditStage4(Request $request){
         // return $request;
         $id=Session::get('gurudwara')[0]['id'];
+        $data=TdGurudwaraDetails::find($id);
+        if($data==''){
+            // return "hii";
+            TdGurudwaraDetails::create(array(
+                'id'=>$id,
+            ));
+        }
         $data=TdGurudwaraDetails::find($id);
         if ($request->hasFile('doc_1')) {
             $profile_pic_path1 = $request->file('doc_1');
