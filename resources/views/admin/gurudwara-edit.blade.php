@@ -201,12 +201,12 @@
                                 <label>Status</label>
                                 <select name="status" id="status" required class="form-control" required>
                                     <option value=""> -- Select Status -- </option>
-                                    <option value="I" <?php if($user_details->active=='I'){echo "selected";}?>>Pending for approval</option>
-                                    <option value="OH" <?php if($user_details->active=='OH'){echo "selected";}?>>On Hold</option>
-                                    <option value="AD" <?php if($user_details->active=='AD'){echo "selected";}?>>Awaiting document upload</option>
-                                    <option value="AR" <?php if($user_details->active=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
-                                    <option value="R" <?php if($user_details->active=='R'){echo "selected";}?>>Reject</option>
-                                    <option value="A" <?php if($user_details->active=='A'){echo "selected";}?>>Approved</option>
+                                    <option value="I" <?php if(isset($user_details->active) && $user_details->active=='I'){echo "selected";}?>>Pending for approval</option>
+                                    <option value="OH" <?php if(isset($user_details->active) && $user_details->active=='OH'){echo "selected";}?>>On Hold</option>
+                                    <option value="AD" <?php if(isset($user_details->active) && $user_details->active=='AD'){echo "selected";}?>>Awaiting document upload</option>
+                                    <option value="AR" <?php if(isset($user_details->active) && $user_details->active=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
+                                    <option value="R" <?php if(isset($user_details->active) && $user_details->active=='R'){echo "selected";}?>>Reject</option>
+                                    <option value="A" <?php if(isset($user_details->active) && $user_details->active=='A'){echo "selected";}?>>Approved</option>
                                     <!-- <option value=""></option> -->
                                 </select>
                             </div>
@@ -216,7 +216,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Admin Remarks</label>
-                                <textarea class="form-control" id="remark" name="remark" rows="6">{{$user_details->remark}}</textarea>
+                                <textarea class="form-control" id="remark" name="remark" rows="6">{{isset($user_details->remark)?$user_details->remark?''}}</textarea>
                             </div>
                         </div>
                     </div>
