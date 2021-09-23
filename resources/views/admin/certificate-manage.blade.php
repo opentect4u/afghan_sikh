@@ -13,7 +13,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>User Manage</h1>
+            <h1>Certificate Management</h1>
           </div>
           <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -32,7 +32,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All Users</h3>
+                <h3 class="card-title">All Certificates</h3>
               </div>
               <div class="card-header">
               <div class="card-body">
@@ -54,9 +54,16 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Date</label>
-                    <input type="text" class="form-control" id="date" name="date" value="{{isset($startDate)?$startDate.' - '.$endDate:''}}"/>
+                    <label>Search by date</label>
+                    <!-- <input type="text" class="form-control" id="date" name="date" value="{{isset($startDate)?$startDate.' - '.$endDate:''}}"/><i class="fas fa-calendar-alt"></i> -->
+                    <div class="input-group mb-3 dateclass">
+                      <input type="text" class="form-control dateclass" id="date" name="date" value="{{isset($startDate)?$startDate.' - '.$endDate:''}}"/>
+                      <div class="input-group-append dateclass">
+                        <span class="input-group-text dateclass"><i class="fas fa-calendar-alt dateclass"></i></span>
+                      </div>
+                    </div>
                   </div>
+                  
                 </div>
 
                 </div>
@@ -163,7 +170,7 @@
       
     });
 
-    $("#date").daterangepicker({
+    $(".dateclass").daterangepicker({
         autoUpdateInput: false,
         minYear: 1901,
         // maxDate: new Date(),
@@ -189,7 +196,8 @@
       window.location.assign(url);
     });
 
-    $('#status').click(function(){
+    $('#status').on('change',function(){
+    // $('#status').click(function(){
       var val_pending=$('#status').val();
       // alert(val_pending);
       var url=("{{route('admin.certificate')}}")+"?status="+val_pending;

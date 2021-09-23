@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Certificate Edit Form</h1>
+            <h1> Edit Certificate</h1>
           </div>
           <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -433,7 +433,12 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Status : <?php if(isset($user_details->approved) && $user_details->approved=='I'){echo "Pending for approval";}?>
+ <?php if(isset($user_details->approved) && $user_details->approved=='OH'){echo "On Hold";}?>
+ <?php if(isset($user_details->approved) && $user_details->approved=='AD'){echo "Awaiting document upload";}?>
+ <?php if(isset($user_details->approved) && $user_details->approved=='AR'){echo "Awaiting Rectifications";}?>
+<?php if(isset($user_details->approved) && $user_details->approved=='R'){echo "Reject";}?>
+<?php if(isset($user_details->approved) && $user_details->approved=='A'){echo "Approved";}?></label>
                                 <select name="status" id="status" required class="form-control" required>
                                     <option value=""> -- Select Status -- </option>
                                     <option value="I" <?php if($user_details->approved=='I'){echo "selected";}?>>Pending for approval</option>

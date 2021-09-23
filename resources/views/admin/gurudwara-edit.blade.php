@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Gurdwara Edit Form</h1>
+            <h1>Edit Gurdwara </h1>
           </div>
           <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -198,7 +198,12 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>Status : </label>
+                                <label>Status : <?php if(isset($user_details1->active) && $user_details1->active=='I'){echo "Pending for approval";}?>
+ <?php if(isset($user_details1->active) && $user_details1->active=='OH'){echo "On Hold";}?>
+ <?php if(isset($user_details1->active) && $user_details1->active=='AD'){echo "Awaiting document upload";}?>
+ <?php if(isset($user_details1->active) && $user_details1->active=='AR'){echo "Awaiting Rectifications";}?>
+<?php if(isset($user_details1->active) && $user_details1->active=='R'){echo "Reject";}?>
+<?php if(isset($user_details1->active) && $user_details1->active=='A'){echo "Approved";}?></label>
                                 <select name="status" id="status" required class="form-control" required>
                                     <option value=""> -- Select Status -- </option>
                                     <option value="I" <?php if(isset($user_details1->active) && $user_details1->active=='I'){echo "selected";}?>>Pending for approval</option>

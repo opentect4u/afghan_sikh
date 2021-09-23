@@ -80,13 +80,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Ceremony of Shri : * </label>
-                                <input type="text" required name="ceremony_of_shri" id="ceremony_of_shri" class="form-control" />
+                                <input type="text" required name="ceremony_of_shri" id="ceremony_of_shri" value="{{isset($editdata)?$editdata->ceremony_of_shri:''}}" class="form-control" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Son of Shri : * </label>
-                                <input type="text" required name="son_of_shri" id="son_of_shri" class="form-control" />
+                                <input type="text" required name="son_of_shri" id="son_of_shri" value="{{isset($editdata)?$editdata->son_of_shri:''}}" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -94,13 +94,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Ceremony of Shrimati : * </label>
-                                <input type="text" required name="with_shrimati" id="with_shrimati" class="form-control" />
+                                <input type="text" required name="with_shrimati" id="with_shrimati" value="{{isset($editdata)?$editdata->with_shrimati:''}}" class="form-control" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Daughter of Shrimati : * </label>
-                                <input type="text" required name="daughter_of_shri" id="daughter_of_shri" class="form-control" />
+                                <input type="text" required name="daughter_of_shri" id="daughter_of_shri" value="{{isset($editdata)?$editdata->daughter_of_shri:''}}" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Date of Marriage : * </label>
-                                <input type="text" required name="date_of_marriage" id="date_of_marriage" placeholder="DD-MM-YYYY" class="form-control" />
+                                <input type="text" required name="date_of_marriage" id="date_of_marriage" placeholder="DD-MM-YYYY" value="{{isset($editdata)? date('d-m-Y',strtotime($editdata->date_of_marriage)):''}}" class="form-control" />
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
@@ -155,6 +155,7 @@
                             <div class="form-group">
                                 <label class="fieldlabels">Upload Document 3 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                 @if(isset($editdata) && $editdata->doc_3!='')
+                                &nbsp;&nbsp;&nbsp;
                                 <img src="{{asset('public/certificate-doc/').'/'.$editdata->doc_3}}" width="100" height="100"/>
                                 @endif
                                 <input type="file" name="doc_3" id="doc_3" value="{{isset($editdata)? $editdata->last_name:''}}" class="form-control" >
@@ -165,6 +166,7 @@
                             <div class="form-group">
                                 <label class="fieldlabels">Upload Document 4 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                 @if(isset($editdata) && $editdata->doc_4!='')
+                                &nbsp;&nbsp;&nbsp;
                                 <img src="{{asset('public/certificate-doc/').'/'.$editdata->doc_4}}" width="100" height="100"/>
                                 @endif
                                 <input type="file" name="doc_4" id="doc_4" value="{{isset($editdata)? $editdata->last_name:''}}" class="form-control" >

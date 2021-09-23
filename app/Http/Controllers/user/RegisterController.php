@@ -104,6 +104,7 @@ class RegisterController extends Controller
             'date_of_birth' => Carbon::parse($request->dob)->format('Y-m-d'),
             'afghan_id' => $request->afghan_id,
             'register_stage'=>$request->register_stage,
+            'email'=>$email,
         ));
         // return $data;
         return redirect()->route('user.registerstep3');

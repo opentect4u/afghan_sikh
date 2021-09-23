@@ -67,6 +67,7 @@ class HomeController extends Controller
         $data->surname=$request->surname;
         $data->givenname=$request->givenname;
         $data->gender=$request->gender;
+        $data->email=Session::get('user')[0]['user_id'];
         $data->date_of_birth=date('Y-m-d', strtotime($request->date_of_birth));
         $data->afghan_id=$request->afghan_id;
         $data->save();

@@ -145,6 +145,7 @@ class HomeController extends Controller
             ));
         }
         $data=TdGurudwaraDetails::find($id);
+        $data->gurudwara_email=Session::get('gurudwara')[0]['user_id'];
         $data->gurudwara_address=$request->gurudwara_address;
         $data->gurudwara_address_2=$request->gurudwara_address_2;
         $data->city=$request->city;
