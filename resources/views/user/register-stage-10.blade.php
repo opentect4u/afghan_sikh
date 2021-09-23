@@ -65,7 +65,9 @@
                                     </div> <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
-                                            <h5 class="purple-text text-center">Thank you for registration in Afghan Sikh.Your application has been send to Admin,once it is approved you will be able to log.</h5>
+                                            <h5 class="purple-text text-center">Thank you for registration in Afghan Sikh.
+                                                <!-- Your application has been send to Admin,once it is approved you will be able to log. -->
+                                            </h5>
                                         </div>
                                     </div>
                                 </div>
