@@ -216,7 +216,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Admin Remarks</label>
-                                <textarea class="form-control" id="remark" name="remark" rows="6">{{isset($user_details->remark)?$user_details->remark?''}}</textarea>
+                                <textarea class="form-control" id="remark" name="remark" rows="6">{{isset($user_details->remark)?$user_details->remark:''}}</textarea>
                             </div>
                         </div>
                     </div>
