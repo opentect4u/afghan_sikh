@@ -453,7 +453,7 @@
                                 <select name="gurudwara_id" id="gurudwara_id" class="form-control" required>
                                         <option value=""> -- Select Gurdwara -- </option>
                                         @foreach($gurudwara as $countries)
-                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->gurudwara_id){echo "selected";}else{echo '';}?>>{{$countries->gurudwara_name}}</option>
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->gurdwara_id){echo "selected";}else{echo '';}?>>{{$countries->gurudwara_name}}</option>
                                         @endforeach
                                     </select>
                             </div>
