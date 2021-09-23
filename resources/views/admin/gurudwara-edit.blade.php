@@ -36,7 +36,7 @@
               <!-- form start -->
               <form name="myform" method="Post" action="{{route('admin.gurudwaraeditconfirm')}}">
                 @csrf
-                <input type="hidden" id="id" name="id" value="{{$user_details->id}}"/>
+                <input type="hidden" id="id" name="id" value="{{isset($user_details->id)?$user_details->id:''}}"/>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
