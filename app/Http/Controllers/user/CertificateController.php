@@ -108,7 +108,7 @@ class CertificateController extends Controller
             'doc_1'=>$doc_1,
             'doc_2' =>$doc_2,
             'doc_3' =>$doc_3,
-            'doc_4 ' =>$doc_4,
+            'doc_4' =>$doc_4,
             'approved'=>"I",
         ));
         return redirect()->route('user.managecertificate');
