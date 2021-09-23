@@ -155,6 +155,7 @@ class GurudwaraController extends Controller
     public function Edit($id){
         // return "hii";
         $user_details = TdGurudwaraDetails::find(Crypt::decryptString($id));
+        $user_details1 = MdUserLogin::find($id);
         $country=MdCountry::get();
         // $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
         $gurudwara=DB::table('md_user_login')
@@ -165,7 +166,7 @@ class GurudwaraController extends Controller
                     // ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();
         // return $user_details;
-        return view('admin.gurudwara-edit',['user_details'=>$user_details,'country'=>$country,'gurudwara'=>$gurudwara]);
+        return view('admin.gurudwara-edit',['user_details'=>$user_details,'user_details1'=>$user_details1,'country'=>$country,'gurudwara'=>$gurudwara]);
         
     }
     public function EditConfirm(Request $request){

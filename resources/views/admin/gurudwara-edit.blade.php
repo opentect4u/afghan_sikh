@@ -201,12 +201,12 @@
                                 <label>Status</label>
                                 <select name="status" id="status" required class="form-control" required>
                                     <option value=""> -- Select Status -- </option>
-                                    <option value="I" <?php if(isset($user_details->active) && $user_details->active=='I'){echo "selected";}?>>Pending for approval</option>
-                                    <option value="OH" <?php if(isset($user_details->active) && $user_details->active=='OH'){echo "selected";}?>>On Hold</option>
-                                    <option value="AD" <?php if(isset($user_details->active) && $user_details->active=='AD'){echo "selected";}?>>Awaiting document upload</option>
-                                    <option value="AR" <?php if(isset($user_details->active) && $user_details->active=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
-                                    <option value="R" <?php if(isset($user_details->active) && $user_details->active=='R'){echo "selected";}?>>Reject</option>
-                                    <option value="A" <?php if(isset($user_details->active) && $user_details->active=='A'){echo "selected";}?>>Approved</option>
+                                    <option value="I" <?php if(isset($user_details1->active) && $user_details1->active=='I'){echo "selected";}?>>Pending for approval</option>
+                                    <option value="OH" <?php if(isset($user_details1->active) && $user_details1->active=='OH'){echo "selected";}?>>On Hold</option>
+                                    <option value="AD" <?php if(isset($user_details1->active) && $user_details1->active=='AD'){echo "selected";}?>>Awaiting document upload</option>
+                                    <option value="AR" <?php if(isset($user_details1->active) && $user_details1->active=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
+                                    <option value="R" <?php if(isset($user_details1->active) && $user_details1->active=='R'){echo "selected";}?>>Reject</option>
+                                    <option value="A" <?php if(isset($user_details1->active) && $user_details1->active=='A'){echo "selected";}?>>Approved</option>
                                     <!-- <option value=""></option> -->
                                 </select>
                             </div>
@@ -235,7 +235,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" id="submit" name="submit" class="btn btn-primary" disabled="{{isset($user_details->id)? '':'disabled'}}">Submit</button>
+                  <button type="submit" id="submit" name="submit" class="btn btn-primary" >Submit</button>
                 </div>
               </form>
             </div>
