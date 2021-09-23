@@ -75,7 +75,6 @@
                             <div class="form-group">
                                 <label>Gurdwara Address</label>
                                 <textarea class="form-control" readonly name="gurudwara_address">{{isset($user_details->gurudwara_address)?$user_details->gurudwara_address:''}}</textarea>
-                                <!-- <input type="text" readonly name="gurudwara_address" value="{{$user_details->gurudwara_address}}" class="form-control" placeholder="Enter ..."> -->
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -125,7 +124,6 @@
                             <div class="form-group">
                                 <label>Gurdwara Head Address</label>
                                 <textarea class="form-control" name="gurudwara_head_address" readonly>{{isset($user_details->gurudwara_head_address)?$user_details->gurudwara_head_address:''}}</textarea>
-                                <!-- <input type="text" name="religion" value="{{$user_details->religion}}" readonly class="form-control" placeholder="Enter ..."> -->
                             </div>
                         </div>
                     </div>
