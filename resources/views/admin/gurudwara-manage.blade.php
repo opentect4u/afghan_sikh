@@ -79,7 +79,7 @@
                     <tr>
                       <td>{{$count++}}</td>
                       <td>{{Carbon\Carbon::parse($gurudwaras->created_at)->format('d M Y')}}</td>
-                      <td><a href="{{route('admin.gurdwaralogin')}}?email={{$gurudwaras->gurudwara_email}}" target="_blank">{{$gurudwaras->gurudwara_email}}</a></td>
+                      <td><a href="{{route('admin.gurdwaralogin')}}?email={{$gurudwaras->gurudwara_email}}" target="_blank">{{$gurudwaras->user_id}}</a></td>
                       <td>{{$gurudwaras->gurudwara_name}}</td>
                       <td>{{$gurudwaras->gurudwara_phone_no}}</td>
                       <td> @if($gurudwaras->active=="I")
