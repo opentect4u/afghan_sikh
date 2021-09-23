@@ -378,6 +378,49 @@
                     </div>
                     @endif
 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Ceremony of Shri : * </label>
+                                <input type="text" required name="ceremony_of_shri" id="ceremony_of_shri" value="{{isset($user_details)?$user_details->ceremony_of_shri:''}}" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Son of Shri : * </label>
+                                <input type="text" required name="son_of_shri" id="son_of_shri" value="{{isset($user_details)?$user_details->son_of_shri:''}}" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Ceremony of Shrimati : * </label>
+                                <input type="text" required name="with_shrimati" id="with_shrimati" value="{{isset($user_details)?$user_details->with_shrimati:''}}" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Daughter of Shrimati : * </label>
+                                <input type="text" required name="daughter_of_shri" id="daughter_of_shri" value="{{isset($user_details)?$user_details->daughter_of_shri:''}}" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Date of Marriage : * </label>
+                                <input type="text" required name="date_of_marriage" id="date_of_marriage" placeholder="DD-MM-YYYY" value="{{isset($user_details)? date('d-m-Y',strtotime($user_details->date_of_marriage)):''}}" class="form-control" />
+                            </div>
+                        </div>
+                        <!-- <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Daughter of Shrimati : * </label>
+                                <input type="text" required name="daughter_of_shri" id="daughter_of_shri" class="form-control" />
+                            </div>
+                        </div> -->
+                    </div>
+
 
                     <div class="row">
                         @if(isset($user_details->doc_1))
