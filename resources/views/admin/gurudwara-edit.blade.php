@@ -42,14 +42,14 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Gurdwara Email</label>
-                                <input type="text" readonly name="gurudwara_email" value="{{$user_details->gurudwara_email}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="gurudwara_email" value="{{isset($user_details->gurudwara_email)?$user_details->gurudwara_email:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Gurdwara Name</label>
-                                <input type="text" readonly name="gurudwara_name" value="{{$user_details->gurudwara_name}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="gurudwara_name" value="{{isset($user_details->gurudwara_name)?$user_details->gurudwara_name:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         
@@ -58,14 +58,14 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Gurudwara Phone No</label>
-                                <input type="text" readonly name="gurudwara_phone_no" value="{{$user_details->gurudwara_phone_no}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="gurudwara_phone_no" value="{{isset($user_details->gurudwara_phone_no)?$user_details->gurudwara_phone_no:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Website</label>
                                 
-                                <input type="text" readonly name="website" value="{{$user_details->website}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="website" value="{{isset($user_details->website)?$user_details->website:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                     </div>
@@ -74,18 +74,18 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Gurdwara Address</label>
-                                <textarea class="form-control" readonly name="gurudwara_address">{{$user_details->gurudwara_address}}</textarea>
+                                <textarea class="form-control" readonly name="gurudwara_address">{{isset($user_details->gurudwara_address)?$user_details->gurudwara_address:''}}</textarea>
                                 <!-- <input type="text" readonly name="gurudwara_address" value="{{$user_details->gurudwara_address}}" class="form-control" placeholder="Enter ..."> -->
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>City</label>
-                                <input type="text" class="form-control" name="city" readonly value="{{$user_details->city}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="city" readonly value="{{isset($user_details->city)?$user_details->city?''}}" class="form-control" placeholder="Enter ...">
                                 <!-- <select disabled name="birth_country" id="city" " class="form-control" >
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->birth_country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($user_details->birth_country) && $countries->id==$user_details->birth_country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select> -->
                             </div>
@@ -96,7 +96,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>State</label>
-                                <input type="text" name="state" readonly value="{{$user_details->state}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" name="state" readonly value="{{isset($user_details->state)?$user_details->state:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -106,7 +106,7 @@
                                 <select name="previous_nationality" id="previous_nationality" class="form-control" disabled>
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($user_details->country) && $countries->id==$user_details->country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -117,14 +117,14 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Gurdwara Head Name</label>
-                                <input type="text" name="gurudwara_head_name" readonly value="{{$user_details->gurudwara_head_name}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" name="gurudwara_head_name" readonly value="{{isset($user_details->gurudwara_head_name)?$user_details->gurudwara_head_name:''}}" class="form-control" placeholder="Enter ...">
                                 
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Gurdwara Head Address</label>
-                                <textarea class="form-control" name="gurudwara_head_address" readonly>{{$user_details->gurudwara_head_address}}</textarea>
+                                <textarea class="form-control" name="gurudwara_head_address" readonly>{{isset($user_details->gurudwara_head_address)?$user_details->gurudwara_head_address:''}}</textarea>
                                 <!-- <input type="text" name="religion" value="{{$user_details->religion}}" readonly class="form-control" placeholder="Enter ..."> -->
                             </div>
                         </div>
@@ -134,13 +134,13 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>gurudwara_head_phone_no</label>
-                                <input type="text" readonly name="gurudwara_head_phone_no" value="{{$user_details->gurudwara_head_phone_no}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="gurudwara_head_phone_no" value="{{isset($user_details->gurudwara_head_phone_no)?$user_details->gurudwara_head_phone_no:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Gurdwara Head Email</label>
-                                <input type="text" readonly name="gurudwara_head_email" value="{{$user_details->gurudwara_head_email}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="gurudwara_head_email" value="{{isset($user_details->gurudwara_head_email)?$user_details->gurudwara_head_email:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                     </div>
@@ -237,7 +237,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" id="submit" name="submit" class="btn btn-primary" disabled="{{isset($user_details->id)? '':'disabled'}}">Submit</button>
                 </div>
               </form>
             </div>
