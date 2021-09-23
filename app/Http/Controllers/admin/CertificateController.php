@@ -149,7 +149,7 @@ class CertificateController extends Controller
         $gurudwara=DB::table('md_user_login')
                     ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
                     ->select('md_user_login.*', 'td_gurudwara_details.*') 
-                    ->Where('md_user_login.user_type','G')               
+                    ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))
                     ->Where('md_user_login.active','A')               
                     // ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();
