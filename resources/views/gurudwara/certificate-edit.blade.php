@@ -405,7 +405,7 @@
                         @endif
                     </div>
                     <div class="row">
-                        @if(isset($user_details->doc_3))
+                        @if(isset($user_details->doc_3) && $user_details->doc_3!='')
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Document 3</label>
@@ -416,7 +416,7 @@
                             </div>
                         </div>
                         @endif
-                        @if(isset($user_details->doc_4))
+                        @if(isset($user_details->doc_4) && $user_details->doc_4!='')
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Document 4</label>
