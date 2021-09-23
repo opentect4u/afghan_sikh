@@ -81,7 +81,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>City</label>
-                                <input type="text" class="form-control" name="city" readonly value="{{isset($user_details->city)?$user_details->city?''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" class="form-control" name="city" readonly value="{{isset($user_details->city)?$user_details->city:''}}" class="form-control" placeholder="Enter ...">
                                 <!-- <select disabled name="birth_country" id="city" " class="form-control" >
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
