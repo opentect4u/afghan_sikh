@@ -29,7 +29,7 @@ class GurudwaraController extends Controller
             // return $startDate;
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active',$status_details)  
                 ->whereBetween('md_user_login.created_at', [$startDate, $endDate])
@@ -41,7 +41,7 @@ class GurudwaraController extends Controller
         if($status_details=='I'){
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active','I')               
                 ->orderBy('md_user_login.updated_at', 'desc')
@@ -49,7 +49,7 @@ class GurudwaraController extends Controller
         }else if($status_details=='A'){
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active','A')               
                 ->orderBy('md_user_login.updated_at', 'desc')
@@ -57,7 +57,7 @@ class GurudwaraController extends Controller
         }else if($status_details=='OH'){
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active','OH')               
                 ->orderBy('md_user_login.updated_at', 'desc')
@@ -65,7 +65,7 @@ class GurudwaraController extends Controller
         }else if($status_details=='AD'){
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active','AD')               
                 ->orderBy('md_user_login.updated_at', 'desc')
@@ -73,7 +73,7 @@ class GurudwaraController extends Controller
         }else if($status_details=='AR'){
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active','AR')               
                 ->orderBy('md_user_login.updated_at', 'desc')
@@ -81,7 +81,7 @@ class GurudwaraController extends Controller
         }else if($status_details=='R'){
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active','R')               
                 ->orderBy('md_user_login.updated_at', 'desc')
@@ -91,7 +91,7 @@ class GurudwaraController extends Controller
             // $data=TdGurudwaraDetails::where('user_type','G')->get();
             $data=DB::table('md_user_login')
                 ->leftJoin('td_gurudwara_details', 'md_user_login.id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*', 'td_gurudwara_details.*') 
+                ->select( 'td_gurudwara_details.*','md_user_login.*') 
                 ->whereIn('md_user_login.user_type', array('G', 'O', 'C'))     
                 ->Where('md_user_login.active','I')               
                 ->orderBy('md_user_login.updated_at', 'desc')
@@ -155,7 +155,7 @@ class GurudwaraController extends Controller
     public function Edit($id){
         // return "hii";
         $user_details = TdGurudwaraDetails::find(Crypt::decryptString($id));
-        $user_details1 = MdUserLogin::find($id);
+        $user_details1 = MdUserLogin::find(Crypt::decryptString($id));
         $country=MdCountry::get();
         // $gurudwara=MdUserLogin::where('user_type','G')->where('active','A')->get();
         $gurudwara=DB::table('md_user_login')
@@ -165,7 +165,7 @@ class GurudwaraController extends Controller
                     ->Where('md_user_login.active','A')               
                     // ->orderBy('td_user_details.updated_at', 'desc')
                     ->get();
-        // return $user_details;
+        // return $user_details1;
         return view('admin.gurudwara-edit',['user_details'=>$user_details,'user_details1'=>$user_details1,'country'=>$country,'gurudwara'=>$gurudwara]);
         
     }
@@ -177,8 +177,16 @@ class GurudwaraController extends Controller
         $user_details->active=$request->status;
         $user_details->save();
         $data=TdGurudwaraDetails::find($id);
-        $data->remark=$request->remark;
-        $data->save();
+        if($data!=''){
+            $data->remark=$request->remark;
+            $data->save();
+        }else{
+            // return "hii";
+            TdGurudwaraDetails::create(array(
+            'id'=>$id,
+            'remark'=>$request->remark,
+            ));
+        }
         return redirect()->route('admin.gurudwara');
     }
 }

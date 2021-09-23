@@ -32,7 +32,7 @@ class UserController extends Controller
             $data=DB::table('md_user_login')
                 ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
                 ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-                ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+                ->select('td_user_details.*','md_user_login.*') 
                 ->Where('md_user_login.user_type','U')               
                 ->Where('md_user_login.active',$status_details)  
                 ->whereBetween('md_user_login.created_at', [$startDate, $endDate])
@@ -47,7 +47,7 @@ class UserController extends Controller
             $data=DB::table('md_user_login')
             ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
             ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->select('td_user_details.*','md_user_login.*') 
             ->Where('md_user_login.user_type','U')               
             ->Where('md_user_login.active','I')               
             ->orderBy('md_user_login.created_at', 'desc')
@@ -56,7 +56,7 @@ class UserController extends Controller
             $data=DB::table('md_user_login')
             ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
             ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->select('td_user_details.*','md_user_login.*') 
             ->Where('md_user_login.user_type','U')               
             ->Where('md_user_login.active','A')               
             ->orderBy('md_user_login.created_at', 'desc')
@@ -65,7 +65,7 @@ class UserController extends Controller
             $data=DB::table('md_user_login')
             ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
             ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->select('td_user_details.*','md_user_login.*') 
             ->Where('md_user_login.user_type','U')               
             ->Where('md_user_login.active','R')               
             ->orderBy('md_user_login.created_at', 'desc')
@@ -75,7 +75,7 @@ class UserController extends Controller
             ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
             ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
             ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
-            ->Where('md_user_login.user_type','U')               
+            ->select('td_user_details.*','md_user_login.*') 
             ->Where('md_user_login.active','OH')               
             ->orderBy('md_user_login.created_at', 'desc')
             ->get();
@@ -83,7 +83,7 @@ class UserController extends Controller
             $data=DB::table('md_user_login')
             ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
             ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->select('td_user_details.*','md_user_login.*') 
             ->Where('md_user_login.user_type','U')               
             ->Where('md_user_login.active','AD')               
             ->orderBy('md_user_login.created_at', 'desc')
@@ -92,7 +92,7 @@ class UserController extends Controller
             $data=DB::table('md_user_login')
             ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
             ->leftJoin('td_gurudwara_details', 'td_user_details.gurudwara_id', '=', 'td_gurudwara_details.id')
-            ->select('md_user_login.*','td_user_details.*', 'td_gurudwara_details.gurudwara_name as gurudwaras_name') 
+            ->select('td_user_details.*','md_user_login.*') 
             ->Where('md_user_login.user_type','U')               
             ->Where('md_user_login.active','AR')               
             ->orderBy('md_user_login.created_at', 'desc')
@@ -100,7 +100,7 @@ class UserController extends Controller
         }else{
             $data=DB::table('md_user_login')
                     ->leftJoin('td_user_details','md_user_login.id','=','td_user_details.id')
-                    ->select('md_user_login.*','td_user_details.*') 
+                    ->select('td_user_details.*','md_user_login.*') 
                     ->Where('md_user_login.user_type','U')               
                     ->Where('md_user_login.active','I')               
                     ->orderBy('md_user_login.created_at', 'desc')
@@ -203,9 +203,17 @@ class UserController extends Controller
         $data->active=$request->status;
         $data->save();
         $user_details = TdUserDetails::find($id);
-        $user_details->gurudwara_id=$request->gurudwara_id;
-        $user_details->remark=$request->remark;
-        $user_details->save();
+        if($user_details!=''){
+            $user_details->gurudwara_id=$request->gurudwara_id;
+            $user_details->remark=$request->remark;
+            $user_details->save();
+        }else{
+            // return "hii";
+            TdUserDetails::create(array(
+            'id'=>$id,
+            'remark'=>$request->remark,
+            ));
+        }
         return redirect()->route('admin.user');
     }
 

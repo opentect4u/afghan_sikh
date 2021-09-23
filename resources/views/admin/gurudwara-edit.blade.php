@@ -198,7 +198,7 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Status : </label>
                                 <select name="status" id="status" required class="form-control" required>
                                     <option value=""> -- Select Status -- </option>
                                     <option value="I" <?php if(isset($user_details1->active) && $user_details1->active=='I'){echo "selected";}?>>Pending for approval</option>
