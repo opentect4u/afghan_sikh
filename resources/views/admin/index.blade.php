@@ -37,7 +37,7 @@
             <div class="inner">
               <h3>{{$total_no_gurdwara}}</h3>
 
-              <p>Total number of register gurdwara</p>
+              <p>Total no. of registered Gurdwara</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -52,7 +52,7 @@
             <div class="inner">
               <h3>{{$total_no_help}}</h3>
 
-              <p>Total number of help register</p>
+              <p>Total no. of help registered</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -67,7 +67,7 @@
             <div class="inner">
               <h3>{{$total_no_user}}</h3>
 
-              <p>Total number of register user</p>
+              <p>Total no. of registered User</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -82,7 +82,7 @@
             <div class="inner">
               <h3>{{$total_no_certificate}}</h3>
 
-              <p>Total number of certificate register</p>
+              <p>Total no. of certificate registered</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

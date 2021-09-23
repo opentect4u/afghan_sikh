@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Date</label>
+                    <label>Search by date</label>
                     <input type="text" class="form-control" id="date" name="date" value="{{isset($startDate)?$startDate.' - '.$endDate:''}}"/>
                   </div>
                 </div>

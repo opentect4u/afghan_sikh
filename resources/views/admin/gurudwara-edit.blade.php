@@ -131,7 +131,7 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>gurudwara_head_phone_no</label>
+                                <label>Gurudwara Head Phone No.</label>
                                 <input type="text" readonly name="gurudwara_head_phone_no" value="{{isset($user_details->gurudwara_head_phone_no)?$user_details->gurudwara_head_phone_no:''}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
