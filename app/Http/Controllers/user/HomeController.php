@@ -58,6 +58,12 @@ class HomeController extends Controller
         // return $request;
         $id=Session::get('user')[0]['id'];
         $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
+        $data=TdUserDetails::find($id);
         $data->surname=$request->surname;
         $data->givenname=$request->givenname;
         $data->gender=$request->gender;
@@ -71,6 +77,12 @@ class HomeController extends Controller
         // return $request;
         $id=Session::get('user')[0]['id'];
         $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
+        $data=TdUserDetails::find($id);
         $data->birth_place=$request->birth_place;
         $data->birth_country=$request->birth_country;
         $data->nationality=$request->nationality;
@@ -82,6 +94,12 @@ class HomeController extends Controller
     public function EditStage3(Request $request){
         // return $request;
         $id=Session::get('user')[0]['id'];
+        $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
         $data=TdUserDetails::find($id);
         $data->add_1=$request->add_1;
         $data->add_2=$request->add_2;
@@ -96,6 +114,12 @@ class HomeController extends Controller
         // return $request;
         $id=Session::get('user')[0]['id'];
         $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
+        $data=TdUserDetails::find($id);
         $data->marital_status=$request->marital_status;
         $data->religion=$request->religion;
         $data->profession=$request->profession;
@@ -107,6 +131,12 @@ class HomeController extends Controller
         // return $request;
         $id=Session::get('user')[0]['id'];
         $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
+        $data=TdUserDetails::find($id);
         $data->father_name=$request->father_name;
         $data->father_nationality=$request->father_nationality;
         $data->father_prev_nationality=$request->father_prev_nationality;
@@ -117,6 +147,12 @@ class HomeController extends Controller
     public function EditStage6(Request $request){
         // return $request;
         $id=Session::get('user')[0]['id'];
+        $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
         $data=TdUserDetails::find($id);
         $data->mother_name=$request->mother_name;
         $data->mother_nationality=$request->mother_nationality;
@@ -130,6 +166,12 @@ class HomeController extends Controller
         // return $request;
         $id=Session::get('user')[0]['id'];
         $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
+        $data=TdUserDetails::find($id);
         $data->other_info=$request->other_info;
         $data->save();
         return redirect()->route('user.home');
@@ -138,6 +180,12 @@ class HomeController extends Controller
     public function EditStage8(Request $request){
         // return $request;
         $id=Session::get('user')[0]['id'];
+        $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
         $data=TdUserDetails::find($id);
         if ($request->hasFile('doc_1')) {
             $profile_pic_path1 = $request->file('doc_1');
@@ -238,6 +286,12 @@ class HomeController extends Controller
     public function LogoUpload(Request $request){
         // return $request;
         $id=Session::get('user')[0]['id'];
+        $data=TdUserDetails::find($id);
+        if($data==''){
+            TdUserDetails::create(array(
+                'id'=>$id,
+            )); 
+        }
         $data=TdUserDetails::find($id);
         if ($request->hasFile('user_logo')) {
             $profile_pic_path1 = $request->file('user_logo');
