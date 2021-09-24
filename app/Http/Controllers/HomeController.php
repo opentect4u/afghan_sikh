@@ -13,7 +13,8 @@ class HomeController extends Controller
         return view('index');
     }
     public function EmailSendAddress(){
-        return "info@afghansikh.com";
+        // return "info@afghansikh.com";
+        return "info@puriurbanruralcoop.com";
     }
 
     public function Contact(Request $request){
