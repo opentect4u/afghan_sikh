@@ -39,7 +39,7 @@ class RegisterController extends Controller
             $url="";
             $surname="Dear";
             $givenname="";
-            // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+            Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             return redirect()->route('gurudwara.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'organisation'=>$request->type_of_organisation]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
         }
