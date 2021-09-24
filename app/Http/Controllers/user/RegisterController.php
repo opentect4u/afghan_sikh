@@ -37,6 +37,11 @@ class RegisterController extends Controller
             $url="";
             $surname="Dear";
             $givenname="";
+            // if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
+            //     return $email;
+            // }else{
+            //     return $email;
+            // }
             Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
