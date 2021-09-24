@@ -73,7 +73,7 @@ class RegisterController extends Controller
             $url='http://afghansikh.com/user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
             $surname='Dear';
             $givenname="";
-            // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
+            Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
             return redirect()->route('user.registerstep2');
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         
