@@ -17,6 +17,11 @@ class HomeController extends Controller
         return "info@puriurbanruralcoop.com";
     }
 
+    public function MainURL(){
+        // return "info@afghansikh.com";
+        return "https://sssprojects.co.in/afgan/";
+    }
+
     public function Contact(Request $request){
         // return $request;
         $name=$request->name;

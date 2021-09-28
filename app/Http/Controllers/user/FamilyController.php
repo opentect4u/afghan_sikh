@@ -249,5 +249,15 @@ class FamilyController extends Controller
         return view('user.register-family4',['editdata'=>$editdata,'country'=>$country]);
     }
 
+    public function ShowFamily($id){
+        // return $id;
+        $id=Crypt::decryptString($id);
+        // return $id;
+        $country=MdCountry::orderBy('name','asc')->get();
+        $editdata=TdUserFamily::find($id);
+        return view('user.register-family-view',['editdata'=>$editdata,'country'=>$country]);
+
+    }
+
 
 }

@@ -20,34 +20,32 @@
 			
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card afghanLogin px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2 id="heading" class="loginTitle"> User Login</h2>
-                    @if(Session::has('recoverypassword'))
-                    <p style="color:green;">Your password changed successfully.Login now!</p>
-                    @endif
+                    <h2 id="heading" class="loginTitle"> Gurdwara Login</h2>
                     @if(Session::has('notregister'))
                     <p style="color:red;">Sorry, we don't recognise this email address or phone number</p>
                     @endif
-                    @if(Session::has('approvederror'))
-                    <p style="color:red;">Your account is Pending for Admin approval</p>
+                    @if(Session::has('success'))
+                    <p style="color:green;">Password recovery link send your registered email id or phone number</p>
                     @endif
                     @if(Session::has('error'))
-                    <p style="color:red;">User Id or Password did not match!</p>
+                    <p style="color:red;">This email id or phone number did not registered</p>
                     @endif
-                    <form id="msform" method="POST" action="{{route('user.loginconfirm')}}">
+                    <form id="msform" method="POST" action="{{route('gurudwara.forgotpasswordConfirm')}}">
                     @csrf
+                    <p style="">You forgot your password? Here you can easily retrieve a new password.</p>
                       <div class="form-card">
                          <!-- <label class="fieldlabels">Email: *</label> 
                          <input type="email" name="email" placeholder="Email Id" />  -->
-                         <label class="fieldlabels">Username: *</label> 
+                         
+                         <label class="fieldlabels">Email Id/Phone No: *</label> 
                          <input type="text" name="uname" id="uname" placeholder="Email Id/Phone Number" required oninput="setCustomValidity('')" /> 
-                         <label class="fieldlabels">Password: *</label> 
-                         <input type="password" name="pwd" id="pwd" placeholder="Password" required/> 
+                         
                          <!-- <label class="fieldlabels">Confirm Password: *</label> 
                          <input type="password" name="cpwd" placeholder="Confirm Password" /> -->
                       </div> 
-                      <input type="submit" name="submit" id="submit" class="login-button" value="Login" />
+                      <input type="submit" name="submit" id="submit" class="login-button" value="Request new password" />
                       <div class="form-card ">
-                        <a href="{{route('user.forgotpassword')}}">I forgot my password</a>
+                        <a href="{{route('user.login')}}">Login</a>
                       </div>
                       &nbsp;
                       <div class="form-card registerBtn">

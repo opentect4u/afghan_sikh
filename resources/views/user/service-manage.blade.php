@@ -66,7 +66,7 @@
                     <th>Application Date</th>
                     <th>Status</th>
                     <th>Assign Gurdwara</th>
-                    <th>View</th>
+                    <th>Action</th>
                     <!-- <th>Action</th> -->
                   </tr>
                   </thead>
@@ -101,45 +101,20 @@
                         @endif
                       </td>
                       <td id="actionTd{{$gurudwaras->id}}">
+                      @if($gurudwaras->active=="A")
+                      <a href="#" id="" ><i class="fas fa-edit"></i></a>
+                      <a href="#" id="" ><i class="fas fa-delete"></i></a>
+                      @else
+                      <a href="{{route('user.editservice',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="" ><i class="fas fa-edit"></i></a>
+                      &nbsp;
+                      <a href="{{route('user.deleteservice',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="" ><i class="fas fa-trash-alt"></i></a>
+                      @endif
+                      &nbsp;
                       <a href="{{route('user.viewservice',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-eye"></i></a>
                        
                       </td>
                     </tr>
                     @endforeach
-                  <!-- <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 6
-                    </td>
-                    <td>Win 98+</td>
-                    <td>6</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet Explorer 7</td>
-                    <td>Win XP SP2+</td>
-                    <td>7</td>
-                    <td>A</td>
-                  </tr> -->
                   </tbody>
                   
                 </table>

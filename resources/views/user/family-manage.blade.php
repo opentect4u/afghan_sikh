@@ -59,7 +59,8 @@
                       <td>{{$gurudwaras->relation}}</td>
                       <td id="actionTd{{$gurudwaras->id}}">
                       <a href="{{route('user.editfamilymember',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-edit"></i></a>
-                       
+                      &nbsp;
+                      <a href="{{route('user.viewfamilymember',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="" title="View"><i class="fas fa-eye"></i></a>
                       </td>
                     </tr>
                     @endforeach

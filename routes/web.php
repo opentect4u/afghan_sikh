@@ -96,6 +96,9 @@ Route::prefix('gurudwara')->group(function () {
     Route::post('/editstage4', [App\Http\Controllers\gurudwara\HomeController::class, 'EditStage4'])->name('gurudwara.editstage4');
     Route::post('/chnagepass', [App\Http\Controllers\gurudwara\HomeController::class, 'ChangePass'])->name('gurudwara.chnagepass');
 
+    Route::get('/forgotpassword', [App\Http\Controllers\gurudwara\LoginController::class, 'ShowForgot'])->name('gurudwara.forgotpassword');
+    Route::post('/forgotpassword', [App\Http\Controllers\gurudwara\LoginController::class, 'Forgot'])->name('gurudwara.forgotpasswordConfirm');
+    
 
 });
             // all user route
@@ -157,6 +160,8 @@ Route::prefix('user')->group(function () {
     Route::get('/editfamilymember3/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow3'])->name('user.editfamilymember3');
     Route::get('/editfamilymember4/{id?}', [App\Http\Controllers\user\FamilyController::class, 'EditShow4'])->name('user.editfamilymember4');
 
+    Route::get('/viewfamilymember/{id?}', [App\Http\Controllers\user\FamilyController::class, 'ShowFamily'])->name('user.viewfamilymember');
+
 
     Route::get('/servicesmanagefinance', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageFinance'])->name('user.servicesmanagefinance');
     Route::get('/servicesmanagefamily', [App\Http\Controllers\user\ServicesRegisterController::class, 'ManageFAMILY'])->name('user.servicesmanagefamily');
@@ -179,6 +184,10 @@ Route::prefix('user')->group(function () {
     Route::post('/registerservicesConfirm', [App\Http\Controllers\user\ServicesRegisterController::class, 'Register'])->name('user.registerservicesConfirm');
     
     Route::get('/viewservice/{id?}', [App\Http\Controllers\user\ServicesRegisterController::class, 'ViewService'])->name('user.viewservice');
+    Route::get('/editservice/{id?}', [App\Http\Controllers\user\ServicesRegisterController::class, 'EditService'])->name('user.editservice');
+    Route::post('/editservice', [App\Http\Controllers\user\ServicesRegisterController::class, 'EditServiceConfirm'])->name('user.editserviceConfirm');
+    Route::get('/deleteservice/{id?}', [App\Http\Controllers\user\ServicesRegisterController::class, 'DeleteService'])->name('user.deleteservice');
+    
 
     Route::get('/managecertificate', [App\Http\Controllers\user\CertificateController::class, 'Manage'])->name('user.managecertificate');
     Route::get('/addcertificate', [App\Http\Controllers\user\CertificateController::class, 'ShowAdd'])->name('user.addcertificate');
@@ -199,6 +208,11 @@ Route::prefix('user')->group(function () {
     Route::post('/changepassword', [App\Http\Controllers\user\HomeController::class, 'ChangePass'])->name('user.changepassword');
     Route::post('/logoupload', [App\Http\Controllers\user\HomeController::class, 'LogoUpload'])->name('user.logoupload');
     
+    Route::get('/forgotpassword', [App\Http\Controllers\user\LoginController::class, 'ShowForgot'])->name('user.forgotpassword');
+    Route::post('/forgotpassword', [App\Http\Controllers\user\LoginController::class, 'Forgot'])->name('user.forgotpasswordConfirm');
+    
+    Route::get('/recoverpassword/{id?}', [App\Http\Controllers\user\LoginController::class, 'ShowRecover'])->name('user.recoverpassword');
+    Route::post('/recoverpassword', [App\Http\Controllers\user\LoginController::class, 'Recovery'])->name('user.recoverpasswordConfirm');
 });
 
 

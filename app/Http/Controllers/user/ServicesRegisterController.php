@@ -520,4 +520,185 @@ class ServicesRegisterController extends Controller
         // return $gurdwara_details;
         return view('user.services-view',['family_details'=>$family_details,'data'=>$data,'gurdwara_details'=>$gurdwara_details]);
     }
+
+    public function EditService($id){
+        // return "hii";
+        $id=Crypt::decryptString($id);
+        $ses_id=Session::get('user')[0]['id'];
+        // return $id;
+        $data=TdServiceDetails::find($id);
+        $family_details=TdUserFamily::where('user_details_id',$ses_id)->get();
+        // return $data;
+        $gurdwara_details=TdGurudwaraDetails::find($data->gurudwara_id);
+        // return $gurdwara_details;
+        return view('user.services-edit',['family_details'=>$family_details,'data'=>$data,'gurdwara_details'=>$gurdwara_details]);
+    }
+
+    public function EditServiceConfirm(Request $request){
+        // return $request;
+        $id=$request->id;
+        $data=TdServiceDetails::find($id);
+        // return $data;
+        $self_id=Session::get('user')[0]['id'];
+        // return $id;
+        if ($request->hasFile('doc_1')) {
+            $profile_pic_path1 = $request->file('doc_1');
+            $doc_1=date('YmdHis') .'_'.$self_id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath1 = public_path('service-doc/');
+            $profile_pic_path1->move($destinationPath1,$doc_1);
+
+            if($data->doc_1!=null){
+                $filesc = public_path('service-doc/') . $data->doc_1;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_1=$data->doc_1;
+        }
+
+        if ($request->hasFile('doc_2')) {
+            $profile_pic_path2 = $request->file('doc_2');
+            $doc_2=date('YmdHis') .'_'.$self_id. 'doc_2.' . $profile_pic_path2->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath2 = public_path('service-doc/');
+            $profile_pic_path2->move($destinationPath2,$doc_2);
+
+            if($data->doc_2!=null){
+                $filesc = public_path('service-doc/') . $data->doc_2;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        
+        }else{
+            $doc_2=$data->doc_2;
+        }
+
+        if ($request->hasFile('doc_3')) {
+            $profile_pic_path3 = $request->file('doc_3');
+            $doc_3=date('YmdHis') .'_'.$self_id. 'doc_3.' . $profile_pic_path3->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_3);
+
+            if($data->doc_3!=null){
+                $filesc = public_path('service-doc/') . $data->doc_3;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $doc_3=$data->doc_3;
+        }
+
+        if ($request->hasFile('doc_4')) {
+            $profile_pic_path4 = $request->file('doc_4');
+            $doc_4=date('YmdHis') .'_'.$self_id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath4 = public_path('service-doc/');
+            $profile_pic_path4->move($destinationPath4,$doc_4);
+
+            if($data->doc_4!=null){
+                $filesc = public_path('service-doc/') . $data->doc_4;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $doc_4=$data->doc_4;
+        }
+
+
+        $data->doc_1=$doc_1;
+        $data->doc_2=$doc_2;
+        $data->doc_3=$doc_3;
+        $data->doc_4=$doc_4;
+        $data->self_or_family=$request->fav_language;
+        $data->service_type=$request->service_type;
+        $data->family_details_id=$request->family_details;
+        $data->other_info=$request->user_info;
+        $data->save();
+
+        $service_type=$request->service_type;
+
+        if($service_type=='FINANCE'){
+            return redirect()-> route('user.servicesmanagefinance');
+        }elseif($service_type=='FAMILY DISPUTES'){
+            return redirect()-> route('user.servicesmanagefamily');
+        }elseif($service_type=='MARRIAGES ISSUES'){
+            return redirect()-> route('user.servicesmanagemarriages');
+        }elseif($service_type=='RELIGIOUS ISSUE'){
+            return redirect()-> route('user.servicesmanagereligious');
+        }elseif($service_type=='REUNION FAMILY'){
+            return redirect()-> route('user.servicesmanagereunion');
+        }elseif($service_type=='PROPERTY DISPUTE'){
+            return redirect()-> route('user.servicesmanageproperty');
+        }elseif($service_type=='DIVORCE DISPUTE'){
+            return redirect()-> route('user.servicesmanagedivorce');
+        }elseif($service_type=='OTHER'){
+            return redirect()-> route('user.servicesmanageother');
+        }
+    }
+
+    public function DeleteService($id){
+        // $id=$request->id;
+        $id=Crypt::decryptString($id);
+        // return $id;
+        $data=TdServiceDetails::find($id);
+        // return $data;
+        $service_type=$data->service_type;
+        if($data->doc_1!=null){
+            $filesc = public_path('service-doc/') . $data->doc_1;
+            if (file_exists($filesc) != null) {
+                unlink($filesc);
+            }
+        } 
+        if($data->doc_2!=null){
+            $filesc = public_path('service-doc/') . $data->doc_2;
+            if (file_exists($filesc) != null) {
+                unlink($filesc);
+            }
+        } 
+        if($data->doc_3!=null){
+            $filesc = public_path('service-doc/') . $data->doc_3;
+            if (file_exists($filesc) != null) {
+                unlink($filesc);
+            }
+        } 
+        if($data->doc_4!=null){
+            $filesc = public_path('service-doc/') . $data->doc_4;
+            if (file_exists($filesc) != null) {
+                unlink($filesc);
+            }
+        } 
+        TdServiceDetails::find($id)->delete();
+        if($service_type=='FINANCE'){
+            return redirect()-> route('user.servicesmanagefinance');
+        }elseif($service_type=='FAMILY DISPUTES'){
+            return redirect()-> route('user.servicesmanagefamily');
+        }elseif($service_type=='MARRIAGES ISSUES'){
+            return redirect()-> route('user.servicesmanagemarriages');
+        }elseif($service_type=='RELIGIOUS ISSUE'){
+            return redirect()-> route('user.servicesmanagereligious');
+        }elseif($service_type=='REUNION FAMILY'){
+            return redirect()-> route('user.servicesmanagereunion');
+        }elseif($service_type=='PROPERTY DISPUTE'){
+            return redirect()-> route('user.servicesmanageproperty');
+        }elseif($service_type=='DIVORCE DISPUTE'){
+            return redirect()-> route('user.servicesmanagedivorce');
+        }elseif($service_type=='OTHER'){
+            return redirect()-> route('user.servicesmanageother');
+        }
+    }
 }

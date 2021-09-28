@@ -21,6 +21,9 @@
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card afghanLogin px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2 id="heading" class="loginTitle"> Gurdwara Login</h2>
+                    @if(Session::has('recoverypassword'))
+                    <p style="color:green;">Your password changed successfully.Login now!</p>
+                    @endif
                     @if(Session::has('notregister'))
                     <p style="color:red;">Sorry, we don't recognise this email address or phone number.</p>
                     @endif
@@ -40,6 +43,10 @@
                          <input type="password" name="cpwd" placeholder="Confirm Password" /> -->
                       </div> 
                       <input type="submit" name="submit" id="submit" class="login-button" value="Login" />
+                      <div class="form-card ">
+                        <a href="{{route('gurudwara.forgotpassword')}}">I forgot my password</a>
+                      </div>
+                      &nbsp;
                       <div class="form-card registerBtn">
                         <!-- <input type="button" name="" id="" class="login-button" value="Register" onclick /> -->
                         <a href="{{route('gurudwara.register')}}">Register</a>

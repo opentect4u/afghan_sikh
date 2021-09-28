@@ -28,6 +28,7 @@ class TdUserDetails extends Model
             'county',
             'postcode',
             'country',
+            'country_code',
             'phone',
             'marital_status' ,
             'religion' ,
