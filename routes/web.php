@@ -127,6 +127,19 @@ Route::prefix('user')->group(function () {
     Route::post('/registerstep8confirm', [App\Http\Controllers\user\RegisterController::class, 'Register8Confirm'])->name('user.registerstep8confirm');
     Route::get('/registerstep9', [App\Http\Controllers\user\RegisterController::class, 'Register9'])->name('user.registerstep9');
     Route::post('/registerstep9confirm', [App\Http\Controllers\user\RegisterController::class, 'Register9Confirm'])->name('user.registerstep9confirm');
+    Route::get('/registerstep91', [App\Http\Controllers\user\RegisterController::class, 'Register91'])->name('user.registerstep91');
+    Route::post('/registerstep91confirm', [App\Http\Controllers\user\RegisterController::class, 'Register91Confirm'])->name('user.registerstep91confirm');
+    Route::get('/registerstep92', [App\Http\Controllers\user\RegisterController::class, 'Register92'])->name('user.registerstep92');
+    Route::post('/registerstep92confirm', [App\Http\Controllers\user\RegisterController::class, 'Register92Confirm'])->name('user.registerstep92confirm');
+    Route::get('/registerstep93', [App\Http\Controllers\user\RegisterController::class, 'Register93'])->name('user.registerstep93');
+    Route::post('/registerstep93confirm', [App\Http\Controllers\user\RegisterController::class, 'Register93Confirm'])->name('user.registerstep93confirm');
+    Route::get('/registerstep94', [App\Http\Controllers\user\RegisterController::class, 'Register94'])->name('user.registerstep94');
+    Route::post('/registerstep94confirm', [App\Http\Controllers\user\RegisterController::class, 'Register94Confirm'])->name('user.registerstep94confirm');
+    Route::get('/registerstep95', [App\Http\Controllers\user\RegisterController::class, 'Register95'])->name('user.registerstep95');
+    Route::post('/registerstep95confirm', [App\Http\Controllers\user\RegisterController::class, 'Register95Confirm'])->name('user.registerstep95confirm');
+    Route::get('/addanathermember', [App\Http\Controllers\user\RegisterController::class, 'AddAnather'])->name('user.addanathermember');
+                                    
+
     Route::get('/registerstep10', [App\Http\Controllers\user\RegisterController::class, 'Register10'])->name('user.registerstep10');
     
     Route::get('/emaillink', [App\Http\Controllers\user\RegisterController::class, 'EmailLink'])->name('user.emaillink');

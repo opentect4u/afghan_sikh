@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MdCountry;
 use App\Models\TdUserDetails;
+use App\Models\TdUserFamily;
 use App\Models\TdUserFamilyDetails;
 use DB;
 use Illuminate\Support\Facades\Mail;
@@ -374,8 +375,188 @@ class RegisterController extends Controller
         $data->register_stage=$request->register_stage;
         $data->save();
         // return $data;
+        return redirect()->route('user.registerstep91');
+    }
+
+    public function Register91(){
+        $country=MdCountry::orderBy('name','asc')->get();
+        return view('user.register-stage-9-1',['country'=>$country]);
+    }
+
+    public function Register91Confirm(Request $request){
+        // return $request;
+        $user_id=Session::get('id');
+        $email=Session::get('email_mobile');
+        // Session::forget('family_id');
+        // return $user_id;
+        $data=TdUserFamily::create(array(
+            'user_details_id'=>$user_id,
+            'first_name'     => $request->first_name ,
+            'middle_name'    =>$request ->middle_name ,
+            'last_name'      => $request->  last_name ,
+            'gender'         => $request-> gender ,
+            'relation'       => $request->relation ,
+        ));
+        // return $data;
+        // $data->id;
+        Session::put(['family_id' => $data->id]);
+        // return Session::get('family_id');
+        return redirect()->route('user.registerstep92');
+    }
+
+    public function Register92(){
+        $country=MdCountry::orderBy('name','asc')->get();
+        return view('user.register-stage-9-2',['country'=>$country]);
+    }
+
+    public function Register92Confirm(Request $request){
+        // return $request;
+        $user_id=Session::get('id');
+        $email=Session::get('email_mobile');
+        $id=Session::get('family_id');
+        // return $family_id;
+        $data=TdUserFamily::find($id);
+        $data->current_citizenship=$request->current_citizenship;
+        $data->previous_citizenship=$request->previous_citizenship;
+        $data->passport_no=$request->passport_no;
+        $data->passport_date_of_issue=date('Y-m-d',strtotime($request->passport_date_of_issue));
+        $data->passport_date_of_expiry=date('Y-m-d',strtotime($request->passport_date_of_expiry));
+        $data->save();
+        return redirect()->route('user.registerstep93');
+    }
+
+    public function Register93(){
+        $country=MdCountry::orderBy('name','asc')->get();
+        return view('user.register-stage-9-3',['country'=>$country]);
+    }
+
+    public function Register93Confirm(Request $request){
+        // return $request;
+        $user_id=Session::get('id');
+        $email=Session::get('email_mobile');
+        $id=Session::get('family_id');
+        // return $family_id;
+        $data=TdUserFamily::find($id);
+        $data->afghan_id=$request->afghan_id;
+        $data->email=$request->email;
+        $data->phone=$request->phone;
+        $data->save();
+        return redirect()->route('user.registerstep94');
+    }
+    public function Register94(){
+        $country=MdCountry::orderBy('name','asc')->get();
+        return view('user.register-stage-9-4',['country'=>$country]);
+    }
+
+    public function Register94Confirm(Request $request){
+        // return $request;
+        $user_id=Session::get('id');
+        $email=Session::get('email_mobile');
+        $id=Session::get('family_id');
+        // return $family_id;
+        $data=TdUserFamily::find($id);
+
+        if ($request->hasFile('other_doc_1')) {
+            $profile_pic_path1 = $request->file('other_doc_1');
+            $other_doc_1=date('YmdHis') .'_'.$id. 'other_doc_1.' . $profile_pic_path1->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath1 = public_path('user-family-doc/');
+            $profile_pic_path1->move($destinationPath1,$other_doc_1);
+
+            if($data->other_doc_1!=null){
+                $filesc = public_path('user-family-doc/') . $data->other_doc_1;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $other_doc_1=$data->other_doc_1;
+        }
+
+        if ($request->hasFile('other_doc_2')) {
+            $profile_pic_path2 = $request->file('other_doc_2');
+            $other_doc_2=date('YmdHis') .'_'.$id. 'other_doc_2.' . $profile_pic_path2->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath2 = public_path('user-family-doc/');
+            $profile_pic_path2->move($destinationPath2,$other_doc_2);
+
+            if($data->other_doc_2!=null){
+                $filesc = public_path('user-family-doc/') . $data->other_doc_2;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $other_doc_2=$data->other_doc_2;
+        }
+
+        if ($request->hasFile('other_doc_3')) {
+            $profile_pic_path3 = $request->file('other_doc_3');
+            $other_doc_3=date('YmdHis') .'_'.$id. 'other_doc_3.' . $profile_pic_path3->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath3 = public_path('user-family-doc/');
+            $profile_pic_path3->move($destinationPath3,$other_doc_3);
+
+            if($data->other_doc_3!=null){
+                $filesc = public_path('user-family-doc/') . $data->other_doc_3;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $other_doc_3=$data->other_doc_3;
+        }
+
+        if ($request->hasFile('other_doc_4')) {
+            $profile_pic_path4 = $request->file('other_doc_4');
+            $other_doc_4=date('YmdHis') .'_'.$id. 'other_doc_4.' . $profile_pic_path4->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath4 = public_path('user-family-doc/');
+            $profile_pic_path4->move($destinationPath4,$other_doc_4);
+
+            if($data->other_doc_4!=null){
+                $filesc = public_path('user-family-doc/') . $data->other_doc_4;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $other_doc_4=$data->other_doc_4;
+        }
+
+        $data->other_doc_1=$other_doc_1;
+        $data->other_doc_2=$other_doc_2;
+        $data->other_doc_3=$other_doc_3;
+        $data->other_doc_4=$other_doc_4;
+        $data->save();
+        return redirect()->route('user.registerstep95');
+    }
+
+    public function Register95(){
+        $country=MdCountry::orderBy('name','asc')->get();
+        return view('user.register-stage-9-5',['country'=>$country]);
+    }
+
+    public function AddAnather(){
+        Session::forget('family_id');
+        return redirect()->route('user.registerstep91');
+    }
+
+    public function Register95Confirm(){
         return redirect()->route('user.registerstep10');
     }
+    
 
     public function Register10(){
         // $id=Session::get('id');
