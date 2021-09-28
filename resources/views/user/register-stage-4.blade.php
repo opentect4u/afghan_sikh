@@ -61,14 +61,24 @@
                                         </div>
                                     </div>  -->
                                     <!-- *Adress Line 1/Adress Line 2/*city/*Postal/zip code/Phone No. -->
-                                    <label class="fieldlabels">Adress Line 1: *</label> 
-                                    <input type="text" name="add_1" required class="form-control" id="add_1" placeholder="Adress Line 1" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <label class="fieldlabels">Adress Line 2: </label> 
-                                    <input type="text" name="add_2" class="form-control" id="add_2" placeholder="Adress Line 2" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <!-- House no/name, street name, city, county, postcode, country -->
+                                    <label class="fieldlabels">House No/Name: *</label> 
+                                    <input type="text" name="add_1" required class="form-control" id="add_1" placeholder="House No/Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Street Name: </label> 
+                                    <input type="text" name="add_2" required class="form-control" id="add_2" placeholder="Street Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">City: *</label> 
                                     <input type="text" name="city" required class="form-control" id="city" placeholder="City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">County: *</label> 
+                                    <input type="text" name="county" required class="form-control" id="county" placeholder="County" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Postal/zip code: *</label> 
                                     <input type="text" name="postcode" required class="form-control" id="postcode" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Country: *</label> 
+                                    <select name="country" id="country" required>
+                                        <option value="">-- Select Country --</option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        @endforeach
+                                    </select>
                                     <label class="fieldlabels">Phone No: </label> 
                                     <input type="number" name="phone" class="form-control" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     

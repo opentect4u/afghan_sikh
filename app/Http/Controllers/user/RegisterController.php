@@ -186,7 +186,9 @@ class RegisterController extends Controller
         $data->add_1=$request->add_1;
         $data->add_2=$request->add_2;
         $data->city=$request->city;
+        $data->county=$request->county;
         $data->postcode=$request->postcode;
+        $data->country=$request->country;
         $data->phone=$request->phone;
         $data->register_stage=$request->register_stage;
         $data->save();

@@ -106,19 +106,19 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Surname (As in Passport): *</label>
                         <div class="col-sm-10">
-                          <input type="text" name="surname" id="surname" value="{{isset($datas->surname)? $datas->surname:''}}" required class="form-control" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" disabled name="surname" id="surname" value="{{isset($datas->surname)? $datas->surname:''}}" required class="form-control" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Given Name (As in Passport): *</label>
                         <div class="col-sm-10">
-                          <input type="text" name="givenname" class="form-control" id="givenname" value="{{isset($datas->givenname)? $datas->givenname:''}}" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" disabled name="givenname" class="form-control" id="givenname" value="{{isset($datas->givenname)? $datas->givenname:''}}" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Gender : *</label>
                         <div class="col-sm-10">
-                          <select name="gender" id="gender" required class="form-control" >
+                          <select name="gender" id="gender" required class="form-control" disabled>
                               <option value="M" <?php if(isset($datas->gender) && $datas->gender=="M"){echo "selected";}?>>Male</option>
                               <option value="F" <?php if(isset($datas->gender) && $datas->gender=="F"){echo "selected";}?>>Female</option>
                               <option value="O" <?php if(isset($datas->gender) && $datas->gender=="O"){echo "selected";}?>>Other</option>
@@ -128,19 +128,19 @@
                       <div class="form-group row">
                         <label for="inputExperience" class="col-sm-2 col-form-label">Date of Birth : *</label>
                         <div class="col-sm-10">
-                          <input type="text" required name="date_of_birth" id="date_of_birth" class="form-control" value="{{isset($datas->date_of_birth)? date('d/m/Y', strtotime($datas->date_of_birth)):''}}"  placeholder="DD/MM/YYYY" readonly data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" disabled required name="date_of_birth" id="date_of_birth" class="form-control" value="{{isset($datas->date_of_birth)? date('d/m/Y', strtotime($datas->date_of_birth)):''}}"  placeholder="DD/MM/YYYY" disabled data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Afghan ID</label>
                         <div class="col-sm-10">
-                          <input type="text" name="afghan_id" id="afghan_id" class="form-control" value="{{isset($datas->afghan_id)? $datas->afghan_id:''}}"  placeholder="Afghan ID" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" disabled name="afghan_id" id="afghan_id" class="form-control" value="{{isset($datas->afghan_id)? $datas->afghan_id:''}}"  placeholder="Afghan ID" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage1" name="stage1" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage1" name="stage1" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -152,13 +152,13 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Birth Place: *</label>
                         <div class="col-sm-10">
-                          <input type="text" value="{{isset($datas->birth_place)? $datas->birth_place:''}}" name="birth_place" required class="form-control" id="birth_place" placeholder="Birth Place" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" disabled value="{{isset($datas->birth_place)? $datas->birth_place:''}}" name="birth_place" required class="form-control" id="birth_place" placeholder="Birth Place" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Birth Country: *</label>
                         <div class="col-sm-10">
-                          <select name="birth_country" id="birth_country" required class="form-control">
+                          <select disabled name="birth_country" id="birth_country" required class="form-control">
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->birth_country) && $datas->birth_country==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -169,7 +169,7 @@
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Current Nationality: *</label>
                         <div class="col-sm-10">
-                        <select name="nationality" id="nationality" required class="form-control" >
+                        <select disabled name="nationality" id="nationality" required class="form-control" >
                                         <option value=""> --Select Current Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->nationality) && $datas->nationality==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -179,7 +179,7 @@
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Previous/Past Nationality : </label>
                         <div class="col-sm-10">
-                        <select name="previous_nationality" id="previous_nationality" class="form-control" >
+                        <select disabled name="previous_nationality" id="previous_nationality" class="form-control" >
                                         <option value=""> --Select Previous/Past Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->previous_nationality) && $datas->previous_nationality==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -191,7 +191,7 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage2" name="stage2" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage2" name="stage2" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -204,34 +204,34 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Adress Line 1: *</label>
                         <div class="col-sm-10">
-                         <input type="text" value="{{isset($datas->add_1)? $datas->add_1:''}}" name="add_1" required class="form-control" id="add_1" placeholder="Adress Line 1" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                         <input disabled type="text" value="{{isset($datas->add_1)? $datas->add_1:''}}" name="add_1" required class="form-control" id="add_1" placeholder="Adress Line 1" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
              
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Adress Line 2:</label>
                         <div class="col-sm-10">
-                        <input type="text" value="{{isset($datas->add_2)? $datas->add_2:''}}" name="add_2" class="form-control" id="add_2" placeholder="Adress Line 2" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <input disabled type="text" value="{{isset($datas->add_2)? $datas->add_2:''}}" name="add_2" class="form-control" id="add_2" placeholder="Adress Line 2" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                       </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">City: *</label>
                         <div class="col-sm-10">
-                         <input type="text" value="{{isset($datas->city)? $datas->city:''}}" name="city" required class="form-control" id="city" placeholder="City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                         <input disabled type="text" value="{{isset($datas->city)? $datas->city:''}}" name="city" required class="form-control" id="city" placeholder="City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
 
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Postal/zip code: *</label>
                         <div class="col-sm-10">
-                         <input type="text" value="{{isset($datas->postcode)? $datas->postcode:''}}" name="postcode" required class="form-control" id="postcode" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                         <input disabled type="text" value="{{isset($datas->postcode)? $datas->postcode:''}}" name="postcode" required class="form-control" id="postcode" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
 
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Phone No: </label>
                         <div class="col-sm-10">
-                          <input type="number" value="{{isset($datas->phone)? $datas->phone:''}}" name="phone" class="form-control" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input disabled type="number" value="{{isset($datas->phone)? $datas->phone:''}}" name="phone" class="form-control" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
 
                         </div>
                       </div>
@@ -239,7 +239,7 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -252,7 +252,7 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Marital Status: *</label>
                         <div class="col-sm-10">
-                        <select name="marital_status" id="marital_status" Required class="form-control">
+                        <select disabled name="marital_status" id="marital_status" Required class="form-control">
                                         <option value=""> --Select marital status-- </option>
                                         <option value="Unmarried" <?php if(isset($datas->marital_status) && $datas->marital_status=="Unmarried"){echo "selected";}?>>Unmarried</option>
                                         <option value="Married" <?php if(isset($datas->marital_status) && $datas->marital_status=="Married"){echo "selected";}?>>Married</option>
@@ -264,7 +264,7 @@
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Religion: *</label>
                         <div class="col-sm-10">
-                        <select name="religion" id="religion" Required class="form-control">
+                        <select disabled name="religion" id="religion" Required class="form-control">
                                         <option value=""> --Select Religion-- </option>
                                         <option value="Sikh" <?php if(isset($datas->religion) && $datas->religion=="Sikh"){echo "selected";}?>>Sikh</option>
                                         <option value="Hindu" <?php if(isset($datas->religion) && $datas->religion=="Hindu"){echo "selected";}?>>Hindu</option>
@@ -277,7 +277,7 @@
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Profession/Occupation: </label>
                         <div class="col-sm-10">
-                        <select name="profession" id="profession" class="form-control">
+                        <select disabled name="profession" id="profession" class="form-control">
                                         <option value=""> --Profession/Occupation-- </option>
                                         <option value="Occupation" <?php if(isset($datas->profession) && $datas->profession=="Occupation"){echo "selected";}?>>Occupation 1</option>
                                         <option value="Occupation">Occupation 2</option>
@@ -291,7 +291,7 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -304,14 +304,14 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Father's Name: *</label>
                         <div class="col-sm-10">
-                        <input type="text" required name="father_name" id="father_name" value="{{isset($datas->father_name)?$datas->father_name:''}}" class="form-control" placeholder="Father's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <input disabled type="text" required name="father_name" id="father_name" value="{{isset($datas->father_name)?$datas->father_name:''}}" class="form-control" placeholder="Father's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Father's Nationality: *</label>
                         <div class="col-sm-10">
-                        <select name="father_nationality" id="father_nationality" required class="form-control" >
+                        <select disabled name="father_nationality" id="father_nationality" required class="form-control" >
                                         <option value=""> --Select Father's Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->father_nationality) && $datas->father_nationality==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -322,7 +322,7 @@
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Father's Previous/Past Nationality:</label>
                         <div class="col-sm-10">
-                        <select name="father_prev_nationality" id="father_prev_nationality" class="form-control" >
+                        <select disabled name="father_prev_nationality" id="father_prev_nationality" class="form-control" >
                                         <option value=""> --Select Father's Previous/Past Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->father_prev_nationality) && $datas->father_prev_nationality==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -332,7 +332,7 @@
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Father's Place/Country of Birth: *</label>
                         <div class="col-sm-10">
-                        <select name="father_birth_country" id="father_birth_country" required class="form-control" >
+                        <select disabled name="father_birth_country" id="father_birth_country" required class="form-control" >
                                         <option value=""> --Father's Place/Country of Birth-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->father_birth_country) && $datas->father_birth_country==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -345,7 +345,7 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -358,14 +358,14 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Mother's Name: *</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" value="{{isset($datas->mother_name)?$datas->mother_name:''}}" required name="mother_name" id="mother_name" placeholder="Mother's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input disabled type="text" class="form-control" value="{{isset($datas->mother_name)?$datas->mother_name:''}}" required name="mother_name" id="mother_name" placeholder="Mother's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Mother's Nationality: *</label>
                         <div class="col-sm-10">
-                        <select class="form-control"  name="mother_nationality" id="mother_nationality" required>
+                        <select disabled class="form-control"  name="mother_nationality" id="mother_nationality" required>
                                         <option value=""> --Select Mother's Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->mother_nationality) && $datas->mother_nationality==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -376,7 +376,7 @@
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Mother's Previous/Past Nationality:</label>
                         <div class="col-sm-10">
-                        <select class="form-control"  name="mother_prev_nationality" id="mother_prev_nationality">
+                        <select disabled class="form-control"  name="mother_prev_nationality" id="mother_prev_nationality">
                                         <option value=""> --Select Mother's Previous/Past Nationality-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->mother_prev_nationality) && $datas->mother_prev_nationality==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -386,7 +386,7 @@
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Mother's Place/Country of Birth: *</label>
                         <div class="col-sm-10">
-                        <select class="form-control" name="mother_birth_country" id="mother_birth_country" required>
+                        <select disabled class="form-control" name="mother_birth_country" id="mother_birth_country" required>
                                         <option value=""> --Mother's Place/Country of Birth-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->mother_birth_country) && $datas->mother_birth_country==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -399,7 +399,7 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage6" name="stage6" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage6" name="stage6" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -412,7 +412,7 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Other Information : *</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="other_info" id="other_info"  rows="5" placeholder="Other Information">{{$datas->other_info}}</textarea>
+                          <textarea disabled class="form-control" name="other_info" id="other_info"  rows="5" placeholder="Other Information">{{$datas->other_info}}</textarea>
                         
                         </div>
                       </div>
@@ -421,7 +421,7 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage7" name="stage7" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage7" name="stage7" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -437,7 +437,7 @@
                           @if(isset($datas->doc_1))
                           <img src="{{asset('public/user-doc/').'/'.$datas->doc_1}}" width="100" height="100" />
                           @endif
-                          <input class="form-control" type="file" {{isset($datas->doc_1)?'':'required'}} name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                          <input disabled class="form-control" type="file" {{isset($datas->doc_1)?'':'required'}} name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                         </div>
                       </div>
                       <div class="form-group row">
@@ -446,7 +446,7 @@
                           @if(isset($datas->doc_2))
                           <img src="{{asset('public/user-doc/').'/'.$datas->doc_2}}" width="100" height="100" />
                           @endif
-                          <input class="form-control" type="file" {{isset($datas->doc_2)?'':'required'}} name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                          <input disabled class="form-control" type="file" {{isset($datas->doc_2)?'':'required'}} name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                         </div>
                       </div>
                       <div class="form-group row">
@@ -455,7 +455,7 @@
                           @if(isset($datas->doc_3))
                           <img src="{{asset('public/user-doc/').'/'.$datas->doc_3}}" width="100" height="100" />
                           @endif
-                          <input class="form-control" type="file"  name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                          <input disabled class="form-control" type="file"  name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                         </div>
                       </div>
                       <div class="form-group row">
@@ -464,14 +464,14 @@
                           @if(isset($datas->doc_4))
                           <img src="{{asset('public/user-doc/').'/'.$datas->doc_4}}" width="100" height="100" />
                           @endif
-                          <input class="form-control" type="file" name="doc_4" id="doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                          <input disabled class="form-control" type="file" name="doc_4" id="doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                         </div>
                       </div>
                      
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage8" name="stage8" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage8" name="stage8" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
