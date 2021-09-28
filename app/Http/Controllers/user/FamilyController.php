@@ -44,7 +44,7 @@ class FamilyController extends Controller
     }
 
     public function Add2(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-family2',['country'=> $country]);
     }
 
@@ -73,7 +73,7 @@ class FamilyController extends Controller
     }
 
     public function Add3(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-family3',['country'=> $country]);
     }
 
@@ -99,7 +99,7 @@ class FamilyController extends Controller
     }
 
     public function Add4(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-family4',['country'=> $country]);
     }
 
@@ -228,7 +228,7 @@ class FamilyController extends Controller
     public function EditShow2($id){
         $id=Crypt::decryptString($id);
         // return $id;
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         $editdata=TdUserFamily::find($id);
         return view('user.register-family2',['editdata'=>$editdata,'country'=>$country]);
     }
@@ -236,7 +236,7 @@ class FamilyController extends Controller
     public function EditShow3($id){
         $id=Crypt::decryptString($id);
         // return $id;
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         $editdata=TdUserFamily::find($id);
         return view('user.register-family3',['editdata'=>$editdata,'country'=>$country]);
     }
@@ -244,7 +244,7 @@ class FamilyController extends Controller
     public function EditShow4($id){
         $id=Crypt::decryptString($id);
         // return $id;
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         $editdata=TdUserFamily::find($id);
         return view('user.register-family4',['editdata'=>$editdata,'country'=>$country]);
     }

@@ -78,9 +78,11 @@
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
                                     </select>
-                                    <label class="fieldlabels">Mother's Place/Country of Birth: *</label> 
+                                    <label class="fieldlabels">Mother's Place of Birth: *</label> 
+                                    <input type="text" required name="mother_place_birth" id="mother_place_birth" placeholder="Father's Place of Birth" />
+                                    <label class="fieldlabels">Mother's Country of Birth: *</label> 
                                     <select name="mother_birth_country" id="mother_birth_country" required>
-                                        <option value=""> --Mother's Place/Country of Birth-- </option>
+                                        <option value=""> --Mother's Country of Birth-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach

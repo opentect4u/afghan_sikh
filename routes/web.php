@@ -108,6 +108,8 @@ Route::prefix('user')->group(function () {
     Route::post('/confirmregister', [App\Http\Controllers\user\RegisterController::class, 'ConfirmRegister1'])->name('user.confirmregister');
     Route::get('/registerstep2', [App\Http\Controllers\user\RegisterController::class, 'Register2'])->name('user.registerstep2');
     Route::post('/registerstep2confirm', [App\Http\Controllers\user\RegisterController::class, 'Register2Confirm'])->name('user.registerstep2confirm');
+    Route::get('/registerstep21', [App\Http\Controllers\user\RegisterController::class, 'Register21'])->name('user.registerstep21');
+    Route::post('/registerstep21confirm', [App\Http\Controllers\user\RegisterController::class, 'Register21Confirm'])->name('user.registerstep21confirm');
     Route::get('/registerstep3', [App\Http\Controllers\user\RegisterController::class, 'Register3'])->name('user.registerstep3');
     Route::post('/registerstep3confirm', [App\Http\Controllers\user\RegisterController::class, 'Register3Confirm'])->name('user.registerstep3confirm');
     Route::get('/registerstep4', [App\Http\Controllers\user\RegisterController::class, 'Register4'])->name('user.registerstep4');

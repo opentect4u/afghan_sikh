@@ -35,9 +35,9 @@
                         <h5>Fill all form field to go to next step</h5>
                         <!-- <p>Fill all form field to go to next step</p> -->
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
-                        <form id="msform" name="msform" method="POST" action="{{route('user.registerstep5confirm')}}" autocomplete="off">
+                        <form id="msform" name="msform" method="POST" action="{{route('user.registerstep21confirm')}}" autocomplete="off" enctype="multipart/form-data">
                             @csrf
-                            <input type="text" hidden name="register_stage" id="register_stage" value="5"/>
+                            <input type="text" hidden name="register_stage" id="register_stage" value="21"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">
                                 <li class="active" id="account"><strong>Step 1</strong></li>
@@ -60,35 +60,9 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-                                    <!-- *Marital Status/*Religion/Profession/Occupation -->
-
-                                    <label class="fieldlabels">Marital Status: *</label> 
-                                    <select name="marital_status" id="marital_status" Required>
-                                        <option value=""> --Select marital status-- </option>
-                                        <option value="Unmarried">Unmarried</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Widowed">Widowed</option>
-                                        <option value="Divorced">Divorced</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                    <label class="fieldlabels">Religion: *</label> 
-                                    <select name="religion" id="religion" Required>
-                                        <option value=""> --Select Religion-- </option>
-                                        <option value="Sikh">Sikh</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Muslim">Muslim</option>
-                                        <option value="Christian">Christian</option>
-                                        <option value="Others">Others</option>
-                                    </select>
-                                    <label class="fieldlabels">Profession/Occupation: </label> 
-                                    <select name="profession" id="profession">
-                                        <option value=""> --Profession/Occupation-- </option>
-                                        <option value="Occupation">Occupation 1</option>
-                                        <option value="Occupation">Occupation 2</option>
-                                        <option value="Occupation">Occupation 3</option>
-                                        <option value="Occupation">Occupation 4</option>
-                                    </select>
-                                                                       
+                                    <label class="fieldlabels">Surname (As in Passport): *</label> 
+                                    <input type="file" name="user_logo" required id="user_logo" accept="image/gif, image/jpg, image/jpeg"  />
+                                    
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
 									
@@ -301,7 +275,15 @@
     <!-- javascript write here -->
 <script>
     $(document).ready(function(){
-
+        $("#user_logo").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#user_logo").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }
+        });
         // $("#step1").click(function(){
         //     var email_mobile=$("#email_mobile").val();
         //     var password=$("#password").val();

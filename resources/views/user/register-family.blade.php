@@ -90,11 +90,11 @@
                             <div class="form-group">
                                 <label>Relation </label>
                                 <select name="relation" id="relation" class="form-control">
+                                    <option value="Spouse" <?php if( isset($editdata) && $editdata->relation=='Spouse'){ echo "selected";}?>>Spouse</option>
                                     <option value="Father" <?php if( isset($editdata) && $editdata->relation=='Father'){ echo "selected";}?>>Father</option>
                                     <option value="Mother" <?php if( isset($editdata) && $editdata->relation=='Mother'){ echo "selected";}?>>Mother</option>
                                     <option value="Son" <?php if( isset($editdata) && $editdata->relation=='Son'){ echo "selected";}?>>Son</option>
                                     <option value="Daughter" <?php if( isset($editdata) && $editdata->relation=='Daughter'){ echo "selected";}?>>Daughter</option>
-                                    <option value="Spouse" <?php if( isset($editdata) && $editdata->relation=='Spouse'){ echo "selected";}?>>Spouse</option>
                                 </select>
                             </div>
                         </div> 

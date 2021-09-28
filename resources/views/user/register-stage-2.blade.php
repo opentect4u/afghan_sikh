@@ -63,17 +63,17 @@
                                     <label class="fieldlabels">Surname (As in Passport): *</label> 
                                     <input type="text" name="surname" required class="form-control" id="surname" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Given Name (As in Passport): *</label> 
-                                    <input type="text" name="givenname" class="form-control" id="givenname" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="givenname" required class="form-control" id="givenname" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Gender : *</label> 
-                                    <select name="gender" id="gender">
+                                    <select name="gender" id="gender" required>
                                         <option value="M">Male</option>
                                         <option value="F">Female</option>
                                         <option value="O">Other</option>
                                     </select>
                                     <label class="fieldlabels">Date of Birth : *</label> 
-                                    <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY" readonly data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <label class="fieldlabels">Afghan ID : </label> 
-                                    <input type="text" name="afghan_id" id="afghan_id" placeholder="Afghan ID" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" required name="dob" id="dob" placeholder="DD/MM/YYYY" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Afghan ID/Passport No : </label> 
+                                    <input type="text" required name="afghan_id" id="afghan_id" placeholder="Afghan ID/Passport No" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
 									

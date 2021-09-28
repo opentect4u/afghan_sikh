@@ -25,7 +25,7 @@ class ServicesRegisterController extends Controller
         // return $b = random_str(8, 'QWERTYUIOPLKJHGFDSAZXCVBNM1234567890');
         // return string(32);
         $purpose=$request->purpose;
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
 
         return view('user.services-register',['purpose'=>$purpose,'country'=>$country]);
     }

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Crypt;
 class RegisterController extends Controller
 {
     public function Show(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register',['country'=>$country]);
     }
 
@@ -112,11 +112,50 @@ class RegisterController extends Controller
             'email'=>$email,
         ));
         // return $data;
+        return redirect()->route('user.registerstep21');
+    }
+    public function Register21()
+    {
+        // return Session::get('id');
+        // return Session::get('email_mobile');
+        return view('user.register-stage-2-1');
+    }
+
+    public function Register21Confirm(Request $request){
+        // return $request;
+        $id=Session::get('id');
+        $email=Session::get('email_mobile');
+        $data=TdUserDetails::find($id);
+
+        if ($request->hasFile('user_logo')) {
+            $profile_pic_path1 = $request->file('user_logo');
+            $user_logo=date('YmdHis') .'_'.$id. 'user_logo.' . $profile_pic_path1->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath1 = public_path('user-image/');
+            $profile_pic_path1->move($destinationPath1,$user_logo);
+
+            // if($data->user_logo!=null){
+            //     $filesc = public_path('user-image/') . $data->user_logo;
+            //     if (file_exists($filesc) != null) {
+            //         unlink($filesc);
+            //     }
+            // } 
+
+        }else{
+            $user_logo=$data->user_logo;
+        }
+        $data->user_logo=$user_logo;
+        $data->register_stage=$request->register_stage;
+        $data->save();
         return redirect()->route('user.registerstep3');
+        
     }
 
     public function Register3(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
+        // return $country;
         return view('user.register-stage-3',['country'=>$country]);
     }
 
@@ -135,7 +174,7 @@ class RegisterController extends Controller
     }
 
     public function Register4(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-stage-4',['country'=>$country]);
     }
 
@@ -156,7 +195,7 @@ class RegisterController extends Controller
     }
 
     public function Register5(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-stage-5',['country'=>$country]);
     }
 
@@ -175,7 +214,7 @@ class RegisterController extends Controller
     }
 
     public function Register6(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-stage-6',['country'=>$country]);
     }
 
@@ -187,6 +226,7 @@ class RegisterController extends Controller
         $data->father_name=$request->father_name;
         $data->father_nationality=$request->father_nationality;
         $data->father_prev_nationality=$request->father_prev_nationality;
+        $data->father_place_birth=$request->father_place_birth;
         $data->father_birth_country=$request->father_birth_country;
         $data->register_stage=$request->register_stage;
         $data->save();
@@ -195,7 +235,7 @@ class RegisterController extends Controller
     }
 
     public function Register7(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-stage-7',['country'=>$country]);
     }
 
@@ -207,6 +247,7 @@ class RegisterController extends Controller
         $data->mother_name=$request->mother_name;
         $data->mother_nationality=$request->mother_nationality;
         $data->mother_prev_nationality=$request->mother_prev_nationality;
+        $data->mother_place_birth=$request->mother_place_birth;
         $data->mother_birth_country=$request->mother_birth_country;
         $data->register_stage=$request->register_stage;
         $data->save();
@@ -215,7 +256,7 @@ class RegisterController extends Controller
     }
 
     public function Register8(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-stage-8',['country'=>$country]);
     }
 
@@ -234,7 +275,7 @@ class RegisterController extends Controller
     public function Register9(){
         // $id=Session::get('id');
         // return $id;
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-stage-9',['country'=>$country]);
     }
 
@@ -336,7 +377,7 @@ class RegisterController extends Controller
     public function Register10(){
         // $id=Session::get('id');
         // return $id;
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('user.register-stage-10',['country'=>$country]);
     }
 
