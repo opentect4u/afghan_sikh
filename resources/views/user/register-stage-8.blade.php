@@ -62,11 +62,12 @@
                                     </div>  -->
 
                                     <label class="fieldlabels">Other Information : *</label> 
-                                    <textarea name="other_info" id="other_info"  rows="5" placeholder="Other Information"></textarea>
+                                    <textarea name="other_info" id="other_info"  rows="5" placeholder="Other Information">{{isset($editdata)?$editdata->other_info:''}}</textarea>
                                     
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep7')}}'"/>
 									
 								</div>
                             </fieldset>

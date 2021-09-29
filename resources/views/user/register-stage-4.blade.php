@@ -63,25 +63,26 @@
                                     <!-- *Adress Line 1/Adress Line 2/*city/*Postal/zip code/Phone No. -->
                                     <!-- House no/name, street name, city, county, postcode, country -->
                                     <label class="fieldlabels">House No/Name: *</label> 
-                                    <input type="text" name="add_1" required class="form-control" id="add_1" placeholder="House No/Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="add_1" value="{{isset($editdata)?$editdata->add_1:''}}" required class="form-control" id="add_1" placeholder="House No/Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Street Name: </label> 
-                                    <input type="text" name="add_2" required class="form-control" id="add_2" placeholder="Street Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="add_2" value="{{isset($editdata)?$editdata->add_2:''}}" required class="form-control" id="add_2" placeholder="Street Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">City: *</label> 
-                                    <input type="text" name="city" required class="form-control" id="city" placeholder="City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="city" value="{{isset($editdata)?$editdata->city:''}}" required class="form-control" id="city" placeholder="City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">County: *</label> 
-                                    <input type="text" name="county" required class="form-control" id="county" placeholder="County" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="county" value="{{isset($editdata)?$editdata->county:''}}" required class="form-control" id="county" placeholder="County" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Postal/zip code: *</label> 
-                                    <input type="text" name="postcode" required class="form-control" id="postcode" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="postcode" value="{{isset($editdata)?$editdata->postcode:''}}" required class="form-control" id="postcode" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Country: *</label> 
                                     <select name="country" id="country" required>
                                         <option value="">-- Select Country --</option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->country==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                                     <label class="fieldlabels">Phone No: </label> 
-                                    <!-- <input type="text" class="form-control"  name="country_code" id="country_code" placeholder="country_code" /> -->
-                                    <select name="country_code" id="country_code" >
+                                    <br/>
+                                    <input type="text" class="col-sm-3" value="{{isset($editdata)?$editdata->country_code:''}}"  name="country_code" id="country_code" placeholder="Country Code" />
+                                    <!-- <select name="country_code" id="country_code" >
                                             <option value="">--Select Country Code--</option>
                                             <option data-countryCode="AD" value="376">Andorra (+376)</option>
                                             <option data-countryCode="AO" value="244">Angola (+244)</option>
@@ -298,13 +299,14 @@
                                             <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                                             <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                                         
-                                    </select>
-                                    <input type="number" name="phone" class="form-control" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    </select> -->
+                                    <input type="number" name="phone" value="{{isset($editdata)?$editdata->phone:''}}" class="col-sm-8" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     
 
                                    
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep3')}}'"/>
 									
 								</div>
                             </fieldset>

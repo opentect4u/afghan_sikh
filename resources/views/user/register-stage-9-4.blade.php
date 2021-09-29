@@ -76,6 +76,7 @@
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep93')}}'"/>
                                 <!-- <input type="button" name="previous" class="action-button" value="Skip & Finished" onclick="location.href='{{route('user.registerstep10')}}'"/> -->
 								</div>
                             </fieldset>

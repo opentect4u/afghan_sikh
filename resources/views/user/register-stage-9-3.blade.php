@@ -65,16 +65,17 @@
                                     <!-- <br/> -->
                                                               
                                     <label class="fieldlabels">Afghan Id : </label> 
-                                    <input type="text" name="afghan_id" value="" placeholder="Passport Number">
+                                    <input type="text" name="afghan_id" value="{{isset($editdata)?$editdata->afghan_id:''}}" placeholder="Passport Number">
                                     <label class="fieldlabels">Email : </label> 
-                                    <input type="email" name="email" value="" placeholder="Passport Number">
+                                    <input type="email" name="email" value="{{isset($editdata)?$editdata->email:''}}" placeholder="Passport Number">
                                     <label class="fieldlabels">Phone Number : * </label> 
-                                    <input type="number" required name="phone" id="phone" value="" placeholder="Phone no.">
+                                    <input type="number" required name="phone" id="phone" value="{{isset($editdata)?$editdata->phone:''}}" placeholder="Phone no.">
                                     
                                     
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep92')}}'"/>
                                 <!-- <input type="button" name="previous" class="action-button" value="Skip & Finished" onclick="location.href='{{route('user.registerstep10')}}'"/> -->
 								</div>
                             </fieldset>

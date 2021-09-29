@@ -60,12 +60,18 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-                                    <label class="fieldlabels">Surname (As in Passport): *</label> 
-                                    <input type="file" name="user_logo" required id="user_logo" accept="image/gif, image/jpg, image/jpeg"  />
+                                    @if(isset($editdata) && $editdata->user_logo!='') 
+                                    <label class="fieldlabels">Old Profile Photo: </label>
+                                    <br/>
+                                    <img src="{{asset('public/user-image').'/'.$editdata->user_logo}}" width="100" height="100"/>
+                                    <br/>
+                                    @endif
+                                    <label class="fieldlabels">Profile Photo: *</label>
+                                    <input type="file" name="user_logo" <?php if(isset($editdata) && $editdata->user_logo!=''){echo "";}else{echo "required";} ?> id="user_logo" accept="image/gif, image/jpg, image/jpeg"  />
                                     
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
-									
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep2')}}'"/>
 								</div>
                             </fieldset>
                             

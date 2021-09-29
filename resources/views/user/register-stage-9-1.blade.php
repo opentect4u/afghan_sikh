@@ -62,32 +62,33 @@
                                     </div>  -->
 
                                     <label class="fieldlabels">Add Family Member:</label>
-                                    <a class="" href="{{route('user.registerstep10')}}">Skip</a>
+                                    <a class="" href="{{route('user.registerstep10')}}">Skip & Continue</a>
                                     <br/>
                                     <label class="fieldlabels">First Name (As in Passport) : *</label> 
-                                    <input type="text" required name="first_name" id="first_name" placeholder="First Name (As in Passport)" />
+                                    <input type="text" required name="first_name" id="first_name" value="{{isset($editdata)?$editdata->first_name:''}}" placeholder="First Name (As in Passport)" />
                                     <label class="fieldlabels">Middle Name (As in Passport) : </label> 
-                                    <input type="text" required name="middle_name" value="" placeholder="Middle Name (As in Passport)">
+                                    <input type="text" required name="middle_name" value="{{isset($editdata)?$editdata->middle_name:''}}" placeholder="Middle Name (As in Passport)">
                                     <label class="fieldlabels">Last Name (As in Passport) : *</label> 
-                                    <input type="text" required name="last_name" value="" placeholder="Last Name (As in Passport)">
+                                    <input type="text" required name="last_name" value="{{isset($editdata)?$editdata->last_name:''}}" placeholder="Last Name (As in Passport)">
                                     <label class="fieldlabels">Gender : *</label> 
                                     <select name="gender" id="gender" class="form-control">
-                                        <option value="M">Male</option>
-                                        <option value="F">Female</option>
-                                        <option value="O">Other</option>
+                                        <option value="M" <?php if(isset($editdata) && $editdata->gender="M"){echo "selected";}?>>Male</option>
+                                        <option value="F" <?php if(isset($editdata) && $editdata->gender="F"){echo "selected";}?>>Female</option>
+                                        <option value="O" <?php if(isset($editdata) && $editdata->gender="O"){echo "selected";}?>>Other</option>
                                     </select>
                                     <label class="fieldlabels">Relation : *</label> 
                                     <select name="relation" id="relation">
-                                        <option value="Spouse">Spouse</option>
-                                        <option value="Father">Father</option>
-                                        <option value="Mother">Mother</option>
-                                        <option value="Son">Son</option>
-                                        <option value="Daughter">Daughter</option>
+                                        <option value="Spouse"  <?php if(isset($editdata) && $editdata->relation="Spouse"){echo "selected";}?>>Spouse</option>
+                                        <option value="Father"  <?php if(isset($editdata) && $editdata->relation="Father"){echo "selected";}?>>Father</option>
+                                        <option value="Mother"  <?php if(isset($editdata) && $editdata->relation="Mother"){echo "selected";}?>>Mother</option>
+                                        <option value="Son"     <?php if(isset($editdata) && $editdata->relation="Son"){echo "selected";}?>>Son</option>
+                                        <option value="Daughter" <?php if(isset($editdata) && $editdata->relation="Daughter"){echo "selected";}?>>Daughter</option>
                                     </select>
                                     
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep9')}}'"/>
                                 <!-- <input type="button" name="previous" class="action-button" value="Skip & Finished" onclick="location.href='{{route('user.registerstep10')}}'"/> -->
 								</div>
                             </fieldset>

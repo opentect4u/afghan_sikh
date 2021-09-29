@@ -43,7 +43,7 @@ class RegisterController extends Controller
             // }else{
             //     return $email;
             // }
-            Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+            // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
         }
@@ -79,7 +79,7 @@ class RegisterController extends Controller
             $url='http://afghansikh.com/user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
             $surname='Dear';
             $givenname="";
-            Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
+            // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
             return redirect()->route('user.registerstep2');
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         
@@ -94,24 +94,40 @@ class RegisterController extends Controller
     {
         // return Session::get('id');
         // return Session::get('email_mobile');
-        return view('user.register-stage-2');
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-2',['editdata'=>$editdata]);
     }
 
     public function Register2Confirm(Request $request){
         // return $request;
         $id=Session::get('id');
         $email=Session::get('email_mobile');
-        $data=TdUserDetails::create(array(
-            'id'=>$id,
-            // 'generate_user_id'=>$generate_user_id,
-            'surname'=>$request->surname,
-            'givenname' => $request->givenname,
-            'gender' => $request->gender,
-            'date_of_birth' => Carbon::parse($request->dob)->format('Y-m-d'),
-            'afghan_id' => $request->afghan_id,
-            'register_stage'=>$request->register_stage,
-            'email'=>$email,
-        ));
+        $data=TdUserDetails::find($id);
+        // return $data;
+        if($data==null){
+            $data1=TdUserDetails::create(array(
+                'id'=>$id,
+                // 'generate_user_id'=>$generate_user_id,
+                'surname'=>$request->surname,
+                'givenname' => $request->givenname,
+                'gender' => $request->gender,
+                'date_of_birth' => Carbon::parse($request->dob)->format('Y-m-d'),
+                'afghan_id' => $request->afghan_id,
+                'register_stage'=>$request->register_stage,
+                'email'=>$email,
+            ));
+        }else{
+            // return $data;
+            $data->surname=$request->surname;
+            $data->givenname=$request->givenname;
+            $data->gender=$request->gender;
+            $data->date_of_birth=Carbon::parse($request->dob)->format('Y-m-d');
+            $data->afghan_id=$request->afghan_id;
+            $data->register_stage=$request->register_stage;
+            $data->save();
+
+        }
         // return $data;
         return redirect()->route('user.registerstep21');
     }
@@ -119,7 +135,10 @@ class RegisterController extends Controller
     {
         // return Session::get('id');
         // return Session::get('email_mobile');
-        return view('user.register-stage-2-1');
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        // return $editdata;
+        return view('user.register-stage-2-1',['editdata'=>$editdata]);
     }
 
     public function Register21Confirm(Request $request){
@@ -157,7 +176,9 @@ class RegisterController extends Controller
     public function Register3(){
         $country=MdCountry::orderBy('name','asc')->get();
         // return $country;
-        return view('user.register-stage-3',['country'=>$country]);
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-3',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register3Confirm(Request $request){
@@ -176,7 +197,9 @@ class RegisterController extends Controller
 
     public function Register4(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-4',['country'=>$country]);
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-4',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register4Confirm(Request $request){
@@ -200,7 +223,9 @@ class RegisterController extends Controller
 
     public function Register5(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-5',['country'=>$country]);
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-5',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register5Confirm(Request $request){
@@ -219,7 +244,9 @@ class RegisterController extends Controller
 
     public function Register6(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-6',['country'=>$country]);
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-6',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register6Confirm(Request $request){
@@ -240,7 +267,9 @@ class RegisterController extends Controller
 
     public function Register7(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-7',['country'=>$country]);
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-7',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register7Confirm(Request $request){
@@ -261,7 +290,9 @@ class RegisterController extends Controller
 
     public function Register8(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-8',['country'=>$country]);
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-8',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register8Confirm(Request $request){
@@ -280,7 +311,9 @@ class RegisterController extends Controller
         // $id=Session::get('id');
         // return $id;
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-9',['country'=>$country]);
+        $id=Session::get('id');
+        $editdata=TdUserDetails::find($id);
+        return view('user.register-stage-9',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register9Confirm(Request $request){
@@ -380,7 +413,10 @@ class RegisterController extends Controller
 
     public function Register91(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-9-1',['country'=>$country]);
+        // return Session::get('family_id');
+        $id=Session::get('family_id');
+        $editdata=TdUserFamily::find($id);
+        return view('user.register-stage-9-1',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register91Confirm(Request $request){
@@ -389,24 +425,41 @@ class RegisterController extends Controller
         $email=Session::get('email_mobile');
         // Session::forget('family_id');
         // return $user_id;
-        $data=TdUserFamily::create(array(
-            'user_details_id'=>$user_id,
-            'first_name'     => $request->first_name ,
-            'middle_name'    =>$request ->middle_name ,
-            'last_name'      => $request->  last_name ,
-            'gender'         => $request-> gender ,
-            'relation'       => $request->relation ,
-        ));
+        $id=Session::get('family_id');
+        $data=TdUserFamily::find($id);
+        if($data==null){
+            $data1=TdUserFamily::create(array(
+                'user_details_id'=>$user_id,
+                'first_name'     => $request->first_name ,
+                'middle_name'    =>$request ->middle_name ,
+                'last_name'      => $request->last_name ,
+                'gender'         => $request->gender ,
+                'relation'       => $request->relation ,
+            ));
+
+            Session::put(['family_id' => $data->id]);
+
+        }else{
+            // return $data;
+            $data->first_name=$request->first_name;
+            $data->middle_name=$request->middle_name;
+            $data->last_name=$request->last_name;
+            $data->gender=$request->gender;
+            $data->relation=$request->relation;
+            $data->save();
+            
+        }
         // return $data;
         // $data->id;
-        Session::put(['family_id' => $data->id]);
         // return Session::get('family_id');
         return redirect()->route('user.registerstep92');
     }
 
     public function Register92(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-9-2',['country'=>$country]);
+        $id=Session::get('family_id');
+        $editdata=TdUserFamily::find($id);
+        return view('user.register-stage-9-2',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register92Confirm(Request $request){
@@ -427,7 +480,9 @@ class RegisterController extends Controller
 
     public function Register93(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-9-3',['country'=>$country]);
+        $id=Session::get('family_id');
+        $editdata=TdUserFamily::find($id);
+        return view('user.register-stage-9-3',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register93Confirm(Request $request){
@@ -445,7 +500,9 @@ class RegisterController extends Controller
     }
     public function Register94(){
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('user.register-stage-9-4',['country'=>$country]);
+        $id=Session::get('family_id');
+        $editdata=TdUserFamily::find($id);
+        return view('user.register-stage-9-4',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register94Confirm(Request $request){

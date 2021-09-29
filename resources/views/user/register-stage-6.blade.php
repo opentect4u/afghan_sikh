@@ -63,33 +63,34 @@
                                     <!-- *Father's Name,*Father's Nationality,Father's Previous/Past Nationality,*Father's Place/Country of Birth/ -->
 
                                     <label class="fieldlabels">Father's Name: *</label> 
-                                    <input type="text" required name="father_name" id="father_name" placeholder="Father's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" required name="father_name" id="father_name" value="{{isset($editdata)?$editdata->father_name:''}}" placeholder="Father's Name :" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Father's Nationality: *</label> 
                                     <select name="father_nationality" id="father_nationality" required>
                                         <option value=""> --Select Father's Nationality-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->father_nationality==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                                     <label class="fieldlabels">Father's Previous/Past Nationality: </label> 
                                     <select name="father_prev_nationality" id="father_prev_nationality">
                                         <option value=""> --Select Father's Previous/Past Nationality-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->father_prev_nationality==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                                     <label class="fieldlabels">Father's Place of Birth: *</label> 
-                                    <input type="text" required name="father_place_birth" id="father_place_birth" placeholder="Father's Place of Birth" />
+                                    <input type="text" required name="father_place_birth" id="father_place_birth" value="{{isset($editdata)?$editdata->father_place_birth:''}}" placeholder="Father's Place of Birth" />
                                     <label class="fieldlabels">Father's Country of Birth: *</label> 
                                     <select name="father_birth_country" id="father_birth_country" required>
                                         <option value=""> --Father's Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->father_birth_country==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep5')}}'"/>
 									
 								</div>
                             </fieldset>

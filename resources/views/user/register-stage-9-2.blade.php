@@ -67,27 +67,28 @@
                                     <select name="current_citizenship" id="current_citizenship" class="form-control" required>
                                         <option value="">--Select--</option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->current_citizenship==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                                     <label class="fieldlabels">Previous Citizenship : *</label> 
                                     <select name="previous_citizenship" id="previous_citizenship" class="form-control" required>
                                         <option value="">--Select--</option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->previous_citizenship==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>                                    
                                     <label class="fieldlabels">Passport Number : </label> 
-                                    <input type="text" name="passport_no" value="" placeholder="Passport Number">
+                                    <input type="text" name="passport_no" value="{{isset($editdata)?$editdata->passport_no:''}}" placeholder="Passport Number">
                                     <label class="fieldlabels">Passport Date of Issue : </label> 
-                                    <input type="text" name="passport_date_of_issue" id="passport_date_of_issue" value="" placeholder="dd/mm/yyyy">
+                                    <input type="text" name="passport_date_of_issue" id="passport_date_of_issue" value="{{isset($editdata)?date('d/m/Y',strtotime($editdata->passport_date_of_issue)):''}}" placeholder="dd/mm/yyyy">
                                     <label class="fieldlabels">Passport Date of Expiry : </label> 
-                                    <input type="text" name="passport_date_of_expiry" id="passport_date_of_expiry" value="" placeholder="dd/mm/yyyy">
+                                    <input type="text" name="passport_date_of_expiry" id="passport_date_of_expiry" value="{{isset($editdata)? date('d/m/Y',strtotime($editdata->passport_date_of_expiry)):''}}" placeholder="dd/mm/yyyy">
                                     
                                     
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep91')}}'"/>
                                 <!-- <input type="button" name="previous" class="action-button" value="Skip & Finished" onclick="location.href='{{route('user.registerstep10')}}'"/> -->
 								</div>
                             </fieldset>

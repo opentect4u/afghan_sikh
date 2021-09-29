@@ -65,32 +65,33 @@
                                     <label class="fieldlabels">Marital Status: *</label> 
                                     <select name="marital_status" id="marital_status" Required>
                                         <option value=""> --Select marital status-- </option>
-                                        <option value="Unmarried">Unmarried</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Widowed">Widowed</option>
-                                        <option value="Divorced">Divorced</option>
-                                        <option value="Other">Other</option>
+                                        <option value="Unmarried"<?php if(isset($editdata) && $editdata->marital_status="Unmarried"){echo "selected";}?>>Unmarried</option>
+                                        <option value="Married"  <?php if(isset($editdata) && $editdata->marital_status="Married"){echo "selected";}?>>Married</option>
+                                        <option value="Widowed"  <?php if(isset($editdata) && $editdata->marital_status="Widowed"){echo "selected";}?>>Widowed</option>
+                                        <option value="Divorced" <?php if(isset($editdata) && $editdata->marital_status="Divorced"){echo "selected";}?>>Divorced</option>
+                                        <option value="Other"    <?php if(isset($editdata) && $editdata->marital_status="Other"){echo "selected";}?>>Other</option>
                                     </select>
                                     <label class="fieldlabels">Religion: *</label> 
                                     <select name="religion" id="religion" Required>
                                         <option value=""> --Select Religion-- </option>
-                                        <option value="Sikh">Sikh</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Muslim">Muslim</option>
-                                        <option value="Christian">Christian</option>
-                                        <option value="Others">Others</option>
+                                        <option value="Sikh"     <?php if(isset($editdata) && $editdata->religion=="Sikh"){echo "selected";}?>>Sikh</option>
+                                        <option value="Hindu"    <?php if(isset($editdata) && $editdata->religion=="Hindu"){echo "selected";}?>>Hindu</option>
+                                        <option value="Muslim"   <?php if(isset($editdata) && $editdata->religion=="Muslim"){echo "selected";}?>>Muslim</option>
+                                        <option value="Christian"<?php if(isset($editdata) && $editdata->religion=="Christian"){echo "selected";}?>>Christian</option>
+                                        <option value="Others"   <?php if(isset($editdata) && $editdata->religion=="Others"){echo "selected";}?>>Others</option>
                                     </select>
                                     <label class="fieldlabels">Profession/Occupation: </label> 
                                     <select name="profession" id="profession">
                                         <option value=""> --Profession/Occupation-- </option>
-                                        <option value="Occupation">Occupation 1</option>
-                                        <option value="Occupation">Occupation 2</option>
-                                        <option value="Occupation">Occupation 3</option>
-                                        <option value="Occupation">Occupation 4</option>
+                                        <option value="Occupation1" <?php if(isset($editdata) && $editdata->profession="Occupation1"){echo "selected";}?>>Occupation 1</option>
+                                        <option value="Occupation2" <?php if(isset($editdata) && $editdata->profession="Occupation2"){echo "selected";}?>>Occupation 2</option>
+                                        <option value="Occupation3" <?php if(isset($editdata) && $editdata->profession="Occupation3"){echo "selected";}?>>Occupation 3</option>
+                                        <option value="Occupation4" <?php if(isset($editdata) && $editdata->profession="Occupation4"){echo "selected";}?>>Occupation 4</option>
                                     </select>
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('user.registerstep4')}}'"/>
 									
 								</div>
                             </fieldset>
