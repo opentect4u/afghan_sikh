@@ -422,6 +422,10 @@ class ServicesRegisterController extends Controller
         // return $request;
         $id=Session::get('user')[0]['id'];
         // return $id;
+        $doc_1='';
+        $doc_2='';
+        $doc_3='';
+        $doc_4='';
         if ($request->hasFile('doc_1')) {
             $profile_pic_path1 = $request->file('doc_1');
             $doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
@@ -485,6 +489,10 @@ class ServicesRegisterController extends Controller
             'doc_2'=>$doc_2,
             'doc_3'=>$doc_3,
             'doc_4'=>$doc_4,
+            'doc_1_name'=>$request->doc_1_name,
+            'doc_2_name'=>$request->doc_2_name,
+            'doc_3_name'=>$request->doc_3_name,
+            'doc_4_name'=>$request->doc_4_name,
         ));
         $service_type=$request->service_type;
 
@@ -624,6 +632,10 @@ class ServicesRegisterController extends Controller
         $data->doc_2=$doc_2;
         $data->doc_3=$doc_3;
         $data->doc_4=$doc_4;
+        $data->doc_1_name=$request->doc_1_name;
+        $data->doc_2_name=$request->doc_2_name;
+        $data->doc_3_name=$request->doc_3_name;
+        $data->doc_4_name=$request->doc_4_name;
         $data->self_or_family=$request->fav_language;
         $data->service_type=$request->service_type;
         $data->family_details_id=$request->family_details;

@@ -92,16 +92,36 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label class="fieldlabels">Upload Document 1: *</label> 
+                          <label class="fieldlabels"> Document 1: * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                          @if(isset($data) && $data->doc_1!='')
                           <img src="{{asset('public/service-doc').'/'.$data->doc_1}}" width="100" height="100" />
-                          <input type="file"  name="doc_1" class="form-control"/> 
+                          @endif
+                          <input type="file" name="doc_1" id="doc_1" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf"/> 
                         </div>
                       </div> 
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label class="fieldlabels">Upload Document 2: *</label> 
+                          <label class="fieldlabels"> Document 1 Name: *</label> 
+                          <input type="text" required name="doc_1_name" id="doc_1_name" value="{{isset($data)?$data->doc_1_name:''}}" class="form-control" placeholder="Document 1 Name"/> 
+                        </div>
+                      </div> 
+                     
+                    </div>
+                    <div class="row">
+                      
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels"> Document 2:  (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                          @if(isset($data) && $data->doc_2!='')
                           <img src="{{asset('public/service-doc').'/'.$data->doc_2}}" width="100" height="100" />
-                          <input type="file"  name="doc_2" class="form-control"/> 
+                          @endif
+                          <input type="file" name="doc_2" id="doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf"/> 
+                        </div>
+                      </div> 
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels"> Document 2 Name: </label> 
+                          <input type="text" name="doc_2_name" id="doc_2_name" value="{{isset($data)?$data->doc_2_name:''}}" class="form-control" placeholder="Document 2 Name"/> 
                         </div>
                       </div> 
                        
@@ -109,16 +129,36 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label class="fieldlabels">Upload Document 3: *</label> 
+                          <label class="fieldlabels"> Document 3: (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                          @if(isset($data) && $data->doc_3!='')
                           <img src="{{asset('public/service-doc').'/'.$data->doc_3}}" width="100" height="100" />
-                          <input type="file"  name="doc_3" class="form-control" /> 
+                          @endif
+                          <input type="file"  name="doc_3" id="doc_3" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" /> 
                         </div>
                       </div> 
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label class="fieldlabels">Upload Document 4: *</label> 
+                          <label class="fieldlabels"> Document 3 Name: </label> 
+                          <input type="text" name="doc_3_name" id="doc_3_name" value="{{isset($data)?$data->doc_3_name:''}}" class="form-control" placeholder="Document 3 Name"/> 
+                        </div>
+                      </div> 
+                       
+                    </div>
+                    <div class="row">
+                      
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels"> Document 4: (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                          @if(isset($data) && $data->doc_4!='')
                           <img src="{{asset('public/service-doc').'/'.$data->doc_4}}" width="100" height="100" />
-                          <input type="file"  name="doc_4" class="form-control" /> 
+                          @endif
+                          <input type="file"  name="doc_4" id="doc_4" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" /> 
+                        </div>
+                      </div> 
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels"> Document 4 Name: </label> 
+                          <input type="text" name="doc_4_name" id="doc_4_name" value="{{isset($data)?$data->doc_4_name:''}}" class="form-control" placeholder="Document 4 Name"/> 
                         </div>
                       </div> 
                        
@@ -198,6 +238,55 @@
 
       }
     });
+
+
+        $("#doc_1").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_1").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }
+        });
+        $("#doc_2").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_2").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }else{
+              $('#doc_2_name').attr('required','required') 
+            }
+        });
+
+        $("#doc_3").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_3").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }else{
+              $('#doc_3_name').attr('required','required') 
+            }
+        });
+
+        $("#doc_4").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_4").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }else{
+              $('#doc_4_name').attr('required','required') 
+            }
+        });
+
+
+  
 
   });
 </script>
