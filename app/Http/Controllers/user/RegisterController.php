@@ -43,7 +43,7 @@ class RegisterController extends Controller
             // }else{
             //     return $email;
             // }
-            // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+            Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
         }
@@ -79,7 +79,7 @@ class RegisterController extends Controller
             $url='http://afghansikh.com/user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
             $surname='Dear';
             $givenname="";
-            // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
+            Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
             return redirect()->route('user.registerstep2');
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         
@@ -402,9 +402,13 @@ class RegisterController extends Controller
         }
 
         $data->doc_1=$doc_1;
+        $data->doc_1_name=$request->doc_1_name;
         $data->doc_2=$doc_2;
+        $data->doc_2_name=$request->doc_2_name;
         $data->doc_3=$doc_3;
+        $data->doc_3_name=$request->doc_3_name;
         $data->doc_4=$doc_4;
+        $data->doc_4_name=$request->doc_4_name;
         $data->register_stage=$request->register_stage;
         $data->save();
         // return $data;
@@ -437,7 +441,7 @@ class RegisterController extends Controller
                 'relation'       => $request->relation ,
             ));
 
-            Session::put(['family_id' => $data->id]);
+            Session::put(['family_id' => $data1->id]);
 
         }else{
             // return $data;
@@ -593,9 +597,13 @@ class RegisterController extends Controller
         }
 
         $data->other_doc_1=$other_doc_1;
+        $data->other_doc_1_name=$request->other_doc_1_name;
         $data->other_doc_2=$other_doc_2;
+        $data->other_doc_2_name=$request->other_doc_2_name;
         $data->other_doc_3=$other_doc_3;
+        $data->other_doc_3_name=$request->other_doc_3_name;
         $data->other_doc_4=$other_doc_4;
+        $data->other_doc_4_name=$request->other_doc_4_name;
         $data->save();
         return redirect()->route('user.registerstep95');
     }

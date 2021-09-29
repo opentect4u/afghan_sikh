@@ -61,14 +61,34 @@
                                         </div>
                                     </div>  -->
 
-                                    <label class="fieldlabels">Upload Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                    <input type="file" required name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                    <input type="file" required name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 3 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                    <input type="file"  name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 4 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    <label class="fieldlabels">Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->doc_1!='')
+                                    <img src="{{asset('public/user-doc').'/'.$editdata->doc_1}}" width="100" height="100" />
+                                    @endif
+                                    <input type="file" <?php if(isset($editdata) && $editdata->doc_1!=''){echo "";}else{echo "required";}?> name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels">Document 1 Name: * </label> 
+                                    <input type="text" required name="doc_1_name" id="doc_1_name" value="{{isset($editdata)?$editdata->doc_1_name:''}}" placeholder="Document 1 Name"/>
+                                    <label class="fieldlabels">Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->doc_2!='')
+                                    <img src="{{asset('public/user-doc').'/'.$editdata->doc_2}}" width="100" height="100" />
+                                    @endif
+                                    <input type="file" name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels">Document 2 Name: * </label> 
+                                    <input type="text" name="doc_2_name" id="doc_2_name" value="{{isset($editdata)?$editdata->doc_2_name:''}}" placeholder="Document 2 Name"/>
+                                    <label class="fieldlabels">Document 3 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->doc_3!='')
+                                    <img src="{{asset('public/user-doc').'/'.$editdata->doc_3}}" width="100" height="100" />
+                                    @endif
+                                    <input type="file" name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels">Document 1 Name: * </label> 
+                                    <input type="text" name="doc_3_name" id="doc_3_name" value="{{isset($editdata)?$editdata->doc_3_name:''}}" placeholder="Document 3 Name"/>
+                                    <label class="fieldlabels">Document 4 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->doc_4!='')
+                                    <img src="{{asset('public/user-doc').'/'.$editdata->doc_4}}" width="100" height="100" />
+                                    @endif
                                     <input type="file" name="doc_4" id="doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels">Document 4 Name: * </label> 
+                                    <input type="text" name="doc_4_name" id="doc_4_name" value="{{isset($editdata)?$editdata->doc_4_name:''}}" placeholder="Document 4 Name"/>
                                     
                                                                        
                                 </div> 
@@ -302,6 +322,8 @@
                 $("#doc_2").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
+            }else{
+              $('#doc_2_name').attr('required','required') 
             }
         });
 
@@ -312,6 +334,8 @@
                 $("#doc_3").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
+            }else{
+              $('#doc_3_name').attr('required','required') 
             }
         });
 
@@ -322,6 +346,8 @@
                 $("#doc_4").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
+            }else{
+              $('#doc_4_name').attr('required','required') 
             }
         });
 

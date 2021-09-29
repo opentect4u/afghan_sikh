@@ -193,9 +193,13 @@ class FamilyController extends Controller
         }
 
         $data->other_doc_1=$other_doc_1;
+        $data->other_doc_1_name=$request->other_doc_1_name;
         $data->other_doc_2=$other_doc_2;
+        $data->other_doc_2_name=$request->other_doc_2_name;
         $data->other_doc_3=$other_doc_3;
+        $data->other_doc_3_name=$request->other_doc_3_name;
         $data->other_doc_4=$other_doc_4;
+        $data->other_doc_4_name=$request->other_doc_4_name;
         $data->save();
         // return $data;
         

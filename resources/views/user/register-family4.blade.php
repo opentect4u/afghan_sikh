@@ -42,41 +42,47 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                               <label class="fieldlabels">Upload Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                               <label class="fieldlabels"> Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                 @if(isset($editdata) && $editdata->other_doc_1!='')
                                 <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_1}}" width="100" height="100"/>
                                 @endif
                                 <input type="file" <?php if(isset($editdata) && $editdata->other_doc_1!=''){echo "";}else{echo "required";}?> name="other_doc_1" id="other_doc_1" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
+                        
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                               <label class="fieldlabels">Upload Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                <label class="fieldlabels"> Document 1 Name: </label> 
+                                <input type="text" required name="other_doc_1_name" id="other_doc_1_name" value="{{isset($editdata)?$editdata->other_doc_1_name:''}}" class="form-control" placeholder="Document 1 Name" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                               <label class="fieldlabels"> Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                 @if(isset($editdata) && $editdata->other_doc_2!='')
                                 <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_2}}" width="100" height="100"/>
                                 @endif
                                 <input type="file" <?php if(isset($editdata) && $editdata->other_doc_2!=''){echo "";}else{echo "required";}?> name="other_doc_2" id="other_doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
-                        <!-- <div class="col-sm-6">
+                        <div class="col-sm-6">
+                            <!-- text input -->
                             <div class="form-group">
-                                <label>Relation </label>
-                                <select name="relation" id="relation" class="form-control">
-                                            <option value="Father">Father</option>
-                                            <option value="Mother">Mother</option>
-                                            <option value="Son">Son</option>
-                                            <option value="Daughter">Daughter</option>
-                                            <option value="Daughter">Daughter</option>
-                                        </select>
+                                <label class="fieldlabels"> Document 2 Name: </label> 
+                                <input type="text" name="other_doc_2_name" id="other_doc_2_name" value="{{isset($editdata)?$editdata->other_doc_2_name:''}}" class="form-control" placeholder="Document 2 Name" />
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label class="fieldlabels">Upload Document 3 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                <label class="fieldlabels"> Document 3 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                 @if(isset($editdata) && $editdata->other_doc3!='')
                                 <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_3}}" width="100" height="100"/>
                                 @endif
@@ -85,12 +91,30 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="fieldlabels">Upload Document 4 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                <label class="fieldlabels"> Document 3 Name: </label> 
+                                
+                                <input type="text" name="other_doc_3_name" id="other_doc_3_name" value="{{isset($editdata)?$editdata->other_doc_3_name:''}}" class="form-control" placeholder="Document 3 Name" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 4 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
                                 @if(isset($editdata) && $editdata->other_doc_4!='')
                                 <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_4}}" width="100" height="100"/>
                                 @endif
                                 <input type="file" name="other_doc_4" id="other_doc_4" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                                 
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 4 Name: </label> 
+                                <input type="text" name="other_doc_4_name" id="other_doc_4_name" value="{{isset($editdata)?$editdata->other_doc_4_name:''}}" class="form-control" placeholder="Document 4 Name" />
                             </div>
                         </div>
                     </div>
@@ -343,6 +367,8 @@
                 $("#other_doc_2").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
+            }else{
+                $('#other_doc_2_name').attr('required','required')
             }
         });
 
@@ -353,6 +379,8 @@
                 $("#other_doc_3").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
+            }else{
+                $('#other_doc_3_name').attr('required','required')
             }
         });
 
@@ -363,6 +391,8 @@
                 $("#other_doc_4").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
+            }else{
+                $('#other_doc_4_name').attr('required','required')
             }
         });
 

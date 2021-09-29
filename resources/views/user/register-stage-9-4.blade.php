@@ -63,14 +63,34 @@
 
                                     <!-- <label class="fieldlabels">Add Family Member:</label> -->
                                     <!-- <br/> -->
-                                    <label class="fieldlabels">Upload Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                    <input type="file" name="other_doc_1" id="other_doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    <label class="fieldlabels"> Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->other_doc_1!='')
+                                    <img src="{{asset('public/user-family-doc').'/'.$editdata->other_doc_1}}" width="100" height="100" />
+                                    @endif
+                                    <input type="file" <?php if(isset($editdata) && $editdata->other_doc_1!=''){}else{echo "required";}?> name="other_doc_1" id="other_doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels"> Document 1 Name : *</label> 
+                                    <input type="text" required name="other_doc_1_name" id="other_doc_1_name" value="{{isset($editdata)?$editdata->other_doc_1_name:''}}" Placeholder="Document 1 Name"/>
+                                    <label class="fieldlabels"> Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->other_doc_2!='')
+                                    <img src="{{asset('public/user-family-doc').'/'.$editdata->other_doc_2}}" width="100" height="100" />
+                                    @endif
                                     <input type="file"  name="other_doc_2" id="other_doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 3 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    <label class="fieldlabels"> Document 2 Name : *</label> 
+                                    <input type="text" name="other_doc_2_name" id="other_doc_2_name" value="{{isset($editdata)?$editdata->other_doc_2_name:''}}" Placeholder="Document 2 Name"/>
+                                    <label class="fieldlabels"> Document 3 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->other_doc_3!='')
+                                    <img src="{{asset('public/user-family-doc').'/'.$editdata->other_doc_3}}" width="100" height="100" />
+                                    @endif
                                     <input type="file"  name="other_doc_3" id="other_doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 4 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    <label class="fieldlabels"> Document 3 Name : *</label> 
+                                    <input type="text" name="other_doc_3_name" id="other_doc_3_name" value="{{isset($editdata)?$editdata->other_doc_3_name:''}}" Placeholder="Document 3 Name"/>
+                                    <label class="fieldlabels"> Document 4 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                    @if(isset($editdata) && $editdata->other_doc_4!='')
+                                    <img src="{{asset('public/user-family-doc').'/'.$editdata->other_doc_4}}" width="100" height="100" />
+                                    @endif
                                     <input type="file" name="other_doc_4" id="other_doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                    <label class="fieldlabels"> Document 4 Name : *</label> 
+                                    <input type="text" name="other_doc_4_name" id="other_doc_4_name" value="{{isset($editdata)?$editdata->other_doc_4_name:''}}" Placeholder="Document 4 Name"/>
                                     
                                     
                                                                        
@@ -289,42 +309,48 @@
     $(document).ready(function(){
 
         // doc_2
-        $("#doc_1").on('change', function(event) {
+        $("#other_doc_1").on('change', function(event) {
             var file = event.target.files[0];
             if(file.size>=2*1024*1024) {
                 alert("File of maximum 2MB");
-                $("#doc_1").val(''); 
+                $("#other_doc_1").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
             }
         });
-        $("#doc_2").on('change', function(event) {
+        $("#other_doc_2").on('change', function(event) {
             var file = event.target.files[0];
             if(file.size>=2*1024*1024) {
                 alert("File of maximum 2MB");
-                $("#doc_2").val(''); 
+                $("#other_doc_2").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
-            }
-        });
-
-        $("#doc_3").on('change', function(event) {
-            var file = event.target.files[0];
-            if(file.size>=2*1024*1024) {
-                alert("File of maximum 2MB");
-                $("#doc_3").val(''); 
-                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
-                return false;
+            }else{
+              $('#other_doc_2_name').attr('required','required');
             }
         });
 
-        $("#doc_4").on('change', function(event) {
+        $("#other_doc_3").on('change', function(event) {
             var file = event.target.files[0];
             if(file.size>=2*1024*1024) {
                 alert("File of maximum 2MB");
-                $("#doc_4").val(''); 
+                $("#other_doc_3").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
+            }else{
+              $('#other_doc_3_name').attr('required','required'); 
+            }
+        });
+
+        $("#other_doc_4").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#other_doc_4").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }else{
+              $('#other_doc_4_name').attr('required','required'); 
             }
         });
 
