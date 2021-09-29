@@ -71,7 +71,7 @@
                                         <option value="O">Other</option>
                                     </select>
                                     <label class="fieldlabels">Date of Birth : *</label> 
-                                    <input type="text" required name="dob" id="dob" placeholder="DD-MM-YYYY" value="{{isset($editdata)? date('d-m-Y',strtotime($editdata->date_of_birth)):''}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" required name="dob" id="dob" placeholder="DD/MM/YYYY" value="{{isset($editdata)? date('d/m/Y',strtotime($editdata->date_of_birth)):''}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Afghan ID/Passport No : </label> 
                                     <input type="text" required name="afghan_id" id="afghan_id" value="{{isset($editdata)?$editdata->afghan_id:''}}" placeholder="Afghan ID/Passport No" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 </div> 
@@ -380,7 +380,7 @@
         $('#dob').datepicker({ 
             autoclose: true,
             endDate: new Date(),
-            dateFormat: 'dd-mm-yyyy'
+            dateFormat: 'dd/mm/yyyy'
             // startDate: new Date()
         });
 

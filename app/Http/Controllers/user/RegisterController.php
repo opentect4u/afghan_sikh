@@ -43,7 +43,7 @@ class RegisterController extends Controller
             // }else{
             //     return $email;
             // }
-            Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+            // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
         }
@@ -79,7 +79,7 @@ class RegisterController extends Controller
             $url='http://afghansikh.com/user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
             $surname='Dear';
             $givenname="";
-            Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
+            // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
             return redirect()->route('user.registerstep2');
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         
