@@ -109,6 +109,10 @@ class CertificateController extends Controller
             'doc_2' =>$doc_2,
             'doc_3' =>$doc_3,
             'doc_4' =>$doc_4,
+            'doc_1_name'=>$request->doc_1_name,
+            'doc_2_name'=>$request->doc_2_name,
+            'doc_3_name'=>$request->doc_3_name,
+            'doc_4_name'=>$request->doc_4_name,
             'approved'=>"I",
         ));
         return redirect()->route('user.managecertificate');
@@ -215,6 +219,10 @@ class CertificateController extends Controller
         $data->doc_2=$doc_2;
         $data->doc_3=$doc_3;
         $data->doc_4=$doc_4;
+        $data->doc_1_name=$request->doc_1_name;;
+        $data->doc_2_name=$request->doc_2_name;;
+        $data->doc_3_name=$request->doc_3_name;;
+        $data->doc_4_name=$request->doc_4_name;;
         $data->save();
         // return $data;
         return redirect()->route('user.managecertificate');
