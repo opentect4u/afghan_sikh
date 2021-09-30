@@ -4,16 +4,17 @@
 
 <!-- <link href="{{ asset('public/css/userform.css') }}" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"  />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css"  />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css"> -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css"> -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script> -->
 <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 
 <!-- ======= Contact Section ======= -->
@@ -71,7 +72,7 @@
                                         <option value="O">Other</option>
                                     </select>
                                     <label class="fieldlabels">Date of Birth : *</label> 
-                                    <input type="text" required name="dob" id="dob" placeholder="DD/MM/YYYY" value="{{isset($editdata)? date('d/m/Y',strtotime($editdata->date_of_birth)):''}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" required name="dob" id="dob" placeholder="DD/MM/YYYY" value="{{isset($editdata)? date('d-m-Y',strtotime($editdata->date_of_birth)):''}}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Afghan ID/Passport No : </label> 
                                     <input type="text" required name="afghan_id" id="afghan_id" value="{{isset($editdata)?$editdata->afghan_id:''}}" placeholder="Afghan ID/Passport No" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 </div> 
@@ -374,15 +375,25 @@
         // });
 
         // $('#date').datetimepicker();
-        // $('#date').datetimepicker({  
+        // $('#dob').datetimepicker({  
         //  minDate:new Date()
         // });
-        $('#dob').datepicker({ 
-            autoclose: true,
-            endDate: new Date(),
-            dateFormat: 'dd/mm/yyyy'
-            // startDate: new Date()
+        $('#dob').datetimepicker({
+        // dateFormat: 'dd-mm-yy',
+            // timepicker:true,
+            // mask:true,
+             toolbarPlacement: "bottom",
+            format:'DD-MM-YYYY',
+            maxDate: new Date()
+            // minDate: getFormattedDate(new Date())
         });
+       
+        // $('#dob').datepicker({ 
+        //     autoclose: true,
+        //     endDate: new Date(),
+        //     dateFormat: 'd-m-Y'
+        //     // startDate: new Date()
+        // });
 
         // addMember section
         $('#personDiv1').hide();
