@@ -155,7 +155,7 @@ class RegisterController extends Controller
 
         if ($request->hasFile('user_logo')) {
             $profile_pic_path1 = $request->file('user_logo');
-            $user_logo=date('YmdHis') .'_'.$id.$profile_pic_path1->getClientOriginalExtension();
+            $user_logo=date('YmdHis') .'_'.$id.'.'.$profile_pic_path1->getClientOriginalExtension();
             // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
             // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
 
