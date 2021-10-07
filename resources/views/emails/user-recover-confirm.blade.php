@@ -47,7 +47,7 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
         <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">
         Password change Successfully.
       </p>
-        <!-- <a href="{{$url}}">Click here to recovery a new password.</a> -->
+        <!-- <a href="">Click here to recovery a new password.</a> -->
       </td>
     </tr>
     
