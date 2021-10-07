@@ -8,6 +8,7 @@ use DB;
 use Session;
 use App\Models\MdCountry;
 use App\Models\TdUserDetails;
+use App\Models\TdGurudwaraDetails;
 use App\Models\MdUserLogin;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
