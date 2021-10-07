@@ -83,10 +83,10 @@
                                     <label class="fieldlabels">Profession/Occupation: </label> 
                                     <select name="profession" id="profession">
                                         <option value=""> --Profession/Occupation-- </option>
-                                        <option value="Occupation1" <?php if(isset($editdata) && $editdata->profession="Occupation1"){echo "selected";}?>>Occupation 1</option>
-                                        <option value="Occupation2" <?php if(isset($editdata) && $editdata->profession="Occupation2"){echo "selected";}?>>Occupation 2</option>
-                                        <option value="Occupation3" <?php if(isset($editdata) && $editdata->profession="Occupation3"){echo "selected";}?>>Occupation 3</option>
-                                        <option value="Occupation4" <?php if(isset($editdata) && $editdata->profession="Occupation4"){echo "selected";}?>>Occupation 4</option>
+                                        <option value="Occupation1" <?php if(isset($editdata) && $editdata->profession=="Occupation1"){echo "selected";}?>>Occupation 1</option>
+                                        <option value="Occupation2" <?php if(isset($editdata) && $editdata->profession=="Occupation2"){echo "selected";}?>>Occupation 2</option>
+                                        <option value="Occupation3" <?php if(isset($editdata) && $editdata->profession=="Occupation3"){echo "selected";}?>>Occupation 3</option>
+                                        <option value="Occupation4" <?php if(isset($editdata) && $editdata->profession=="Occupation4"){echo "selected";}?>>Occupation 4</option>
                                     </select>
                                                                        
                                 </div> 
