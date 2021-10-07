@@ -65,11 +65,11 @@
                                     <label class="fieldlabels">Marital Status: *</label> 
                                     <select name="marital_status" id="marital_status" Required>
                                         <option value=""> --Select marital status-- </option>
-                                        <option value="Unmarried"<?php if(isset($editdata) && $editdata->marital_status="Unmarried"){echo "selected";}?>>Unmarried</option>
-                                        <option value="Married"  <?php if(isset($editdata) && $editdata->marital_status="Married"){echo "selected";}?>>Married</option>
-                                        <option value="Widowed"  <?php if(isset($editdata) && $editdata->marital_status="Widowed"){echo "selected";}?>>Widowed</option>
-                                        <option value="Divorced" <?php if(isset($editdata) && $editdata->marital_status="Divorced"){echo "selected";}?>>Divorced</option>
-                                        <option value="Other"    <?php if(isset($editdata) && $editdata->marital_status="Other"){echo "selected";}?>>Other</option>
+                                        <option value="Unmarried"<?php if(isset($editdata) && $editdata->marital_status=="Unmarried"){echo "selected";}?>>Unmarried</option>
+                                        <option value="Married"  <?php if(isset($editdata) && $editdata->marital_status=="Married"){echo "selected";}?>>Married</option>
+                                        <option value="Widowed"  <?php if(isset($editdata) && $editdata->marital_status=="Widowed"){echo "selected";}?>>Widowed</option>
+                                        <option value="Divorced" <?php if(isset($editdata) && $editdata->marital_status=="Divorced"){echo "selected";}?>>Divorced</option>
+                                        <option value="Other"    <?php if(isset($editdata) && $editdata->marital_status=="Other"){echo "selected";}?>>Other</option>
                                     </select>
                                     <label class="fieldlabels">Religion: *</label> 
                                     <select name="religion" id="religion" Required>
