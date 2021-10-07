@@ -67,9 +67,9 @@
                                     <!-- <br/> -->
                                                               
                                     <label class="fieldlabels">Afghan Id : </label> 
-                                    <input type="text" name="afghan_id" value="{{isset($editdata)?$editdata->afghan_id:''}}" placeholder="Passport Number">
+                                    <input type="text" name="afghan_id" value="{{isset($editdata)?$editdata->afghan_id:''}}" placeholder="Afghan Id">
                                     <label class="fieldlabels">Email : </label> 
-                                    <input type="email" name="email" value="{{isset($editdata)?$editdata->email:''}}" placeholder="Passport Number">
+                                    <input type="email" name="email" value="{{isset($editdata)?$editdata->email:''}}" placeholder="Email">
                                     <label class="fieldlabels">Phone Number : * </label> 
                                     <input type="number" required name="phone" id="phone" value="{{isset($editdata)?$editdata->phone:''}}" placeholder="Phone no.">
                                     
