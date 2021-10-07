@@ -78,7 +78,8 @@ class RegisterController extends Controller
             // return $data;
             // return $data->id;
             // return $data->user_id;
-            $url='http://afghansikh.com/user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
+            $mainurl=app('App\Http\Controllers\HomeController')->MainURL();
+            $url=$mainurl.'user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
             $surname='Dear';
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
