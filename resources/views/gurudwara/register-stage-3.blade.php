@@ -73,7 +73,7 @@
                                     <input type="text" name="post_code" required class="form-control" id="post_code" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Country: *</label> 
                                     <select name="country" id="country" required>
-                                        <option value=""> --Select Country of Birth-- </option>
+                                        <option value=""> --Select Country-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
