@@ -67,7 +67,7 @@
                                     <label class="fieldlabels">First Name (As in Passport) : *</label> 
                                     <input type="text" required name="first_name" id="first_name" value="{{isset($editdata)?$editdata->first_name:''}}" placeholder="First Name (As in Passport)" />
                                     <label class="fieldlabels">Middle Name (As in Passport) : </label> 
-                                    <input type="text" required name="middle_name" value="{{isset($editdata)?$editdata->middle_name:''}}" placeholder="Middle Name (As in Passport)">
+                                    <input type="text" name="middle_name" value="{{isset($editdata)?$editdata->middle_name:''}}" placeholder="Middle Name (As in Passport)">
                                     <label class="fieldlabels">Last Name (As in Passport) : *</label> 
                                     <input type="text" required name="last_name" value="{{isset($editdata)?$editdata->last_name:''}}" placeholder="Last Name (As in Passport)">
                                     <label class="fieldlabels">Gender : *</label> 
