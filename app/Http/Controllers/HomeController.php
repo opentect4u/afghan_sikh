@@ -13,13 +13,13 @@ class HomeController extends Controller
         return view('index');
     }
     public function EmailSendAddress(){
-        // return "info@afghansikh.com";
-        return "info@puriurbanruralcoop.com";
+        return "info@afghansikh.com";
+        // return "info@puriurbanruralcoop.com";
     }
 
     public function MainURL(){
-        // return "info@afghansikh.com";
-        return "https://sssprojects.co.in/afgan/";
+        // return "https://sssprojects.co.in/afgan/";
+        return "https://afghansikh.org/";
     }
 
     public function Contact(Request $request){
