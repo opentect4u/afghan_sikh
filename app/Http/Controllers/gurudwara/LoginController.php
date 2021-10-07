@@ -78,7 +78,7 @@ class LoginController extends Controller
             $url=$mainurl.'user/recoverpassword/'.Crypt::encryptString($id);
             // return $url;
             $email=$request->uname;
-            // Mail::to($email)->send(new ResetPasswordGurdwaraEmail($surname,$givenname,$url));
+            Mail::to($email)->send(new ResetPasswordGurdwaraEmail($surname,$givenname,$url));
             return redirect()->back()->with('success','success');
         }else{
             return redirect()->back()->with('error','error');
