@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Crypt;
 class RegisterController extends Controller
 {
     public function Show(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('gurudwara.register',['country'=>$country]);
     }
 
@@ -121,7 +121,7 @@ class RegisterController extends Controller
     }
 
     public function Register3(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('gurudwara.register-stage-3',['country'=>$country]);
     }
 
@@ -142,7 +142,7 @@ class RegisterController extends Controller
     }
 
     public function Register4(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('gurudwara.register-stage-4',['country'=>$country]);
     }
 
@@ -163,7 +163,7 @@ class RegisterController extends Controller
     }
 
     public function Register5(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('gurudwara.register-stage-5',['country'=>$country]);
     }
 
@@ -265,7 +265,7 @@ class RegisterController extends Controller
     }
 
     public function Register6(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         // return "hii";
         return view('gurudwara.register-stage-6',['country'=>$country]);
     }
