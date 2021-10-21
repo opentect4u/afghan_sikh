@@ -63,25 +63,28 @@
 
                                     <!-- Adress Line 1/Adress Line 2/*city/*Postal/zip code/*country -->
 
-                                    <label class="fieldlabels">Adress Line 1: *</label> 
-                                    <input type="text" name="gurudwara_address" required class="form-control" id="gurudwara_address" placeholder="Adress Line 1" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <label class="fieldlabels">Adress Line 2: </label> 
-                                    <input type="text" name="gurudwara_address_2" class="form-control" id="gurudwara_address_2" placeholder="Adress Line 2" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <label class="fieldlabels">City: *</label> 
-                                    <input type="text" name="city" required class="form-control" id="city" placeholder="City" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">House or Building no: *</label> 
+                                    <input type="text" name="gurudwara_address" required class="form-control" id="gurudwara_address" value="{{isset($editdata)?$editdata->gurudwara_address:''}}" placeholder="House or Building no" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Street Name: </label> 
+                                    <input type="text" name="gurudwara_address_2" required class="form-control" id="gurudwara_address_2" value="{{isset($editdata)?$editdata->gurudwara_address_2:''}}" placeholder="Street Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">City Name: *</label> 
+                                    <input type="text" name="city" required class="form-control" id="city" value="{{isset($editdata)?$editdata->city:''}}" placeholder="City Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">County Name: *</label> 
+                                    <input type="text" name="county" required class="form-control" id="county" value="{{isset($editdata)?$editdata->county:''}}" placeholder="County Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Postal/zip code: *</label> 
-                                    <input type="text" name="post_code" required class="form-control" id="post_code" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <label class="fieldlabels">Country: *</label> 
-                                    <select name="country" id="country" required>
+                                    <input type="text" name="post_code" required class="form-control" id="post_code" value="{{isset($editdata)?$editdata->post_code:''}}" placeholder="Postal/zip code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <!-- <label class="fieldlabels">Country: *</label>  -->
+                                    <!-- <select name="country" id="country" required>
                                         <option value=""> --Select Country-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}">{{$countries->name}}</option>
                                         @endforeach
-                                    </select>
+                                    </select> -->
 
                                    
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('gurudwara.registerstep2')}}'"/>
 									
 								</div>
                             </fieldset>

@@ -41,7 +41,12 @@
 
                             
                             <input hidden type="text" id="con_otp" name="con_otp" value="{{Session::get('con_otp')}}"/>
-                            <input hidden type="text" id="email_mobile" name="email_mobile" value="{{Session::get('email_mobile')}}"/>
+                            <input hidden type="text" id="first_name" name="first_name" value="{{Session::get('first_name')}}"/>
+                            <input hidden type="text" id="last_name" name="last_name" value="{{Session::get('last_name')}}"/>
+                            <input hidden type="text" id="current_nationality" name="current_nationality" value="{{Session::get('current_nationality')}}"/>
+                            <input hidden type="text" id="email" name="email" value="{{Session::get('email')}}"/>
+                            <input hidden type="text" id="country_code" name="country_code" value="{{Session::get('country_code')}}"/>
+                            <input hidden type="text" id="phone" name="phone" value="{{Session::get('phone')}}"/>
                             <input hidden type="text" id="password" name="password" value="{{Session::get('password')}}"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">

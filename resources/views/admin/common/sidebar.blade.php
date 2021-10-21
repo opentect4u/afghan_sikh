@@ -42,7 +42,7 @@
         <li class="nav-item">
           <a href="{{route('gurudwara.member')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.member' || Route::currentRouteName()=='gurudwara.addmember' || Route::currentRouteName()=='gurudwara.editmember'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
-            <p> Member Management</p>
+            <p> Gurdwara Community</p>
           </a>
         </li>
         <!-- <li class="nav-item">
@@ -54,7 +54,7 @@
         <li class="nav-item">
           <a href="{{route('gurudwara.user')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.user' || Route::currentRouteName()=='gurudwara.useredit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
-            <p> User Management</p>
+            <p> Registered Member</p>
           </a>
         </li>
         <li class="nav-item">

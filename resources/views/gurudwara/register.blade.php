@@ -57,10 +57,27 @@
                                     <option value="C">Community</option>
                                     <option value="O">Organisation</option>
                                 </select>
-                                <!-- <label class="fieldlabels">Gurdwara Name: *</label> 
-                                <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Gurdwara Name" />  -->
-                                <label class="fieldlabels">Email/Mobile: *</label> 
-                                <input required type="text" name="email_mobile" id="email_mobile" placeholder="Email Id" oninput="setCustomValidity('')" /> 
+                                <label class="fieldlabels">Name of Organisation: *</label> 
+                                <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Name of Organisation" /> 
+                                <label class="fieldlabels">Country: *</label> 
+                                <select name="country" id="country" required>
+                                    <option value=""> --Country of Organisation-- </option>
+                                    @foreach($country as $countries)
+                                    <option value="{{$countries->id}}">{{$countries->name}}</option>
+                                    @endforeach
+                                </select>
+                                <label class="fieldlabels">Email *</label> 
+                                <input type="email" name="email" required class="form-control" id="email" placeholder="Enter Email" />
+                                <label class="fieldlabels">Phone No *</label>
+                                <br/> 
+                                <select name="country_code" id="country_code" required class="col-sm-5">
+                                    <option value="">--Country Code--</option>
+                                    @foreach($country as $countries)
+                                    <option value="{{$countries->dialing}}" <?php if(isset($editdata) && $editdata->country_code==$countries->dialing){echo "selected";}?>>{{$countries->dialing}}</option>
+                                    @endforeach
+                                </select>
+                                <input type="number" name="phone" required class="col-sm-6" id="phone" placeholder="Enter Phone No" />
+                                <br/>
                                 <label class="fieldlabels">Password: *</label> 
                                 <input required type="password" name="password" id="password"placeholder="Password" oninput="setCustomValidity('')" /> 
                                 <label class="fieldlabels">Confirm Password: *</label> 
@@ -107,12 +124,13 @@
             // }else if(con_password==''){
             //     return false;
             // }else 
-            if(email_mobile!=''){
-                if(!regex.test(email_mobile)){
-                    alert("Please enter valid email address or phone number.");
-                    return false;
-                }
-            }else if (password!=con_password) {
+            // if(email_mobile!=''){
+            //     if(!regex.test(email_mobile)){
+            //         alert("Please enter valid email address or phone number.");
+            //         return false;
+            //     }
+            // }else
+             if (password!=con_password) {
                 alert('Password and confirm password must be same!');
                 return false;
             }

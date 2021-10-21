@@ -52,7 +52,7 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
+                  <img class="profile-user-img img-fluid img-squre profileImgCus"
                        src="@if(isset($datas->user_logo)){{asset('public/user-image').'/'.$datas->user_logo}}@else{{asset('public/img/user.png')}}@endif"
                        alt="User profile picture">
                 </div>
@@ -61,7 +61,7 @@
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Email</b> 
-                    <a class="float-right">{{$datas->user_id}}</a>
+                    <a class="float-right">{{$datas->email}}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Phone</b> 
@@ -104,13 +104,13 @@
                     <form class="form-horizontal" method="POST" action="{{route('user.edirstage1')}}">
                       @csrf
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Surname (As in Passport): *</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">First Name (As in Passport): *</label>
                         <div class="col-sm-10">
                           <input type="text" disabled name="surname" id="surname" value="{{isset($datas->surname)? $datas->surname:''}}" required class="form-control" placeholder="Surname (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Given Name (As in Passport): *</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Last Name (As in Passport): *</label>
                         <div class="col-sm-10">
                           <input type="text" disabled name="givenname" class="form-control" id="givenname" value="{{isset($datas->givenname)? $datas->givenname:''}}" placeholder="Given Name (As in Passport):" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>

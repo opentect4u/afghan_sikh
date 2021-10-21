@@ -42,6 +42,8 @@ Route::prefix('gurudwara')->group(function () {
     Route::post('/registerstep2confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register2Confirm'])->name('gurudwara.registerstep2confirm');
     Route::get('/registerstep3', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register3'])->name('gurudwara.registerstep3');
     Route::post('/registerstep3confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register3Confirm'])->name('gurudwara.registerstep3confirm');
+    Route::get('/registerstep31', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register31'])->name('gurudwara.registerstep31');
+    Route::post('/registerstep31confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register31Confirm'])->name('gurudwara.registerstep31confirm');
     Route::get('/registerstep4', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register4'])->name('gurudwara.registerstep4');
     Route::post('/registerstep4confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register4Confirm'])->name('gurudwara.registerstep4confirm');
     Route::get('/registerstep5', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register5'])->name('gurudwara.registerstep5');

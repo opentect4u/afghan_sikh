@@ -29,22 +29,31 @@ class RegisterController extends Controller
 
     public function Register1(Request $request){
         // return $request;
-        $email=$request->email_mobile;
-        $is_has=MdUserLogin::where('user_id',$email)->get();
+        $email=$request->email;
+        $is_has=TdGurudwaraDetails::where('gurudwara_email',$email)->get();
         // return $is_has;
         if (count($is_has)>0) {
             return redirect()->back()->with('already','already');
         }else{
             $con_otp=rand(100000,999999);
             $url="";
-            $surname="Dear";
+            $surname=$request->gurudwara_name;
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+                // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             }else{
                 // SMS send HERE
             }
-            return redirect()->route('gurudwara.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'organisation'=>$request->type_of_organisation]);
+            return redirect()->route('gurudwara.otp')->with([
+                'organisation'=>$request->type_of_organisation,
+                'gurudwara_name'=>$request->gurudwara_name,
+                'country'=>$request->country,
+                'email'=>$email,
+                'country_code'=>$request->country_code,
+                'phone'=>$request->phone,
+                'password'=>$request->password,
+                'con_otp'=>$con_otp
+            ]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
         }
     }
@@ -55,7 +64,7 @@ class RegisterController extends Controller
     public function ConfirmRegister1(Request $request){
         // return $request;
         session()->flush();
-        $email=$request->email_mobile;
+        $email=$request->email;
         $con_otp=$request->con_otp ;
         $otp=$request->otp ;
         $organisation=$request->organisation ;
@@ -65,11 +74,56 @@ class RegisterController extends Controller
         // }
         if ($con_otp==$otp) {
             // return $request;
+            $country=$request->country;
+            $organisation=$request->organisation;
+            $country_code=MdCountry::where('id',$country)->value('code');
+            // return $country_code;
+            if($organisation=="G"){
+                $latest = MdUserLogin::where('user_type','G')->orderBy('user_id','desc')->take(1)->get();
+            }elseif($organisation=="C"){
+                $latest = MdUserLogin::where('user_type','C')->orderBy('user_id','desc')->take(1)->get();
+            }elseif($organisation=="O"){
+                $latest = MdUserLogin::where('user_type','O')->orderBy('user_id','desc')->take(1)->get();
+            }
+            // return $latest;
+            if ($latest->count()>0) {
+                // return $latest;
+                // $latest = client::orderBy('id','desc')->take(1)->get();
+                $client_prev_no = $latest[0]->user_id;
+                // return $client_prev_no;
+                // return substr($client_prev_no,9,13);
+                if($organisation=="G"){
+                    $user_id = 'AFS-G-'.$country_code.'-0000'.(substr($client_prev_no,9,13)+1);
+                }elseif($organisation=="C"){
+                    $user_id = 'AFS-C-'.$country_code.'-0000'.(substr($client_prev_no,9,13)+1);
+                }elseif($organisation=="O"){
+                    $user_id = 'AFS-O-'.$country_code.'-0000'.(substr($client_prev_no,9,13)+1);
+                }
+            }else{
+                if($organisation=="G"){
+                    $user_id = 'AFS-G-'.$country_code.'-00001';
+                }elseif($organisation=="C"){
+                    $user_id = 'AFS-C-'.$country_code.'-00001';
+                }elseif($organisation=="O"){
+                    $user_id = 'AFS-O-'.$country_code.'-00001';
+                }
+            }
+            // return $user_id;
+
             $data=MdUserLogin::create(array(
-                'user_id'=>$request->email_mobile,
+                'user_id'=>$user_id,
                 'password'=>Hash::make($request->password),
                 'user_type'=>$organisation,
                 'active' =>'I',
+            ));
+
+            TdGurudwaraDetails::create(array(
+                'id'=>$data->id,
+                'gurudwara_name'=>$request->gurudwara_name,
+                'country'=>$request->country,
+                'gurudwara_email'=>$request->email,
+                'gurudwara_dial_code'=>$request->country_code,
+                'gurudwara_phone_no'=>$request->phone,
             ));
             // Session::forget('onoff_flag');
             Session::put(['id' => $data->id]);
@@ -79,10 +133,10 @@ class RegisterController extends Controller
             // return $data->user_id;
             $mainurl=app('App\Http\Controllers\HomeController')->MainURL();
             $url=$mainurl.'user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
-            $surname='Dear';
+            $surname=$request->gurudwara_name;
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
+                // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
             }else{
                 // sms send here
             }
@@ -91,7 +145,18 @@ class RegisterController extends Controller
         
         }else{
             $error="otp did not match";
-            return redirect()->route('gurudwara.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'organisation'=>$organisation]);
+            return redirect()->route('gurudwara.otp')->with([
+                'organisation'=>$request->organisation,
+                'gurudwara_name'=>$request->gurudwara_name,
+                'country'=>$request->country,
+                'email'=>$email,
+                'country_code'=>$request->country_code,
+                'phone'=>$request->phone,
+                'password'=>$request->password,
+                'con_otp'=>$con_otp,
+                'otp'=>$otp,
+                'error'=>$error
+            ]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
         }
     }
@@ -100,30 +165,44 @@ class RegisterController extends Controller
     {
         // return Session::get('id');
         // return Session::get('email_mobile');
-        return view('gurudwara.register-stage-2');
+        $id=Session::get('id');
+        $editdata=TdGurudwaraDetails::find($id);
+        return view('gurudwara.register-stage-2',['editdata'=>$editdata]);
     }
 
     public function Register2Confirm(Request $request){
         // return $request;
         $id=Session::get('id');
         $email=Session::get('email_mobile');
-        $data=TdGurudwaraDetails::create(array(
-            'id'=>$id,
-            // 'generate_user_id'=>$generate_user_id,
-            'gurudwara_name'=>$request->surname,
-            // 'givenname' => $request->givenname,
-            'website' => $request->website,
-            // 'date_of_birth' => Carbon::parse($request->dob)->format('Y-m-d'),
-            'gurudwara_phone_no' => $request->phone_no,
-            'register_stage'=>$request->register_stage,
-        ));
+        $data=TdGurudwaraDetails::find($id);
+        // return $data;
+        if($data==null){
+            TdGurudwaraDetails::create(array(
+                'id'=>$id,
+                // 'generate_user_id'=>$generate_user_id,
+                'gurudwara_name'=>$request->surname,
+                // 'givenname' => $request->givenname,
+                'website' => $request->website,
+                // 'date_of_birth' => Carbon::parse($request->dob)->format('Y-m-d'),
+                'gurudwara_phone_no' => $request->phone_no,
+                'register_stage'=>$request->register_stage,
+            ));
+        }else{
+            $data->gurudwara_charity_reg_no=$request->gurudwara_charity_reg_no;
+            // $data->date_of_birth=Carbon::parse($request->dob)->format('Y-m-d');
+            // $data->afghan_id=$request->afghan_id;
+            $data->website=$request->website;
+            $data->save();
+        }
         // return $data;
         return redirect()->route('gurudwara.registerstep3');
     }
 
     public function Register3(){
+        $id=Session::get('id');
+        $editdata=TdGurudwaraDetails::find($id);
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('gurudwara.register-stage-3',['country'=>$country]);
+        return view('gurudwara.register-stage-3',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register3Confirm(Request $request){
@@ -131,11 +210,51 @@ class RegisterController extends Controller
         $id=Session::get('id');
         $email=Session::get('email_mobile');
         $data=TdGurudwaraDetails::find($id);
-        $data->city=$request->city;
-        $data->post_code=$request->post_code;
-        $data->country=$request->country;
         $data->gurudwara_address=$request->gurudwara_address;
-        $data->gurudwara_address_2=$request->previous_nationality;
+        $data->gurudwara_address_2=$request->gurudwara_address_2;
+        $data->city=$request->city;
+        $data->county=$request->county;
+        $data->post_code=$request->post_code;
+        // $data->country=$request->country;
+        $data->register_stage=$request->register_stage;
+        $data->save();
+        // return $data;
+        return redirect()->route('gurudwara.registerstep31');
+    }
+
+    public function Register31(){
+        $id=Session::get('id');
+        $editdata=TdGurudwaraDetails::find($id);
+        $country=MdCountry::orderBy('name','asc')->get();
+        return view('gurudwara.register-stage-3-1',['country'=>$country,'editdata'=>$editdata]);
+    }
+
+    public function Register31Confirm(Request $request){
+        // return $request;
+        $id=Session::get('id');
+        $email=Session::get('email_mobile');
+        $data=TdGurudwaraDetails::find($id);
+
+        if ($request->hasFile('gurudwara_doc_1')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_1');
+            $gurudwara_doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_1);
+
+            if($data->gurudwara_doc_1!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_1;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_1=$data->gurudwara_doc_1;
+        }
+
+        $data->gurudwara_doc_1=$request->gurudwara_doc_1;
+        $data->gurudwara_doc_1_name=$request->gurudwara_doc_1_name;
+        // $data->gurudwara_head_phone_no=$request->gurudwara_head_phone_no;
+        // $data->gurudwara_head_email=$request->gurudwara_head_email;
         $data->register_stage=$request->register_stage;
         $data->save();
         // return $data;
@@ -143,8 +262,10 @@ class RegisterController extends Controller
     }
 
     public function Register4(){
+        $id=Session::get('id');
+        $editdata=TdGurudwaraDetails::find($id);
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('gurudwara.register-stage-4',['country'=>$country]);
+        return view('gurudwara.register-stage-4',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register4Confirm(Request $request){

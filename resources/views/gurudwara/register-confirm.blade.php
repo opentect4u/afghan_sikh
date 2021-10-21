@@ -42,7 +42,11 @@
                             
                             <input hidden type="text" id="organisation" name="organisation" value="{{Session::get('organisation')}}"/>
                             <input hidden type="text" id="con_otp" name="con_otp" value="{{Session::get('con_otp')}}"/>
-                            <input hidden type="text" id="email_mobile" name="email_mobile" value="{{Session::get('email_mobile')}}"/>
+                            <input hidden type="text" id="gurudwara_name" name="gurudwara_name" value="{{Session::get('gurudwara_name')}}"/>
+                            <input hidden type="text" id="country" name="country" value="{{Session::get('country')}}"/>
+                            <input hidden type="text" id="email" name="email" value="{{Session::get('email')}}"/>
+                            <input hidden type="text" id="country_code" name="country_code" value="{{Session::get('country_code')}}"/>
+                            <input hidden type="text" id="phone" name="phone" value="{{Session::get('phone')}}"/>
                             <input hidden type="text" id="password" name="password" value="{{Session::get('password')}}"/>
                             <!-- progressbar -->
                             <!-- <ul id="progressbar">

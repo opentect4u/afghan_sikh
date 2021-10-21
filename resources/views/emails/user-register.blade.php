@@ -50,7 +50,16 @@ p{font-size:13px; line-height:25px; margin:0; padding:0;}
         <a href="{{$url}}">Click here to continue fill the form</a>
       </td>
     </tr>
-    
+    <tr>
+      <td align="left" valign="top">
+        <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">
+          Username: {{$user_id}}
+        </p>
+        <p style="font-size:13px; line-height:24px; margin:0 0 20px 0; padding:0;">
+          Password: {{$password}}
+        </p>
+      </td>
+    </tr>
     
     
     <tr>

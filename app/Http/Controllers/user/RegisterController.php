@@ -28,8 +28,10 @@ class RegisterController extends Controller
 
     public function Register1(Request $request){
         // return $request;
-        $email=$request->email_mobile;
-        $is_has=MdUserLogin::where('user_id',$email)->get();
+        $email=$request->email;
+        // TdUserDetails
+        // $is_has=MdUserLogin::where('user_id',$email)->get();
+        $is_has=TdUserDetails::where('email',$email)->get();
         // return $is_has;
         if (count($is_has)>0) {
             return redirect()->back()->with('already','already');
@@ -41,12 +43,21 @@ class RegisterController extends Controller
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
                 //Email send Here
                 // return "email";
-                Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+                // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             }else{
                 // Mobile SMS Send
                 // return "phone";
             }
-            return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp]);
+            return redirect()->route('user.otp')->with([
+                'first_name'=>$request->first_name,
+                'last_name'=>$request->last_name,
+                'current_nationality'=>$request->current_nationality,
+                'email'=>$email,
+                'country_code'=>$request->country_code,
+                'phone'=>$request->phone,
+                'password'=>$request->password,
+                'con_otp'=>$con_otp
+            ]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp]);
         }
     }
@@ -56,8 +67,8 @@ class RegisterController extends Controller
     
     public function ConfirmRegister1(Request $request){
         // return $request;
-        session()->flush();
-        $email=$request->email_mobile;
+        // session()->flush();
+        $email=$request->email;
         $con_otp=$request->con_otp ;
         $otp=$request->otp ;
         // if($con_otp==''){
@@ -66,11 +77,38 @@ class RegisterController extends Controller
         // }
         if ($con_otp==$otp) {
             // return $request;
+            
+            $current_nationality=$request->current_nationality;
+            $country_code=MdCountry::where('id',$current_nationality)->value('code');
+            // return $country_code;
+            $latest = MdUserLogin::where('user_type','U')->orderBy('user_id','desc')->take(1)->get();
+            // return $latest;
+            if ($latest->count()>0) {
+                // return $latest;
+                // $latest = client::orderBy('id','desc')->take(1)->get();
+                $client_prev_no = $latest[0]->user_id;
+                // return $client_prev_no;
+                // return substr($client_prev_no,9,13);
+                $user_id = 'AFS-U-'.$country_code.'-0000'.(substr($client_prev_no,9,13)+1);
+            }else{
+                $user_id = 'AFS-U-'.$country_code.'-00001';
+            }
+            // return $user_id;
+            // return $request;
             $data=MdUserLogin::create(array(
-                'user_id'=>$request->email_mobile,
+                'user_id'=>$user_id,
                 'password'=>Hash::make($request->password),
                 'user_type'=>'U',
                 'active' =>'I',
+            ));
+            TdUserDetails::create(array(
+                'id'=>$data->id,
+                'surname'=>$request->first_name,
+                'givenname' => $request->last_name,
+                'nationality' => $request->current_nationality,
+                'email' => $request->email,
+                'country_code' => $request->country_code,
+                'phone' => $request->phone,
             ));
             // Session::forget('onoff_flag');
             Session::put(['id' => $data->id]);
@@ -80,10 +118,11 @@ class RegisterController extends Controller
             // return $data->user_id;
             $mainurl=app('App\Http\Controllers\HomeController')->MainURL();
             $url=$mainurl.'user/emaillink?id='.Crypt::encryptString($data->id).'&email='.Crypt::encryptString($data->user_id);
-            $surname='Dear';
-            $givenname="";
+            $surname=$request->first_name;
+            $givenname=$request->last_name;
+            $password=$request->password;
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
+                // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
             }else{
                 // SMS send here
             }
@@ -92,7 +131,18 @@ class RegisterController extends Controller
         
         }else{
             $error="otp did not match";
-            return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]);
+            return redirect()->route('user.otp')->with([
+                'first_name'=>$request->first_name,
+                'last_name'=>$request->last_name,
+                'current_nationality'=>$request->current_nationality,
+                'email'=>$email,
+                'country_code'=>$request->country_code,
+                'phone'=>$request->phone,
+                'password'=>$request->password,
+                'con_otp'=>$con_otp,
+                'otp'=>$otp,
+                'error'=>$error
+            ]);
             // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
         }
     }
@@ -122,12 +172,12 @@ class RegisterController extends Controller
                 'date_of_birth' => Carbon::parse($request->dob)->format('Y-m-d'),
                 'afghan_id' => $request->afghan_id,
                 'register_stage'=>$request->register_stage,
-                'email'=>$email,
+                // 'email'=>$email,
             ));
         }else{
             // return $data;
-            $data->surname=$request->surname;
-            $data->givenname=$request->givenname;
+            // $data->surname=$request->surname;
+            // $data->givenname=$request->givenname;
             $data->gender=$request->gender;
             $data->date_of_birth=Carbon::parse($request->dob)->format('Y-m-d');
             $data->afghan_id=$request->afghan_id;
@@ -194,7 +244,7 @@ class RegisterController extends Controller
         $data=TdUserDetails::find($id);
         $data->birth_place=$request->birth_place;
         $data->birth_country=$request->birth_country;
-        $data->nationality=$request->nationality;
+        // $data->nationality=$request->nationality;
         $data->previous_nationality=$request->previous_nationality;
         $data->register_stage=$request->register_stage;
         $data->save();
@@ -220,8 +270,8 @@ class RegisterController extends Controller
         $data->county=$request->county;
         $data->postcode=$request->postcode;
         $data->country=$request->country;
-        $data->country_code=$request->country_code;
-        $data->phone=$request->phone;
+        // $data->country_code=$request->country_code;
+        // $data->phone=$request->phone;
         $data->register_stage=$request->register_stage;
         $data->save();
         // return $data;

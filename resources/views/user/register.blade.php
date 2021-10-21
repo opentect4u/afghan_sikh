@@ -63,8 +63,29 @@
                                     <label class="errorMsg" style="color:red;">Email id or mobile number already registered</label> 
                                     @endif
                                     </br>
-                                    <label class="fieldlabels">Email/Mobile *</label> 
-                                    <input type="text" name="email_mobile" required class="form-control" id="email_mobile" placeholder="Enter Email or Mobile" />
+                                    <label class="fieldlabels">First Name *</label> 
+                                    <input type="text" name="first_name" required class="form-control" id="first_name" placeholder="Enter First Name" />
+                                    <label class="fieldlabels">Last Name *</label> 
+                                    <input type="text" name="last_name" required class="form-control" id="last_name" placeholder="Enter Last Name" />
+                                    <label class="fieldlabels">Current Nationality *</label> 
+                                    <select name="current_nationality" id="current_nationality" required>
+                                        <option value=""> --Current Nationality-- </option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->father_birth_country==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label class="fieldlabels">Email *</label> 
+                                    <input type="email" name="email" required class="form-control" id="email" placeholder="Enter Email" />
+                                    <label class="fieldlabels">Phone No *</label>
+                                    <br/> 
+                                    <select name="country_code" id="country_code" required class="col-sm-5">
+                                        <option value="">--Country Code--</option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->dialing}}" <?php if(isset($editdata) && $editdata->country_code==$countries->dialing){echo "selected";}?>>{{$countries->dialing}}</option>
+                                        @endforeach
+                                    </select>
+                                    <input type="number" name="phone" required class="col-sm-6" id="phone" placeholder="Enter Phone No" />
+                                    <br/>
                                     <label class="fieldlabels">Password: *</label> 
                                     <input type="password" name="password" required class="form-control" id="password" placeholder="Password:" />
                                     <label class="fieldlabels">Confirm Password : *</label> 
@@ -290,10 +311,11 @@
             var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
             // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{9,12})+$');
 
-            if(!regex.test(email_mobile)){
-                alert("Please enter valid email address or phone number.");
-                return false;
-            }else if (password!=con_password) {
+            // if(!regex.test(email_mobile)){
+            //     alert("Please enter valid email address or phone number.");
+            //     return false;
+            // }else 
+            if (password!=con_password) {
                 alert('Password and confirm password did not match!');
                 return false;
             }

@@ -12,5 +12,7 @@ class MdCountry extends Model
     protected $table="md_country";
     protected $fillable = [
         'name',
+        'code',
+        'dialing',
     ];
 }

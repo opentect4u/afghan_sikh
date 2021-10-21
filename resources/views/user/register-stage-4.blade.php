@@ -79,11 +79,11 @@
                                         <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->country==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
-                                    <label class="fieldlabels">Phone No: </label> 
-                                    <br/>
-                                    <input type="text" class="col-sm-3" value="{{isset($editdata)?$editdata->country_code:''}}"  name="country_code" id="country_code" placeholder="Country Code" />
-                                    <!-- <select name="country_code" id="country_code" >
-                                            <option value="">--Select Country Code--</option>
+                                    <!-- <label class="fieldlabels">Phone No: </label> 
+                                    <br/> -->
+                                    <!-- <input type="text" class="col-sm-3" value="{{isset($editdata)?$editdata->country_code:''}}"  name="country_code" id="country_code" placeholder="Country Code" /> -->
+                                    <!-- <select name="country_code" id="country_code" class="col-sm-5">
+                                            <option value="">--Country Code--</option>
                                             <option data-countryCode="AD" value="376">Andorra (+376)</option>
                                             <option data-countryCode="AO" value="244">Angola (+244)</option>
                                             <option data-countryCode="AI" value="1264">Anguilla (+1264)</option>
@@ -300,7 +300,13 @@
                                             <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                                         
                                     </select> -->
-                                    <input type="number" name="phone" value="{{isset($editdata)?$editdata->phone:''}}" class="col-sm-8" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <!-- <select name="country_code" id="country_code" class="col-sm-5">
+                                        <option value="">--Country Code--</option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->dialing}}" <?php if(isset($editdata) && $editdata->country_code==$countries->dialing){echo "selected";}?>>{{$countries->dialing}}</option>
+                                        @endforeach
+                                    </select>
+                                    <input type="number" name="phone" value="{{isset($editdata)?$editdata->phone:''}}" class="col-sm-6" id="phone" placeholder="Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
                                     
 
                                    

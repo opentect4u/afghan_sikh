@@ -76,6 +76,7 @@
                                    
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('gurudwara.registerstep31')}}'"/>
 									
 								</div>
                             </fieldset>

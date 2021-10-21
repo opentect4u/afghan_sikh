@@ -39,7 +39,7 @@
                          <!-- <label class="fieldlabels">Email: *</label> 
                          <input type="email" name="email" placeholder="Email Id" />  -->
                          <label class="fieldlabels">Username: *</label> 
-                         <input type="text" name="uname" id="uname" placeholder="Email Id/Phone Number" required oninput="setCustomValidity('')" /> 
+                         <input type="text" name="uname" id="uname" placeholder="User Name" required oninput="setCustomValidity('')" /> 
                          <label class="fieldlabels">Password: *</label> 
                          <input type="password" name="pwd" id="pwd" placeholder="Password" required/> 
                          <!-- <label class="fieldlabels">Confirm Password: *</label> 
@@ -198,17 +198,17 @@
           var con_password=$("#cpwd").val();
           var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
           // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
-          if(uname!=''){
-            if(!regex.test(uname)){
-              // alert("Please enter valid email address or phone number.");
-              // $("#email_mobile").setCustomValidity('Please enter valid email address or phone number.');
-              // $("#email_mobile").setCustomValidity("");
-              document.getElementById ('uname').setCustomValidity( "Please enter valid email address or phone number." );
-              document.msform.uname.focus ( );
-              uname.setCustomValidity ('');
-              return false;
-            }
-          }
+          // if(uname!=''){
+          //   if(!regex.test(uname)){
+          //     // alert("Please enter valid email address or phone number.");
+          //     // $("#email_mobile").setCustomValidity('Please enter valid email address or phone number.');
+          //     // $("#email_mobile").setCustomValidity("");
+          //     document.getElementById ('uname').setCustomValidity( "Please enter valid email address or phone number." );
+          //     document.msform.uname.focus ( );
+          //     uname.setCustomValidity ('');
+          //     return false;
+          //   }
+          // }
         })
     });
 </script>

@@ -52,7 +52,7 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
+                  <img class="profile-user-img img-fluid img-squre profileImgCus"
                        src="@if(isset($datas->gurudwara_photo)){{asset('public/gurudwara-image').'/'.$datas->gurudwara_photo}}@else{{asset('public/img/user.png')}}@endif"
                        alt="Gurdwara Logo">
                 </div>

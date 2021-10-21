@@ -34,7 +34,7 @@ class MemberController extends Controller
     }
 
     public function ShowAdd(){
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('gurudwara.member-add',['country'=>$country]);
     }
 
@@ -71,7 +71,7 @@ class MemberController extends Controller
     public function ShowEdit($id){
         $id=Crypt::decryptString($id);
         $member_details=TdGurudwaraMember::find($id);
-        $country=MdCountry::get();
+        $country=MdCountry::orderBy('name','asc')->get();
         return view('gurudwara.member-edit',['member_details'=>$member_details,'country'=>$country]);
     }
 

@@ -60,13 +60,13 @@
                                             <h2 class="steps">Step 1 - 4</h2>
                                         </div>
                                     </div>  -->
-                                    <label class="fieldlabels">Gurdwara Name: *</label> 
-                                    <input type="text" name="surname" required class="form-control" id="surname" placeholder="Gurdwara Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Charity Registration Number: *</label> 
+                                    <input type="text" name="gurudwara_charity_reg_no" required class="form-control" id="gurudwara_charity_reg_no" value="{{isset($editdata)?$editdata->gurudwara_charity_reg_no:''}}" placeholder="Charity Registration Number" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                     <label class="fieldlabels">Website: </label> 
-                                    <input type="text" name="website" id="website" placeholder="Website" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input type="text" name="website" id="website" value="{{isset($editdata)?$editdata->website:''}}" placeholder="Website" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 
-                                    <label class="fieldlabels">Phone No: </label> 
-                                    <input type="number" name="phone_no" id="phone_no" placeholder="Phone No" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <!-- <label class="fieldlabels">Phone No: </label> 
+                                    <input type="number" name="phone_no" id="phone_no" placeholder="Phone No" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
 									
