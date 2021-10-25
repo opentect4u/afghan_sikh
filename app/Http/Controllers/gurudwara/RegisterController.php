@@ -136,7 +136,7 @@ class RegisterController extends Controller
             $surname=$request->gurudwara_name;
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$url));
+                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
             }else{
                 // sms send here
             }
