@@ -43,7 +43,7 @@ class RegisterController extends Controller
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
                 //Email send Here
                 // return "email";
-                // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+                Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             }else{
                 // Mobile SMS Send
                 // return "phone";
@@ -122,7 +122,7 @@ class RegisterController extends Controller
             $givenname=$request->last_name;
             $password=$request->password;
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
+                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
             }else{
                 // SMS send here
             }
@@ -1110,7 +1110,7 @@ class RegisterController extends Controller
                     'other_doc_2' =>$other_doc_2_1,
                     'created_by'=> $givenname,
                 ));
-                // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname));
+                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname));
                 $msg="success";
                 }
             }
