@@ -426,6 +426,12 @@ class ServicesRegisterController extends Controller
         $doc_2='';
         $doc_3='';
         $doc_4='';
+        $doc_5='';
+        $doc_6='';
+        $doc_7='';
+        $doc_8='';
+        $doc_9='';
+        $doc_10='';
         if ($request->hasFile('doc_1')) {
             $profile_pic_path1 = $request->file('doc_1');
             $doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
@@ -435,7 +441,7 @@ class ServicesRegisterController extends Controller
             $destinationPath1 = public_path('service-doc/');
             $profile_pic_path1->move($destinationPath1,$doc_1);
 
-           
+            
 
         }
 
@@ -448,8 +454,7 @@ class ServicesRegisterController extends Controller
             $destinationPath2 = public_path('service-doc/');
             $profile_pic_path2->move($destinationPath2,$doc_2);
 
-           
-        
+            
         }
 
         if ($request->hasFile('doc_3')) {
@@ -462,6 +467,7 @@ class ServicesRegisterController extends Controller
             $profile_pic_path3->move($destinationPath3,$doc_3);
 
             
+
         }
 
         if ($request->hasFile('doc_4')) {
@@ -473,8 +479,86 @@ class ServicesRegisterController extends Controller
             $destinationPath4 = public_path('service-doc/');
             $profile_pic_path4->move($destinationPath4,$doc_4);
 
-            
+           
+
         }
+        if ($request->hasFile('doc_5')) {
+            $profile_pic_path3 = $request->file('doc_5');
+            $doc_5=date('YmdHis') .'_'.$id. 'doc_5.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_5);
+
+            
+
+        }
+
+        if ($request->hasFile('doc_6')) {
+            $profile_pic_path3 = $request->file('doc_6');
+            $doc_6=date('YmdHis') .'_'.$id. 'doc_6.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_6);
+
+           
+
+        }
+
+        if ($request->hasFile('doc_7')) {
+            $profile_pic_path4 = $request->file('doc_7');
+            $doc_7=date('YmdHis') .'_'.$id. 'doc_7.' . $profile_pic_path4->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath4 = public_path('service-doc/');
+            $profile_pic_path4->move($destinationPath4,$doc_7);
+
+           
+
+        }
+        if ($request->hasFile('doc_8')) {
+            $profile_pic_path3 = $request->file('doc_8');
+            $doc_8=date('YmdHis') .'_'.$id. 'doc_8.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_8);
+
+            
+
+        }
+
+        if ($request->hasFile('doc_9')) {
+            $profile_pic_path3 = $request->file('doc_9');
+            $doc_9=date('YmdHis') .'_'.$id. 'doc_9.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_9);
+
+           
+
+        }
+
+        if ($request->hasFile('doc_10')) {
+            $profile_pic_path3 = $request->file('doc_10');
+            $doc_10=date('YmdHis') .'_'.$id. 'doc_10.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_10);
+
+            
+
+        }
+        // if ($request->hasFile('doc_4')) {
+        //     $profile_pic_path4 = $request->file('doc_4');
+        //     $doc_4=date('YmdHis') .'_'.$id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
+        //     // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+        //     // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+        //     $destinationPath4 = public_path('service-doc/');
+        //     $profile_pic_path4->move($destinationPath4,$doc_4);
+
+            
+        // }
 
         
         TdServiceDetails::create(array(
@@ -493,6 +577,18 @@ class ServicesRegisterController extends Controller
             'doc_2_name'=>$request->doc_2_name,
             'doc_3_name'=>$request->doc_3_name,
             'doc_4_name'=>$request->doc_4_name,
+            'doc_5'=>$doc_5,
+            'doc_5_name'=>$request->doc_5_name,
+            'doc_6'=>$doc_6,
+            'doc_6_name'=>$request->doc_6_name,
+            'doc_7'=>$doc_7,
+            'doc_7_name'=>$request->doc_7_name,
+            'doc_8'=>$doc_8,
+            'doc_8_name'=>$request->doc_8_name,
+            'doc_9'=>$doc_9,
+            'doc_9_name'=>$request->doc_9_name,
+            'doc_10'=>$doc_10,
+            'doc_10_name'=>$request->doc_10_name,
         ));
         $service_type=$request->service_type;
 
@@ -551,7 +647,7 @@ class ServicesRegisterController extends Controller
         // return $id;
         if ($request->hasFile('doc_1')) {
             $profile_pic_path1 = $request->file('doc_1');
-            $doc_1=date('YmdHis') .'_'.$self_id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
+            $doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
             // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
             // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
 
@@ -571,7 +667,7 @@ class ServicesRegisterController extends Controller
 
         if ($request->hasFile('doc_2')) {
             $profile_pic_path2 = $request->file('doc_2');
-            $doc_2=date('YmdHis') .'_'.$self_id. 'doc_2.' . $profile_pic_path2->getClientOriginalExtension();
+            $doc_2=date('YmdHis') .'_'.$id. 'doc_2.' . $profile_pic_path2->getClientOriginalExtension();
             // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
             // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
 
@@ -584,14 +680,13 @@ class ServicesRegisterController extends Controller
                     unlink($filesc);
                 }
             } 
-        
         }else{
             $doc_2=$data->doc_2;
         }
 
         if ($request->hasFile('doc_3')) {
             $profile_pic_path3 = $request->file('doc_3');
-            $doc_3=date('YmdHis') .'_'.$self_id. 'doc_3.' . $profile_pic_path3->getClientOriginalExtension();
+            $doc_3=date('YmdHis') .'_'.$id. 'doc_3.' . $profile_pic_path3->getClientOriginalExtension();
             // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
             // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
 
@@ -604,13 +699,14 @@ class ServicesRegisterController extends Controller
                     unlink($filesc);
                 }
             } 
+
         }else{
             $doc_3=$data->doc_3;
         }
 
         if ($request->hasFile('doc_4')) {
             $profile_pic_path4 = $request->file('doc_4');
-            $doc_4=date('YmdHis') .'_'.$self_id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
+            $doc_4=date('YmdHis') .'_'.$id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
             // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
             // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
 
@@ -623,9 +719,140 @@ class ServicesRegisterController extends Controller
                     unlink($filesc);
                 }
             } 
+
         }else{
             $doc_4=$data->doc_4;
         }
+
+        if ($request->hasFile('doc_5')) {
+            $profile_pic_path3 = $request->file('doc_5');
+            $doc_5=date('YmdHis') .'_'.$id. 'doc_5.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_5);
+
+            if($data->doc_5!=null){
+                $filesc = public_path('service-doc/') . $data->doc_5;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_5=$data->doc_5;
+        }
+
+        if ($request->hasFile('doc_6')) {
+            $profile_pic_path3 = $request->file('doc_6');
+            $doc_6=date('YmdHis') .'_'.$id. 'doc_6.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_6);
+
+            if($data->doc_6!=null){
+                $filesc = public_path('service-doc/') . $data->doc_6;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_6=$data->doc_6;
+        }
+
+        if ($request->hasFile('doc_7')) {
+            $profile_pic_path4 = $request->file('doc_7');
+            $doc_7=date('YmdHis') .'_'.$id. 'doc_7.' . $profile_pic_path4->getClientOriginalExtension();
+            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+            $destinationPath4 = public_path('service-doc/');
+            $profile_pic_path4->move($destinationPath4,$doc_7);
+
+            if($data->doc_7!=null){
+                $filesc = public_path('service-doc/') . $data->doc_7;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_7=$data->doc_7;
+        }
+
+        if ($request->hasFile('doc_8')) {
+            $profile_pic_path3 = $request->file('doc_8');
+            $doc_8=date('YmdHis') .'_'.$id. 'doc_8.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_8);
+
+            if($data->doc_8!=null){
+                $filesc = public_path('service-doc/') . $data->doc_8;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_8=$data->doc_8;
+        }
+
+        if ($request->hasFile('doc_9')) {
+            $profile_pic_path3 = $request->file('doc_9');
+            $doc_9=date('YmdHis') .'_'.$id. 'doc_9.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_9);
+
+            if($data->doc_9!=null){
+                $filesc = public_path('service-doc/') . $data->doc_9;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_9=$data->doc_9;
+        }
+
+        if ($request->hasFile('doc_10')) {
+            $profile_pic_path3 = $request->file('doc_10');
+            $doc_10=date('YmdHis') .'_'.$id. 'doc_10.' . $profile_pic_path3->getClientOriginalExtension();
+
+            $destinationPath3 = public_path('service-doc/');
+            $profile_pic_path3->move($destinationPath3,$doc_10);
+
+            if($data->doc_10!=null){
+                $filesc = public_path('service-doc/') . $data->doc_10;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+
+        }else{
+            $doc_10=$data->doc_10;
+        }
+
+
+        // if ($request->hasFile('doc_4')) {
+        //     $profile_pic_path4 = $request->file('doc_4');
+        //     $doc_4=date('YmdHis') .'_'.$self_id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
+        //     // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
+        //     // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+
+        //     $destinationPath4 = public_path('service-doc/');
+        //     $profile_pic_path4->move($destinationPath4,$doc_4);
+
+        //     if($data->doc_4!=null){
+        //         $filesc = public_path('service-doc/') . $data->doc_4;
+        //         if (file_exists($filesc) != null) {
+        //             unlink($filesc);
+        //         }
+        //     } 
+        // }else{
+        //     $doc_4=$data->doc_4;
+        // }
 
 
         $data->doc_1=$doc_1;
@@ -636,6 +863,19 @@ class ServicesRegisterController extends Controller
         $data->doc_2_name=$request->doc_2_name;
         $data->doc_3_name=$request->doc_3_name;
         $data->doc_4_name=$request->doc_4_name;
+        $data->doc_5=$doc_5;
+        $data->doc_5_name=$request->doc_5_name;
+        $data->doc_6=$doc_6;
+        $data->doc_6_name=$request->doc_6_name;
+        $data->doc_7=$doc_7;
+        $data->doc_7_name=$request->doc_7_name;
+        $data->doc_8=$doc_8;
+        $data->doc_8_name=$request->doc_8_name;
+        $data->doc_9=$doc_9;
+        $data->doc_9_name=$request->doc_9_name;
+        $data->doc_10=$doc_10;
+        $data->doc_10_name=$request->doc_10_name;
+
         $data->self_or_family=$request->fav_language;
         $data->service_type=$request->service_type;
         $data->family_details_id=$request->family_details;

@@ -46,6 +46,8 @@ Route::prefix('gurudwara')->group(function () {
     Route::post('/registerstep31confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register31Confirm'])->name('gurudwara.registerstep31confirm');
     Route::get('/registerstep4', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register4'])->name('gurudwara.registerstep4');
     Route::post('/registerstep4confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register4Confirm'])->name('gurudwara.registerstep4confirm');
+    Route::get('/registerstep41', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register41'])->name('gurudwara.registerstep41');
+    Route::post('/registerstep41confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register41Confirm'])->name('gurudwara.registerstep41confirm');
     Route::get('/registerstep5', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register5'])->name('gurudwara.registerstep5');
     Route::post('/registerstep5confirm', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register5Confirm'])->name('gurudwara.registerstep5confirm');
     Route::get('/registerstep6', [App\Http\Controllers\gurudwara\RegisterController::class, 'Register6'])->name('gurudwara.registerstep6');
@@ -67,6 +69,8 @@ Route::prefix('gurudwara')->group(function () {
 
     Route::get('/user', [App\Http\Controllers\gurudwara\UserController::class, 'Show'])->name('gurudwara.user');
     Route::get('/useredit/{id?}', [App\Http\Controllers\gurudwara\UserController::class, 'ShowEdit'])->name('gurudwara.useredit');
+    Route::post('/useredit', [App\Http\Controllers\gurudwara\UserController::class, 'Edit'])->name('gurudwara.usereditconfirm');
+    Route::get('/userview/{id?}', [App\Http\Controllers\gurudwara\UserController::class, 'View'])->name('gurudwara.userview');
     Route::get('/services', [App\Http\Controllers\gurudwara\ServiceController::class, 'Show'])->name('gurudwara.services');
     Route::get('/servicesedit/{id?}', [App\Http\Controllers\gurudwara\ServiceController::class, 'ShowEdit'])->name('gurudwara.servicesedit');
 
@@ -101,6 +105,12 @@ Route::prefix('gurudwara')->group(function () {
     Route::get('/forgotpassword', [App\Http\Controllers\gurudwara\LoginController::class, 'ShowForgot'])->name('gurudwara.forgotpassword');
     Route::post('/forgotpassword', [App\Http\Controllers\gurudwara\LoginController::class, 'Forgot'])->name('gurudwara.forgotpasswordConfirm');
     
+    Route::get('/donation', [App\Http\Controllers\gurudwara\DonationController::class, 'Show'])->name('gurudwara.donation');
+    Route::get('/donationadd', [App\Http\Controllers\gurudwara\DonationController::class, 'ShowAdd'])->name('gurudwara.donationadd');
+    Route::post('/donationadd', [App\Http\Controllers\gurudwara\DonationController::class, 'Add'])->name('gurudwara.donationadd');
+    Route::get('/donationview/{id?}', [App\Http\Controllers\gurudwara\DonationController::class, 'View'])->name('gurudwara.donationview');
+    
+    Route::post('/getdetailsDonation', [App\Http\Controllers\gurudwara\DonationController::class, 'GetDetails'])->name('gurudwara.getdetailsDonation');
 
 });
             // all user route
@@ -210,6 +220,7 @@ Route::prefix('user')->group(function () {
     Route::get('/certificateedit/{id?}', [App\Http\Controllers\user\CertificateController::class, 'ShowEdit'])->name('user.certificateedit');
     Route::post('/editcertificateConfirm', [App\Http\Controllers\user\CertificateController::class, 'Edit'])->name('user.editcertificateConfirm');
     Route::get('/report/{id?}', [App\Http\Controllers\user\CertificateController::class, 'ShowReport'])->name('user.report');
+    Route::post('/getdetails', [App\Http\Controllers\user\CertificateController::class, 'GetData'])->name('user.getdetails');
 
 
     Route::post('/edirstage1', [App\Http\Controllers\user\HomeController::class, 'EditStage1'])->name('user.edirstage1');

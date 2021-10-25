@@ -98,6 +98,7 @@
                           <!-- <input type="file" required name="doc_1" class="form-control"/>  -->
                         </div>
                       </div> 
+                      @if($data->doc_2!='')
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="fieldlabels">Upload Document 2: *</label> 
@@ -105,9 +106,10 @@
                           <!-- <input type="file" required name="doc_2" class="form-control"/>  -->
                         </div>
                       </div> 
-                       
+                      @endif
                     </div>
                     <div class="row">
+                      @if($data->doc_3!='')
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="fieldlabels">Upload Document 3: *</label> 
@@ -115,6 +117,8 @@
                           <!-- <input type="file" required name="doc_3" class="form-control" />  -->
                         </div>
                       </div> 
+                      @endif
+                      @if($data->doc_4!='')
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="fieldlabels">Upload Document 4: *</label> 
@@ -122,7 +126,67 @@
                           <!-- <input type="file" required name="doc_4" class="form-control" />  -->
                         </div>
                       </div> 
-                       
+                      @endif
+                    </div>
+                    <div class="row">
+                      @if($data->doc_5!='')
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels">Upload Document 5: *</label> 
+                          <img src="{{asset('public/service-doc').'/'.$data->doc_5}}" width="100" height="100" />
+                          <!-- <input type="file" required name="doc_3" class="form-control" />  -->
+                        </div>
+                      </div> 
+                      @endif
+                      @if($data->doc_6!='')
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels">Upload Document 6: *</label> 
+                          <img src="{{asset('public/service-doc').'/'.$data->doc_6}}" width="100" height="100" />
+                          <!-- <input type="file" required name="doc_4" class="form-control" />  -->
+                        </div>
+                      </div> 
+                      @endif
+                    </div>
+                    <div class="row">
+                      @if($data->doc_7!='')
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels">Upload Document 7: *</label> 
+                          <img src="{{asset('public/service-doc').'/'.$data->doc_7}}" width="100" height="100" />
+                          <!-- <input type="file" required name="doc_3" class="form-control" />  -->
+                        </div>
+                      </div> 
+                      @endif
+                      @if($data->doc_8!='')
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels">Upload Document 8: *</label> 
+                          <img src="{{asset('public/service-doc').'/'.$data->doc_8}}" width="100" height="100" />
+                          <!-- <input type="file" required name="doc_4" class="form-control" />  -->
+                        </div>
+                      </div> 
+                      @endif
+                    </div>
+                    <div class="row">
+                      @if($data->doc_9!='')
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels">Upload Document 9: *</label> 
+                          <img src="{{asset('public/service-doc').'/'.$data->doc_9}}" width="100" height="100" />
+                          <!-- <input type="file" required name="doc_3" class="form-control" />  -->
+                        </div>
+                      </div> 
+                      @endif
+                      @if($data->doc_10!='')
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="fieldlabels">Upload Document 10: *</label> 
+                          <img src="{{asset('public/service-doc').'/'.$data->doc_10}}" width="100" height="100" />
+                          <!-- <input type="file" required name="doc_4" class="form-control" />  -->
+                        </div>
+                      </div> 
+                      @endif
                     </div>
                     <div class="row">
                       <div class="col-sm-12">

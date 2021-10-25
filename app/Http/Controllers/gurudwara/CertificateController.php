@@ -64,15 +64,38 @@ class CertificateController extends Controller
     public function Edit(Request $request){
         // return $request;
         $id=$request->id;
+        
+
+        $user_details = TdCertificate::find($id);
+        
         if($request->status=='Y'){
-            $date=date('Y-m-d');
-            $generate_number=rand(10000,99999);
+            $user_id=MdUserLogin::where('id',$user_details->user_id)->value('user_id') ;
+            $gurudwara_id=Session::get('gurudwara')[0]['user_id'];
+
+            $certificates_type_id=$user_details->certificates_type_id;
+            if ($certificates_type_id==2) {
+                $latest = TdCertificate::where('certificates_type_id',$certificates_type_id)->where('generate_number','!=','')->orderBy('generate_number','desc')->take(1)->get();
+                // return $latest;
+                if ($latest->count()>0) {
+                    // return $latest;
+                    $client_prev_no = $latest[0]->generate_number;
+                    // return $client_prev_no;
+                    $val=explode("MIR",$client_prev_no);
+                    $update_number=($val[1]+1);
+                    $date=date('Y-m-d');
+                    $generate_number = $user_id.'|'.$gurudwara_id.'|MIR0000'.$update_number;
+                     
+                }else{
+                    $date=date('Y-m-d');
+                    $generate_number = $user_id.'|'.$gurudwara_id.'|MIR00001';
+                // return $generate_number;
+                }
+            }
         }else{
-            $date='';
+            $date=NULL;
             $generate_number='';
         }
 
-        $user_details = TdCertificate::find($id);
         $user_details->date_of_issue =$date;
         $user_details->generate_number =$generate_number;
         $user_details->save();

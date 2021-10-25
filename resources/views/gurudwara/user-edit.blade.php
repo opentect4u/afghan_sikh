@@ -34,10 +34,20 @@
               </div> -->
               <!-- /.card-header -->
               <!-- form start -->
-              <form name="myform" method="Post" action="{{route('admin.usereditconfirm')}}">
+              <form name="myform" method="Post" action="{{route('gurudwara.usereditconfirm')}}">
                 @csrf
                 <input type="hidden" id="id" name="id" value="{{$user_details->id}}"/>
                 <div class="card-body" id="sectionDiv">
+                    @if(Session::has('success'))
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <center><label style="color:green;">Member details updated successfully!</label></center>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
                     <div class="row">
                         <div class="col-sm-6">
                             <!-- text input -->
@@ -145,14 +155,14 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-sm-6">
-                            <!-- text input -->
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Present Address</label>
                                 <input type="text" readonly name="present_address" value="{{$user_details->present_address}}" class="form-control" placeholder="Enter ...">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Profession</label>
@@ -160,6 +170,56 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>House No/Name</label>
+                                <input type="text" required name="add_1" value="{{isset($user_details)?$user_details->add_1:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Street Name</label>
+                                <input type="text" required  name="add_2" value="{{isset($user_details)?$user_details->add_2:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" required  name="city" value="{{isset($user_details)?$user_details->city:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>County</label>
+                                <input type="text" required  name="county" value="{{isset($user_details)?$user_details->county:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Postal/zip code</label>
+                                <input type="text" required  name="postcode" value="{{isset($user_details)?$user_details->postcode:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <!-- <input type="text" required readonly name="profession" value="{{isset($user_details)?$user_details->county:''}}" class="form-control" placeholder="Enter ..."> -->
+                                <select name="country" id="country" required class="form-control">
+                                    <option value="">-- Select Country --</option>
+                                    @foreach($country as $countries)
+                                    <option value="{{$countries->id}}" <?php if(isset($user_details) && $user_details->country==$countries->id){echo "selected";}?> >{{$countries->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-sm-6">
                             <!-- text input -->
@@ -212,15 +272,15 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>Mobile</label>
-                                <input type="text" readonly name="mobile" value="{{$user_details->mobile}}" class="form-control" placeholder="Enter ...">
+                                <label>Phone</label>
+                                <input type="text" required name="phone" value="{{$user_details->phone}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" readonly name="email" value="{{$user_details->email}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" required name="email" value="{{$user_details->email}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
@@ -330,8 +390,8 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" id="submit" name="submit" class="btn btn-primary" onclick="printContent('sectionDiv');">Print </button>
-                  <!-- <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button> -->
+                  <!-- <button type="submit" id="submit" name="submit" class="btn btn-primary" onclick="printContent('sectionDiv');">Print </button> -->
+                  <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

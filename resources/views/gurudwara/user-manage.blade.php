@@ -56,11 +56,13 @@
                     <tr>
                       <td>{{$count++}}</td>
                       <td>{{$gurudwaras->surname}} {{$gurudwaras->givenname}}</td>
-                      <td>{{$gurudwaras->mobile}}</td>
+                      <td>{{$gurudwaras->phone}}</td>
                       <!-- <td>{{$gurudwaras->purpose}}</td> -->
                       <td>{{ Carbon\Carbon::parse($gurudwaras->created_at)->format('d M Y')}}</td>
                       <td id="actionTd{{$gurudwaras->id}}">
                         <a href="{{route('gurudwara.useredit',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-edit"></i></a>
+                        &nbsp;&nbsp;
+                        <a href="{{route('gurudwara.userview',['id' => Crypt::encryptString($gurudwaras->id)])}}" id="accept" ><i class="fas fa-eye"></i></a>
                       </td>
                     </tr>
                     @endforeach

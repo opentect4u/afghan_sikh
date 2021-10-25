@@ -64,13 +64,48 @@
                                     <!-- Gurdwara Head Name/Adress/Phone No/Email -->
 
                                     <label class="fieldlabels">Gurdwara Head Name : *</label> 
-                                    <input type="text" required name="gurudwara_head_name" id="gurudwara_head_name" placeholder="Gurdwara Head Name" /> 
+                                    <input type="text" required name="gurudwara_head_name" id="gurudwara_head_name" value="{{isset($editdata->gurudwara_head_name)? $editdata->gurudwara_head_name:''}}" placeholder="Gurdwara Head Name" /> 
+                                    <label class="fieldlabels">Date of Birth : </label> 
+                                    <input type="text" class="form-control" value="{{isset($editdata->gurudwara_head_dob)? $editdata->gurudwara_head_dob:''}}" name="gurudwara_head_dob" id="gurudwara_head_dob" placeholder="dd/mm/yyyy" />
+                                    <label class="fieldlabels">Nationality: *</label> 
+                                    <select name="nationality" id="nationality" required>
+                                        <option value=""> --Nationality-- </option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->nationality==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label class="fieldlabels">Place of Birth : *</label> 
+                                    <input type="text" required name="place_of_birth" id="place_of_birth" value="{{isset($editdata->place_of_birth)? $editdata->place_of_birth:''}}" placeholder="Place of Birth" /> 
+                                    <label class="fieldlabels">Previous Nationality: *</label> 
+                                    <select name="previous_nationality" id="previous_nationality">
+                                        <option value=""> --Select Previous Nationality-- </option>
+                                        @foreach($country as $countries)
+                                        <option value="{{$countries->id}}" <?php if(isset($editdata) && $editdata->previous_nationality==$countries->id){echo "selected";}?>>{{$countries->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label class="fieldlabels">Religion: *</label> 
+                                    <select name="religion" id="religion" Required>
+                                        <option value=""> --Select Religion-- </option>
+                                        <option value="Sikh"     <?php if(isset($editdata) && $editdata->religion=="Sikh"){echo "selected";}?>>Sikh</option>
+                                        <option value="Hindu"    <?php if(isset($editdata) && $editdata->religion=="Hindu"){echo "selected";}?>>Hindu</option>
+                                        <option value="Muslim"   <?php if(isset($editdata) && $editdata->religion=="Muslim"){echo "selected";}?>>Muslim</option>
+                                        <option value="Christian"<?php if(isset($editdata) && $editdata->religion=="Christian"){echo "selected";}?>>Christian</option>
+                                        <option value="Others"   <?php if(isset($editdata) && $editdata->religion=="Others"){echo "selected";}?>>Others</option>
+                                    </select>
+                                    
+                                    <label class="fieldlabels">Passport Number : </label> 
+                                    <input type="text" name="passport_no" id="passport_no" value="{{isset($editdata->passport_no)? $editdata->passport_no:''}}" placeholder="Passport Number:"  class="form-control" />
+                                    <label class="fieldlabels">Passport Date of Issue : </label> 
+                                    <input type="text" class="form-control" value="{{isset($editdata->passport_date_of_issue)? $editdata->passport_date_of_issue:''}}" name="passport_date_of_issue" id="passport_date_of_issue" placeholder="dd/mm/yyyy" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <label class="fieldlabels">Passport Date of Expiry : </label> 
+                                    <input type="text" class="form-control" value="{{isset($editdata->passport_date_of_expiry)? $editdata->passport_date_of_expiry:''}}" name="passport_date_of_expiry" id="passport_date_of_expiry" placeholder="dd/mm/yyyy" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+<!--                             
                                     <label class="fieldlabels">Gurdwara Head Address : *</label> 
                                     <textarea name="gurudwara_head_address" id="gurudwara_head_address"  rows="3" placeholder="Address"></textarea>
                                     <label class="fieldlabels">Gurdwara Head Phone No : *</label> 
                                     <input type="number" name="gurudwara_head_phone_no" id="gurudwara_head_phone_no" placeholder="Phone No" /> 
                                     <label class="fieldlabels">Gurdwara Head Email Id : *</label> 
-                                    <input type="email" name="gurudwara_head_email" id="gurudwara_head_email" placeholder="Email Id" /> 
+                                    <input type="email" name="gurudwara_head_email" id="gurudwara_head_email" placeholder="Email Id" />  -->
                                 
 
                                    
@@ -100,7 +135,29 @@
 @section('script')
 
 <script>
-        $(document).ready(function(){
+    $(document).ready(function(){
+
+        $('#passport_date_of_issue').datepicker({ 
+            autoclose: true,
+            endDate: new Date(),
+            dateFormat: 'dd/mm/yyyy'
+            // startDate: new Date()
+        });
+        $('#passport_date_of_expiry').datepicker({ 
+            autoclose: true,
+            startDate: new Date(),
+            dateFormat: 'dd/mm/yyyy'
+            // startDate: new Date()
+        });
+        $('#gurudwara_head_dob').datepicker({ 
+            autoclose: true,
+            endDate: new Date(),
+            dateFormat: 'dd/mm/yyyy'
+            // startDate: new Date()
+        });
+
+
+
 
         var current_fs, next_fs, previous_fs; //fieldsets
         var opacity;

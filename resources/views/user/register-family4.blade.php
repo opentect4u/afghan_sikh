@@ -39,74 +39,88 @@
                 <input type="hidden" id="id" name="id" value="{{isset($editdata)? $editdata->id:''}}"/>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <!-- text input -->
+                        <div class="col-sm-5">
                             <div class="form-group">
                                <label class="fieldlabels"> Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc_1!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_1}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc_1!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_1}}" width="100" height="100"/>
                                 @endif
-                                <input type="file" <?php if(isset($editdata) && $editdata->other_doc_1!=''){echo "";}else{echo "required";}?> name="other_doc_1" id="other_doc_1" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input type="file" <?php if(isset($editdata) && $editdata->doc_1!=''){echo "";}else{echo "required";}?> name="doc_1" id="doc_1" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
-                        
                         <div class="col-sm-6">
-                            <!-- text input -->
                             <div class="form-group">
                                 <label class="fieldlabels"> Document 1 Name: </label> 
-                                <input type="text" required name="other_doc_1_name" id="other_doc_1_name" value="{{isset($editdata)?$editdata->other_doc_1_name:''}}" class="form-control" placeholder="Document 1 Name" />
+                                <input type="text" required name="doc_1_name" id="doc_1_name" value="{{isset($editdata)?$editdata->doc_1_name:''}}" class="form-control" placeholder="Document 1 Name" />
                             </div>
                         </div>
+                        <!-- <div class="col-sm-1">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div> -->
                     </div>
-                    <div class="row">
+                    <div class="row" id="uploadDiv2" data-upload-div-value="0">
                         
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <!-- text input -->
                             <div class="form-group">
                                <label class="fieldlabels"> Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc_2!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_2}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc_2!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_2}}" width="100" height="100"/>
                                 @endif
-                                <input type="file" <?php if(isset($editdata) && $editdata->other_doc_2!=''){echo "";}else{echo "required";}?> name="other_doc_2" id="other_doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input type="file" <?php if(isset($editdata) && $editdata->doc_2!=''){echo "";}else{echo "required";}?> name="doc_2" id="doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" >
                             <!-- text input -->
                             <div class="form-group">
                                 <label class="fieldlabels"> Document 2 Name: </label> 
-                                <input type="text" name="other_doc_2_name" id="other_doc_2_name" value="{{isset($editdata)?$editdata->other_doc_2_name:''}}" class="form-control" placeholder="Document 2 Name" />
+                                <input type="text" name="doc_2_name" id="doc_2_name" value="{{isset($editdata)?$editdata->doc_2_name:''}}" class="form-control" placeholder="Document 2 Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel2">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA2" class="form-control" style="margin-top:7px;">Cancel</a>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
+                    <div class="row" id="uploadDiv3" data-upload-div-value="0">
+                        <div class="col-sm-5">
                             <!-- text input -->
                             <div class="form-group">
                                 <label class="fieldlabels"> Document 3 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc3!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_3}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc3!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_3}}" width="100" height="100"/>
                                 @endif
-                                <input type="file" name="other_doc_3" id="other_doc_3" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input type="file" name="doc_3" id="doc_3" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="fieldlabels"> Document 3 Name: </label> 
                                 
-                                <input type="text" name="other_doc_3_name" id="other_doc_3_name" value="{{isset($editdata)?$editdata->other_doc_3_name:''}}" class="form-control" placeholder="Document 3 Name" />
+                                <input type="text" name="doc_3_name" id="doc_3_name" value="{{isset($editdata)?$editdata->doc_3_name:''}}" class="form-control" placeholder="Document 3 Name" />
                                 
                             </div>
                         </div>
+                        <div class="col-sm-1" id="cancelLabel3">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA3" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        
-                        <div class="col-sm-6">
+                    <div class="row" id="uploadDiv4" data-upload-div-value="0">
+                        <div class="col-sm-5">
                             <div class="form-group">
                                 <label class="fieldlabels"> Document 4 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc_4!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_4}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc_4!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_4}}" width="100" height="100"/>
                                 @endif
-                                <input type="file" name="other_doc_4" id="other_doc_4" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input type="file" name="doc_4" id="doc_4" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                                 
                             </div>
                         </div>
@@ -114,13 +128,179 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label class="fieldlabels"> Document 4 Name: </label> 
-                                <input type="text" name="other_doc_4_name" id="other_doc_4_name" value="{{isset($editdata)?$editdata->other_doc_4_name:''}}" class="form-control" placeholder="Document 4 Name" />
+                                <input type="text" name="doc_4_name" id="doc_4_name" value="{{isset($editdata)?$editdata->doc_4_name:''}}" class="form-control" placeholder="Document 4 Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel4">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA4" class="form-control" style="margin-top:7px;">Cancel</a>
                             </div>
                         </div>
                     </div>
-                   
-                   
-                    
+                    <div class="row" id="uploadDiv5" data-upload-div-value="0">
+                        
+                        <div class="col-sm-5">
+                            <!-- text input -->
+                            <div class="form-group">
+                               <label class="fieldlabels"> Document 5 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                @if(isset($editdata) && $editdata->doc_5!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_5}}" width="100" height="100"/>
+                                @endif
+                                <input type="file" name="doc_5" id="doc_5" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 5 Name: </label> 
+                                <input type="text" name="doc_5_name" id="doc_5_name" value="{{isset($editdata)?$editdata->doc_5_name:''}}" class="form-control" placeholder="Document 5 Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel2">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA2" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="uploadDiv6" data-upload-div-value="0">
+                        
+                        <div class="col-sm-5">
+                            <!-- text input -->
+                            <div class="form-group">
+                               <label class="fieldlabels"> Document 6 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                @if(isset($editdata) && $editdata->doc_6!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_6}}" width="100" height="100"/>
+                                @endif
+                                <input type="file" name="doc_6" id="doc_6" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 6 Name: </label> 
+                                <input type="text" name="doc_6_name" id="doc_6_name" value="{{isset($editdata)?$editdata->doc_6_name:''}}" class="form-control" placeholder="Document 6 Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel6">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA6" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="uploadDiv7" data-upload-div-value="0">
+                        <div class="col-sm-5">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 7 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                @if(isset($editdata) && $editdata->doc7!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_3}}" width="100" height="100"/>
+                                @endif
+                                <input type="file" name="doc_7" id="doc_7" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 7 Name: </label> 
+                                
+                                <input type="text" name="doc_7_name" id="doc_7_name" value="{{isset($editdata)?$editdata->doc_7_name:''}}" class="form-control" placeholder="Document 7 Name" />
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel7">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA7" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="uploadDiv8" data-upload-div-value="0">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 8 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                @if(isset($editdata) && $editdata->doc_8!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_8}}" width="100" height="100"/>
+                                @endif
+                                <input type="file" name="doc_8" id="doc_8" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 8 Name: </label> 
+                                <input type="text" name="doc_8_name" id="doc_8_name" value="{{isset($editdata)?$editdata->doc_8_name:''}}" class="form-control" placeholder="Document 8 Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel8">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA8" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="uploadDiv9" data-upload-div-value="0">
+                        
+                        <div class="col-sm-5">
+                            <!-- text input -->
+                            <div class="form-group">
+                               <label class="fieldlabels"> Document 9 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                @if(isset($editdata) && $editdata->doc_9='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_9}}" width="100" height="100"/>
+                                @endif
+                                <input type="file" name="doc_9" id="doc_9" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 9 Name: </label> 
+                                <input type="text" name="doc_9_name" id="doc_9_name" value="{{isset($editdata)?$editdata->doc_9_name:''}}" class="form-control" placeholder="Document 9 Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel9">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA9" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="uploadDiv10" data-upload-div-value="0">
+                        
+                        <div class="col-sm-5">
+                            <!-- text input -->
+                            <div class="form-group">
+                               <label class="fieldlabels"> Document 10 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
+                                @if(isset($editdata) && $editdata->doc_10='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_10}}" width="100" height="100"/>
+                                @endif
+                                <input type="file" name="doc_10" id="doc_10" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6" >
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label class="fieldlabels"> Document 10 Name: </label> 
+                                <input type="text" name="doc_10_name" id="doc_10_name" value="{{isset($editdata)?$editdata->doc_10_name:''}}" class="form-control" placeholder="Document 9 Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1" id="cancelLabel10">
+                            <div class="form-group">
+                                <label class="fieldlabels">  </label> 
+                                <a href="javascript:void(0)" id="cancelA10" class="form-control" style="margin-top:7px;">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="fieldlabels"><a href="javascript:void(0);" style="color:#ffa716;" onclick="UploadMore();"><i class="fa fa-plus" aria-hidden="true"></i> Upload More Document</a></label> 
+                        </div>
+                    </div>
                 </div>
                 <!-- /.card-body -->
 
@@ -162,6 +342,204 @@
 @section('script')
 
 <script>
+
+    var uploadDiv2='<?php if(isset($editdata) && $editdata->doc_2){echo $editdata->doc_2;}?>';
+    var uploadDiv3='<?php if(isset($editdata) && $editdata->doc_3){echo $editdata->doc_3;}?>';
+    var uploadDiv4='<?php if(isset($editdata) && $editdata->doc_4){echo $editdata->doc_4;}?>';
+    var uploadDiv5='<?php if(isset($editdata) && $editdata->doc_5){echo $editdata->doc_5;}?>';
+    var uploadDiv6='<?php if(isset($editdata) && $editdata->doc_6){echo $editdata->doc_6;}?>';
+    var uploadDiv7='<?php if(isset($editdata) && $editdata->doc_7){echo $editdata->doc_7;}?>';
+    var uploadDiv8='<?php if(isset($editdata) && $editdata->doc_8){echo $editdata->doc_8;}?>';
+    var uploadDiv9='<?php if(isset($editdata) && $editdata->doc_9){echo $editdata->doc_9;}?>';
+    var uploadDiv10='<?php if(isset($editdata) && $editdata->doc_10){echo $editdata->doc_10;}?>';
+    // alert(uploadDiv2);
+    if(uploadDiv2==''){
+        $('#uploadDiv2').hide();
+    }
+    if(uploadDiv3==''){
+        $('#uploadDiv3').hide();
+    }
+    if(uploadDiv4==''){
+        $('#uploadDiv4').hide();
+    }
+    if(uploadDiv5==''){
+        $('#uploadDiv5').hide();
+    }
+    if(uploadDiv6==''){
+        $('#uploadDiv6').hide();
+    }
+    if(uploadDiv7==''){
+        $('#uploadDiv7').hide();
+    }
+    if(uploadDiv8==''){
+        $('#uploadDiv8').hide();
+    }
+    if(uploadDiv9==''){
+        $('#uploadDiv9').hide();
+    }
+    if(uploadDiv10==''){
+        $('#uploadDiv10').hide();
+    }
+    function UploadMore(){
+        // alert("hii");
+        var valuploadDiv2= $("#uploadDiv2").attr("data-upload-div-value");
+        var valuploadDiv3= $("#uploadDiv3").attr("data-upload-div-value");
+        var valuploadDiv4= $("#uploadDiv4").attr("data-upload-div-value");
+        var valuploadDiv5= $("#uploadDiv5").attr("data-upload-div-value");
+        var valuploadDiv6= $("#uploadDiv6").attr("data-upload-div-value");
+        var valuploadDiv7= $("#uploadDiv7").attr("data-upload-div-value");
+        var valuploadDiv8= $("#uploadDiv8").attr("data-upload-div-value");
+        var valuploadDiv9= $("#uploadDiv9").attr("data-upload-div-value");
+        var valuploadDiv10= $("#uploadDiv10").attr("data-upload-div-value");
+
+        // alert(valuploadDiv2);
+        $("#uploadDiv2").attr("data-upload-div-value", "1");
+        $('#uploadDiv2').show();
+        $("#doc_2").attr('required','required');
+        $("#doc_2_name").attr('required','required');
+
+        if(valuploadDiv2==1){
+            $("#uploadDiv3").attr("data-upload-div-value", "1");
+            $('#uploadDiv3').show();
+            $('#cancelLabel2').hide();
+            $("#doc_3").attr('required','required');
+            $("#doc_3_name").attr('required','required');
+        }
+        if(valuploadDiv3==1){
+            $("#uploadDiv4").attr("data-upload-div-value", "1");
+            $('#uploadDiv4').show();
+            $('#cancelLabel3').hide();
+            $("#doc_4").attr('required','required');
+            $("#doc_4_name").attr('required','required');
+        }
+        if(valuploadDiv4==1){
+            $("#uploadDiv5").attr("data-upload-div-value", "1");
+            $('#uploadDiv5').show();
+            $('#cancelLabel4').hide();
+            $("#doc_5").attr('required','required');
+            $("#doc_5_name").attr('required','required');
+        }
+        if(valuploadDiv5==1){
+            $("#uploadDiv6").attr("data-upload-div-value", "1");
+            $('#uploadDiv6').show();
+            $('#cancelLabel5').hide();
+            $("#doc_6").attr('required','required');
+            $("#doc_6_name").attr('required','required');
+        }
+        if(valuploadDiv6==1){
+            $("#uploadDiv7").attr("data-upload-div-value", "1");
+            $('#uploadDiv7').show();
+            $('#cancelLabel6').hide();
+            $("#doc_7").attr('required','required');
+            $("#doc_7_name").attr('required','required');
+        }
+        if(valuploadDiv7==1){
+            $("#uploadDiv8").attr("data-upload-div-value", "1");
+            $('#uploadDiv8').show();
+            $('#cancelLabel7').hide();
+            $("#doc_8").attr('required','required');
+            $("#doc_8_name").attr('required','required');
+        }
+        if(valuploadDiv8==1){
+            $("#uploadDiv9").attr("data-upload-div-value", "1");
+            $('#uploadDiv9').show();
+            $('#cancelLabel8').hide();
+            $("#doc_9").attr('required','required');
+            $("#doc_9_name").attr('required','required');
+        }
+        if(valuploadDiv9==1){
+            $("#uploadDiv10").attr("data-upload-div-value", "1");
+            $('#uploadDiv10').show();
+            $('#cancelLabel9').hide();
+            $("#doc_10").attr('required','required');
+            $("#doc_10_name").attr('required','required');
+        }
+
+    }
+
+    $('#cancelA2').click(function(){
+        $("#uploadDiv2").attr("data-upload-div-value", "0");
+        $('#uploadDiv2').hide(); 
+        $("#doc_2").removeAttr('required');
+        $("#doc_2_name").removeAttr('required');
+        $("#doc_2").val('');
+        $("#doc_2_name").val('');
+    });
+    $('#cancelA3').click(function(){
+        $("#uploadDiv3").attr("data-upload-div-value", "0");
+        $('#uploadDiv3').hide(); 
+        $('#cancelLabel2').show();
+        $("#doc_3").removeAttr('required');
+        $("#doc_3_name").removeAttr('required');
+        $("#doc_3").val('');
+        $("#doc_3_name").val('');
+    });
+    $('#cancelA4').click(function(){
+        $("#uploadDiv4").attr("data-upload-div-value", "0");
+        $('#uploadDiv4').hide(); 
+        $('#cancelLabel3').show();
+        $("#doc_4").removeAttr('required');
+        $("#doc_4_name").removeAttr('required');
+        $("#doc_4").val('');
+        $("#doc_4_name").val('');
+    });
+    $('#cancelA5').click(function(){
+        $("#uploadDiv5").attr("data-upload-div-value", "0");
+        $('#uploadDiv5').hide(); 
+        $('#cancelLabel4').show();
+        $("#doc_5").removeAttr('required');
+        $("#doc_5_name").removeAttr('required');
+        $("#doc_5").val('');
+        $("#doc_5_name").val('');
+    });
+    $('#cancelA6').click(function(){
+        $("#uploadDiv6").attr("data-upload-div-value", "0");
+        $('#uploadDiv6').hide(); 
+        $('#cancelLabel5').show();
+        $("#doc_6").removeAttr('required');
+        $("#doc_6_name").removeAttr('required');
+        $("#doc_6").val('');
+        $("#doc_6_name").val('');
+    });
+    $('#cancelA7').click(function(){
+        $("#uploadDiv7").attr("data-upload-div-value", "0");
+        $('#uploadDiv7').hide(); 
+        $('#cancelLabel6').show();
+        $("#doc_7").removeAttr('required');
+        $("#doc_7_name").removeAttr('required');
+        $("#doc_7").val('');
+        $("#doc_7_name").val('');
+    });
+    $('#cancelA8').click(function(){
+        $("#uploadDiv8").attr("data-upload-div-value", "0");
+        $('#uploadDiv8').hide(); 
+        $('#cancelLabel7').show();
+        $("#doc_8").removeAttr('required');
+        $("#doc_8_name").removeAttr('required');
+        $("#doc_8").val('');
+        $("#doc_8_name").val('');
+    });
+    $('#cancelA9').click(function(){
+        $("#uploadDiv9").attr("data-upload-div-value", "0");
+        $('#uploadDiv9').hide(); 
+        $('#cancelLabel8').show();
+        $("#doc_9").removeAttr('required');
+        $("#doc_9_name").removeAttr('required');
+        $("#doc_9").val('');
+        $("#doc_9_name").val('');
+    });
+    $('#cancelA10').click(function(){
+        $("#uploadDiv10").attr("data-upload-div-value", "0");
+        $('#uploadDiv10').hide(); 
+        $('#cancelLabel9').show();
+        $("#doc_10").removeAttr('required');
+        $("#doc_10_name").removeAttr('required');
+        $("#doc_10").val('');
+        $("#doc_10_name").val('');
+    });
+
+
+
         $(document).ready(function(){
 
         var current_fs, next_fs, previous_fs; //fieldsets
@@ -351,48 +729,48 @@
     $(document).ready(function(){
 
         // doc_2
-        $("#other_doc_1").on('change', function(event) {
+        $("#doc_1").on('change', function(event) {
             var file = event.target.files[0];
             if(file.size>=2*1024*1024) {
                 alert("File of maximum 2MB");
-                $("#other_doc_1").val(''); 
+                $("#doc_1").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
             }
         });
-        $("#other_doc_2").on('change', function(event) {
+        $("#doc_2").on('change', function(event) {
             var file = event.target.files[0];
             if(file.size>=2*1024*1024) {
                 alert("File of maximum 2MB");
-                $("#other_doc_2").val(''); 
+                $("#doc_2").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
             }else{
-                $('#other_doc_2_name').attr('required','required')
-            }
-        });
-
-        $("#other_doc_3").on('change', function(event) {
-            var file = event.target.files[0];
-            if(file.size>=2*1024*1024) {
-                alert("File of maximum 2MB");
-                $("#other_doc_3").val(''); 
-                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
-                return false;
-            }else{
-                $('#other_doc_3_name').attr('required','required')
+                $('#doc_2_name').attr('required','required')
             }
         });
 
-        $("#other_doc_4").on('change', function(event) {
+        $("#doc_3").on('change', function(event) {
             var file = event.target.files[0];
             if(file.size>=2*1024*1024) {
                 alert("File of maximum 2MB");
-                $("#other_doc_4").val(''); 
+                $("#doc_3").val(''); 
                 // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
                 return false;
             }else{
-                $('#other_doc_4_name').attr('required','required')
+                $('#doc_3_name').attr('required','required')
+            }
+        });
+
+        $("#doc_4").on('change', function(event) {
+            var file = event.target.files[0];
+            if(file.size>=2*1024*1024) {
+                alert("File of maximum 2MB");
+                $("#doc_4").val(''); 
+                // $("#doc_1").get(0).reset(); //the tricky part is to "empty" the input file here I reset the form.
+                return false;
+            }else{
+                $('#doc_4_name').attr('required','required')
             }
         });
 

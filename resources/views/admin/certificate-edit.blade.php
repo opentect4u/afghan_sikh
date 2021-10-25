@@ -212,8 +212,8 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>Mobile</label>
-                                <input type="text" readonly name="mobile" value="{{$user_details1->mobile}}" class="form-control" placeholder="Enter ...">
+                                <label>Phone</label>
+                                <input type="text" readonly name="phone" value="{{$user_details1->phone}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">

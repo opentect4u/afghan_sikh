@@ -146,17 +146,65 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
-                            <!-- text input -->
+                        <!-- <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Present Address</label>
                                 <input type="text" readonly name="present_address" value="{{$user_details1->present_address}}" class="form-control" placeholder="Enter ...">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Profession</label>
                                 <input type="text" readonly name="profession" value="{{$user_details1->profession}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>House No/Name</label>
+                                <input type="text" required readonly name="add_1" value="{{isset($user_details1)?$user_details1->add_1:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Street Name</label>
+                                <input type="text" required readonly name="add_2" value="{{isset($user_details1)?$user_details1->add_2:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" required readonly name="city" value="{{isset($user_details1)?$user_details1->city:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>County</label>
+                                <input type="text" required readonly name="county" value="{{isset($user_details1)?$user_details1->county:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Postal/zip code</label>
+                                <input type="text" required readonly name="postcode" value="{{isset($user_details1)?$user_details1->postcode:''}}" class="form-control" placeholder="Enter ...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <!-- <input type="text" required readonly name="profession" value="{{isset($user_details)?$user_details->county:''}}" class="form-control" placeholder="Enter ..."> -->
+                                <select name="country" id="country" required class="form-control" disabled>
+                                    <option value="">-- Select Country --</option>
+                                    @foreach($country as $countries)
+                                    <option value="{{$countries->id}}" <?php if(isset($user_details1) && $user_details1->country==$countries->id){echo "selected";}?> >{{$countries->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -212,8 +260,8 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>Mobile</label>
-                                <input type="text" readonly name="mobile" value="{{$user_details1->mobile}}" class="form-control" placeholder="Enter ...">
+                                <label>Phone</label>
+                                <input type="text" readonly name="phone" value="{{$user_details1->phone}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -391,7 +439,7 @@
                             </div>
                         </div>
                         @endif
-                        @if(isset($user_details->doc_2))
+                        @if(isset($user_details->doc_2) && $user_details->doc_2!='')
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Document 2</label>
@@ -405,7 +453,7 @@
                         @endif
                     </div>
                     <div class="row">
-                        @if(isset($user_details->doc_3))
+                        @if(isset($user_details->doc_3) && $user_details->doc_3!='')
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Document 3</label>
@@ -416,7 +464,7 @@
                             </div>
                         </div>
                         @endif
-                        @if(isset($user_details->doc_4))
+                        @if(isset($user_details->doc_4) && $user_details->doc_4!='')
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Document 4</label>

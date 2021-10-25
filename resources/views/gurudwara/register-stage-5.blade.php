@@ -63,19 +63,82 @@
                                     <!-- *Marital Status/*Religion/Profession/Occupation -->
                                     <!-- Other Information / Upload Document  -->
                                     <label class="fieldlabels">Other Information : *</label> 
-                                    <textarea name="other_doc" id="other_doc"></textarea>
-                                    <label class="fieldlabels">Upload Document 1 : *</label> 
-                                    <input type="file" required name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 2 : *</label> 
-                                    <input type="file" required name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 3 : *</label> 
-                                    <input type="file"  name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    <label class="fieldlabels">Upload Document 4 : *</label> 
-                                    <input type="file" name="doc_4" id="doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
-                                    
+                                    <textarea name="other_doc" id="other_doc">{{isset($editdata)?$editdata->other_doc:''}}</textarea>
+                                    <div id="uploadDiv1" >
+                                        <label class="fieldlabels">Upload Document 1 : *</label> 
+                                        <input type="file" name="gurudwara_doc_1" <?php if(isset($editdata) && $editdata->gud_head_doc_1==''){echo "required";}?> id="gurudwara_doc_1" />
+                                        <label class="fieldlabels">Upload Document 1 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_1_name" required id="gurudwara_doc_1_name" value="{{isset($editdata)?$editdata->gud_head_doc_1_name:''}}" placeholder="Upload Document 1 Name" />
+                                    </div>
+                                    <div id="uploadDiv2" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 2 : *</label> 
+                                        <input type="file" name="gurudwara_doc_2"  id="gurudwara_doc_2" />
+                                        <label class="fieldlabels">Upload Document 2 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_2_name"  id="gurudwara_doc_2_name" value="{{isset($editdata)?$editdata->gud_head_doc_2_name:''}}" placeholder="Upload Document 2 Name" />
+                                        <label class="fieldlabels" id="cancelLabel2"><a href="javascript:void(0)" id="cancelA2" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv3" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 3 : *</label> 
+                                        <input type="file" name="gurudwara_doc_3"  id="gurudwara_doc_3" />
+                                        <label class="fieldlabels">Upload Document 3 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_3_name"  id="gurudwara_doc_3_name" value="{{isset($editdata)?$editdata->gud_head_doc_3_name:''}}" placeholder="Upload Document 3 Name" />
+                                        <label class="fieldlabels" id="cancelLabel3"><a href="javascript:void(0)" id="cancelA3" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv4" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 4 : *</label> 
+                                        <input type="file" name="gurudwara_doc_4"  id="gurudwara_doc_4" />
+                                        <label class="fieldlabels">Upload Document 4 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_4_name"  id="gurudwara_doc_4_name" value="{{isset($editdata)?$editdata->gud_head_doc_4_name:''}}" placeholder="Upload Document 4 Name" />
+                                        <label class="fieldlabels" id="cancelLabel4"><a href="javascript:void(0)" id="cancelA4" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv5" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 5 : *</label> 
+                                        <input type="file" name="gurudwara_doc_5" id="gurudwara_doc_5" />
+                                        <label class="fieldlabels">Upload Document 5 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_5_name" id="gurudwara_doc_5_name" value="{{isset($editdata)?$editdata->gud_head_doc_5_name:''}}" placeholder="Upload Document 5 Name" />
+                                        <label class="fieldlabels" id="cancelLabel5"><a href="javascript:void(0)" id="cancelA5" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv6" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 6 : *</label> 
+                                        <input type="file" name="gurudwara_doc_6" id="gurudwara_doc_6" />
+                                        <label class="fieldlabels">Upload Document 6 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_6_name" id="gurudwara_doc_6_name" value="{{isset($editdata)?$editdata->gud_head_doc_6_name:''}}" placeholder="Upload Document 6 Name" />
+                                        <label class="fieldlabels" id="cancelLabel6"><a href="javascript:void(0)" id="cancelA6" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv7" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 7 : *</label> 
+                                        <input type="file" name="gurudwara_doc_7" id="gurudwara_doc_7" />
+                                        <label class="fieldlabels">Upload Document 7 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_7_name" id="gurudwara_doc_7_name" value="{{isset($editdata)?$editdata->gud_head_doc_7_name:''}}" placeholder="Upload Document 7 Name" />
+                                        <label class="fieldlabels" id="cancelLabel7"><a href="javascript:void(0)" id="cancelA7" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv8" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 8 : *</label> 
+                                        <input type="file" name="gurudwara_doc_8" id="gurudwara_doc_8" />
+                                        <label class="fieldlabels">Upload Document 8 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_8_name" id="gurudwara_doc_8_name" value="{{isset($editdata)?$editdata->gud_head_doc_8_name:''}}" placeholder="Upload Document 8 Name" />
+                                        <label class="fieldlabels" id="cancelLabel8"><a href="javascript:void(0)" id="cancelA8" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv9" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 9 : *</label> 
+                                        <input type="file" name="gurudwara_doc_9" id="gurudwara_doc_9" />
+                                        <label class="fieldlabels">Upload Document 9 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_9_name" id="gurudwara_doc_9_name" value="{{isset($editdata)?$editdata->gud_head_doc_9_name:''}}" placeholder="Upload Document 9 Name" />
+                                        <label class="fieldlabels" id="cancelLabel9"><a href="javascript:void(0)" id="cancelA9" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <div id="uploadDiv10" data-upload-div-value="0">
+                                        <label class="fieldlabels">Upload Document 10 : *</label> 
+                                        <input type="file" name="gurudwara_doc_10" id="gurudwara_doc_10" />
+                                        <label class="fieldlabels">Upload Document 10 Name: *</label> 
+                                        <input type="text" name="gurudwara_doc_10_name" id="gurudwara_doc_10_name" value="{{isset($editdata)?$editdata->gud_head_doc_10_name:''}}" placeholder="Upload Document 10 Name" />
+                                        <label class="fieldlabels" id="cancelLabel10"><a href="javascript:void(0)" id="cancelA10" style="color:#ffa716;"><i class="fa fa-times" aria-hidden="true"></i> cancel</a></label> 
+                                    </div>
+                                    <label class="fieldlabels"><a href="javascript:void(0);" style="color:#ffa716;" onclick="UploadMore();"><i class="fa fa-plus" aria-hidden="true"></i> Upload More Document</a></label> 
+
                                                                        
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Save & Continue" />
+                                <input type="button" name="previous" class="action-button" value="Previous" onclick="location.href='{{route('gurudwara.registerstep41')}}'"/>
 									
 								</div>
                             </fieldset>
@@ -99,6 +162,200 @@
 @section('script')
 
 <script>
+    var uploadDiv2='<?php if(isset($editdata) && $editdata->gud_head_doc_2){echo $editdata->gud_head_doc_2;}?>';
+    var uploadDiv3='<?php if(isset($editdata) && $editdata->gud_head_doc_3){echo $editdata->gud_head_doc_3;}?>';
+    var uploadDiv4='<?php if(isset($editdata) && $editdata->gud_head_doc_4){echo $editdata->gud_head_doc_4;}?>';
+    var uploadDiv5='<?php if(isset($editdata) && $editdata->gud_head_doc_5){echo $editdata->gud_head_doc_5;}?>';
+    var uploadDiv6='<?php if(isset($editdata) && $editdata->gud_head_doc_6){echo $editdata->gud_head_doc_6;}?>';
+    var uploadDiv7='<?php if(isset($editdata) && $editdata->gud_head_doc_7){echo $editdata->gud_head_doc_7;}?>';
+    var uploadDiv8='<?php if(isset($editdata) && $editdata->gud_head_doc_8){echo $editdata->gud_head_doc_8;}?>';
+    var uploadDiv9='<?php if(isset($editdata) && $editdata->gud_head_doc_9){echo $editdata->gud_head_doc_9;}?>';
+    var uploadDiv10='<?php if(isset($editdata) && $editdata->gud_head_doc_10){echo $editdata->gud_head_doc_10;}?>';
+    // alert(uploadDiv2);
+    if(uploadDiv2==''){
+        $('#uploadDiv2').hide();
+    }
+    if(uploadDiv3==''){
+        $('#uploadDiv3').hide();
+    }
+    if(uploadDiv4==''){
+        $('#uploadDiv4').hide();
+    }
+    if(uploadDiv5==''){
+        $('#uploadDiv5').hide();
+    }
+    if(uploadDiv6==''){
+        $('#uploadDiv6').hide();
+    }
+    if(uploadDiv7==''){
+        $('#uploadDiv7').hide();
+    }
+    if(uploadDiv8==''){
+        $('#uploadDiv8').hide();
+    }
+    if(uploadDiv9==''){
+        $('#uploadDiv9').hide();
+    }
+    if(uploadDiv10==''){
+        $('#uploadDiv10').hide();
+    }
+    function UploadMore(){
+        // alert("hii");
+        var valuploadDiv2= $("#uploadDiv2").attr("data-upload-div-value");
+        var valuploadDiv3= $("#uploadDiv3").attr("data-upload-div-value");
+        var valuploadDiv4= $("#uploadDiv4").attr("data-upload-div-value");
+        var valuploadDiv5= $("#uploadDiv5").attr("data-upload-div-value");
+        var valuploadDiv6= $("#uploadDiv6").attr("data-upload-div-value");
+        var valuploadDiv7= $("#uploadDiv7").attr("data-upload-div-value");
+        var valuploadDiv8= $("#uploadDiv8").attr("data-upload-div-value");
+        var valuploadDiv9= $("#uploadDiv9").attr("data-upload-div-value");
+        var valuploadDiv10= $("#uploadDiv10").attr("data-upload-div-value");
+
+        // alert(valuploadDiv2);
+        $("#uploadDiv2").attr("data-upload-div-value", "1");
+        $('#uploadDiv2').show();
+        $("#gurudwara_doc_2").attr('required','required');
+        $("#gurudwara_doc_2_name").attr('required','required');
+
+        if(valuploadDiv2==1){
+            $("#uploadDiv3").attr("data-upload-div-value", "1");
+            $('#uploadDiv3').show();
+            $('#cancelLabel2').hide();
+            $("#gurudwara_doc_3").attr('required','required');
+            $("#gurudwara_doc_3_name").attr('required','required');
+        }
+        if(valuploadDiv3==1){
+            $("#uploadDiv4").attr("data-upload-div-value", "1");
+            $('#uploadDiv4').show();
+            $('#cancelLabel3').hide();
+            $("#gurudwara_doc_4").attr('required','required');
+            $("#gurudwara_doc_4_name").attr('required','required');
+        }
+        if(valuploadDiv4==1){
+            $("#uploadDiv5").attr("data-upload-div-value", "1");
+            $('#uploadDiv5').show();
+            $('#cancelLabel4').hide();
+            $("#gurudwara_doc_5").attr('required','required');
+            $("#gurudwara_doc_5_name").attr('required','required');
+        }
+        if(valuploadDiv5==1){
+            $("#uploadDiv6").attr("data-upload-div-value", "1");
+            $('#uploadDiv6').show();
+            $('#cancelLabel5').hide();
+            $("#gurudwara_doc_6").attr('required','required');
+            $("#gurudwara_doc_6_name").attr('required','required');
+        }
+        if(valuploadDiv6==1){
+            $("#uploadDiv7").attr("data-upload-div-value", "1");
+            $('#uploadDiv7').show();
+            $('#cancelLabel6').hide();
+            $("#gurudwara_doc_7").attr('required','required');
+            $("#gurudwara_doc_7_name").attr('required','required');
+        }
+        if(valuploadDiv7==1){
+            $("#uploadDiv8").attr("data-upload-div-value", "1");
+            $('#uploadDiv8').show();
+            $('#cancelLabel7').hide();
+            $("#gurudwara_doc_8").attr('required','required');
+            $("#gurudwara_doc_8_name").attr('required','required');
+        }
+        if(valuploadDiv8==1){
+            $("#uploadDiv9").attr("data-upload-div-value", "1");
+            $('#uploadDiv9').show();
+            $('#cancelLabel8').hide();
+            $("#gurudwara_doc_9").attr('required','required');
+            $("#gurudwara_doc_9_name").attr('required','required');
+        }
+        if(valuploadDiv9==1){
+            $("#uploadDiv10").attr("data-upload-div-value", "1");
+            $('#uploadDiv10').show();
+            $('#cancelLabel9').hide();
+            $("#gurudwara_doc_10").attr('required','required');
+            $("#gurudwara_doc_10_name").attr('required','required');
+        }
+
+    }
+
+    $('#cancelA2').click(function(){
+        $("#uploadDiv2").attr("data-upload-div-value", "0");
+        $('#uploadDiv2').hide(); 
+        $("#gurudwara_doc_2").removeAttr('required');
+        $("#gurudwara_doc_2_name").removeAttr('required');
+        $("#gurudwara_doc_2").val('');
+        $("#gurudwara_doc_2_name").val('');
+    });
+    $('#cancelA3').click(function(){
+        $("#uploadDiv3").attr("data-upload-div-value", "0");
+        $('#uploadDiv3').hide(); 
+        $('#cancelLabel2').show();
+        $("#gurudwara_doc_3").removeAttr('required');
+        $("#gurudwara_doc_3_name").removeAttr('required');
+        $("#gurudwara_doc_3").val('');
+        $("#gurudwara_doc_3_name").val('');
+    });
+    $('#cancelA4').click(function(){
+        $("#uploadDiv4").attr("data-upload-div-value", "0");
+        $('#uploadDiv4').hide(); 
+        $('#cancelLabel3').show();
+        $("#gurudwara_doc_4").removeAttr('required');
+        $("#gurudwara_doc_4_name").removeAttr('required');
+        $("#gurudwara_doc_4").val('');
+        $("#gurudwara_doc_4_name").val('');
+    });
+    $('#cancelA5').click(function(){
+        $("#uploadDiv5").attr("data-upload-div-value", "0");
+        $('#uploadDiv5').hide(); 
+        $('#cancelLabel4').show();
+        $("#gurudwara_doc_5").removeAttr('required');
+        $("#gurudwara_doc_5_name").removeAttr('required');
+        $("#gurudwara_doc_5").val('');
+        $("#gurudwara_doc_5_name").val('');
+    });
+    $('#cancelA6').click(function(){
+        $("#uploadDiv6").attr("data-upload-div-value", "0");
+        $('#uploadDiv6').hide(); 
+        $('#cancelLabel5').show();
+        $("#gurudwara_doc_6").removeAttr('required');
+        $("#gurudwara_doc_6_name").removeAttr('required');
+        $("#gurudwara_doc_6").val('');
+        $("#gurudwara_doc_6_name").val('');
+    });
+    $('#cancelA7').click(function(){
+        $("#uploadDiv7").attr("data-upload-div-value", "0");
+        $('#uploadDiv7').hide(); 
+        $('#cancelLabel6').show();
+        $("#gurudwara_doc_7").removeAttr('required');
+        $("#gurudwara_doc_7_name").removeAttr('required');
+        $("#gurudwara_doc_7").val('');
+        $("#gurudwara_doc_7_name").val('');
+    });
+    $('#cancelA8').click(function(){
+        $("#uploadDiv8").attr("data-upload-div-value", "0");
+        $('#uploadDiv8').hide(); 
+        $('#cancelLabel7').show();
+        $("#gurudwara_doc_8").removeAttr('required');
+        $("#gurudwara_doc_8_name").removeAttr('required');
+        $("#gurudwara_doc_8").val('');
+        $("#gurudwara_doc_8_name").val('');
+    });
+    $('#cancelA9').click(function(){
+        $("#uploadDiv9").attr("data-upload-div-value", "0");
+        $('#uploadDiv9').hide(); 
+        $('#cancelLabel8').show();
+        $("#gurudwara_doc_9").removeAttr('required');
+        $("#gurudwara_doc_9_name").removeAttr('required');
+        $("#gurudwara_doc_9").val('');
+        $("#gurudwara_doc_9_name").val('');
+    });
+    $('#cancelA10').click(function(){
+        $("#uploadDiv10").attr("data-upload-div-value", "0");
+        $('#uploadDiv10').hide(); 
+        $('#cancelLabel9').show();
+        $("#gurudwara_doc_10").removeAttr('required');
+        $("#gurudwara_doc_10_name").removeAttr('required');
+        $("#gurudwara_doc_10").val('');
+        $("#gurudwara_doc_10_name").val('');
+    });
         $(document).ready(function(){
 
         var current_fs, next_fs, previous_fs; //fieldsets

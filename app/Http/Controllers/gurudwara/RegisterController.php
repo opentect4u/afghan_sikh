@@ -250,11 +250,172 @@ class RegisterController extends Controller
         }else{
             $gurudwara_doc_1=$data->gurudwara_doc_1;
         }
+        if ($request->hasFile('gurudwara_doc_2')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_2');
+            $gurudwara_doc_2=date('YmdHis') .'_'.$id. 'doc_2.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_2);
 
-        $data->gurudwara_doc_1=$request->gurudwara_doc_1;
+            if($data->gurudwara_doc_2!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_2;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_2=$data->gurudwara_doc_2;
+        }
+
+        if ($request->hasFile('gurudwara_doc_3')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_3');
+            $gurudwara_doc_3=date('YmdHis') .'_'.$id. 'doc_3.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_3);
+
+            if($data->gurudwara_doc_3!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_3;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_3=$data->gurudwara_doc_3;
+        }
+
+
+        if ($request->hasFile('gurudwara_doc_4')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_4');
+            $gurudwara_doc_4=date('YmdHis') .'_'.$id. 'doc_4.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_4);
+
+            if($data->gurudwara_doc_4!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_4;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_4=$data->gurudwara_doc_4;
+        }
+
+        if ($request->hasFile('gurudwara_doc_5')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_5');
+            $gurudwara_doc_5=date('YmdHis') .'_'.$id. 'doc_5.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_5);
+
+            if($data->gurudwara_doc_5!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_5;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_5=$data->gurudwara_doc_5;
+        }
+
+        if ($request->hasFile('gurudwara_doc_6')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_6');
+            $gurudwara_doc_6=date('YmdHis') .'_'.$id. 'doc_6.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_6);
+
+            if($data->gurudwara_doc_6!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_6;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_6=$data->gurudwara_doc_6;
+        }
+
+        if ($request->hasFile('gurudwara_doc_7')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_7');
+            $gurudwara_doc_7=date('YmdHis') .'_'.$id. 'doc_7.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_7);
+
+            if($data->gurudwara_doc_7!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_7;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_7=$data->gurudwara_doc_7;
+        }
+
+        if ($request->hasFile('gurudwara_doc_8')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_8');
+            $gurudwara_doc_8=date('YmdHis') .'_'.$id. 'doc_8.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_8);
+
+            if($data->gurudwara_doc_8!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_8;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_8=$data->gurudwara_doc_8;
+        }
+
+        if ($request->hasFile('gurudwara_doc_9')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_9');
+            $gurudwara_doc_9=date('YmdHis') .'_'.$id. 'doc_9.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_9);
+
+            if($data->gurudwara_doc_9!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_9;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_9=$data->gurudwara_doc_9;
+        }
+
+        if ($request->hasFile('gurudwara_doc_10')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_10');
+            $gurudwara_doc_10=date('YmdHis') .'_'.$id. 'doc_10.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_10);
+
+            if($data->gurudwara_doc_10!=null){
+                $filesc = public_path('gurudwara-doc/') . $data->gurudwara_doc_10;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_10=$data->gurudwara_doc_10;
+        }
+
+        $data->gurudwara_doc_1=$gurudwara_doc_1;
         $data->gurudwara_doc_1_name=$request->gurudwara_doc_1_name;
-        // $data->gurudwara_head_phone_no=$request->gurudwara_head_phone_no;
-        // $data->gurudwara_head_email=$request->gurudwara_head_email;
+        $data->gurudwara_doc_2=$gurudwara_doc_2;
+        $data->gurudwara_doc_2_name=$request->gurudwara_doc_2_name;
+        $data->gurudwara_doc_3=$gurudwara_doc_3;
+        $data->gurudwara_doc_3_name=$request->gurudwara_doc_3_name;
+        $data->gurudwara_doc_4=$gurudwara_doc_4;
+        $data->gurudwara_doc_4_name=$request->gurudwara_doc_4_name;
+        $data->gurudwara_doc_5=$gurudwara_doc_5;
+        $data->gurudwara_doc_5_name=$request->gurudwara_doc_5_name;
+        $data->gurudwara_doc_6=$gurudwara_doc_6;
+        $data->gurudwara_doc_6_name=$request->gurudwara_doc_6_name;
+        $data->gurudwara_doc_7=$gurudwara_doc_7;
+        $data->gurudwara_doc_7_name=$request->gurudwara_doc_7_name;
+        $data->gurudwara_doc_8=$gurudwara_doc_8;
+        $data->gurudwara_doc_8_name=$request->gurudwara_doc_8_name;
+        $data->gurudwara_doc_9=$gurudwara_doc_9;
+        $data->gurudwara_doc_9_name=$request->gurudwara_doc_9_name;
+        $data->gurudwara_doc_10=$gurudwara_doc_10;
+        $data->gurudwara_doc_10_name=$request->gurudwara_doc_10_name;
+
         $data->register_stage=$request->register_stage;
         $data->save();
         // return $data;
@@ -274,10 +435,49 @@ class RegisterController extends Controller
         $email=Session::get('email_mobile');
         $data=TdGurudwaraDetails::find($id);
         $data->gurudwara_head_name=$request->gurudwara_head_name;
-        $data->gurudwara_head_address=$request->gurudwara_head_address;
+
+        $data->gurudwara_head_name=$request->gurudwara_head_name;
+        $data->gurudwara_head_dob=$request->gurudwara_head_dob;
+        $data->nationality=$request->nationality;
+        $data->place_of_birth=$request->place_of_birth;
+        $data->previous_nationality=$request->previous_nationality;
+        $data->religion=$request->religion;
+        $data->passport_no=$request->passport_no;
+        $data->passport_date_of_issue=$request->passport_date_of_issue;
+        $data->passport_date_of_expiry=$request->passport_date_of_expiry;
+
+
+
+        // $data->gurudwara_head_address=$request->gurudwara_head_address;
+        // $data->gurudwara_head_phone_no=$request->gurudwara_head_phone_no;
+        // $data->gurudwara_head_email=$request->gurudwara_head_email;
+        // $data->phone=$request->phone;
+        $data->register_stage=$request->register_stage;
+        $data->save();
+        // return $data;
+        return redirect()->route('gurudwara.registerstep41');
+    }
+
+    public function Register41(Type $var = null)
+    {
+        $id=Session::get('id');
+        $email=Session::get('email_mobile');
+        $country=MdCountry::orderBy('name','asc')->get();
+        $editdata=TdGurudwaraDetails::find($id);
+        return view('gurudwara.register-stage-4-1',['country'=>$country,'editdata'=>$editdata]);
+    }
+
+    public function Register41Confirm(Request $request){
+        // return $request;
+        $id=Session::get('id');
+        $email=Session::get('email_mobile');
+        $data=TdGurudwaraDetails::find($id);
+        $data->gurudwara_head_name=$request->gurudwara_head_name;
+        $data->gurudwara_head_home_address=$request->gurudwara_head_home_address;
+        $data->gurudwara_head_job_address=$request->gurudwara_head_job_address;
+        $data->gurudwara_head_position=$request->gurudwara_head_position;
         $data->gurudwara_head_phone_no=$request->gurudwara_head_phone_no;
         $data->gurudwara_head_email=$request->gurudwara_head_email;
-        // $data->phone=$request->phone;
         $data->register_stage=$request->register_stage;
         $data->save();
         // return $data;
@@ -285,8 +485,11 @@ class RegisterController extends Controller
     }
 
     public function Register5(){
+        $id=Session::get('id');
+        $email=Session::get('email_mobile');
         $country=MdCountry::orderBy('name','asc')->get();
-        return view('gurudwara.register-stage-5',['country'=>$country]);
+        $editdata=TdGurudwaraDetails::find($id);
+        return view('gurudwara.register-stage-5',['country'=>$country,'editdata'=>$editdata]);
     }
 
     public function Register5Confirm(Request $request){
@@ -295,90 +498,193 @@ class RegisterController extends Controller
         $email=Session::get('email_mobile');
         $data=TdGurudwaraDetails::find($id);
 
-        if ($request->hasFile('doc_1')) {
-            $profile_pic_path1 = $request->file('doc_1');
-            $doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
-            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
-            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
 
-            $destinationPath1 = public_path('user-doc/');
-            $profile_pic_path1->move($destinationPath1,$doc_1);
+        if ($request->hasFile('gurudwara_doc_1')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_1');
+            $gurudwara_doc_1=date('YmdHis') .'_'.$id. 'doc_1.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_1);
 
-            if($data->doc_1!=null){
-                $filesc = public_path('user-doc/') . $data->doc_1;
-                if (file_exists($filesc) != null) {
-                    unlink($filesc);
-                }
-            } 
-
-        }else{
-            $doc_1=$data->doc_1;
-        }
-
-        if ($request->hasFile('doc_2')) {
-            $profile_pic_path2 = $request->file('doc_2');
-            $doc_2=date('YmdHis') .'_'.$id. 'doc_2.' . $profile_pic_path2->getClientOriginalExtension();
-            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
-            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
-
-            $destinationPath2 = public_path('user-doc/');
-            $profile_pic_path2->move($destinationPath2,$doc_2);
-
-            if($data->doc_2!=null){
-                $filesc = public_path('user-doc/') . $data->doc_2;
+            if($data->gurudwara_doc_1!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_1;
                 if (file_exists($filesc) != null) {
                     unlink($filesc);
                 }
             } 
         }else{
-            $doc_2=$data->doc_2;
+            $gurudwara_doc_1=$data->gurudwara_doc_1;
         }
+        if ($request->hasFile('gurudwara_doc_2')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_2');
+            $gurudwara_doc_2=date('YmdHis') .'_'.$id. 'doc_2.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_2);
 
-        if ($request->hasFile('doc_3')) {
-            $profile_pic_path3 = $request->file('doc_3');
-            $doc_3=date('YmdHis') .'_'.$id. 'doc_3.' . $profile_pic_path3->getClientOriginalExtension();
-            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
-            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
-
-            $destinationPath3 = public_path('user-doc/');
-            $profile_pic_path3->move($destinationPath3,$doc_3);
-
-            if($data->doc_3!=null){
-                $filesc = public_path('user-doc/') . $data->doc_3;
+            if($data->gurudwara_doc_2!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_2;
                 if (file_exists($filesc) != null) {
                     unlink($filesc);
                 }
             } 
-
         }else{
-            $doc_3=$data->doc_3;
+            $gurudwara_doc_2=$data->gurudwara_doc_2;
         }
 
-        if ($request->hasFile('doc_4')) {
-            $profile_pic_path4 = $request->file('doc_4');
-            $doc_4=date('YmdHis') .'_'.$id. 'doc_4.' . $profile_pic_path4->getClientOriginalExtension();
-            // $image_resize=$this->resizeSCImageLarge($profile_pic_path);
-            // $image_resize->save(public_path('gurudwara-image/' . $profilepicname));
+        if ($request->hasFile('gurudwara_doc_3')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_3');
+            $gurudwara_doc_3=date('YmdHis') .'_'.$id. 'doc_3.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_3);
 
-            $destinationPath4 = public_path('user-doc/');
-            $profile_pic_path4->move($destinationPath4,$doc_4);
-
-            if($data->doc_4!=null){
-                $filesc = public_path('user-doc/') . $data->doc_4;
+            if($data->gurudwara_doc_3!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_3;
                 if (file_exists($filesc) != null) {
                     unlink($filesc);
                 }
             } 
-
         }else{
-            $doc_4=$data->doc_4;
+            $gurudwara_doc_3=$data->gurudwara_doc_3;
         }
 
+
+        if ($request->hasFile('gurudwara_doc_4')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_4');
+            $gurudwara_doc_4=date('YmdHis') .'_'.$id. 'doc_4.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_4);
+
+            if($data->gurudwara_doc_4!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_4;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_4=$data->gurudwara_doc_4;
+        }
+
+        if ($request->hasFile('gurudwara_doc_5')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_5');
+            $gurudwara_doc_5=date('YmdHis') .'_'.$id. 'doc_5.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_5);
+
+            if($data->gurudwara_doc_5!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_5;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_5=$data->gurudwara_doc_5;
+        }
+
+        if ($request->hasFile('gurudwara_doc_6')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_6');
+            $gurudwara_doc_6=date('YmdHis') .'_'.$id. 'doc_6.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_6);
+
+            if($data->gurudwara_doc_6!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_6;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_6=$data->gurudwara_doc_6;
+        }
+
+        if ($request->hasFile('gurudwara_doc_7')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_7');
+            $gurudwara_doc_7=date('YmdHis') .'_'.$id. 'doc_7.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_7);
+
+            if($data->gurudwara_doc_7!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_7;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_7=$data->gurudwara_doc_7;
+        }
+
+        if ($request->hasFile('gurudwara_doc_8')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_8');
+            $gurudwara_doc_8=date('YmdHis') .'_'.$id. 'doc_8.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_8);
+
+            if($data->gurudwara_doc_8!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_8;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_8=$data->gurudwara_doc_8;
+        }
+
+        if ($request->hasFile('gurudwara_doc_9')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_9');
+            $gurudwara_doc_9=date('YmdHis') .'_'.$id. 'doc_9.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_9);
+
+            if($data->gurudwara_doc_9!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_9;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_9=$data->gurudwara_doc_9;
+        }
+
+        if ($request->hasFile('gurudwara_doc_10')) {
+            $profile_pic_path1 = $request->file('gurudwara_doc_10');
+            $gurudwara_doc_10=date('YmdHis') .'_'.$id. 'doc_10.' . $profile_pic_path1->getClientOriginalExtension();
+            $destinationPath1 = public_path('gurudwara-head-doc/');
+            $profile_pic_path1->move($destinationPath1,$gurudwara_doc_10);
+
+            if($data->gurudwara_doc_10!=null){
+                $filesc = public_path('gurudwara-head-doc/') . $data->gurudwara_doc_10;
+                if (file_exists($filesc) != null) {
+                    unlink($filesc);
+                }
+            } 
+        }else{
+            $gurudwara_doc_10=$data->gurudwara_doc_10;
+        }
+
+
+
+        
         $data->other_doc=$request->other_doc;
-        $data->doc_1=$doc_1;
-        $data->doc_2=$doc_2;
-        $data->doc_3=$doc_3;
-        $data->doc_4=$doc_4;
+
+        $data->gud_head_doc_1=$gurudwara_doc_1;
+        $data->gud_head_doc_1_name=$request->gurudwara_doc_1_name;
+        $data->gud_head_doc_2    =$gurudwara_doc_2;
+        $data->gud_head_doc_2_name=$request->gurudwara_doc_2_name;
+        $data->gud_head_doc_3   =$gurudwara_doc_3;
+        $data->gud_head_doc_3_name=$request->gurudwara_doc_3_name;
+        $data->gud_head_doc_4=$gurudwara_doc_4;
+        $data->gud_head_doc_4_name    =$request->gurudwara_doc_4_name;
+        $data->gud_head_doc_5    =$gurudwara_doc_5;
+        $data->gud_head_doc_5_name        =$request->gurudwara_doc_5_name;
+        $data->gud_head_doc_6    =$gurudwara_doc_6;
+        $data->gud_head_doc_6_name        =$request->gurudwara_doc_6_name;
+        $data->gud_head_doc_7    =$gurudwara_doc_7;
+        $data->gud_head_doc_7_name    =$request->gurudwara_doc_7_name;
+        $data->gud_head_doc_8    =$gurudwara_doc_8;
+        $data->gud_head_doc_8_name    =$request->gurudwara_doc_8_name;
+        $data->gud_head_doc_9    =$gurudwara_doc_9;
+        $data->gud_head_doc_9_name        =$request->gurudwara_doc_9_name;
+        $data->gud_head_doc_10    =$gurudwara_doc_10;
+        $data->gud_head_doc_10_name    =$request->gurudwara_doc_10_name;
+
         $data->register_stage=$request->register_stage;
         $data->save();
         // return $data;

@@ -227,20 +227,20 @@
                             <!-- text input -->
                             <div class="form-group">
                                <label class="fieldlabels">Upload Document 1 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc_1!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_1}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc_1!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_1}}" width="100" height="100"/>
                                 @endif
-                                <input disabled type="file" <?php if(isset($editdata) && $editdata->other_doc_1!=''){echo "";}else{echo "required";}?> name="other_doc_1" id="other_doc_1" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input disabled type="file" <?php if(isset($editdata) && $editdata->doc_1!=''){echo "";}else{echo "required";}?> name="doc_1" id="doc_1" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                <label class="fieldlabels">Upload Document 2 : * (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc_2!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_2}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc_2!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_2}}" width="100" height="100"/>
                                 @endif
-                                <input disabled type="file" <?php if(isset($editdata) && $editdata->other_doc_2!=''){echo "";}else{echo "required";}?> name="other_doc_2" id="other_doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input disabled type="file" <?php if(isset($editdata) && $editdata->doc_2!=''){echo "";}else{echo "required";}?> name="doc_2" id="doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
@@ -261,19 +261,19 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label class="fieldlabels">Upload Document 3 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc3!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_3}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc3!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_3}}" width="100" height="100"/>
                                 @endif
-                                <input disabled type="file" name="other_doc_3" id="other_doc_3" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input disabled type="file" name="doc_3" id="doc_3" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="fieldlabels">Upload Document 4 : (.jpeg/.jpg/.png/.pdf, max size 2mb)</label> 
-                                @if(isset($editdata) && $editdata->other_doc_4!='')
-                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->other_doc_4}}" width="100" height="100"/>
+                                @if(isset($editdata) && $editdata->doc_4!='')
+                                <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_4}}" width="100" height="100"/>
                                 @endif
-                                <input disabled type="file" name="other_doc_4" id="other_doc_4" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input disabled type="file" name="doc_4" id="doc_4" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                                 
                             </div>
                         </div>

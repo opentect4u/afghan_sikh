@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1> Edit User</h1>
+            <h1>User View</h1>
           </div>
           <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -36,20 +36,20 @@
               <!-- form start -->
               <form name="myform" method="Post" action="{{route('admin.usereditconfirm')}}">
                 @csrf
-                <input type="hidden" id="id" name="id" value="{{$user_details1->id}}"/>
-                <div class="card-body">
+                <input type="hidden" id="id" name="id" value="{{$user_details->id}}"/>
+                <div class="card-body" id="sectionDiv">
                     <div class="row">
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Surname</label>
-                                <input type="text" readonly name="surname" value="{{isset($user_details->surname)?$user_details->surname:''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="surname" value="{{$user_details->surname}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" readonly name="givenname" value="{{isset($user_details->givenname)?$user_details->givenname:''}}" class="form-control" placeholder="Enter ...">
+                                <label>Given Name</label>
+                                <input type="text" readonly name="givenname" value="{{$user_details->givenname}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                     </div>
@@ -58,18 +58,20 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Gender</label>
+                                <!-- {{$user_details->gender}} -->
                                 <select name="gender" id="gender" class="form-control" disabled>
-                                        <option value="M" <?php if(isset($user_details->gender) && $user_details->gender=="M"){echo 'selected';}else{echo '';}?>>Male</option>
-                                        <option value="F" <?php if(isset($user_details->gender) && $user_details->gender=="F"){echo 'selected';}else{echo '';}?>>Female</option>
-                                        <option value="O" <?php if(isset($user_details->gender) && $user_details->gender=="O"){echo 'selected';}else{echo '';}?>>Other</option>
+                                        <option value="M" <?php if($user_details->gender=="M"){echo 'selected';}else{echo '';}?>>Male</option>
+                                        <option value="F" <?php if($user_details->gender=="F"){echo 'selected';}else{echo '';}?>>Female</option>
+                                        <option value="O" <?php if($user_details->gender=="O"){echo 'selected';}else{echo '';}?>>Other</option>
                                 </select>
+                                <!-- <input type="text" name="gender" id="gender" value="{{$user_details->gender}}" class="form-control" placeholder="Enter ..."> -->
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>DOB</label>
                                 
-                                <input type="text" readonly name="date_of_birth" value="{{isset($user_details->date_of_birth)?$user_details->date_of_birth:''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="date_of_birth" value="{{$user_details->date_of_birth}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                     </div>
@@ -78,7 +80,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Birth Place</label>
-                                <input type="text" readonly name="birth_place" value="{{isset($user_details->birth_place)?$user_details->birth_place:''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="birth_place" value="{{$user_details->birth_place}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -88,7 +90,7 @@
                                 <select disabled name="birth_country" id="birth_country" class="form-control" disabled>
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if(isset($user_details->birth_country) && $countries->id==$user_details->birth_country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->birth_country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -103,7 +105,7 @@
                                 <select name="nationality" id="nationality" class="form-control" disabled>
                                         <option value="" > --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if(isset($user_details->nationality) && $countries->id==$user_details->nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -115,7 +117,7 @@
                                 <select name="previous_nationality" id="previous_nationality" class="form-control" disabled>
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if(isset($user_details->previous_nationality) && $countries->id==$user_details->previous_nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->previous_nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -129,31 +131,17 @@
                                 <!-- <input type="text" name="marital_status" value="" class="form-control" placeholder="Enter ..."> -->
                                 <select name="marital_status" id="marital_status" class="form-control" disabled>
                                         <option value=""> --Select marital status-- </option>
-                                        <option value="Unmarried" <?php if(isset($user_details->marital_status) && $user_details->marital_status=="Unmarried"){echo "selected";}else{echo "";}?>>Unmarried</option>
-                                        <option value="Married" <?php if(isset($user_details->marital_status) && $user_details->marital_status=="Married"){echo "selected";}else{echo "";}?>>Married</option>
-                                        <option value="Widowed" <?php if(isset($user_details->marital_status) && $user_details->marital_status=="Widowed"){echo "selected";}else{echo "";}?>>Widowed</option>
-                                        <option value="Divorced"<?php if(isset($user_details->marital_status) && $user_details->marital_status=="Divorced"){echo "selected";}else{echo "";}?>>Divorced</option>
+                                        <option value="Unmarried" <?php if($user_details->marital_status=="Unmarried"){echo "selected";}else{echo "";}?>>Unmarried</option>
+                                        <option value="Married" <?php if($user_details->marital_status=="Married"){echo "selected";}else{echo "";}?>>Married</option>
+                                        <option value="Widowed" <?php if($user_details->marital_status=="Widowed"){echo "selected";}else{echo "";}?>>Widowed</option>
+                                        <option value="Divorced"<?php if($user_details->marital_status=="Divorced"){echo "selected";}else{echo "";}?>>Divorced</option>
                                     </select>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Religion</label>
-                                <input type="text" name="religion" value="{{isset($user_details->religion)?$user_details->religion:''}}" readonly class="form-control" placeholder="Enter ...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Present Address</label>
-                                <input type="text" readonly name="present_address" value="{{isset($user_details->present_address)?$user_details->present_address:''}}" class="form-control" placeholder="Enter ...">
-                            </div>
-                        </div> -->
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Profession</label>
-                                <input type="text" readonly name="profession" value="{{isset($user_details->profession)?$user_details->profession:''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" name="religion" value="{{$user_details->religion}}" readonly class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                     </div>
@@ -161,48 +149,14 @@
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>House No/Name</label>
-                                <input type="text" required readonly name="add_1" value="{{isset($user_details)?$user_details->add_1:''}}" class="form-control" placeholder="Enter ...">
+                                <label>Present Address</label>
+                                <input type="text" readonly name="present_address" value="{{$user_details->present_address}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Street Name</label>
-                                <input type="text" required readonly name="add_2" value="{{isset($user_details)?$user_details->add_2:''}}" class="form-control" placeholder="Enter ...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>City</label>
-                                <input type="text" required readonly name="city" value="{{isset($user_details)?$user_details->city:''}}" class="form-control" placeholder="Enter ...">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>County</label>
-                                <input type="text" required readonly name="county" value="{{isset($user_details)?$user_details->county:''}}" class="form-control" placeholder="Enter ...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Postal/zip code</label>
-                                <input type="text" required readonly name="postcode" value="{{isset($user_details)?$user_details->postcode:''}}" class="form-control" placeholder="Enter ...">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Country</label>
-                                <!-- <input type="text" required readonly name="profession" value="{{isset($user_details)?$user_details->county:''}}" class="form-control" placeholder="Enter ..."> -->
-                                <select name="country" id="country" required class="form-control" disabled>
-                                    <option value="">-- Select Country --</option>
-                                    @foreach($country as $countries)
-                                    <option value="{{$countries->id}}" <?php if(isset($user_details) && $user_details->country==$countries->id){echo "selected";}?> >{{$countries->name}}</option>
-                                    @endforeach
-                                </select>
+                                <label>Profession</label>
+                                <input type="text" readonly name="profession" value="{{$user_details->profession}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                     </div>
@@ -211,7 +165,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Father`s Name</label>
-                                <input type="text" readonly name="father_name" value="{{isset($user_details->father_name)?$user_details->father_name:''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="father_name" value="{{$user_details->father_name}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -221,7 +175,7 @@
                                 <select name="father_nationality" id="father_nationality" class="form-control" disabled>
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if(isset($user_details->father_nationality) && $countries->id==$user_details->father_nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->father_nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -236,7 +190,7 @@
                                 <select name="father_prev_nationality" id="father_prev_nationality" class="form-control" disabled>
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if(isset($user_details->father_prev_nationality) && $countries->id==$user_details->father_prev_nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->father_prev_nationality){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -248,7 +202,7 @@
                                 <select name="father_birth_country" id="father_birth_country" class="form-control"disabled >
                                         <option value=""> --Select Country of Birth-- </option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->id}}" <?php if( isset($user_details->father_birth_country) && $countries->id==$user_details->father_birth_country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
+                                        <option value="{{$countries->id}}" <?php if($countries->id==$user_details->father_birth_country){echo "selected";}else{echo "";}?>>{{$countries->name}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -259,14 +213,14 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Mobile</label>
-                                <input type="text" readonly name="phone" value="{{isset($user_details->phone)?$user_details->phone:''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="mobile" value="{{$user_details->mobile}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" readonly name="email" value="{{isset($user_details->email)?$user_details->email:''}}" class="form-control" placeholder="Enter ...">
+                                <input type="text" readonly name="email" value="{{$user_details->email}}" class="form-control" placeholder="Enter ...">
                             </div>
                         </div>
                         <!-- <div class="col-sm-6">
@@ -287,7 +241,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Other Info</label>
-                                <textarea name="other_info" class="form-control" disabled>{{isset($user_details->other_info)?$user_details->other_info:''}}</textarea>
+                                <textarea name="other_info" class="form-control" disabled>{{$user_details->other_info}}</textarea>
                                 <!-- <input type="text" name="other_info" class="form-control" placeholder="Enter ..."> -->
                             </div>
                         </div>
@@ -319,7 +273,7 @@
                                 <label>Document 1</label>
                                 <img src="{{asset('public/user-doc').'/'.$user_details->doc_1}}" width="100" height="100"  />
                                 &nbsp;
-                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_1}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_1}}" download="{{$user_details->doc_1}}"><i class="fas fa-file-download"></i></a>
                                 <!-- <a href="{{route('admin.userdocdownload',['link'=>$user_details->doc_1])}}" target="_blank"><i class="fas fa-file-download"></i></a> -->
                             </div>
                         </div>
@@ -331,7 +285,7 @@
                                 <img src="{{asset('public/user-doc').'/'.$user_details->doc_2}}" width="100" height="100"  />
                                 &nbsp;
                                 &nbsp;
-                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_2}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_2}}" download="{{$user_details->doc_2}}"><i class="fas fa-file-download"></i></a>
                                 
                             </div>
                         </div>
@@ -344,7 +298,7 @@
                                 <label>Document 3</label>
                                 <img src="{{asset('public/user-doc').'/'.$user_details->doc_3}}" width="100" height="100"  />
                                 &nbsp;
-                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_3}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_3}}" download="{{$user_details->doc_3}}"><i class="fas fa-file-download"></i></a>
                                 
                             </div>
                         </div>
@@ -355,69 +309,13 @@
                                 <label>Document 4</label>
                                 <img src="{{asset('public/user-doc').'/'.$user_details->doc_4}}" width="100" height="100"  />
                                 &nbsp;
-                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_4}}" download="logo"><i class="fas fa-file-download"></i></a>
+                                <a href="{{asset('public/user-doc').'/'.$user_details->doc_4}}" download="{{$user_details->doc_4}}"><i class="fas fa-file-download"></i></a>
                                 
                             </div>
                         </div>
                         @endif
                     </div>
-                    <div class="row">
-
-                        <div class="col-sm-6">
-                            <!-- text input -->
-                            <div class="form-group">
-                                <label>Status : <?php if(isset($user_details1->active) && $user_details1->active=='I'){echo "Pending for approval";}?>
- <?php if(isset($user_details1->active) && $user_details1->active=='OH'){echo "On Hold";}?>
- <?php if(isset($user_details1->active) && $user_details1->active=='AD'){echo "Awaiting document upload";}?>
- <?php if(isset($user_details1->active) && $user_details1->active=='AR'){echo "Awaiting Rectifications";}?>
-<?php if(isset($user_details1->active) && $user_details1->active=='R'){echo "Reject";}?>
-<?php if(isset($user_details1->active) && $user_details1->active=='A'){echo "Approved";}?></label>
-                                <select name="status" id="status" required class="form-control" required>
-                                    <option value=""> -- Select Status -- </option>
-                                    <option value="I" <?php if($user_details1->active=='I'){echo "selected";}?>>Pending for approval</option>
-                                    <option value="OH" <?php if($user_details1->active=='OH'){echo "selected";}?>>On Hold</option>
-                                    <option value="AD" <?php if($user_details1->active=='AD'){echo "selected";}?>>Awaiting document upload</option>
-                                    <option value="AR" <?php if($user_details1->active=='AR'){echo "selected";}?>>Awaiting Rectifications</option>
-                                    <option value="R" <?php if($user_details1->active=='R'){echo "selected";}?>>Reject</option>
-                                    <option value="A" <?php if($user_details1->active=='A'){echo "selected";}?>>Approved</option>
-                                    <!-- <option value=""></option> -->
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Assign Gurdwara </label>
-                                <select name="gurudwara_id" id="gurudwara_id" class="form-control">
-                                        <option value=""> -- Select Gurdwara -- </option>
-                                        @foreach($gurudwara as $countries)
-                                        <option value="{{$countries->id}}" <?php if(isset($user_details->gurudwara_id) && $countries->id==$user_details->gurudwara_id){echo "selected";}else{echo '';}?>>{{$countries->gurudwara_name}}</option>
-                                        @endforeach
-                                    </select>
-                            </div>
-                        </div>
-                       
-                       
-                        
-                        
-                    </div>
-                    <div class="row">
-
-                        <div class="col-sm-12">
-                            <!-- text input -->
-                            <div class="form-group">
-                                <label>Admin Remarks</label>
-                                <textarea class="form-control" id="remark" name="remark" rows="6" >{{isset($user_details->remark)?$user_details->remark:''}}</textarea>
-                            </div>
-                        </div>
-
-                        
-                       
-                       
-                        
-                        
-                    </div>
-
+                    
                   <!-- <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
@@ -432,7 +330,8 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" id="submit" name="submit" class="btn btn-primary" onclick="printContent('sectionDiv');">Print </button>
+                  <!-- <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button> -->
                 </div>
               </form>
             </div>
@@ -465,6 +364,18 @@
 @endsection
 
 @section('script')
+<script>
+    function printContent(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
 <script>
     $(document).ready(function(){
         // alert("hii");

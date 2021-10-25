@@ -194,17 +194,17 @@
           var con_password=$("#cpwd").val();
           var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{})+$');
           // var regex = new RegExp('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|(^[0-9]{10})+$');
-          if(uname!=''){
-          if(!regex.test(uname)){
-            // alert("Please enter valid email address or phone number.");
-            // $("#email_mobile").setCustomValidity('Please enter valid email address or phone number.');
-            // $("#email_mobile").setCustomValidity("");
-            document.getElementById ('uname').setCustomValidity( "Please enter valid email address or phone number." );
-            document.msform.uname.focus ( );
-            uname.setCustomValidity ('');
-            return false;
-          }
-          }
+          // if(uname!=''){
+          // if(!regex.test(uname)){
+          //   // alert("Please enter valid email address or phone number.");
+          //   // $("#email_mobile").setCustomValidity('Please enter valid email address or phone number.');
+          //   // $("#email_mobile").setCustomValidity("");
+          //   document.getElementById ('uname').setCustomValidity( "Please enter valid email address or phone number." );
+          //   document.msform.uname.focus ( );
+          //   uname.setCustomValidity ('');
+          //   return false;
+          // }
+          // }
           // return true;
           // else if (password!=con_password) {
           //   alert('Password and confirm password did not match!');

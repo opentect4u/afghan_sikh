@@ -61,7 +61,7 @@
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Email</b> 
-                    <a class="float-right">{{$datas->user_id}}</a>
+                    <a class="float-right">{{$datas->gurudwara_email}}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Phone</b> 

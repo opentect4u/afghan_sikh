@@ -52,7 +52,7 @@
           </a>
         </li> -->
         <li class="nav-item">
-          <a href="{{route('gurudwara.user')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.user' || Route::currentRouteName()=='gurudwara.useredit'?'active':''}}">
+          <a href="{{route('gurudwara.user')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.user' || Route::currentRouteName()=='gurudwara.useredit' || Route::currentRouteName()=='gurudwara.userview'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Registered Member</p>
           </a>
@@ -68,6 +68,13 @@
           <a href="{{route('gurudwara.certificate')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.certificate' || Route::currentRouteName()=='gurudwara.certificateedit'?'active':''}}">
             <i class="nav-icon fas fa-table"></i>
             <p> Certificates</p>
+          </a>
+        </li>
+        <!-- gurudwara.donation -->
+        <li class="nav-item">
+          <a href="{{route('gurudwara.donation')}}" class="nav-link {{Route::currentRouteName()=='gurudwara.donation' || Route::currentRouteName()=='gurudwara.donationadd' || Route::currentRouteName()=='gurudwara.donationview'?'active':''}}">
+            <i class="nav-icon fas fa-table"></i>
+            <p> Donation</p>
           </a>
         </li>
         <!-- menu-open -->
