@@ -88,8 +88,9 @@
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Personal Information</a></li>
                   <li class="nav-item"><a class="nav-link" href="#stage_2" data-toggle="tab">Address</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_3" data-toggle="tab">Gurdwara Head Information</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stage_4" data-toggle="tab">Documents</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_22" data-toggle="tab">Document</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_3" data-toggle="tab"> Head Information</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#stage_4" data-toggle="tab">Head Documents</a></li>
                   <!-- <li class="nav-item"><a class="nav-link" href="#stage_5" data-toggle="tab">Stage 5</a></li>
                   <li class="nav-item"><a class="nav-link" href="#stage_6" data-toggle="tab">Stage 6</a></li>
                   <li class="nav-item"><a class="nav-link" href="#stage_7" data-toggle="tab">Stage 7</a></li>
@@ -106,27 +107,33 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Gurdwara Name: *</label>
                         <div class="col-sm-10">
-                          <input type="text" name="gurudwara_name" id="gurudwara_name" value="{{isset($datas->gurudwara_name)? $datas->gurudwara_name:''}}" required class="form-control" placeholder="Gurdwara Name:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" readonly name="gurudwara_name" id="gurudwara_name" value="{{isset($datas->gurudwara_name)? $datas->gurudwara_name:''}}" required class="form-control" placeholder="Gurdwara Name:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Website: </label>
                         <div class="col-sm-10">
-                          <input type="text" name="website" class="form-control" id="website" value="{{isset($datas->website)? $datas->website:''}}" placeholder="website:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" readonly name="website" class="form-control" id="website" value="{{isset($datas->website)? $datas->website:''}}" placeholder="website:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       
                       <div class="form-group row">
                         <label for="inputExperience" class="col-sm-2 col-form-label">Phone No: </label>
                         <div class="col-sm-10">
-                          <input type="number" required name="gurudwara_phone_no" id="gurudwara_phone_no" class="form-control" value="{{isset($datas->gurudwara_phone_no)? $datas->gurudwara_phone_no:''}}"  placeholder="Phone no" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="number" readonly required name="gurudwara_phone_no" id="gurudwara_phone_no" class="form-control" value="{{isset($datas->gurudwara_phone_no)? $datas->gurudwara_phone_no:''}}"  placeholder="Phone no" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
-                      
+                      <!-- gurudwara_charity_reg_no -->
+                      <div class="form-group row">
+                        <label for="inputExperience" class="col-sm-2 col-form-label">Charity Registration No: </label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly required name="gurudwara_charity_reg_no" id="gurudwara_charity_reg_no" class="form-control" value="{{isset($datas->gurudwara_charity_reg_no)? $datas->gurudwara_charity_reg_no:''}}"  placeholder="Phone no" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        </div>
+                      </div>
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage1" name="stage1" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage1" name="stage1" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -138,31 +145,31 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Adress Line 1: *</label>
                         <div class="col-sm-10">
-                          <input type="text" value="{{isset($datas->gurudwara_address)? $datas->gurudwara_address:''}}" name="gurudwara_address" required class="form-control" id="gurudwara_address" placeholder="Adress Line 1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" readonly value="{{isset($datas->gurudwara_address)? $datas->gurudwara_address:''}}" name="gurudwara_address" required class="form-control" id="gurudwara_address" placeholder="Adress Line 1:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Adress Line 2: </label>
                         <div class="col-sm-10">
-                          <input type="text" value="{{isset($datas->gurudwara_address_2)? $datas->gurudwara_address_2:''}}" name="gurudwara_address_2" class="form-control" id="gurudwara_address_2" placeholder="Adress Line 2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" readonly value="{{isset($datas->gurudwara_address_2)? $datas->gurudwara_address_2:''}}" name="gurudwara_address_2" class="form-control" id="gurudwara_address_2" placeholder="Adress Line 2:" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">City: *</label>
                         <div class="col-sm-10">
-                          <input type="text" value="{{isset($datas->city)? $datas->city:''}}" name="city" required class="form-control" id="city" placeholder="city" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" readonly value="{{isset($datas->city)? $datas->city:''}}" name="city" required class="form-control" id="city" placeholder="city" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Postal/zip code: *</label>
                         <div class="col-sm-10">
-                          <input type="text" value="{{isset($datas->post_code)? $datas->post_code:''}}" name="post_code" required class="form-control" id="post_code" placeholder="post code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <input type="text" readonly value="{{isset($datas->post_code)? $datas->post_code:''}}" name="post_code" required class="form-control" id="post_code" placeholder="post code" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Country: *</label>
                         <div class="col-sm-10">
-                          <select name="country" id="country" required class="form-control">
+                          <select name="country" id="country" required class="form-control" disabled>
                                         <option value=""> --Select Country-- </option>
                                         @foreach($country as $countries)
                                         <option value="{{$countries->id}}" <?php if(isset($datas->country) && $datas->country==$countries->id){echo "Selected";}?>>{{$countries->name}}</option>
@@ -174,7 +181,104 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage2" name="stage2" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage2" name="stage2" class="btn btn-danger">Submit</button> -->
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- satage 2 -->
+                  <div class="tab-pane" id="stage_22">
+                    <form class="form-horizontal" method="POST" action="{{route('gurudwara.editstage2')}}">
+                      @csrf
+                      
+                      @if(isset($datas->gurudwara_doc_1))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 1 : *</label>
+                        <div class="col-sm-10">
+                          <img src="{{asset('public/gurudwara-doc').'/'.$datas->gurudwara_doc_2}}" Width="50px" height="50px"/>
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_1_name))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 1 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gurudwara_doc_1_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_2))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 2 : *</label>
+                        <div class="col-sm-10">
+                          <img src="{{asset('public/gurudwara-doc').'/'.$datas->gurudwara_doc_2}}" Width="50px" height="50px"/>
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_2_name))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 2 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gurudwara_doc_2_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_3))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 3 : *</label>
+                        <div class="col-sm-10">
+                          <img src="{{asset('public/gurudwara-doc').'/'.$datas->gurudwara_doc_3}}" Width="50px" height="50px"/>
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_3_name))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 3 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gurudwara_doc_3_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_4))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 4 : *</label>
+                        <div class="col-sm-10">
+                          <img src="{{asset('public/gurudwara-doc').'/'.$datas->gurudwara_doc_4}}" Width="50px" height="50px"/>
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_4_name))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 4 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gurudwara_doc_4_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_5))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 5 : *</label>
+                        <div class="col-sm-10">
+                          <img src="{{asset('public/gurudwara-doc').'/'.$datas->gurudwara_doc_5}}" Width="50px" height="50px"/>
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gurudwara_doc_5_name))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 5 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gurudwara_doc_5_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <!-- <button type="submit" id="stage2" name="stage2" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -187,27 +291,41 @@
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Gurdwara Head Name: *</label>
                         <div class="col-sm-10">
-                         <input type="text" value="{{isset($datas->gurudwara_head_name)? $datas->gurudwara_head_name:''}}" name="gurudwara_head_name" required class="form-control" id="gurudwara_head_name" placeholder="gurudwara head name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                         <input type="text" readonly value="{{isset($datas->gurudwara_head_name)? $datas->gurudwara_head_name:''}}" name="gurudwara_head_name" required class="form-control" id="gurudwara_head_name" placeholder="gurudwara head name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+             
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Gurdwara Head DOB: *</label>
+                        <div class="col-sm-10">
+                         <input type="text" readonly value="{{isset($datas->gurudwara_head_dob)? date('d-m-Y',strtotime($datas->gurudwara_head_dob)):''}}" name="gurudwara_head_dob" required class="form-control" id="gurudwara_head_dob" placeholder="DD/MM/YYYY" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
              
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Gurdwara Head Address:</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Home Address:</label>
                         <div class="col-sm-10">
-                        <input type="text" value="{{isset($datas->gurudwara_head_address)? $datas->gurudwara_head_address:''}}" name="gurudwara_head_address" class="form-control" id="gurudwara_head_address" placeholder="gurudwara head address" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <input type="text" readonly value="{{isset($datas->gurudwara_head_home_address)? $datas->gurudwara_head_home_address:''}}" name="gurudwara_head_address" class="form-control" id="gurudwara_head_address" placeholder="gurudwara head address" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                       </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Job Address:</label>
+                        <div class="col-sm-10">
+                        <input type="text" readonly value="{{isset($datas->gurudwara_head_job_address)? $datas->gurudwara_head_job_address:''}}" name="gurudwara_head_address" class="form-control" id="gurudwara_head_address" placeholder="gurudwara head address" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Gurdwara Head Phone No: *</label>
                         <div class="col-sm-10">
-                         <input type="number" value="{{isset($datas->gurudwara_head_phone_no)? $datas->gurudwara_head_phone_no:''}}" name="gurudwara_head_phone_no" required class="form-control" id="gurudwara_head_phone_no" placeholder="Phone no" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                         <input type="number" readonly value="{{isset($datas->gurudwara_head_phone_no)? $datas->gurudwara_head_phone_no:''}}" name="gurudwara_head_phone_no" required class="form-control" id="gurudwara_head_phone_no" placeholder="Phone no" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
 
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Gurdwara Head Email Id: *</label>
                         <div class="col-sm-10">
-                         <input type="text" value="{{isset($datas->gurudwara_head_email)? $datas->gurudwara_head_email:''}}" name="gurudwara_head_email" required class="form-control" id="gurudwara_head_email" placeholder="gurudwara head email" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                         <input type="text" readonly value="{{isset($datas->gurudwara_head_email)? $datas->gurudwara_head_email:''}}" name="gurudwara_head_email" required class="form-control" id="gurudwara_head_email" placeholder="gurudwara head email" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
 
                         </div>
                       </div>
@@ -216,7 +334,7 @@
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>
@@ -228,40 +346,76 @@
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Other Information : </label>
                         <div class="col-sm-10">
-                        <textarea name="other_doc" id="other_doc" class="form-control">{{$datas->other_doc}}</textarea>
+                        <textarea name="other_doc" readonly id="other_doc" class="form-control">{{$datas->other_doc}}</textarea>
 
                         </div>
                       </div>
+                      @if(isset($datas->gud_head_doc_1))
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Upload Document 1 : *</label>
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 1 : *</label>
                         <div class="col-sm-10">
-                          <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" />
+                          <img src="{{asset('public/gurudwara-head-doc').'/'.$datas->gud_head_doc_1}}" Width="50px" height="50px" />
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
                         </div>
                       </div>
+                      @endif
+                      @if(isset($datas->gud_head_doc_1_name))
                       <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 1 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gud_head_doc_1_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gud_head_doc_2))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 2 : *</label>
+                        <div class="col-sm-10">
+                          <img src="{{asset('public/gurudwara-head-doc').'/'.$datas->gud_head_doc_2}}" Width="50px" height="50px" />
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gud_head_doc_2_name))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 2 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gud_head_doc_2_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gud_head_doc_3))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 3 : *</label>
+                        <div class="col-sm-10">
+                          <img src="{{asset('public/gurudwara-head-doc').'/'.$datas->gud_head_doc_3}}" Width="50px" height="50px" />
+                          <!-- <input type="file"  name="doc_1" id="doc_1" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" /> -->
+                        </div>
+                      </div>
+                      @endif
+                      @if(isset($datas->gud_head_doc_3_name))
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Document 3 Name: *</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly name="doc_1" id="doc_1" value="{{$datas->gud_head_doc_3_name}}" class="form-control" />
+                        </div>
+                      </div>
+                      @endif
+
+                      <!-- <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Upload Document 2 : *</label>
                         <div class="col-sm-10">
                           <input type="file"  name="doc_2" id="doc_2" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" />
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Upload Document 3 : *</label>
-                        <div class="col-sm-10">
-                          <input type="file"  name="doc_3" id="doc_3" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" />
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Upload Document 4 : *</label>
-                        <div class="col-sm-10">
-                          <input type="file"  name="doc_4" id="doc_4" accept="image/gif, image/jpg, image/jpeg, application/pdf" class="form-control" />
-                        </div>
-                      </div>
+                      </div> -->
+                     
+                     
                       
                      
                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button>
+                          <!-- <button type="submit" id="stage3" name="stage3" class="btn btn-danger">Submit</button> -->
                         </div>
                       </div>
                     </form>

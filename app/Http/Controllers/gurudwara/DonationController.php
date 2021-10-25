@@ -13,6 +13,10 @@ use App\Models\TdDonation;
 use App\Models\MdUserLogin;
 use App\Models\TdUserDetails;
 use App\Models\TdUserFamily;
+use Excel;
+use App\Exports\DonationExport;
+// use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Response;
 
 class DonationController extends Controller
 {
@@ -121,6 +125,65 @@ class DonationController extends Controller
         // return $id;
         $data=TdDonation::find($id);
         return view('gurudwara.donation-view',['data'=>$data]);
+    }
+
+    public function Export(){
+        // return "hii";
+        $id=Session::get('gurudwara')[0]['id'];
+        $users=TdDonation::where('gurdwara_id',$id)->get();
+        // return $users;
+        $reviews=[];
+        $i=1;
+        $value=[];
+        foreach($users as $user){
+            // $value=[]
+            $value['sl_no']=$user->id;
+            $value['name']=$user->name;
+            $value['family_name']=$user->family_name;
+            $value['type_of_amount']=$user->type_of_amount;
+            $value['amount']=$user->amount;
+            $value['date_of_payment']=$user->date_of_payment;
+            // return $value;
+            array_push($reviews,$value);
+        }
+       
+        // return $reviews;
+        // foreach($reviews as $review){
+        //     return $review->sl_no;
+        // }
+        // return Excel::download(new DonationExport($users), 'donation.xlsx');
+        $headers = array(
+            "Content-type" => "text/csv",
+            "Content-Disposition" => "attachment; filename=file.csv",
+            "Pragma" => "no-cache",
+            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
+            "Expires" => "0"
+        );
+    
+        // $reviews = Reviews::getReviewExport($this->hw->healthwatchID)->get();
+        // $columns = array('ReviewID', 'Provider', 'Title', 'Review', 'Location', 'Created', 'Anonymous', 'Escalate', 'Rating', 'Name');
+        $columns =[
+                'Sl No',
+                'Name',
+                'Family Member Name',
+                'Type of Amount',
+                'Amount',
+                'Date of Payment',
+            ];
+    
+        $callback = function() use ($reviews, $columns)
+        {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+    
+            foreach($reviews as $review) {
+                // fputcsv($file, array($review->reviewID, $review->provider, $review->title, $review->review, $review->location, $review->review_created, $review->anon, $review->escalate, $review->rating, $review->name));
+                fputcsv($file, array($review['sl_no'], $review['name'], $review['family_name'], $review['type_of_amount'], $review['amount'], $review['date_of_payment']));
+
+            }
+            fclose($file);
+        };
+        return Response::stream($callback, 200, $headers);
     }
 
 }

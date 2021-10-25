@@ -109,6 +109,7 @@ Route::prefix('gurudwara')->group(function () {
     Route::get('/donationadd', [App\Http\Controllers\gurudwara\DonationController::class, 'ShowAdd'])->name('gurudwara.donationadd');
     Route::post('/donationadd', [App\Http\Controllers\gurudwara\DonationController::class, 'Add'])->name('gurudwara.donationadd');
     Route::get('/donationview/{id?}', [App\Http\Controllers\gurudwara\DonationController::class, 'View'])->name('gurudwara.donationview');
+    Route::get('/export', [App\Http\Controllers\gurudwara\DonationController::class, 'Export'])->name('gurudwara.donationexport');
     
     Route::post('/getdetailsDonation', [App\Http\Controllers\gurudwara\DonationController::class, 'GetDetails'])->name('gurudwara.getdetailsDonation');
 

@@ -35,6 +35,10 @@
                 <h3 class="card-title">Donation</h3>
                 <a href="{{route('gurudwara.donationadd')}}" float="right" class="btn btn-outline-primary float-right">Add Donation</a>
               </div>
+              <div class="card-header">
+                <!-- <h3 class="card-title">Donation</h3> -->
+                <a href="{{route('gurudwara.donationexport')}}" float="right" class="btn btn-outline-primary float-right">Export as CSV</a>
+              </div>
               
               <!-- /.card-header -->
               <div class="card-body">
