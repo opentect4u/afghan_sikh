@@ -40,7 +40,7 @@ class RegisterController extends Controller
             $surname=$request->gurudwara_name;
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+                // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             }else{
                 // SMS send HERE
             }
@@ -136,7 +136,7 @@ class RegisterController extends Controller
             $surname=$request->gurudwara_name;
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
+                // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
             }else{
                 // sms send here
             }
