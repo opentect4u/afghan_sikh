@@ -225,9 +225,11 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div> -->
-              <div class="text-center"><button type="submit" class="g-recaptcha" 
-        data-sitekey="6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF" 
-        data-callback='onClick' >Send Message</button></div>
+              <div class="text-center"><button type="submit" >Send Message</button>
+              <!-- class="g-recaptcha" 
+                  data-sitekey="6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF" 
+                  data-callback="onClick" data-action="submit" -->
+              </div>
             </form>
           </div>
 
@@ -248,14 +250,15 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
       function onClick(e) {
         // document.getElementById("contactForm").submit();
 
-        e.preventDefault();
-        grecaptcha.ready(function() {
-          grecaptcha.execute('6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF', {action: 'submit'}).then(function(token) {
-              // Add your logic to submit to your backend server here.
-              document.getElementById("contactForm").submit();
+        // e.preventDefault();
+        // grecaptcha.ready(function() {
+        //   grecaptcha.execute('6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF', {action: 'submit'}).then(function(token) {
+        //       // Add your logic to submit to your backend server here.
+        //       alert("hii");
+        //       document.getElementById("contactForm").submit();
 
-          });
-        });
+        //   });
+        // });
       }
   </script>
 @endsection

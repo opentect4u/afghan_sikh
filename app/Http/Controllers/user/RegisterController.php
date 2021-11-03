@@ -75,7 +75,7 @@ class RegisterController extends Controller
         //     $error="Something wrong please try again";
         //     return redirect()->route('user.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error]); 
         // }
-        // if ($con_otp==$otp) {
+        if ($con_otp==$otp) {
             // return $request;
             
             $current_nationality=$request->current_nationality;
@@ -129,22 +129,22 @@ class RegisterController extends Controller
             return redirect()->route('user.registerstep2');
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         
-        // }else{
-        //     $error="OTP did not match";
-        //     return redirect()->route('user.otp')->with([
-        //         'first_name'=>$request->first_name,
-        //         'last_name'=>$request->last_name,
-        //         'current_nationality'=>$request->current_nationality,
-        //         'email'=>$email,
-        //         'country_code'=>$request->country_code,
-        //         'phone'=>$request->phone,
-        //         'password'=>$request->password,
-        //         'con_otp'=>$con_otp,
-        //         'otp'=>$otp,
-        //         'error'=>$error
-        //     ]);
-        //     // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
-        // }
+        }else{
+            $error="OTP did not match";
+            return redirect()->route('user.otp')->with([
+                'first_name'=>$request->first_name,
+                'last_name'=>$request->last_name,
+                'current_nationality'=>$request->current_nationality,
+                'email'=>$email,
+                'country_code'=>$request->country_code,
+                'phone'=>$request->phone,
+                'password'=>$request->password,
+                'con_otp'=>$con_otp,
+                'otp'=>$otp,
+                'error'=>$error
+            ]);
+            // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
+        }
     }
 
     public function Register2()
