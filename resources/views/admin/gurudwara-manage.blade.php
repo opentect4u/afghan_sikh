@@ -71,7 +71,7 @@
                   <tr>
                     <th>Sl No</th>
                     <th>Date</th>
-                    <th>Email</th>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Phone No</th>
                     <th>Status</th>

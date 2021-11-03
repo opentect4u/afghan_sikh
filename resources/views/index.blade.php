@@ -194,13 +194,16 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
           <div class="col-xl-9 col-lg-12 mt-4">
+            
             <form name="contactForm" id="contactForm" action="{{route('contact')}}" method="post" role="form" class="php-email-form">
               @csrf
-              <!-- <div class="form-row">
-                <div class="col-md-12 form-group">
-                  <div style="" align="center">Thanks for contact with us</div>
+                @if(Session::has('success'))
+                <div class="form-row" id="contactMsgDiv">
+                  <div class="col-md-12 form-group">
+                    <div style="color:green;" align="center">Thanks for contact with us</div>
+                  </div>
                 </div>
-              </div> -->
+                @endif
 
               <div class="form-row">
                 <div class="col-md-6 form-group">
@@ -225,7 +228,7 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div> -->
-              <div class="text-center"><button type="submit" >Send Message</button>
+              <div class="text-center"><button type="submit">Send Message</button>
               <!-- class="g-recaptcha" 
                   data-sitekey="6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF" 
                   data-callback="onClick" data-action="submit" -->
@@ -245,7 +248,7 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
 
 @section('script')
   <!-- index page script -->
-<script src="https://www.google.com/recaptcha/api.js?render=6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF"></script>
+<!-- <script src="https://www.google.com/recaptcha/api.js?render=6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF"></script> -->
 <script>
       function onClick(e) {
         // document.getElementById("contactForm").submit();

@@ -34,6 +34,6 @@ class HomeController extends Controller
         // return $email_id;
         Mail::to($email_id)->send(new ContactUsAdminEmail($name,$email,$subject1,$message1));
         Mail::to($request->email)->send(new ContactUsEmail($name,$subject1,$message1));
-        return redirect()->route('index')->with('success','success');
+        return redirect()->to('/index#contact')->with('success','success');
     }
 }

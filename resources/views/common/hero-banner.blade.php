@@ -38,6 +38,36 @@
           </div>
         </div>
 
+        <div class="carousel-item" style="background-image: url(public/img/slide/slide-4.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Child abuse (sexual, physical or emotional) issues </h2>
+              <p class="animate__animated animate__fadeInUp"> Afghan Sikh is ready to help  </p>
+               <a href="{{route('user.register')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Join Hand with us</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" style="background-image: url(public/img/slide/slide-5.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Child abuse (sexual, physical or emotional) issues </h2>
+              <p class="animate__animated animate__fadeInUp"> Afghan Sikh is ready to help  </p>
+               <a href="{{route('user.register')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Join Hand with us</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item" style="background-image: url(public/img/slide/slide-6.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Child abuse (sexual, physical or emotional) issues </h2>
+              <p class="animate__animated animate__fadeInUp"> Afghan Sikh is ready to help  </p>
+               <a href="{{route('user.register')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Join Hand with us</a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
