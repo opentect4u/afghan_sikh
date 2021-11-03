@@ -22,7 +22,7 @@
         
         <div class="section-title">
             <h2 data-aos="fade-up">Apply Now</h2>
-            <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. 
+            <p data-aos="fade-up">Complete page should be in English language for user perspective 
             </p>
         </div>
 

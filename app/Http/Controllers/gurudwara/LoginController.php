@@ -26,7 +26,16 @@ class LoginController extends Controller
     public function Login(Request $request){
         $user_id=$request->uname;
         $password=$request->pwd;
-        $users=MdUserLogin::where('user_id',$user_id)->whereIn('user_type',array('G','C','O'))->get();
+        if(filter_var($user_id, FILTER_VALIDATE_EMAIL)!=false){
+            // return $user_id;
+            $id=TdGurudwaraDetails::where('gurudwara_email',$user_id)->value('id');
+            $users=MdUserLogin::where('id',$id)->whereIn('user_type',array('G','C','O'))->get();
+            // return $users;
+        }else{
+            // return "else";
+            $users=MdUserLogin::where('user_id',$user_id)->whereIn('user_type',array('G','C','O'))->get();
+        }
+
         if (count($users)>0) {
             foreach($users as $user){
                 $db_password=$user->password;

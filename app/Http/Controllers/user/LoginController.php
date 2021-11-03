@@ -26,7 +26,17 @@ class LoginController extends Controller
         // return $request; 
         $user_id=$request->uname;
         $password=$request->pwd;
-        $is_email=MdUserLogin::where('user_id',$request->uname)->where('user_type','U')->get();
+        if(filter_var($user_id, FILTER_VALIDATE_EMAIL)!=false){
+            // return $user_id;
+            $id=TdUserDetails::where('email',$user_id)->value('id');
+            // return $id;
+            $is_email=MdUserLogin::where('id',$id)->where('user_type','U')->get();
+            // return $is_email;
+        }else{
+            // return "else";
+            $is_email=MdUserLogin::where('user_id',$request->uname)->where('user_type','U')->get();
+        }
+
         if(count($is_email)>0){
             // return $is_email;
             foreach($is_email as $user){

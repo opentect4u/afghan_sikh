@@ -53,10 +53,10 @@ h1, h2, h3, h4, h5, h6 {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: #ffa716;
-  font-size: 14px;
-  padding: 0;
-  color: rgba(255, 255, 255, 0.8);
+    background: #020662;
+    font-size: 14px;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 #topbar .contact-info ul {
@@ -184,6 +184,7 @@ max-height:98px;
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   color: #ff5821;
   text-decoration: none;
+  box-shadow: rgb(255 167 22) 0px 6px 12px -2px, rgb(7 163 26 / 80%) 0px 3px 7px -3px;
 }
 
 .nav-menu .drop-down ul {
@@ -560,6 +561,7 @@ max-height:98px;
 section {
   padding: 60px 0;
   overflow: hidden;
+  box-shadow: rgb(255 167 22) 0px 54px 55px, rgb(255 167 22) 0px -12px 30px, rgb(137 229 79 / 47%) 0px 4px 6px, rgb(172 229 128 / 82%) 0px 12px 13px, rgb(148 217 84 / 88%) 0px -3px 5px;
 }
 
 .section-bg {
@@ -907,7 +909,7 @@ section {
   height: 200px;
   position: relative;
   background: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 15px rgb(225 154 38 / 77%);
 }
 
 .services .icon {
@@ -966,7 +968,7 @@ section {
 
 .about {
     background-image: url(../img/bg.png);
-    padding-top: 170px;
+    padding-top: 50px;
 }
 /*--------------------------------------------------------------
 # Values
@@ -1623,8 +1625,8 @@ section {
 }
 
 .contact .php-email-form {
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
-  padding: 30px;
+    box-shadow: 0 0 30px rgb(20 129 239 / 60%);
+    padding: 30 px;
 }
 
 .contact .php-email-form .validate {
@@ -2267,6 +2269,7 @@ section {
 #footer .footer-top {
   padding: 60px 0 30px 0;
   background: #222328;
+  box-shadow: rgb(255 167 22) 0px 20px 30px -10px;
 }
 
 #footer .footer-top .footer-contact {
