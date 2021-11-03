@@ -242,6 +242,7 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
 @endsection
 
 @section('script')
+  <!-- index page script -->
 <script src="https://www.google.com/recaptcha/api.js?render=6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF"></script>
 <script>
       function onClick(e) {
