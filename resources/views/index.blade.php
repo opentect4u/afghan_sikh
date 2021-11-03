@@ -15,13 +15,14 @@
 
             <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
                 <h4 data-aos="fade-up">About us</h4>
-                <h3 data-aos="fade-up">Afghan Sikh Helps Line</h3>
-                <p data-aos="fade-up" style="text-align: justify;">
-                Afghan Sikh help Line organisations a UK based non-profit organization, we are registering all migrant Afghan Sikh and Hindu families who is moved around the world and our mission is to provide then better life, So we are offer an online portal to register their self and make an unity.
-    Our Organization starts making the Unity of the Sikh and Hindu community since its foundation in 2020. Now we want to reach all over the world to support the Afghan migrant Sikhs and Hindu families.<br>
-    During the political issues all afghan Sikh & Hindu are separated from their families. They are suffering with many personal and government issues.
-    The aim of Afghan Sikh Help Line organisation is to support the Afghan Sikh & Hindu Community all over world placing in under one umbrella and to reunited the all families who are suffering from political issues and provide them and their children and better future over coming days & Years.</p>
-    </div>
+                <h3 data-aos="fade-up">Afghan Sikh</h3>
+                <p align="justify">Afghan Sikh organisation is a registered, United Kingdom based, non-profit organization. Our motto is to provide shelter and support to all persecuted minorities of Afghanistan (migrant Sikh and Hindu families). We have designed an online plate-form for registrations of all those migrant Afghan Sikh and Hindu families who have moved-out from Afghanistan to other countries due to security issues associated with their families.</p>
+
+          <p>Our mission is to provide better life, and arrange maximum support for the Afghan refugees in respective countries; we are also supporting refugees in their personal/family related issues.<br>
+Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees all across the world, and start a channel of communication with governments of their respective nations to draw plans for their assimilation in the civil societies. 
+ </p>
+      <p>Due to the Taliban coup in Afghanistan, many Afghan Sikhs and Hindus have been separated from their families. They are suffering with many personal and government issues. The aim of Afghan Sikh organisation is to support the Afghan Sikh and Hindu Community all over world placing them under one umbrella and to reunite members of the families who were separated in Afghan crisis; who are suffering from political turmoil in Afghanistan, and political negligence in the nations they are taking refuge at, and provide better future to them and their children in near future.</p>
+            </div>
             </div>
 
         </div>
@@ -32,8 +33,8 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>I need to prepare politics in new categories</h2>
-          <p>Arrange one portal in emergency I need to start before registrations in different way just trying</p>
+          <h2>Registered Members can apply for below mentioned Support Category</h2>
+          <p>If you are not registered yet kindly register yourself first and avail the services</p>
         </div>
 
         <div class="row">
@@ -41,7 +42,7 @@
             <div class="icon-box">
               <div class="icon"><i><img src="{{ asset('public/img/1.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Finance</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores</p>
+              <p class="description">Any finance related issue and support, you are ask for the support </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -51,7 +52,7 @@
             <div class="icon-box">
               <div class="icon"><i><img src="{{ asset('public/img/2.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Family disputes</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores</p>
+              <p class="description">Personal Family Related issue and support, you are ask for the support </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -61,7 +62,7 @@
             <div class="icon-box">
               <div class="icon"><i><img src="{{ asset('public/img/3.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Marriages issues</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate</p>
+              <p class="description">Marriage related issue and support , you are ask for the support </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -71,7 +72,7 @@
             <div class="icon-box">
              <div class="icon"><i><img src="{{ asset('public/img/4.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Religious issue </a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt</p>
+              <p class="description">Religious related issue and support , you are ask for the support </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -81,7 +82,7 @@
             <div class="icon-box">
              <div class="icon"><i><img src="{{ asset('public/img/5.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Reunion Family</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos</p>
+              <p class="description">If you want to meet your family or relative we can help you to connect. </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -91,7 +92,7 @@
             <div class="icon-box">
              <div class="icon"><i><img src="{{ asset('public/img/6.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Property dispute</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita</p>
+              <p class="description">Properity related disputem, we will provide help to resolve the issue. </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -101,7 +102,7 @@
             <div class="icon-box">
               <div class="icon"><i><img src="{{ asset('public/img/7.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Divorce dispute</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita</p>
+              <p class="description">Divorce related dispute , you are ask for the support </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -111,7 +112,7 @@
             <div class="icon-box">
           <div class="icon"><i><img src="{{ asset('public/img/8.png') }}" alt=""></i></div>
               <h4 class="title"><a href="">Other</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita</p>
+              <p class="description">If you have any other query please feel free to ask for support </p>
 			  <div class="btn-wrap">
                 <a href="{{route('user.login')}}" class="btn-buy">Get Support</a>
               </div>
@@ -130,59 +131,21 @@
 
         <div class="owl-carousel testimonials-carousel">
 
-          <div class="testimonial-item">
-            <img src="{{ asset('public/img/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
-            <h3>Saul Goodman</h3>
-            <h4>Ceo &amp; Founder</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="{{ asset('public/img/testimonials/testimonials-2.jpg') }}" class="testimonial-img" alt="">
-            <h3>Sara Wilsson</h3>
-            <h4>Designer</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-
-          <div class="testimonial-item">
-            <img src="{{ asset('public/img/testimonials/testimonials-3.jpg') }}" class="testimonial-img" alt="">
-            <h3>Jena Karlis</h3>
-            <h4>Store Owner</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-
+         
           <div class="testimonial-item">
             <img src="{{ asset('public/img/testimonials/testimonials-4.jpg') }}" class="testimonial-img" alt="">
-            <h3>Matt Brandon</h3>
-            <h4>Freelancer</h4>
+            <h3>Matt Kaur </h3>
+            <h4>Shop Keeper </h4>
             <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Very supportive team </p>
           </div>
 
           <div class="testimonial-item">
             <img src="{{ asset('public/img/testimonials/testimonials-5.jpg') }}" class="testimonial-img" alt="">
-            <h3>John Larson</h3>
+            <h3>Jhora Singh</h3>
             <h4>Entrepreneur</h4>
             <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Quick Supprt from Afghan Sikh team. </p>
           </div>
 
         </div>
@@ -198,7 +161,7 @@
 
         <div class="section-title">
           <h2 data-aos="fade-up">Contact</h2>
-          <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p data-aos="fade-up">We are here for support for needy one, our team will contract you within 48 hours. just submit your detail or you can call on direct phone no </p>
         </div>
 
         <div class="row justify-content-center">
@@ -207,7 +170,7 @@
             <div class="info-box">
               <i class="bx bx-map"></i>
               <h3>Our Address</h3>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <p>62 KING STREET, SOUTHALL, MIDDLESEX, UB24DB London(UK) </p>
             </div>
           </div>
 
@@ -215,14 +178,16 @@
             <div class="info-box">
               <i class="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>info@example.com<br>contact@example.com</p>
+              <p><a href="mailto:info@afghansikh.org"> info@afghansikh.org</a><br>
+			  <a href="mailto:support@afghansikh.org"> support@afghansikh.org</a>
+			  </p>
             </div>
           </div>
           <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="200">
             <div class="info-box">
               <i class="bx bx-phone-call"></i>
               <h3>Call Us</h3>
-              <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+              <p>+44 07955555561  </p>
             </div>
           </div>
         </div>

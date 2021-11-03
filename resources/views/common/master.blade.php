@@ -6,7 +6,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 		<link rel="icon" href="{{ asset('public/img/favicon.png') }}" />
 		
-        <title>Welcome to Afghan Sikh Helps Line</title>
+        <title>Welcome to Afghan Sikh </title>
         <meta content="" name="description">
         <meta content="" name="keywords">
         <meta name="csrf-token" content="{{ csrf_token() }}">

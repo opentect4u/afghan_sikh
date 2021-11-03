@@ -5,13 +5,13 @@
             <div class="row">
 
             <div class="col-lg-3 col-md-6 footer-contact">
-                <h3>Sikh Helps Line</h3>
+                <h3>Afghan Sikh</h3>
                 <p>
-                A108 Adam Street <br>
-                New York, NY 535022<br>
-                United States <br><br>
-                <strong>Phone:</strong> +12345678900<br>
-                <strong>Email:</strong>support@sikhhelps.com <br>
+                62, King Street <br>
+                Southall, London<br>
+                United Kingdom <br><br>
+                <li><i class="icofont-phone"></i> +44 07955555561</li><br />
+                <li><i class="icofont-envelope"></i><a href="mailto:support@afghansikh.org">support@afghansikh.org</a></li><br>
                 </p>
             </div>
 
@@ -41,7 +41,7 @@
 
             <div class="col-lg-4 col-md-6 footer-newsletter">
                 <h4>Join Our Newsletter</h4>
-                <p>For 20 years, the Afghan Sikh Helps Line has defended Sikh civil liberties in the community, courtrooms, classrooms, and halls of Congress.</p>
+                <p>The Afghan Sikh are ready to reunion all the Afghan Sikh and Hindu Families</p>
                 <form action="" method="post">
                 <input type="email" name="email"><input type="submit" value="Subscribe">
                 </form>
@@ -55,7 +55,7 @@
 
         <div class="mr-lg-auto text-center text-lg-left">
             <div class="copyright">
-            &copy; Copyright 2021<strong><span>Afghan Sikh Helps Line</span></strong>. All Rights Reserved
+            &copy; Copyright 2021<strong><span>Afghan Sikh United Kingdom</span></strong>. All Rights Reserved
             </div>
             
         </div>

@@ -9,9 +9,9 @@
         <div class="carousel-item active" style="background-image: url(public/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Afghan Sikh Helps Line</span></h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="{{route('user.register')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Register Now</a>
+              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Afghan Sikh </span></h2>
+              <p class="animate__animated animate__fadeInUp"> We are here for your help   </p>
+              <a href="{{route('user.register')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Join Hand with us</a>
             </div>
           </div>
         </div>
@@ -20,9 +20,9 @@
         <div class="carousel-item" style="background-image: url(public/img/slide/slide-2.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to Afghan Sikh Helps Line</h2>
-              <p class="animate__animated animate__fadeInUp">Afghan Sikh </p>
-              <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Get Support</a>
+              <h2 class="animate__animated animate__fadeInDown">Racism and Bullying issue </h2>
+              <p class="animate__animated animate__fadeInUp">Afghan Sikh is standing with you always</p>
+               <a href="{{route('user.register')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Join Hand with us</a>
             </div>
           </div>
         </div>
@@ -31,9 +31,9 @@
         <div class="carousel-item" style="background-image: url(public/img/slide/slide-3.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to Afghan Sikh Helps Line</h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="#services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Get Support</a>
+              <h2 class="animate__animated animate__fadeInDown">Child abuse (sexual, physical or emotional) issues </h2>
+              <p class="animate__animated animate__fadeInUp"> Afghan Sikh is ready to help  </p>
+               <a href="{{route('user.register')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Join Hand with us</a>
             </div>
           </div>
         </div>
