@@ -130,7 +130,7 @@ class RegisterController extends Controller
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         
         // }else{
-        //     $error="otp did not match";
+        //     $error="OTP did not match";
         //     return redirect()->route('user.otp')->with([
         //         'first_name'=>$request->first_name,
         //         'last_name'=>$request->last_name,

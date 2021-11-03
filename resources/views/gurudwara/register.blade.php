@@ -11,7 +11,7 @@
 
     <div class="section-title">
         <h2 data-aos="fade-up">Apply Now</h2>
-        <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. 
+        <p data-aos="fade-up">Afghan Sikh organisation is a registered, United Kingdom based, non-profit organization. 
         </p>
     </div>
 
@@ -58,7 +58,7 @@
                                     <option value="O">Organisation</option>
                                 </select>
                                 <label class="fieldlabels">Name of Organisation: *</label> 
-                                <input type="text" name="gurudwara_name" id="gurudwara_name" placeholder="Name of Organisation" /> 
+                                <input type="text" name="gurudwara_name" id="gurudwara_name" required pattern="[A-Za-z]{2,90}" placeholder="Name of Organisation" /> 
                                 <label class="fieldlabels">Country: *</label> 
                                 <select name="country" id="country" required>
                                     <option value=""> --Country of Organisation-- </option>

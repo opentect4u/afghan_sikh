@@ -30,7 +30,7 @@ Route::get('/index', [App\Http\Controllers\HomeController::class, 'Index'])->nam
 Route::post('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 
                 // all gurudwara route
-Route::prefix('gurudwara')->group(function () {
+Route::prefix('gurdwara')->group(function () {
     Route::get('/login', [App\Http\Controllers\gurudwara\LoginController::class, 'Show'])->name('gurudwara.login');
     Route::post('/login', [App\Http\Controllers\gurudwara\LoginController::class, 'Login'])->name('gurudwara.loginconfirm');
     Route::get('/register', [App\Http\Controllers\gurudwara\RegisterController::class, 'Show'])->name('gurudwara.register');

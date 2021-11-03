@@ -194,7 +194,7 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
           <div class="col-xl-9 col-lg-12 mt-4">
-            <form action="{{route('contact')}}" method="post" role="form" class="php-email-form">
+            <form name="contactForm" id="contactForm" action="{{route('contact')}}" method="post" role="form" class="php-email-form">
               @csrf
               <!-- <div class="form-row">
                 <div class="col-md-12 form-group">
@@ -225,7 +225,9 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div> -->
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit" class="g-recaptcha" 
+        data-sitekey="6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF" 
+        data-callback='onClick' >Send Message</button></div>
             </form>
           </div>
 
@@ -237,4 +239,22 @@ Now, it is the time to locate and reach to these Afghan Sikh and Hindu refugees 
   <!-- </main> -->
   <!-- End #main -->
 
+@endsection
+
+@section('script')
+<script src="https://www.google.com/recaptcha/api.js?render=6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF"></script>
+<script>
+      function onClick(e) {
+        // document.getElementById("contactForm").submit();
+
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6Lc4sg8dAAAAAEsyE29cdlaYfh5YpVeZKORQnfJF', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+              document.getElementById("contactForm").submit();
+
+          });
+        });
+      }
+  </script>
 @endsection

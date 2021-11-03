@@ -22,7 +22,7 @@
         
         <div class="section-title">
             <h2 data-aos="fade-up">Apply Now</h2>
-            <p data-aos="fade-up">Complete page should be in English language for user perspective 
+            <p data-aos="fade-up">Afghan Sikh organisation is a registered, United Kingdom based, non-profit organization. 
             </p>
         </div>
 
@@ -64,9 +64,9 @@
                                     @endif
                                     </br>
                                     <label class="fieldlabels">First Name *</label> 
-                                    <input type="text" name="first_name" required class="form-control" id="first_name" placeholder="Enter First Name" />
+                                    <input type="text" name="first_name" pattern="[A-Za-z]{2,32}" required class="form-control" id="first_name" placeholder="Enter First Name" />
                                     <label class="fieldlabels">Last Name *</label> 
-                                    <input type="text" name="last_name" required class="form-control" id="last_name" placeholder="Enter Last Name" />
+                                    <input type="text" name="last_name" pattern="[A-Za-z]{2,32}" required class="form-control" id="last_name" placeholder="Enter Last Name" />
                                     <label class="fieldlabels">Current Nationality *</label> 
                                     <select name="current_nationality" id="current_nationality" required>
                                         <option value=""> --Current Nationality-- </option>
@@ -75,21 +75,21 @@
                                         @endforeach
                                     </select>
                                     <label class="fieldlabels">Email *</label> 
-                                    <input type="email" name="email" required class="form-control" id="email" placeholder="Enter Email" />
+                                    <input type="email" name="email" required class="form-control" id="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" placeholder="Enter Email" />
                                     <label class="fieldlabels">Phone No *</label>
                                     <br/> 
                                     <select name="country_code" id="country_code" required class="col-sm-5">
                                         <option value="">--Country Code--</option>
                                         @foreach($country as $countries)
-                                        <option value="{{$countries->dialing}}" <?php if(isset($editdata) && $editdata->country_code==$countries->dialing){echo "selected";}?>>{{$countries->dialing}}</option>
+                                        <option value="{{$countries->dialing}}" <?php if(isset($editdata) && $editdata->country_code==$countries->dialing){echo "selected";}?>>{{$countries->name.' '.$countries->dialing}}</option>
                                         @endforeach
                                     </select>
-                                    <input type="number" name="phone" required class="col-sm-6" id="phone" placeholder="Enter Phone No" />
+                                    <input type="text" name="phone" required class="col-sm-6" id="phone" minlength="9" maxlength="11" placeholder="Enter Phone No" />
                                     <br/>
-                                    <label class="fieldlabels">Password: *</label> 
-                                    <input type="password" name="password" required class="form-control" id="password" placeholder="Password:" />
+                                    <label class="fieldlabels">Password: * (Minimum 8 charecters)</label> 
+                                    <input type="password" name="password" required class="form-control" id="password" minlength="8" placeholder="Password:" />
                                     <label class="fieldlabels">Confirm Password : *</label> 
-                                    <input type="password" name="con_password" id="con_password" required placeholder="Confirm Password:" />
+                                    <input type="password" name="con_password" id="con_password" required minlength="8" placeholder="Confirm Password:" />
                                 </div> 
                                 <input type="Submit" name="step1" id="step1" data-attribute="step1" class="action-button" value="Next" />
 									
@@ -115,7 +115,20 @@
 @section('script')
 
 <script>
-        $(document).ready(function(){
+    $(document).ready(function(){
+
+        $('#phone').keypress(function(e) {
+                var a = [];
+                var k = e.which;
+
+                for (i = 48; i < 58; i++)
+                    a.push(i);
+
+                if (!(a.indexOf(k)>=0))
+                    e.preventDefault();
+        });
+
+
 
         var current_fs, next_fs, previous_fs; //fieldsets
         var opacity;
@@ -315,9 +328,11 @@
             //     alert("Please enter valid email address or phone number.");
             //     return false;
             // }else 
-            if (password!=con_password) {
-                alert('Password and confirm password did not match!');
-                return false;
+            if(password!='' && con_password!=''){
+                if (password!=con_password) {
+                    alert('Password and confirm password did not match!');
+                    return false;
+                }
             }
         });
         

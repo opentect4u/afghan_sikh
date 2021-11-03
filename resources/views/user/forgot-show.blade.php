@@ -25,10 +25,10 @@
                     <p style="color:red;">Sorry, we don't recognise this email address or phone number</p>
                     @endif
                     @if(Session::has('success'))
-                    <p style="color:green;">Password recovery link send your registered email id or phone number</p>
+                    <p style="color:green;">Password recovery link has been sent to your registered email id or phone number</p>
                     @endif
                     @if(Session::has('error'))
-                    <p style="color:red;">This email id or phone number did not registered</p>
+                    <p style="color:red;">This email id or phone number has not registered</p>
                     @endif
                     <form id="msform" method="POST" action="{{route('user.forgotpasswordConfirm')}}">
                     @csrf
