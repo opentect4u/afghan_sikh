@@ -40,7 +40,7 @@ class RegisterController extends Controller
             $surname=$request->gurudwara_name;
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                // Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
+                Mail::to($email)->send(new UserRegisterOTPEmail($surname,$givenname,$url,$con_otp));
             }else{
                 // SMS send HERE
             }
@@ -72,7 +72,7 @@ class RegisterController extends Controller
         //     $error="Something wrong please try again";
         //     return redirect()->route('gurudwara.otp')->with(['email_mobile'=>$email,'password'=>$request->password,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'organisation'=>$organisation]); 
         // }
-        // if ($con_otp==$otp) {
+        if ($con_otp==$otp) {
             // return $request;
             $country=$request->country;
             $organisation=$request->organisation;
@@ -136,29 +136,29 @@ class RegisterController extends Controller
             $surname=$request->gurudwara_name;
             $givenname="";
             if(filter_var($email, FILTER_VALIDATE_EMAIL)!=false){
-                // Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
+                Mail::to($email)->send(new UserRegisterEmail($surname,$givenname,$user_id,$password,$url));
             }else{
                 // sms send here
             }
             return redirect()->route('gurudwara.registerstep2');
             // return view('user.register-stage-2',['id'=>$data->id,'email_mobile'=>$data->user_id]);
         
-        // }else{
-        //     $error="OTP did not match";
-        //     return redirect()->route('gurudwara.otp')->with([
-        //         'organisation'=>$request->organisation,
-        //         'gurudwara_name'=>$request->gurudwara_name,
-        //         'country'=>$request->country,
-        //         'email'=>$email,
-        //         'country_code'=>$request->country_code,
-        //         'phone'=>$request->phone,
-        //         'password'=>$request->password,
-        //         'con_otp'=>$con_otp,
-        //         'otp'=>$otp,
-        //         'error'=>$error
-        //     ]);
-        //     // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
-        // }
+        }else{
+            $error="OTP did not match";
+            return redirect()->route('gurudwara.otp')->with([
+                'organisation'=>$request->organisation,
+                'gurudwara_name'=>$request->gurudwara_name,
+                'country'=>$request->country,
+                'email'=>$email,
+                'country_code'=>$request->country_code,
+                'phone'=>$request->phone,
+                'password'=>$request->password,
+                'con_otp'=>$con_otp,
+                'otp'=>$otp,
+                'error'=>$error
+            ]);
+            // return view('user.register-confirm',['searched'=>$request,'con_otp'=>$con_otp,'otp'=>$otp,'error'=>$error,'token'=>csrf_token()]);
+        }
     }
 
     public function Register2()
