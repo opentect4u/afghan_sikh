@@ -270,12 +270,12 @@
               </li>
               <li class="nav-item">
                 <a href="{{route('user.servicesmanagemarriages')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagemarriages' || Route::currentRouteName()=='user.servicesregistermarriages'?'active':''}}">
-                  <i class="far fa-circle nav-icon"></i><p>MARRIAGES ISSUES</p>
+                  <i class="far fa-circle nav-icon"></i><p>MARRIAGE ISSUES</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('user.servicesmanagereligious')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagereligious' ||Route::currentRouteName()=='user.servicesregisterreligious'?'active':''}}">
-                  <i class="far fa-circle nav-icon"></i><p>RELIGIOUS ISSUE</p>
+                  <i class="far fa-circle nav-icon"></i><p>RELIGIOUS ISSUES</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -285,12 +285,12 @@
               </li>
               <li class="nav-item">
                 <a href="{{route('user.servicesmanageproperty')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanageproperty' ||Route::currentRouteName()=='user.servicesregisterproperty'?'active':''}}">
-                  <i class="far fa-circle nav-icon"></i><p>PROPERTY DISPUTE</p>
+                  <i class="far fa-circle nav-icon"></i><p>PROPERTY DISPUTES</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('user.servicesmanagedivorce')}}" class="nav-link {{Route::currentRouteName()=='user.servicesmanagedivorce' ||Route::currentRouteName()=='user.servicesregisterdivorce'?'active':''}}">
-                  <i class="far fa-circle nav-icon"></i><p>DIVORCE DISPUTE</p>
+                  <i class="far fa-circle nav-icon"></i><p>DIVORCE DISPUTES</p>
                 </a>
               </li>
               <li class="nav-item">

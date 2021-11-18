@@ -32,7 +32,7 @@
                 <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                     <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
 						<h2 id="heading" class="loginTitle">Sign Up</h2>
-                        <h5>Fill all form field to go to next step</h5>
+                        <h5>Fill all form fields to go to next step</h5>
                         <!-- <p>Fill all form field to go to next step</p> -->
                         <!-- <form id="msform" name="msform" method="POST" action="{{route('user.registerconfirmwithout')}}"> -->
                         <form id="msform" name="msform" method="POST" action="{{route('user.register')}}" autocomplete="off">
@@ -64,9 +64,9 @@
                                     @endif
                                     </br>
                                     <label class="fieldlabels">First Name *</label> 
-                                    <input type="text" name="first_name" pattern="[A-Za-z]{2,32}" required class="form-control" id="first_name" placeholder="Enter First Name" />
+                                    <input type="text" name="first_name" pattern="[A-Za-z]{2,32}" required class="form-control" id="first_name" placeholder="Enter First Name" oninvalid="this.setCustomValidity('Enter format A-Z or a-z')"/>
                                     <label class="fieldlabels">Last Name *</label> 
-                                    <input type="text" name="last_name" pattern="[A-Za-z]{2,32}" required class="form-control" id="last_name" placeholder="Enter Last Name" />
+                                    <input type="text" name="last_name" pattern="[A-Za-z]{2,32}" required class="form-control" id="last_name" placeholder="Enter Last Name" oninvalid="this.setCustomValidity('Enter format A-Z or a-z')"/>
                                     <label class="fieldlabels">Current Nationality *</label> 
                                     <select name="current_nationality" id="current_nationality" required>
                                         <option value=""> --Current Nationality-- </option>

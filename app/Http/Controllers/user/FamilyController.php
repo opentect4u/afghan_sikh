@@ -32,7 +32,7 @@ class FamilyController extends Controller
     public function AddConfirm(Request $request){
         // return $request;
         $user_id=Session::get('user')[0]['id'];
-        TdUserFamily::create(array(
+        $data=TdUserFamily::create(array(
             'user_details_id'=>$user_id,
             'first_name'     =>$request->first_name ,
             'middle_name'    =>$request->middle_name ,
@@ -40,6 +40,9 @@ class FamilyController extends Controller
             'gender'         =>$request->gender ,
             'relation'       =>$request->relation,
         ));
+        // return $data;
+        Session::put(['registerfamilyid' => $data->id]);
+        // return Session::get('registerfamilyid');
         return redirect()->route('user.addfamilymember2');
     }
 
@@ -49,6 +52,7 @@ class FamilyController extends Controller
     }
 
     public function AddConfirm2(Request $request){
+        // return $request;
         if(isset($request->id)){
             $id=$request->id;
         }else{

@@ -134,7 +134,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Daughter of Shrimati : * </label>
+                                <label>Daughter of Shri : * </label>
                                 <input type="text" required name="daughter_of_shri" id="daughter_of_shri" value="<?php 
                                 if(isset($editdata)){
                                     echo $editdata->daughter_of_shri;
@@ -298,10 +298,10 @@
                                 <input type="text" name="doc_5_name" id="doc_5_name" value="{{isset($editdata)?$editdata->doc_5_name:''}}" class="form-control" placeholder="Document 5 Name" />
                             </div>
                         </div>
-                        <div class="col-sm-1" id="cancelLabel2">
+                        <div class="col-sm-1" id="cancelLabel5">
                             <div class="form-group">
                                 <label class="fieldlabels">  </label> 
-                                <a href="javascript:void(0)" id="cancelA2" class="form-control" style="margin-top:7px;">Cancel</a>
+                                <a href="javascript:void(0)" id="cancelA5" class="form-control" style="margin-top:7px;">Cancel</a>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2 id="heading" class="loginTitle">Sign Up Your Gurdwara Account</h2>
-                    <h5>Fill all form field to go to next step</h5>
+                    <h5>Fill all form fields to go to next step</h5>
                     <form class="myForm" id="msform" method="POST" action="{{route('gurudwara.registerconfirm')}}" enctype="multipart/form-data">
                         @csrf
                         <!-- progressbar -->
@@ -58,7 +58,7 @@
                                     <option value="O">Organisation</option>
                                 </select>
                                 <label class="fieldlabels">Name of Organisation: *</label> 
-                                <input type="text" name="gurudwara_name" id="gurudwara_name" required pattern="[A-Za-z]{2,90}" placeholder="Name of Organisation" /> 
+                                <input type="text" name="gurudwara_name" id="gurudwara_name" required pattern="[A-Za-z]{2,90}" placeholder="Name of Organisation" oninvalid="this.setCustomValidity('Enter format A-Z or a-z')"/> 
                                 <label class="fieldlabels">Country: *</label> 
                                 <select name="country" id="country" required>
                                     <option value=""> --Country of Organisation-- </option>

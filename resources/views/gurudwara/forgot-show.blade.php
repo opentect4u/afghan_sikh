@@ -28,7 +28,7 @@
                     <p style="color:green;">Password recovery link send your registered email id or phone number</p>
                     @endif
                     @if(Session::has('error'))
-                    <p style="color:red;">This email id or phone number did not registered</p>
+                    <p style="color:red;">This email id or phone number did not register</p>
                     @endif
                     <form id="msform" method="POST" action="{{route('gurudwara.forgotpasswordConfirm')}}">
                     @csrf

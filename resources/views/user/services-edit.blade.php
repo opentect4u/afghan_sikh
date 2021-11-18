@@ -229,10 +229,10 @@
                                 <input type="text" name="doc_5_name" id="doc_5_name" value="{{isset($data)?$data->doc_5_name:''}}" class="form-control" placeholder="Document 5 Name" />
                             </div>
                         </div>
-                        <div class="col-sm-1" id="cancelLabel2">
+                        <div class="col-sm-1" id="cancelLabel5">
                             <div class="form-group">
                                 <label class="fieldlabels">  </label> 
-                                <a href="javascript:void(0)" id="cancelA2" class="form-control" style="margin-top:7px;">Cancel</a>
+                                <a href="javascript:void(0)" id="cancelA5" class="form-control" style="margin-top:7px;">Cancel</a>
                             </div>
                         </div>
                     </div>

@@ -69,7 +69,7 @@ class LoginController extends Controller
 
     public function Forgot(Request $request){
         // return $request;
-        $is_email=MdUserLogin::where('user_id',$request->uname)->whereIn('user_type',array('G','O','C'))->get();
+        $is_email=TdGurudwaraDetails::where('gurudwara_email',$request->uname)->get();
         // return $is_email;
         if(count($is_email)>0){
             // return $is_email;

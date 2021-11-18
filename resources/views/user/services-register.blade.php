@@ -106,7 +106,7 @@
                                 @if(isset($editdata) && $editdata->doc_2!='')
                                 <img src="{{asset('public/user-family-doc/').'/'.$editdata->doc_2}}" width="100" height="100"/>
                                 @endif
-                                <input type="file" <?php if(isset($editdata) && $editdata->doc_2!=''){echo "";}else{echo "required";}?> name="doc_2" id="doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
+                                <input type="file" <?php if(isset($editdata) && $editdata->doc_2!=''){echo "";}else{echo "";}?> name="doc_2" id="doc_2" class="form-control" accept="image/gif, image/jpg, image/jpeg, application/pdf" />
                             </div>
                         </div>
                         <div class="col-sm-6" >
@@ -193,10 +193,10 @@
                                 <input type="text" name="doc_5_name" id="doc_5_name" value="{{isset($editdata)?$editdata->doc_5_name:''}}" class="form-control" placeholder="Document 5 Name" />
                             </div>
                         </div>
-                        <div class="col-sm-1" id="cancelLabel2">
+                        <div class="col-sm-1" id="cancelLabel5">
                             <div class="form-group">
                                 <label class="fieldlabels">  </label> 
-                                <a href="javascript:void(0)" id="cancelA2" class="form-control" style="margin-top:7px;">Cancel</a>
+                                <a href="javascript:void(0)" id="cancelA5" class="form-control" style="margin-top:7px;">Cancel</a>
                             </div>
                         </div>
                     </div>

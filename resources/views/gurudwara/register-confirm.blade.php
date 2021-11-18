@@ -22,7 +22,7 @@
         
         <div class="section-title">
             <h2 data-aos="fade-up">Apply Now</h2>
-            <p data-aos="fade-up">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. 
+            <p data-aos="fade-up">Afghan Sikh organisation is a registered, United Kingdom based, non-profit organization. 
             </p>
         </div>
 

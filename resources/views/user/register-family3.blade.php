@@ -36,7 +36,7 @@
               <!-- afghan id /email/phone -->
               <form name="myform" method="POST" action="{{route('user.addfamilymemberconfirm3')}}" enctype="multipart/form-data" >
                 @csrf
-                <input type="hidden" id="id" name="id" value="{{isset($editdata)? $editdata->id:''}}"/>
+                <input type="hidden" id="id" name="id" value="{{isset($editdata)? $editdata->id:Session::get('registerfamilyid')}}"/>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">

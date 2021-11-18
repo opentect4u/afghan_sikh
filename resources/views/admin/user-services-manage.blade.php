@@ -56,9 +56,9 @@
                   <div class="form-group">
                     <label>Search by date</label>
                     <div class="input-group mb-3 dateclass">
-                      <input type="text" class="form-control dateclass" id="date" name="date" value="{{isset($startDate)?$startDate.' - '.$endDate:''}}"/>
-                      <div class="input-group-append dateclass">
-                        <span class="input-group-text dateclass"><i class="fas fa-calendar-alt dateclass"></i></span>
+                      <input type="text" class="form-control " id="date" name="date" value="{{isset($startDate)?$startDate.' - '.$endDate:''}}"/>
+                      <div class="input-group-append ">
+                        <span class="input-group-text "><i class="fas fa-calendar-alt "></i></span>
                       </div>
                     </div>
                                     </div>
